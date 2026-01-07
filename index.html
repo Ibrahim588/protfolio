@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio of Ibrahim Abdelgadir - Information Technology Graduate, Flutter Developer, and Network Specialist.">
+
+    <title>Ibrahim Abdelgader | Flutter Developer & Network Specialist</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Ibrahim<span>.</span></a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                    <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
+                    <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+                    <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Experience</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <button class="lang-toggle" id="lang-toggle" aria-label="Switch Language">
+                    EN
+                </button>
+
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-greeting" data-i18n="hero_greeting">Hello, I'm</span>
+                    <h1 class="hero-name" data-i18n="hero_name">Ibrahim Abdelgader</h1>
+                    <h2 class="hero-role" data-i18n="hero_role">Information Technology Graduate | Flutter Developer |
+                        Network & MikroTik Specialist</h2>
+                    <p class="hero-description" data-i18n="hero_description">
+                        I bridge the gap between robust networking and intuitive mobile applications. As an IT graduate
+                        passionate about digital solutions, I specialize in building practical, real-world systems using
+                        modern technologies.
+                    </p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-primary" data-i18n="btn_projects">View Projects</a>
+                        <a href="#contact" class="btn btn-outline" data-i18n="btn_contact">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title"><span data-i18n="section_about">About</span> <span
+                        data-i18n="section_me">Me</span></h2>
+
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="img/profile.png" alt="Ibrahim Abdelgader"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <div class="about-text">
+                        <h3 data-i18n="about_title">Transforming Ideas into Digital Reality</h3>
+                        <p data-i18n="about_p1">
+                            I am an Information Technology graduate from the International University of Africa with a
+                            distinctive skillset that spans both software development and network infrastructure.
+                        </p>
+                        <p data-i18n="about_p2">
+                            My expertise lies in <strong>Flutter mobile development</strong>, where I craft seamless
+                            user experiences, and <strong>MikroTik networking</strong>, where I architect stable and
+                            secure connection systems. I thrive on solving complex technical challenges, whether it's
+                            optimizing a hotspot network or deploying a cross-platform mobile app.
+                        </p>
+                        <p data-i18n="about_p3">
+                            Focused on continuous learning and innovation, I aim to deliver efficient, user-centered
+                            solutions that make a tangible impact.
+                        </p>
+
+                        <!-- Career Objective highlight -->
+                        <div style="margin-top: 2rem; padding-left: 1rem; border-left: 4px solid var(--primary-color);">
+                            <p style="font-style: italic; margin-bottom: 0;" data-i18n="about_career_objective">
+                                "To build a strong career in mobile application development and networking by
+                                contributing to innovative projects and delivering reliable, scalable solutions."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title"><span data-i18n="section_technical">Technical</span> <span
+                        data-i18n="section_skills">Skills</span></h2>
+
+                <div class="skills-grid">
+                    <!-- Networks -->
+                    <div class="skill-category">
+                        <h3 data-i18n="skill_cat_networks"><i class="fa-solid fa-network-wired"></i> Networks & Systems
+                        </h3>
+                        <ul class="skill-list">
+                            <li>
+                                <span data-i18n="skill_mikro">MikroTik Configuration</span>
+                                <span class="skill-level" data-i18n="level_good">Good</span>
+                            </li>
+                            <li>
+                                <span data-i18n="skill_hotspot">Hotspot Management</span>
+                                <span class="skill-level" data-i18n="level_excellent">Excellent</span>
+                            </li>
+                            <li>
+                                <span data-i18n="skill_linux">Linux Administration</span>
+                                <span class="skill-level" data-i18n="level_intermediate">Intermediate</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Programming -->
+                    <div class="skill-category">
+                        <h3 data-i18n="skill_cat_dev"><i class="fa-solid fa-code"></i> Development</h3>
+                        <ul class="skill-list">
+                            <li>
+                                <span data-i18n="skill_flutter">Dart & Flutter</span>
+                                <span class="skill-level" data-i18n="level_intermediate">Intermediate</span>
+                            </li>
+                            <li>
+                                <span data-i18n="skill_web">HTML5 & CSS3</span>
+                                <span class="skill-level" data-i18n="level_good">Good</span>
+                            </li>
+                            <li>
+                                <span data-i18n="skill_js">JavaScript (ES6+)</span>
+                                <span class="skill-level" data-i18n="level_good">Good</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Cybersecurity -->
+                    <div class="skill-category">
+                        <h3 data-i18n="skill_cat_cyber"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</h3>
+                        <ul class="skill-list">
+                            <li>
+                                <span data-i18n="skill_kali">Kali Linux Tools</span>
+                                <span class="skill-level" data-i18n="level_intermediate">Intermediate</span>
+                            </li>
+                            <li>
+                                <span data-i18n="skill_pentest">Penetration Testing</span>
+                                <span class="skill-level" data-i18n="level_beginner">Beginner</span>
+                            </li>
+                            <li>
+                                <span data-i18n="skill_netsec">Network Security</span>
+                                <span class="skill-level" data-i18n="level_basic">Basic</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title"><span data-i18n="section_featured">Featured</span> <span
+                        data-i18n="section_projects">Projects</span></h2>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="project-content">
+                            <h3 data-i18n="proj_1_title">MT Admin Pro</h3>
+                            <div class="project-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Dart</span>
+                                <span class="tag">Network API</span>
+                            </div>
+                            <p data-i18n="proj_1_desc">
+                                A comprehensive mobile tool designed to manage and control MikroTik device settings
+                                remotely. Features a clean, intuitive interface for real-time network monitoring and
+                                configuration.
+                            </p>
+                            <a href="#" class="project-link" data-i18n="btn_view_project">View Project <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-content">
+                            <h3 data-i18n="proj_2_title">SPFA Mobile App</h3>
+                            <div class="project-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Community</span>
+                                <span class="tag">Events</span>
+                            </div>
+                            <p data-i18n="proj_2_desc">
+                                Developed for the Family and Child Organization (Atbara Branch). This app showcases
+                                events, seminars, and initiatives, acting as a digital archive for the organization's
+                                community achievements.
+                            </p>
+                            <a href="#" class="project-link" data-i18n="btn_view_project">View Project <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="project-content">
+                            <h3 data-i18n="proj_3_title">MikroTik Hotspot System</h3>
+                            <div class="project-tags">
+                                <span class="tag">Networking</span>
+                                <span class="tag">MikroTik</span>
+                                <span class="tag">Access Control</span>
+                            </div>
+                            <p data-i18n="proj_3_desc">
+                                End-to-end implementation of secure hotspot systems. Focused on optimized bandwidth
+                                management, user access control, and stability for high-traffic environments.
+                            </p>
+                            <a href="#" class="project-link" data-i18n="btn_view_project">View Project <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="container">
+                <h2 class="section-title"><span data-i18n="section_professional">Professional</span> <span
+                        data-i18n="section_journey">Journey</span></h2>
+
+                <div class="timeline">
+                    <!-- Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="period" data-i18n="exp_1_period">1 Month Internship</span>
+                        <h3 data-i18n="exp_1_role">Technical Support Intern</h3>
+                        <h4 data-i18n="exp_1_company">Shiekan Insurance Company (New Halfa Branch)</h4>
+                        <p data-i18n="exp_1_desc">
+                            Provided critical end-user technical support, troubleshooting hardware/software issues, and
+                            ensuring system stability to maintain high user satisfaction levels.
+                        </p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="period" data-i18n="exp_2_period">3 Months (Freelance/Training)</span>
+                        <h3 data-i18n="exp_2_role">Flutter Mobile App Developer</h3>
+                        <h4 data-i18n="exp_2_company">Freelance</h4>
+                        <p data-i18n="exp_2_desc">
+                            Designed and developed cross-platform mobile applications using Flutter and Dart.
+                            Responsible for full lifecycle development, from UI design to implementing complex app logic
+                            and navigation.
+                        </p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="period" data-i18n="exp_3_period">3 Months</span>
+                        <h3 data-i18n="exp_3_role">MikroTik Configuration & Networking</h3>
+                        <h4 data-i18n="exp_3_company">Freelance / Projects</h4>
+                        <p data-i18n="exp_3_desc">
+                            Executed advanced network setups including MikroTik device configuration and hotspot
+                            management. Optimized network performance and implemented user control policies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title"><span data-i18n="section_my">My</span> <span
+                        data-i18n="section_services">Services</span></h2>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fa-solid fa-mobile-screen service-icon"></i>
+                        <h3 data-i18n="serv_1_title">App Development</h3>
+                        <p data-i18n="serv_1_desc">Building high-performance, visually stunning cross-platform mobile
+                            applications using
+                            Flutter.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fa-solid fa-wifi service-icon"></i>
+                        <h3 data-i18n="serv_2_title">MikroTik Solutions</h3>
+                        <p data-i18n="serv_2_desc">Expert configuration of MikroTik routers, hotspot management systems,
+                            and bandwidth
+                            optimization.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fa-solid fa-screwdriver-wrench service-icon"></i>
+                        <h3 data-i18n="serv_3_title">IT Consultation</h3>
+                        <p data-i18n="serv_3_desc">Providing technical support, network troubleshooting, and system
+                            setup advice for small
+                            businesses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title"><span data-i18n="section_get_in">Get In</span> <span
+                        data-i18n="section_touch">Touch</span></h2>
+
+                <div class="contact-container">
+                    <form class="contact-form"
+                        onsubmit="event.preventDefault(); alert('Thank you for your message! This is a demo form.');">
+                        <div class="form-group">
+                            <label for="name" class="form-label" data-i18n="label_name">Name</label>
+                            <input type="text" id="name" class="form-input" data-i18n="ph_name" placeholder="Your Name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label" data-i18n="label_email">Email</label>
+                            <input type="email" id="email" class="form-input" data-i18n="ph_email"
+                                placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label" data-i18n="label_message">Message</label>
+                            <textarea id="message" class="form-textarea" rows="5" data-i18n="ph_message"
+                                placeholder="How can I help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;"
+                            data-i18n="btn_send_message">Send Message</button>
+                    </form>
+
+                    <div style="text-align: center;">
+                        <h3 data-i18n="contact_connect">Connect with Me</h3>
+                        <p style="margin-bottom: 2rem;" data-i18n="contact_message">Feel free to reach out for
+                            collaborations or just a friendly hello.</p>
+
+                        <!-- Added Contact Info -->
+                        <div class="direct-contact"
+                            style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
+                            <a href="mailto:ibrahim.abdelgadir588@gmail.com"
+                                style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-primary); transition: color 0.2s;">
+                                <i class="fa-solid fa-envelope" style="color: var(--primary-color);"></i>
+                                ibrahim.abdelgadir588@gmail.com
+                            </a>
+                            <a href="https://wa.me/249962181777" target="_blank"
+                                style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-primary); transition: color 0.2s;">
+                                <i class="fa-brands fa-whatsapp" style="color: var(--primary-color);"></i>
+                                +249 962 181 777
+                            </a>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://github.com" target="_blank" class="social-icon" aria-label="GitHub"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook"><i
+                                    class="fa-brands fa-facebook"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-icon" aria-label="YouTube"><i
+                                    class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-i18n="footer_copy">&copy; 2026 Ibrahim Abdelgadir. All rights reserved.</p>
+            <a href="#hero" class="footer-link" data-i18n="footer_back">Back to Top <i
+                    class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
