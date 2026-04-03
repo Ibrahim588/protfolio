@@ -50,13 +50,14 @@ const translations = {
 
         section_featured: "Featured",
         section_projects: "Projects",
-        proj_1_title: "MT Admin Pro",
+        proj_1_title: "Mikrotik Manager Pro",
         proj_1_desc: "A comprehensive mobile tool designed to manage and control MikroTik device settings remotely. Features a clean, intuitive interface for real-time network monitoring and configuration.",
         proj_2_title: "SPFA Mobile App",
         proj_2_desc: "Developed for the Family and Child Organization (Atbara Branch). This app showcases events, seminars, and initiatives, acting as a digital archive for the organization's community achievements.",
         proj_3_title: "MikroTik Hotspot System",
         proj_3_desc: "End-to-end implementation of secure hotspot systems. Focused on optimized bandwidth management, user access control, and stability for high-traffic environments.",
         btn_view_project: "View Project",
+        btn_download_project: "Download Project",
 
         section_professional: "Professional",
         section_journey: "Journey",
@@ -145,13 +146,14 @@ const translations = {
 
         section_featured: "أبرز",
         section_projects: "المشاريع",
-        proj_1_title: "MT Admin Pro",
+        proj_1_title: "Mikrotik Manager Pro",
         proj_1_desc: "أداة شاملة للهواتف المحمولة مصممة لإدارة والتحكم في إعدادات أجهزة MikroTik عن بعد. يتميز بواجهة نظيفة وبديهية لمراقبة الشبكة وتكوينها في الوقت الفعلي.",
         proj_2_title: "تطبيق SPFA",
         proj_2_desc: "تم تطويره لمنظمة رعاية الأسرة والطفل (فرع عطبرة). يعرض هذا التطبيق الفعاليات والندوات والمبادرات، ويعمل كأرشيف رقمي لإنجازات المنظمة المجتمعية.",
         proj_3_title: "نظام MikroTik Hotspot",
         proj_3_desc: "تنفيذ شامل لأنظمة الهوت سبوت الآمنة. يركز على إدارة النطاق الترددي بشكل مـثالي، والتحكم في وصول المستخدمين، والاستقرار في البيئات ذات الحركة المرورية العالية.",
         btn_view_project: "عرض المشروع",
+        btn_download_project: "تحميل التطبيق",
 
         section_professional: "المسيرة",
         section_journey: "المهنية",
