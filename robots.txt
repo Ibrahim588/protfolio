@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://ibrahim-protfolio.42web.io/sitemap.xml
