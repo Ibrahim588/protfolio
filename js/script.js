@@ -56,6 +56,8 @@ const translations = {
         proj_2_desc: "Developed for the Family and Child Organization (Atbara Branch). This app showcases events, seminars, and initiatives, acting as a digital archive for the organization's community achievements.",
         proj_3_title: "MikroTik Hotspot System",
         proj_3_desc: "End-to-end implementation of secure hotspot systems. Focused on optimized bandwidth management, user access control, and stability for high-traffic environments.",
+        proj_4_title: "Knowledge Platform App",
+        proj_4_desc: "A comprehensive platform for the Military Industrialization Authority featuring news feeds, an administrative dashboard, and robust user authentication (OTP). Built for efficient knowledge sharing.",
         btn_view_project: "View Project",
         btn_download_project: "Download Project",
 
@@ -152,6 +154,8 @@ const translations = {
         proj_2_desc: "تم تطويره لمنظمة رعاية الأسرة والطفل (فرع عطبرة). يعرض هذا التطبيق الفعاليات والندوات والمبادرات، ويعمل كأرشيف رقمي لإنجازات المنظمة المجتمعية.",
         proj_3_title: "نظام MikroTik Hotspot",
         proj_3_desc: "تنفيذ شامل لأنظمة الهوت سبوت الآمنة. يركز على إدارة النطاق الترددي بشكل مـثالي، والتحكم في وصول المستخدمين، والاستقرار في البيئات ذات الحركة المرورية العالية.",
+        proj_4_title: "تطبيق منصة المعرفة",
+        proj_4_desc: "منصة شاملة خاصة بهيئة التصنيع الحربي تتميز بموجز الأخبار ولوحة تحكم إدارية ومصادقة قوية للمستخدمين. تم تصميمها لتبادل المعرفة وإدارتها بكفاءة داخل الهيئة.",
         btn_view_project: "عرض المشروع",
         btn_download_project: "تحميل التطبيق",
 
