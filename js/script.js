@@ -78,6 +78,16 @@ const translations = {
         exp_3_company: "Freelance / Projects",
         exp_3_desc: "Executed advanced network setups including MikroTik device configuration and hotspot management. Optimized network performance and implemented user control policies.",
 
+        exp_4_period: "Multiple Projects",
+        exp_4_role: "Solar Energy Systems Installer",
+        exp_4_company: "Freelance",
+        exp_4_desc: "Installation and configuration of solar energy systems for various clients.",
+
+        exp_5_period: "Freelance",
+        exp_5_role: "Software Technician",
+        exp_5_company: "Self-Employed",
+        exp_5_desc: "Diagnosing and fixing software problems for Android, iOS, and Windows systems.",
+
         section_my: "My",
         section_services: "Services",
         serv_1_title: "App Development",
@@ -175,6 +185,16 @@ const translations = {
         exp_3_role: "إعدادات MikroTik والشبكات",
         exp_3_company: "عمل حر / مشاريع",
         exp_3_desc: "تنفيذ إعدادات شبكة متقدمة بما في ذلك تكوين أجهزة MikroTik وإدارة الهوت سبوت. تحسين أداء الشبكة وتنفيذ سياسات التحكم في المستخدم.",
+
+        exp_4_period: "مشاريع متعددة",
+        exp_4_role: "تركيب منظومات الطاقة الشمسية",
+        exp_4_company: "عمل حر",
+        exp_4_desc: "تركيب وتكوين منظومات الطاقة الشمسية لمختلف العملاء.",
+
+        exp_5_period: "عمل حر",
+        exp_5_role: "إصلاح مشاكل البرمجيات",
+        exp_5_company: "عمل حر",
+        exp_5_desc: "اصلاح المشاكل البرمجية لانظمة الاندرويد و الايفون و الويندوز.",
 
         section_my: "خدمـ",
         section_services: "ـاتي",
