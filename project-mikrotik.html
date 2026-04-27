@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تفاصيل تطبيق MikroTik Manager Pro - الحل الأمثل لإدارة شبكات المايكروتك">
+    <title>MikroTik Manager Pro | تفاصيل التطبيق</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: 'Cairo', 'Inter', sans-serif;
+        }
+
+        .promo-banner {
+            background: linear-gradient(90deg, #f59e0b, var(--primary-color));
+            color: #000;
+            text-align: center;
+            padding: 0.6rem;
+            font-weight: 800;
+            font-size: 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1100;
+            /* Higher than navbar */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Adjust Navbar to be below the banner */
+        .navbar {
+            top: 40px !important;
+            /* Move down to clear banner */
+        }
+
+        .project-hero {
+            padding: 10rem 0 4rem;
+            /* More top padding to account for fixed header */
+            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent);
+            text-align: center;
+        }
+
+        .app-icon-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-category {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .feature-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            padding-right: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+
+        .screenshot-gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding: 2rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--bg-secondary);
+        }
+
+        .screenshot-item {
+            min-width: 280px;
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .screenshot-desc {
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .download-section {
+            background: var(--bg-secondary);
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            text-align: center;
+            margin: 4rem 0;
+            border: 2px dashed var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .project-hero {
+                padding-top: 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="promo-banner">
+        ✨ عرض خاص: العرض المميز - الشهر الأول مجاناً تماماً! ✨
+    </div>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Ibrahim<span>.</span></a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
+                </ul>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <button class="lang-toggle" id="lang-toggle" aria-label="Switch Language">
+                    EN
+                </button>
+
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero -->
+        <section class="project-hero">
+            <img src="img/app_icon.png" alt="MikroTik Manager Pro Icon" class="app-icon-large">
+            <h1 class="hero-name">MikroTik Manager Pro</h1>
+            <p class="hero-role">"محاسب ومصمم ومهندس شبكات" في هاتفك المحمول</p>
+            <div class="hero-btns" style="justify-content: center; margin-top: 2rem;">
+                <a href="https://mega.nz/file/SgwDECrT#72stlXuW5tYCpdSotdym4e4ketFPqC8MgOHz9sUQZwA"
+                    class="btn btn-primary">تحميل التطبيق الآن <i class="fa-solid fa-download"></i></a>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features">
+            <h2 class="section-title">مميزات <span>النظام</span></h2>
+            <div class="feature-grid">
+                <!-- Financial -->
+                <div class="feature-category">
+                    <h3><i class="fa-solid fa-chart-line"></i> التقارير المالية</h3>
+                    <ul class="feature-list">
+                        <li><strong>المزامنة التلقائية:</strong> حساب الكروت المستخدمة وإضافتها للأرباح فوراً.</li>
+                        <li><strong>منع التكرار الذكي:</strong> خوارزمية تضمن عدم حساب الكرت مرتين.</li>
+                        <li><strong>تخصيص الأسعار:</strong> ضبط سعر مخصص لكل بروفايل لحساب دقيق.</li>
+                        <li><strong>تقارير مفصلة:</strong> عرض المبيعات حسب الفئة والعدد والمبالغ.</li>
+                    </ul>
+                </div>
+
+                <!-- Design -->
+                <div class="feature-category">
+                    <h3><i class="fa-solid fa-palette"></i> التصميم وتجربة المستخدم</h3>
+                    <ul class="feature-list">
+                        <li><strong>مصمم صفحة الدخول:</strong> صانع صفحات Hotspot يدعم تغيير الألوان واللوجو.</li>
+                        <li><strong>مصمم صفحة الحالة:</strong> إظهار الزمن المتبقي والاستهلاك للمشتركين.</li>
+                        <li><strong>نظام الحقل الواحد:</strong> الدخول بكود الكرت فقط لتبسيط العملية.</li>
+                        <li><strong>قائمة أسعار ديناميكية:</strong> عرض الأسعار بشكل أنيق داخل صفحة الدخول.</li>
+                    </ul>
+                </div>
+
+                <!-- Management -->
+                <div class="feature-category">
+                    <h3><i class="fa-solid fa-gears"></i> الإدارة والتحكم</h3>
+                    <ul class="feature-list">
+                        <li><strong>إدارة المستخدمين:</strong> تحكم كامل (إضافة، حذف، تفعيل) يدوياً أو بالجملة.</li>
+                        <li><strong>طباعة الكروت:</strong> توليد كروت عشوائية وتصديرها بصيغة PDF احترافية.</li>
+                    </ul>
+                </div>
+
+                <!-- Automation -->
+                <div class="feature-category">
+                    <h3><i class="fa-solid fa-robot"></i> الأتمتة والسكربتات</h3>
+                    <ul class="feature-list">
+                        <li><strong>الحذف التلقائي:</strong> مسح الكروت المنتهية كل 12 ساعة تلقائياً.</li>
+                        <li><strong>إعادة الاتصال التلقائي:</strong> ضمان البقاء متصلاً حتى عند انقطاع الـ Wi-Fi.</li>
+                        <li><strong>جدولة المهام:</strong> تهيئة مهام المايكروتك لتعمل بشكل دوري.</li>
+                    </ul>
+                </div>
+
+                <!-- Security -->
+                <div class="feature-category">
+                    <h3><i class="fa-solid fa-shield-halved"></i> الحماية والأمان</h3>
+                    <ul class="feature-list">
+                        <li><strong>قفل التطبيق:</strong> حماية بالبصمة أو الرمز السري.</li>
+                        <li><strong>الاتصال عن بُعد:</strong> دعم Cloud/VPN مع توليد أكواد QR للـ WireGuard.</li>
+                        <li><strong>تشفير البيانات:</strong> تخزين كلمات السر بشكل مشفر وآمن تماماً.</li>
+                    </ul>
+                </div>
+
+                <!-- General -->
+                <div class="feature-category">
+                    <h3><i class="fa-solid fa-star"></i> مميزات عامة</h3>
+                    <ul class="feature-list">
+                        <li><strong>ثنائية اللغة:</strong> دعم كامل للعربية والإنجليزية.</li>
+                        <li><strong>الوضع الليلي:</strong> واجهات مريحة للعين تدعم الثيم المظلم.</li>
+                        <li><strong>مركز التحديثات:</strong> ابقَ على اطلاع بآخر الإضافات والتحسينات.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screenshots -->
+        <section id="screens" style="margin-top: 4rem;">
+            <h2 class="section-title">لقطات من <span>التطبيق</span></h2>
+            <div class="screenshot-gallery">
+                <div class="screenshot-item">
+                    <img src="img/screen6.png" alt="ادارة الاجهزة">
+                    <div class="screenshot-desc">ادارة الاجهزة</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen4.png" alt="الرئيسية">
+                    <div class="screenshot-desc">الشاشة الرئيسية</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen10.png" alt="المستخدمين">
+                    <div class="screenshot-desc">المستخدمين</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen11.png" alt="المستخدمين النشطين">
+                    <div class="screenshot-desc">المستخدمين النشطين</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen12.png" alt="ادارة الكروت">
+                    <div class="screenshot-desc">ادارة الكروت</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen1.png" alt="الإعدادات">
+                    <div class="screenshot-desc">واجهة الإعدادات والتحكم</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen2.png" alt="الحذف التلقائي">
+                    <div class="screenshot-desc">أتمتة حذف الكروت</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen3.png" alt="التقارير المالية">
+                    <div class="screenshot-desc">الإحصائيات والأرباح بدقة</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen7.png" alt="تعديل اسعار الكروت">
+                    <div class="screenshot-desc">تعديل اسعار الكروت</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen9.png" alt="تقارير الكروت حسب البروفايل">
+                    <div class="screenshot-desc">تقارير الكروت حسب البروفايل</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen5.png" alt="السجلات">
+                    <div class="screenshot-desc">سجل العمليات والمهام</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screen8.png" alt="مصمم واجهة تسجيل الدخول">
+                    <div class="screenshot-desc">مصمم واجهة تسجيل الدخول</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download -->
+        <section class="download-section">
+            <h2 style="margin-bottom: 1rem;">جاهز لتطوير إدارة شبكتك؟</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-secondary);">استمتع بكامل الصلاحيات مجاناً خلال الشهر الأول
+            </p>
+            <a href="https://mega.nz/file/SgwDECrT#72stlXuW5tYCpdSotdym4e4ketFPqC8MgOHz9sUQZwA"
+                class="btn btn-primary btn-large">تحميل ملف APK الآن <i class="fa-solid fa-download"></i></a>
+            <p style="margin-top: 1.5rem; font-size: 0.8rem; opacity: 0.6;">إصدار أندرويد متوافق مع كافة الأجهزة</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 إبراهيم عبد القادر. جميع الحقوق محفوظة.</p>
+            <a href="index.html" class="footer-link">العودة للرئيسية</a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
