@@ -33,6 +33,7 @@ const translations = {
         skill_mikro: "MikroTik Configuration",
         skill_hotspot: "Hotspot Management",
         skill_linux: "Linux Administration",
+        skill_cctv: "CCTV Installation & Programming",
         skill_cat_dev: "Development",
         skill_flutter: "Dart & Flutter",
         skill_web: "HTML5 & CSS3",
@@ -88,6 +89,11 @@ const translations = {
         exp_5_company: "Self-Employed",
         exp_5_desc: "Diagnosing and fixing software problems for Android, iOS, and Windows systems.",
 
+        exp_6_period: "Course / Training",
+        exp_6_role: "CCTV Installation & Programming",
+        exp_6_company: "Certified Course",
+        exp_6_desc: "Completed a comprehensive course in installing, configuring, and programming CCTV surveillance camera systems (IP & Analog cameras, DVR/NVR setup, and remote viewing).",
+
         section_my: "My",
         section_services: "Services",
         serv_1_title: "App Development",
@@ -141,6 +147,7 @@ const translations = {
         skill_mikro: "إعدادات MikroTik",
         skill_hotspot: "إدارة الـ Hotspot",
         skill_linux: "إدارة أنظمة Linux",
+        skill_cctv: "تركيب وبرمجة كاميرات المراقبة CCTV",
         skill_cat_dev: "التطوير والبرمجة",
         skill_flutter: "Dart & Flutter",
         skill_web: "HTML5 & CSS3",
@@ -195,6 +202,11 @@ const translations = {
         exp_5_role: "إصلاح مشاكل البرمجيات",
         exp_5_company: "عمل حر",
         exp_5_desc: "اصلاح المشاكل البرمجية لانظمة الاندرويد و الايفون و الويندوز.",
+
+        exp_6_period: "دورة تدريبية",
+        exp_6_role: "تركيب وبرمجة كاميرات المراقبة CCTV",
+        exp_6_company: "كورس معتمد",
+        exp_6_desc: "إكمال كورس متكامل في تركيب وتثبيت وبرمجة أنظمة كاميرات المراقبة (IP & Analog)، وإعداد أجهزة DVR/NVR والربط للمراقبة عن بُعد.",
 
         section_my: "خدمـ",
         section_services: "ـاتي",
