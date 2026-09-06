@@ -115,6 +115,29 @@ const translations = {
         contact_connect: "Connect with Me",
         contact_message: "Feel free to reach out for collaborations or just a friendly hello.",
 
+        nav_websites: "Websites",
+
+        web_hero_badge: "Portfolio & Web Design",
+        web_hero_title: "Websites I Designed & Developed",
+        web_hero_desc: "Explore live websites, responsive web applications, and digital systems I've crafted. Click on any project to read its technical breakdown and test the live version.",
+        filter_all: "All Projects",
+        filter_apps: "Web Apps",
+        filter_landing: "Landing Pages",
+        filter_ecommerce: "E-Commerce",
+        filter_business: "Corporate & Portfolios",
+        badge_live: "Live Site",
+        badge_demo: "Demo",
+        badge_featured: "Featured",
+        btn_visit_site: "Live Demo",
+        btn_source_code: "Source Code",
+        btn_back_home: "Back to Home",
+        web_cta_title: "Looking for a Custom Web Solution?",
+        web_cta_desc: "I specialize in creating high-performance, responsive websites with clean user interfaces tailored to your vision.",
+        web_cta_btn: "Get In Touch",
+        dev_guide_title: "How to Add Your Own Websites",
+        dev_guide_desc: "To add a new website to this showcase, simply duplicate the HTML card template below in websites.html, updating the preview image, project link, and feature description:",
+        btn_explore_websites: "Explore Web Projects Showcase",
+
         footer_copy: "© 2026 Ibrahim Abdelgadir. All rights reserved.",
         footer_back: "Back to Top"
     },
@@ -228,6 +251,29 @@ const translations = {
         btn_send_message: "إرسال الرسالة",
         contact_connect: "تواصل معي عبر",
         contact_message: "لا تتردد في التواصل معي للتعاون أو للاستفسار.",
+
+        nav_websites: "مواقع الويب",
+
+        web_hero_badge: "معرض أعمال وتصميم الويب",
+        web_hero_title: "مواقع الويب التي قمت بتصميمها",
+        web_hero_desc: "استكشف المواقع وتطبيقات الويب المتجاوبة والحلول الرقمية التي قمت بتطويرها. يمكنك النقر على أي موقع للاطلاع على تفاصيله التقنية والانتقال المباشر للموقع الحي.",
+        filter_all: "جميع المواقع",
+        filter_apps: "تطبيقات الويب",
+        filter_landing: "صفحات الهبوط",
+        filter_ecommerce: "متاجر إلكترونية",
+        filter_business: "مواقع شركات ومحافظ",
+        badge_live: "موقع مباشر",
+        badge_demo: "معاينة تجريبية",
+        badge_featured: "مميز",
+        btn_visit_site: "زيارة الموقع الحي",
+        btn_source_code: "كود المصدر",
+        btn_back_home: "العودة للرئيسية",
+        web_cta_title: "هل ترغب في موقع ويب احترافي خاص بك؟",
+        web_cta_desc: "أنا جاهز لتحويل فكرتك إلى موقع عصري وسريع ومتجاوب بأحدث التقنيات وأفضل تجربة مستخدم.",
+        web_cta_btn: "تواصل معي الآن",
+        dev_guide_title: "كيف تضيف مواقع ويب جديدة إلى هذه الصفحة؟",
+        dev_guide_desc: "لإضافة موقع ويب جديد، يمكنك ببساطة نسخ قالب البطاقة البرمجي أدناه ولصقه داخل ملف websites.html مع وضع الرابط وصورة وشرح الموقع:",
+        btn_explore_websites: "استكشف معرض مواقع الويب المصممة",
 
         footer_copy: "© 2026 إبراهيم عبدالقادر. جميع الحقوق محفوظة.",
         footer_back: "العودة للأعلى"
@@ -385,4 +431,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Smooth Scrolling with Header Offset ---
     document.documentElement.style.setProperty('scroll-padding-top', '100px');
+
+    // --- Websites Category Filter Tabs ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const webCards = document.querySelectorAll('.web-card');
+
+    if (filterBtns.length > 0 && webCards.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                webCards.forEach(card => {
+                    const category = card.getAttribute('data-category') || '';
+                    if (filter === 'all' || category.split(' ').includes(filter)) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 20);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 250);
+                    }
+                });
+            });
+        });
+    }
 });
+

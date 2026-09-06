@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="معرض مواقع الويب وتطبيقات وصفحات تسجيل الدخول وهوستبوت التي صممها إبراهيم عبدالقادر برمجة وتطوير شبكات مايكروتك. تصفح نماذج المواقع الحية مع شرح تقني وروابط الانتقال المباشرة.">
+    <meta name="keywords"
+        content="ابراهيم عبدالقادر برمجة, ابراهيم عبدالقادر مايكروتك, صفحات تسجيل الدخول, صفحات هوتسبوت, ابراهيم عبد القادر برمجة, ابراهيم عبد القادر مايكروتك, تصميم مواقع, مواقع ويب, مطور ويب, Web Development, Frontend, JavaScript, HTML5, CSS3, Portfolio, Ibrahim Abdelgadir, إبراهيم عبد القادر">
+    <meta name="author" content="Ibrahim Abdelgadir">
+    <link rel="canonical" href="http://ibrahim-protfolio.42web.io/websites.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://ibrahim-protfolio.42web.io/websites.html">
+    <meta property="og:title" content="مواقع الويب المصممة | إبراهيم عبدالقادر برمجة">
+    <meta property="og:description"
+        content="تصفح مواقع وتطبيقات الويب وصفحات تسجيل الدخول التي قمت بتصميمها وتطويرها مع الشرح التقني والروابط الحية المباشرة.">
+    <meta property="og:image" content="http://ibrahim-protfolio.42web.io/img/profile.jpg">
+
+    <title>مواقع الويب المصممة | إبراهيم عبدالقادر برمجة - Ibrahim Abdelgadir</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Websites Designed by Ibrahim Abdelgadir",
+      "description": "Showcase of responsive websites, web applications, and digital experiences created by Ibrahim Abdelgadir.",
+      "url": "http://ibrahim-protfolio.42web.io/websites.html",
+      "author": {
+        "@type": "Person",
+        "name": "Ibrahim Abdelgadir"
+      }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Ibrahim<span>.</span></a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero" class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="index.html#about" class="nav-link" data-i18n="nav_about">من أنا</a></li>
+                    <li><a href="index.html#skills" class="nav-link" data-i18n="nav_skills">المهارات</a></li>
+                    <li><a href="index.html#projects" class="nav-link" data-i18n="nav_projects">المشاريع</a></li>
+                    <li><a href="websites.html" class="nav-link active" data-i18n="nav_websites">مواقع الويب</a></li>
+                    <li><a href="index.html#contact" class="nav-link" data-i18n="nav_contact">تواصل معي</a></li>
+                </ul>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <button class="lang-toggle" id="lang-toggle" aria-label="Switch Language">
+                    EN
+                </button>
+
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="web-hero">
+            <div class="container">
+                <span class="web-hero-badge">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span data-i18n="web_hero_badge">معرض أعمال وتصميم الويب</span>
+                </span>
+                <h1 class="hero-name" style="margin-bottom: 1.25rem;">
+                    <span data-i18n="web_hero_title">مواقع الويب التي قمت بتصميمها</span>
+                </h1>
+                <p class="web-hero-desc" data-i18n="web_hero_desc">
+                    استكشف المواقع وتطبيقات الويب المتجاوبة والحلول الرقمية التي قمت بتطويرها. يمكنك النقر على أي موقع
+                    للاطلاع على تفاصيله التقنية والانتقال المباشر للموقع الحي.
+                </p>
+
+                <!-- Category Filter Tabs -->
+                <div class="filter-tabs-container">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span data-i18n="filter_all">جميع المواقع</span>
+                    </button>
+                    <button class="filter-btn" data-filter="apps">
+                        <i class="fa-solid fa-window-maximize"></i>
+                        <span data-i18n="filter_apps">تطبيقات الويب</span>
+                    </button>
+                    <button class="filter-btn" data-filter="landing">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span data-i18n="filter_landing">صفحات الهبوط</span>
+                    </button>
+                    <button class="filter-btn" data-filter="ecommerce">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span data-i18n="filter_ecommerce">متاجر إلكترونية</span>
+                    </button>
+                    <button class="filter-btn" data-filter="business">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span data-i18n="filter_business">مواقع شركات ومحافظ</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Websites Showcase Grid Section -->
+        <section style="padding: 0 0 5rem;">
+            <div class="container">
+
+                <div class="web-projects-grid" id="web-projects-container">
+
+                    <!-- ==============================================================
+                         المشروع المميز: استوديو الجقري للتصميم (Aljagary Design Studio)
+                         ============================================================== -->
+                    <article class="web-card" data-category="landing apps business">
+                        <!-- رأس إطار المتصفح -->
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-lock" style="color: #10b981; font-size: 0.7rem;"></i>
+                                <span>https://aljagary-studio.netlify.app</span>
+                            </div>
+                        </div>
+
+                        <!-- صورة المعاينة الحقيقية للموقع -->
+                        <div class="web-card-preview">
+                            <span class="web-card-badge badge-live">
+                                <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i>
+                                <span data-i18n="badge_live">موقع مباشر</span>
+                            </span>
+                            <img src="img/aljagary_preview.png" alt="استوديو الجقري للتصميم | Aljagary Design Studio">
+                        </div>
+
+                        <!-- تفاصيل وشرح الموقع -->
+                        <div class="web-card-body">
+                            <span class="web-card-category">استوديو تصميم وخدمات رقمية</span>
+                            <h2 class="web-card-title">استوديو الجقري للتصميم (Aljagary Studio)</h2>
+                            <p class="web-card-desc">
+                                موقع متكامل ومتميز مخصص لطلب وتصفح خدمات التصميم الرقمي الاحترافية، بما في ذلك كروت وفيديوهات دعوات الزفاف والمناسبات، الفيديوهات الإعلانية والتجارية، والموشن جرافيك، وتصاميم الهويات البصرية والسوشيال ميديا والبنرات. يتميز الموقع بنظام الترس التفاعلي المبتكر (Interactive Gear System) لتغيير الثيمات واستعراض فئات التصميم بسلاسة فائقة، مع دعم كامل للغتين والوضع الليلي.
+                            </p>
+
+                            <!-- التقنيات المستخدمة -->
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">HTML5 / CSS3</span>
+                                <span class="web-tech-badge">JavaScript Dynamic UI</span>
+                                <span class="web-tech-badge">Interactive Gear Wheel</span>
+                                <span class="web-tech-badge">Responsive Design</span>
+                                <span class="web-tech-badge">Netlify</span>
+                                <span class="web-tech-badge">Bilingual AR/EN</span>
+                            </div>
+
+                            <!-- أبرز مميزات الموقع -->
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> طلب وتصفح كروت وفيديوهات دعوات الزفاف والمناسبات</li>
+                                <li><i class="fa-solid fa-check"></i> فيديوهات إعلانية وتصاميم موشن جرافيك وسوشيال ميديا</li>
+                                <li><i class="fa-solid fa-check"></i> عجلة تفاعلية حركية (Interactive Gear Wheel) للتنقل بين الخدمات</li>
+                                <li><i class="fa-solid fa-check"></i> معرض أعمال ديناميكي متجاوب بالكامل وتصميم فائق الأناقة</li>
+                            </ul>
+
+                            <!-- أزرار الانتقال المباشر -->
+                            <div class="web-card-actions">
+                                <a href="https://aljagary-studio.netlify.app/" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-primary">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <span data-i18n="btn_visit_site">زيارة الموقع الحي</span>
+                                </a>
+                                <a href="https://aljagary-studio.netlify.app/" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-outline">
+                                    <i class="fa-solid fa-eye"></i>
+                                    <span>معاينة الموقع</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ==============================================================
+                         الموقع الثاني: متجر إلكتروني حديث (E-Commerce Store)
+                         ============================================================== -->
+                    <article class="web-card" data-category="ecommerce apps">
+                        <!-- رأس إطار المتصفح العصرية -->
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-lock" style="color: #10b981; font-size: 0.7rem;"></i>
+                                <span>https://demo-store.ibrahim-dev.com</span>
+                            </div>
+                        </div>
+
+                        <!-- صورة المعاينة / غلاف الموقع -->
+                        <div class="web-card-preview">
+                            <span class="web-card-badge badge-live">
+                                <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i>
+                                <span data-i18n="badge_live">موقع مباشر</span>
+                            </span>
+                            <!-- في حال توفر لقطة شاشة ضع مسارها في src="" أدناه -->
+                            <div class="web-preview-placeholder">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span style="font-weight: 600; font-size: 0.95rem;">معاينة المتجر الإلكتروني</span>
+                            </div>
+                        </div>
+
+                        <!-- تفاصيل وشرح الموقع -->
+                        <div class="web-card-body">
+                            <span class="web-card-category">متجر إلكتروني متكامل</span>
+                            <h2 class="web-card-title">متجر النخبة للتجارة الرقمية</h2>
+                            <p class="web-card-desc">
+                                متجر إلكتروني تفاعلي متكامل يهدف إلى تسهيل استعراض وشراء المنتجات. يتميز بواجهة مستخدم
+                                عصرية فائقة السرعة، سلة تسوق ديناميكية تحفظ المشتريات محلياً، تصفية متقدمة للمنتجات حسب
+                                السعر والفئة، وصفحة دفع مهيأة للربط مع بوابات الدفع الإلكتروني.
+                            </p>
+
+                            <!-- التقنيات المستخدمة -->
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">HTML5</span>
+                                <span class="web-tech-badge">CSS3 Modern</span>
+                                <span class="web-tech-badge">JavaScript (ES6+)</span>
+                                <span class="web-tech-badge">Local Storage</span>
+                                <span class="web-tech-badge">Responsive</span>
+                            </div>
+
+                            <!-- أبرز مميزات الموقع -->
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> سلة تسوق فورية مع حساب الإجمالي تلقائياً</li>
+                                <li><i class="fa-solid fa-check"></i> بحث فوري وتصفية المنتجات حسب التصنيف</li>
+                                <li><i class="fa-solid fa-check"></i> تصميم متجاوب بالكامل مع الهواتف والشاشات</li>
+                            </ul>
+
+                            <!-- أزرار الانتقال المباشر -->
+                            <div class="web-card-actions">
+                                <a href="https://github.com/Ibrahim588" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-primary">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <span data-i18n="btn_visit_site">زيارة الموقع الحي</span>
+                                </a>
+                                <a href="https://github.com/Ibrahim588" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-outline">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span data-i18n="btn_source_code">كود المصدر</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الموقع الثاني: لوحة تحكم وإدارة بيانات (Analytics Web App)
+                         ============================================================== -->
+                    <article class="web-card" data-category="apps business">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-lock" style="color: #10b981; font-size: 0.7rem;"></i>
+                                <span>https://analytics-dashboard.ibrahim-dev.com</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-preview">
+                            <span class="web-card-badge badge-featured">
+                                <i class="fa-solid fa-star" style="font-size: 0.6rem;"></i>
+                                <span data-i18n="badge_featured">تطبيق ويب مميز</span>
+                            </span>
+                            <div class="web-preview-placeholder">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span style="font-weight: 600; font-size: 0.95rem;">لوحة تحليلات البيانات المتقدمة</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">تطبيق ويب ولوحة تحكم</span>
+                            <h2 class="web-card-title">لوحة مؤشرات الأداء والبيانات</h2>
+                            <p class="web-card-desc">
+                                تطبيق ويب إداري لعرض ومراقبة إحصائيات النشاط التجاري ومؤشرات الأداء اللحظية. يشمل رسوماً
+                                بيانية تفاعلية، إدارة حسابات المستخدمين، جداول بيانات قابلة للتصفية والفرز، ودعم التبديل
+                                بين الوضع الليلي والنهاري.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">JavaScript</span>
+                                <span class="web-tech-badge">Chart.js</span>
+                                <span class="web-tech-badge">CSS Grid</span>
+                                <span class="web-tech-badge">Dark / Light UI</span>
+                                <span class="web-tech-badge">REST API Ready</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> رسوم بيانية تفاعلية لمتابعة المبيعات والزوار</li>
+                                <li><i class="fa-solid fa-check"></i> نظام تصدير البيانات إلى Excel و PDF</li>
+                                <li><i class="fa-solid fa-check"></i> واجهة مستخدم إدارية سريعة ومريحة للعين</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <a href="https://github.com/Ibrahim588" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-primary">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <span data-i18n="btn_visit_site">زيارة الموقع الحي</span>
+                                </a>
+                                <a href="https://github.com/Ibrahim588" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-outline">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span data-i18n="btn_source_code">كود المصدر</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الموقع الثالث: صفحة هبوط لشركة تقنية (Tech Agency Landing Page)
+                         ============================================================== -->
+                    <article class="web-card" data-category="landing business">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-lock" style="color: #10b981; font-size: 0.7rem;"></i>
+                                <span>https://nova-tech.agency-preview.com</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-preview">
+                            <span class="web-card-badge badge-live">
+                                <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i>
+                                <span data-i18n="badge_live">موقع مباشر</span>
+                            </span>
+                            <div class="web-preview-placeholder">
+                                <i class="fa-solid fa-building"></i>
+                                <span style="font-weight: 600; font-size: 0.95rem;">صفحة هبوط شركة برمجيات</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">صفحة هبوط احترافية</span>
+                            <h2 class="web-card-title">موقع شركة نوفا للحلول الرقمية</h2>
+                            <p class="web-card-desc">
+                                موقع تعريفي وتسويقي عالي الجودة للشركات ومقدمي الخدمات السحابية. صُمم بأسلوب بصري جذاب
+                                يعتمد على الحركات الانسيابية الدقيقة (Micro-animations)، قسم عرض سابقة الأعمال، جدول
+                                أسعار تفاعلي، واستمارة تواصل سريعة ومحمية.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">HTML5 Semantic</span>
+                                <span class="web-tech-badge">CSS Animations</span>
+                                <span class="web-tech-badge">Intersection Observer</span>
+                                <span class="web-tech-badge">SEO Friendly</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> تحسين محركات البحث وسرعة تحميل أقل من ثانية</li>
+                                <li><i class="fa-solid fa-check"></i> تأثيرات تمرير وتفاعل سلسة مع المستخدم</li>
+                                <li><i class="fa-solid fa-check"></i> نموذج استفسارات متفاعل مع التحقق من المدخلات</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <a href="https://github.com/Ibrahim588" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-primary">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <span data-i18n="btn_visit_site">زيارة الموقع الحي</span>
+                                </a>
+                                <a href="https://github.com/Ibrahim588" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-outline">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span data-i18n="btn_source_code">كود المصدر</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الموقع الخامس: بوابات وواجهات تسجيل دخول شبكات MikroTik
+                         ============================================================== -->
+                    <article class="web-card" data-category="apps landing">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-shield-halved" style="color: #38bdf8; font-size: 0.7rem;"></i>
+                                <span>http://hotspot.local/templates</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-preview">
+                            <span class="web-card-badge badge-demo">
+                                <i class="fa-solid fa-wifi" style="font-size: 0.6rem;"></i>
+                                <span>مجموعة قوالب متكاملة</span>
+                            </span>
+                            <img src="img/screen8.png" alt="واجهات تسجيل دخول شبكات مايكروتك">
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">واجهات شبكات وهوستبوت</span>
+                            <h2 class="web-card-title">بوابات وواجهات تسجيل دخول MikroTik</h2>
+                            <p class="web-card-desc">
+                                معرض متكامل يضم تشكيلة واسعة من واجهات وقوالب تسجيل الدخول لشبكات المايكروتك ومزودي الإنترنت. تشمل قوالب مزودة بمسح كود QR، صفحات باقات وأسعار، واجهات كافيهات وفنادق، وصفحات اتصال فائقة السرعة والخفة.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">HTML5 / CSS3</span>
+                                <span class="web-tech-badge">MikroTik RouterOS</span>
+                                <span class="web-tech-badge">QR Code Scanner</span>
+                                <span class="web-tech-badge">Multiple Templates</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> تشكيلة قوالب متعددة الأشكال والاستخدامات</li>
+                                <li><i class="fa-solid fa-check"></i> تسجيل دخول فوري بكود الكارت أو مسح QR</li>
+                                <li><i class="fa-solid fa-check"></i> شرح تفصيلي لطريقة التثبيت على راوتر مايكروتك</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <a href="hotspot-templates.html" class="btn btn-primary">
+                                    <i class="fa-solid fa-folder-open"></i>
+                                    <span>عرض جميع واجهات تسجيل الدخول</span>
+                                </a>
+                                <a href="project-mikrotik.html" class="btn btn-outline">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                    <span>تطبيق المايكروتك</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- ==============================================================
+                     صندوق إرشادي للمطور: كيف تضيف موقعاً جديداً بكل سهولة؟
+                     ============================================================== -->
+                <div class="dev-helper-box">
+                    <h3 class="dev-helper-title">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span data-i18n="dev_guide_title">كيف تضيف مواقع ويب جديدة إلى هذه الصفحة؟</span>
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.75rem;" data-i18n="dev_guide_desc">
+                        لإضافة موقع ويب جديد قمت بتصميمه، افتح ملف <code>websites.html</code> وانسخ الكود البرمجي أدناه وضعه داخل الحاوية <code>id="web-projects-container"</code> مع تعديل الرابط واسم الموقع والصورة:
+                    </p>
+                    <div class="dev-code-snippet">
+&lt;!-- نموذج إضافة موقع جديد --&gt;
+&lt;article class="web-card" data-category="apps"&gt;
+    &lt;div class="browser-mockup-header"&gt;
+        &lt;div class="browser-dots"&gt;&lt;span class="browser-dot red"&gt;&lt;/span&gt;&lt;span class="browser-dot yellow"&gt;&lt;/span&gt;&lt;span class="browser-dot green"&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;div class="browser-address-bar"&gt;&lt;i class="fa-solid fa-lock"&gt;&lt;/i&gt; &lt;span&gt;https://your-website-url.com&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="web-card-preview"&gt;
+        &lt;img src="img/your-screenshot.png" alt="اسم الموقع"&gt;
+    &lt;/div&gt;
+    &lt;div class="web-card-body"&gt;
+        &lt;span class="web-card-category"&gt;نوع الموقع (مثال: متجر / تطبيق)&lt;/span&gt;
+        &lt;h2 class="web-card-title"&gt;اسم موقعك هنا&lt;/h2&gt;
+        &lt;p class="web-card-desc"&gt;شرح مفصل عن فكرة الموقع والوظائف التي يقدمها...&lt;/p&gt;
+        &lt;div class="web-tech-stack"&gt;
+            &lt;span class="web-tech-badge"&gt;HTML5&lt;/span&gt;
+            &lt;span class="web-tech-badge"&gt;CSS3&lt;/span&gt;
+            &lt;span class="web-tech-badge"&gt;JavaScript&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="web-card-actions"&gt;
+            &lt;a href="https://your-website-url.com" target="_blank" class="btn btn-primary"&gt;
+                &lt;i class="fa-solid fa-arrow-up-right-from-square"&gt;&lt;/i&gt; زيارة الموقع الحي
+            &lt;/a&gt;
+            &lt;a href="https://github.com/your-username/repo" target="_blank" class="btn btn-outline"&gt;
+                &lt;i class="fa-brands fa-github"&gt;&lt;/i&gt; كود المصدر
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+                    </div>
+                </div>
+
+                <!-- Call To Action (دعوة للتواصل) -->
+                <div class="web-cta-section">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 1rem;" data-i18n="web_cta_title">
+                        هل ترغب في موقع ويب احترافي خاص بك؟
+                    </h2>
+                    <p style="max-width: 650px; margin: 0 auto 2rem; color: var(--text-secondary);"
+                        data-i18n="web_cta_desc">
+                        أنا جاهز لتحويل فكرتك إلى موقع عصري وسريع ومتجاوب بأحدث التقنيات وأفضل تجربة مستخدم.
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="index.html#contact" class="btn btn-primary btn-large">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span data-i18n="web_cta_btn">تواصل معي الآن</span>
+                        </a>
+                        <a href="index.html" class="btn btn-outline btn-large">
+                            <i class="fa-solid fa-house"></i>
+                            <span data-i18n="btn_back_home">العودة للرئيسية</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-i18n="footer_copy">&copy; 2026 إبراهيم عبدالقادر. جميع الحقوق محفوظة.</p>
+            <div style="margin-top: 1rem; display: flex; gap: 1.25rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <a href="index.html" class="footer-link" data-i18n="nav_home">الرئيسية</a>
+                <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
+                <a href="hotspot-templates.html" class="footer-link">واجهات الهوتسبوت</a>
+                <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
+                <a href="project-mikrotik.html" class="footer-link">MikroTik Manager Pro</a>
+                <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
+                <a href="privacy-policy.html" class="footer-link">سياسة الخصوصية</a>
+                <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
+                <a href="#hero" class="footer-link" data-i18n="footer_back">العودة للأعلى <i class="fa-solid fa-arrow-up"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

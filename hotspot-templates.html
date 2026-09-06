@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="صفحات هوتسبوت وصفحات تسجيل الدخول لشبكات المايكروتك من ابراهيم عبدالقادر مايكروتك وبرمجة - قوالب وواجهات تسجيل دخول احترافية، سريعة وخفيفة، تدعم كروت الشبكة ومسح كود QR.">
+    <meta name="keywords"
+        content="ابراهيم عبدالقادر مايكروتك, صفحات تسجيل الدخول, صفحات هوتسبوت, ابراهيم عبدالقادر برمجة, ابراهيم عبد القادر مايكروتك, ابراهيم عبد القادر برمجة, واجهات هوتسبوت, صفحات تسجيل الدخول مايكروتك, قوالب هوت سبوت, قوالب مايكروتك, كروت شبكات, MikroTik Hotspot templates, login page mikrotik, إبراهيم عبد القادر">
+    <meta name="author" content="Ibrahim Abdelgadir">
+    <link rel="canonical" href="http://ibrahim-protfolio.42web.io/hotspot-templates.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://ibrahim-protfolio.42web.io/hotspot-templates.html">
+    <meta property="og:title" content="صفحات هوتسبوت وتسجيل الدخول مايكروتك | ابراهيم عبدالقادر مايكروتك">
+    <meta property="og:description"
+        content="صفحات تسجيل الدخول وصفحات هوتسبوت لشبكات مايكروتك من إبراهيم عبدالقادر - تصفح وحمل واجهات وقوالب الهوت سبوت الاحترافية.">
+    <meta property="og:image" content="http://ibrahim-protfolio.42web.io/img/screen8.png">
+
+    <title>صفحات هوتسبوت وتسجيل الدخول مايكروتك | ابراهيم عبدالقادر مايكروتك</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .hotspot-hero {
+            padding: 7rem 0 3.5rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 15%, rgba(56, 189, 248, 0.15), rgba(99, 102, 241, 0.05), transparent 70%);
+        }
+
+        .guide-step-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .guide-step-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+        }
+
+        .step-number {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #000;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        .guide-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Ibrahim<span>.</span></a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero" class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="websites.html" class="nav-link" data-i18n="nav_websites">مواقع الويب</a></li>
+                    <li><a href="hotspot-templates.html" class="nav-link active">واجهات الهوتسبوت</a></li>
+                    <li><a href="project-mikrotik.html" class="nav-link">تطبيق المايكروتك</a></li>
+                    <li><a href="index.html#contact" class="nav-link" data-i18n="nav_contact">تواصل معي</a></li>
+                </ul>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <button class="lang-toggle" id="lang-toggle" aria-label="Switch Language">
+                    EN
+                </button>
+
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hotspot-hero">
+            <div class="container">
+                <span class="web-hero-badge">
+                    <i class="fa-solid fa-wifi"></i>
+                    <span>واجهات شبكات مايكروتك | MikroTik Hotspot Portals</span>
+                </span>
+                <h1 class="hero-name" style="margin-bottom: 1.25rem;">
+                    واجهات تسجيل دخول شبكات MikroTik
+                </h1>
+                <p class="web-hero-desc">
+                    مجموعة متكاملة من واجهات وقوالب تسجيل الدخول لشبكات الهوت سبوت ومزودي الإنترنت. تتميز بالتصميم
+                    العصري، الخفة الفائقة وسرعة التحميل، مع دعم تسجيل الدخول بالكروت، مسح كود QR، صفحات الحالة، وعدادات
+                    استهلاك البيانات.
+                </p>
+
+                <!-- Filter Tabs -->
+                <div class="filter-tabs-container">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>جميع الواجهات</span>
+                    </button>
+                    <button class="filter-btn" data-filter="qr">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <span>دعم كود QR</span>
+                    </button>
+                    <button class="filter-btn" data-filter="cards">
+                        <i class="fa-solid fa-ticket"></i>
+                        <span>كروت وشحن</span>
+                    </button>
+                    <button class="filter-btn" data-filter="business">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <span>كافيهات وفنادق</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Templates Grid Section -->
+        <section style="padding: 0 0 5rem;">
+            <div class="container">
+
+                <div class="web-projects-grid" id="web-projects-container">
+
+                    <!-- ==============================================================
+                         الواجهة 1: الواجهة الذكية المتكاملة مع مسح كود QR
+                         ============================================================== -->
+                    <article class="web-card" data-category="qr cards">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-shield-halved" style="color: #38bdf8; font-size: 0.7rem;"></i>
+                                <span>http://hotspot.local/login</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-preview">
+                            <span class="web-card-badge badge-live">
+                                <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i>
+                                <span>قالب احترافي</span>
+                            </span>
+                            <img src="img/screen8.png" alt="واجهة مايكروتك الذكية مع مسح QR">
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">واجهات الكروت والباركود</span>
+                            <h2 class="web-card-title">واجهة مايكروتك الذكية (Smart QR Portal)</h2>
+                            <p class="web-card-desc">
+                                واجهة تسجيل دخول عصرية ومتطورة لشبكات المايكروتك مزودة بكاميرا مدمجة لمسح كود QR المطبوع
+                                على الكروت لتسجيل الدخول الفوري دون الحاجة لكتابة الأرقام يدوياً، مع إمكانية إدخال رمز
+                                الكارت يدوياً، ودعم كامل للغتين العربية والإنجليزية.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">HTML5 / CSS3</span>
+                                <span class="web-tech-badge">QR Scanner JS</span>
+                                <span class="web-tech-badge">RouterOS Compatible</span>
+                                <span class="web-tech-badge">Ultra Lightweight</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> ماسح QR فائق السرعة متوافق مع كافة كاميرات الجوال</li>
+                                <li><i class="fa-solid fa-check"></i> تصميم متجاوب فائق الأناقة مع شاشات الهواتف والحواسب</li>
+                                <li><i class="fa-solid fa-check"></i> صفحة حالة (Status) توضح الوقت المتبقي والرصيد المستهلك</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <a href="https://aljagary-studio.netlify.app/" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-primary">
+                                    <i class="fa-solid fa-eye"></i>
+                                    <span>معاينة حية للواجهة</span>
+                                </a>
+                                <a href="project-mikrotik.html" class="btn btn-outline">
+                                    <i class="fa-solid fa-sliders"></i>
+                                    <span>تخصيص عبر التطبيق</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الواجهة 2: واجهة الكروت الكلاسيكية فائقة السرعة
+                         ============================================================== -->
+                    <article class="web-card" data-category="cards">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-lock" style="color: #10b981; font-size: 0.7rem;"></i>
+                                <span>http://login.net/fast-portal</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-preview">
+                            <span class="web-card-badge badge-demo">
+                                <i class="fa-solid fa-bolt" style="font-size: 0.6rem;"></i>
+                                <span>سرعة فائقة &lt; 50KB</span>
+                            </span>
+                            <div class="web-preview-placeholder">
+                                <i class="fa-solid fa-gauge-high"></i>
+                                <span style="font-weight: 600; font-size: 0.95rem;">قالب السرعة والخفة الفائقة</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">واجهات خفيفة وسريعة</span>
+                            <h2 class="web-card-title">قالب السرعة السحابية (Speed Lite Portal)</h2>
+                            <p class="web-card-desc">
+                                مصمم خصيصاً للشبكات ذات الكثافة العالية وراوترات المايكروتك الاقتصادية (مثل hEX و RB750).
+                                حجم ملفات القالب لا يتجاوز 50 كيلوبايت مما يضمن تحميل الصفحة في أجزاء من الثانية حتى في
+                                أضعف إشارات الشبكة.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">Pure CSS</span>
+                                <span class="web-tech-badge">Vanilla JS</span>
+                                <span class="web-tech-badge">No External CDNs</span>
+                                <span class="web-tech-badge">Instant Load</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> يعمل محلياً 100% بدون الحاجة لإنترنت لتحميل الخطوط والأيقونات</li>
+                                <li><i class="fa-solid fa-check"></i> حفظ تلقائي لبيانات الدخول للاتصال التلقائي</li>
+                                <li><i class="fa-solid fa-check"></i> متوافق مع كافة إصدارات RouterOS v6 و v7</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <a href="index.html#contact" class="btn btn-primary">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>طلب القالب مجاناً</span>
+                                </a>
+                                <a href="project-mikrotik.html" class="btn btn-outline">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                    <span>تفاصيل المايكروتك</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الواجهة 3: واجهة الكافيهات والمطاعم والفنادق
+                         ============================================================== -->
+                    <article class="web-card" data-category="business qr">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-wifi" style="color: #38bdf8; font-size: 0.7rem;"></i>
+                                <span>http://wifi-cafe.local</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-preview">
+                            <span class="web-card-badge badge-featured">
+                                <i class="fa-solid fa-star" style="font-size: 0.6rem;"></i>
+                                <span>للشركات والمطاعم</span>
+                            </span>
+                            <div class="web-preview-placeholder">
+                                <i class="fa-solid fa-mug-saucer"></i>
+                                <span style="font-weight: 600; font-size: 0.95rem;">واجهة الكافيهات والفنادق المتميزة</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">كافيهات ومطاعم وأماكن عامة</span>
+                            <h2 class="web-card-title">واجهة الضيافة العصرية (Lounge & Cafe Portal)</h2>
+                            <p class="web-card-desc">
+                                واجهة تسجيل دخول فاخرة ومصممة خصيصاً للفنادق والمقاهي وصالات الانتظار. تتيح عرض قائمة
+                                الطعام (Digital Menu) أو العروض الخاصة قبل تسجيل الدخول، مع دعم التسجيل التجريبي المجاني
+                                (Free Trial) أو بكود الزبون.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">Modern UI/UX</span>
+                                <span class="web-tech-badge">Digital Menu Link</span>
+                                <span class="web-tech-badge">Trial Mode</span>
+                                <span class="web-tech-badge">Social Links</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> مساحة مخصصة لعرض شعار المحل والعروض الترويجية</li>
+                                <li><i class="fa-solid fa-check"></i> روابط مباشرة لحسابات إنستغرام وتيك توك وواتساب</li>
+                                <li><i class="fa-solid fa-check"></i> تبديل سلس وسريع بين اللغتين العربية والإنجليزية</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <a href="index.html#contact" class="btn btn-primary">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>طلب تصميم مخصص</span>
+                                </a>
+                                <a href="websites.html" class="btn btn-outline">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                    <span>مواقع الويب الأخرى</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الواجهة 4: واجهة مزودي الخدمة مع فاحص السرعة وصفحة الأسعار
+                         ============================================================== -->
+                    <article class="web-card" data-category="cards business">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-network-wired" style="color: #10b981; font-size: 0.7rem;"></i>
+                                <span>http://isp-portal.net/login</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-preview">
+                            <span class="web-card-badge badge-live">
+                                <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i>
+                                <span>باقات وأسعار</span>
+                            </span>
+                            <div class="web-preview-placeholder">
+                                <i class="fa-solid fa-network-wired"></i>
+                                <span style="font-weight: 600; font-size: 0.95rem;">بوابة مزودي الإنترنت المتكاملة</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">مزودي خدمة الإنترنت (WISP)</span>
+                            <h2 class="web-card-title">بوابة باقات ومزودي الإنترنت (WISP Portal)</h2>
+                            <p class="web-card-desc">
+                                صفحة هوت سبوت متكاملة لأصحاب أبراج وشبكات الإنترنت، تتضمن جدولاً تفاعلياً لعرض الباقات
+                                المتاحة وأسعارها، نقاط بيع الكروت المعتمدة في المنطقة، ورقم خدمة العملاء للدعم الفني
+                                عبر الواتساب.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">Package Tables</span>
+                                <span class="web-tech-badge">WhatsApp Support</span>
+                                <span class="web-tech-badge">Speed Test Link</span>
+                                <span class="web-tech-badge">RouterOS v7 Ready</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> جدول أسعار متناسق وجذاب يوضح حجم وسرعة كل باقة</li>
+                                <li><i class="fa-solid fa-check"></i> زر اتصال مباشر بالدعم الفني وطلب الكروت أونلاين</li>
+                                <li><i class="fa-solid fa-check"></i> صفحة خطأ (Error Page) تفاعلية توضح سبب انتهاء الرصيد</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <a href="index.html#contact" class="btn btn-primary">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>طلب الواجهة لشبكتك</span>
+                                </a>
+                                <a href="project-mikrotik.html" class="btn btn-outline">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                    <span>تطبيق الإدارة</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- ==============================================================
+                     صندوق إرشادي: كيف تضيف واجهة جديدة إلى هذه الصفحة؟
+                     ============================================================== -->
+                <div class="dev-helper-box">
+                    <h3 class="dev-helper-title">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <span>كيف تضيف واجهة تسجيل دخول جديدة إلى هذه الصفحة؟</span>
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">
+                        لإضافة واجهة جديدة قمت بتصميمها، افتح ملف <code>hotspot-templates.html</code> وانسخ النموذج أدناه وألصقه داخل الحاوية <code>id="web-projects-container"</code>:
+                    </p>
+                    <div class="dev-code-snippet">
+&lt;!-- نموذج واجهة هوت سبوت جديدة --&gt;
+&lt;article class="web-card" data-category="qr cards"&gt;
+    &lt;div class="browser-mockup-header"&gt;
+        &lt;div class="browser-dots"&gt;&lt;span class="browser-dot red"&gt;&lt;/span&gt;&lt;span class="browser-dot yellow"&gt;&lt;/span&gt;&lt;span class="browser-dot green"&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;div class="browser-address-bar"&gt;&lt;i class="fa-solid fa-wifi"&gt;&lt;/i&gt; &lt;span&gt;http://hotspot.local&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="web-card-preview"&gt;
+        &lt;img src="img/your-hotspot-screen.png" alt="اسم الواجهة"&gt;
+    &lt;/div&gt;
+    &lt;div class="web-card-body"&gt;
+        &lt;span class="web-card-category"&gt;تصنيف الواجهة&lt;/span&gt;
+        &lt;h2 class="web-card-title"&gt;اسم واجهة الهوت سبوت&lt;/h2&gt;
+        &lt;p class="web-card-desc"&gt;شرح ومميزات الواجهة وطريقة تسجيل الدخول...&lt;/p&gt;
+        &lt;div class="web-tech-stack"&gt;
+            &lt;span class="web-tech-badge"&gt;HTML5&lt;/span&gt;
+            &lt;span class="web-tech-badge"&gt;CSS3&lt;/span&gt;
+            &lt;span class="web-tech-badge"&gt;QR Code&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="web-card-actions"&gt;
+            &lt;a href="رابط_المعاينة_أو_التحميل" target="_blank" class="btn btn-primary"&gt;معاينة الواجهة&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+                    </div>
+                </div>
+
+                <!-- خطوات تركيب الواجهة على راوتر مايكروتك -->
+                <div style="margin-top: 4rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 1.5rem; padding: 2.5rem 2rem;">
+                    <h2 style="font-size: 1.6rem; text-align: center; margin-bottom: 0.5rem;">
+                        خطوات تثبيت أي واجهة على راوتر MikroTik
+                    </h2>
+                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">
+                        خطوات بسيطة وسريعة لتركيب ملفات واجهة الهوت سبوت على جهازك عبر برنامج Winbox
+                    </p>
+
+                    <div class="guide-steps-grid">
+                        <div class="guide-step-card">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">تحميل وفك الضغط</h3>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">قم بتنزيل ملفات القالب وتأكد من وجود مجلد باسم <code>hotspot</code> يحتوي على ملفات <code>login.html</code> و <code>status.html</code>.</p>
+                            </div>
+                        </div>
+
+                        <div class="guide-step-card">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">فتح برنامج Winbox</h3>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">اتصل بالراوتر وافتح قائمة <strong>Files</strong> من القائمة الجانبية في Winbox.</p>
+                            </div>
+                        </div>
+
+                        <div class="guide-step-card">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">سحب المجلد إلى الراوتر</h3>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">اسحب مجلد <code>hotspot</code> وأفلته داخل قائمة Files (يمكنك تغيير اسمه إلى <code>hotspot-new</code>).</p>
+                            </div>
+                        </div>
+
+                        <div class="guide-step-card">
+                            <div class="step-number">4</div>
+                            <div>
+                                <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">تفعيل القالب في السيرفر</h3>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">توجه إلى <strong>IP &gt; Hotspot &gt; Server Profiles</strong> واختر ملفك ثم عيّن <strong>HTML Directory</strong> إلى اسم المجلد الجديد.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call To Action -->
+                <div class="web-cta-section">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">
+                        هل تحتاج واجهة تسجيل دخول خاصة ومميزة لشبكتك؟
+                    </h2>
+                    <p style="max-width: 650px; margin: 0 auto 2rem; color: var(--text-secondary);">
+                        أقدم خدمات تصميم وتطوير واجهات شبكات مايكروتك مخصصة ومدمجة مع تطبيق MikroTik Manager Pro وتوليد كروت الشبكة بالباركود.
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="index.html#contact" class="btn btn-primary btn-large">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>تواصل معي لطلب واجهة</span>
+                        </a>
+                        <a href="websites.html" class="btn btn-outline btn-large">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <span>العودة لمواقع الويب</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-i18n="footer_copy">&copy; 2026 إبراهيم عبدالقادر. جميع الحقوق محفوظة.</p>
+            <div style="margin-top: 1rem; display: flex; gap: 1.25rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <a href="index.html" class="footer-link">الرئيسية</a>
+                <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
+                <a href="websites.html" class="footer-link">مواقع الويب</a>
+                <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
+                <a href="project-mikrotik.html" class="footer-link">MikroTik Manager Pro</a>
+                <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
+                <a href="privacy-policy.html" class="footer-link">سياسة الخصوصية</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
