@@ -168,6 +168,27 @@
             border: 2px dashed var(--primary-color);
         }
 
+        .btn-windows {
+            background: linear-gradient(135deg, #0078d4, #00a4ef);
+            color: #ffffff !important;
+            border: 1px solid rgba(0, 164, 239, 0.4);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            box-shadow: 0 4px 14px rgba(0, 120, 212, 0.35);
+        }
+
+        .btn-windows:hover {
+            background: linear-gradient(135deg, #0063b1, #0078d4);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.5);
+            color: #ffffff !important;
+        }
+
         @media (max-width: 768px) {
             .project-hero {
                 padding-top: 4rem;
@@ -217,8 +238,16 @@
             <p class="hero-role">"محاسب ومصمم ومهندس شبكات" في هاتفك المحمول</p>
             <div class="hero-btns"
                 style="justify-content: center; margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="https://mega.nz/file/rhJV1BgS#YWrwdtA3aa9ms9nSAhHCqMhxjJ6KjvhgiPtaGnK9UFg" target="_blank"
+                    class="btn btn-windows" style="padding: 0.8rem 1.5rem; border-radius: 8px;">
+                    <i class="fa-brands fa-windows" style="font-size: 1.25rem;"></i>
+                    <span>تحميل نسخة Windows</span>
+                </a>
                 <a href="https://mega.nz/file/PsBTRYyQ#c8u1RzephkJdzxPX1DyUCKCPSDllpAZ-Z4mqlbb3Iw8" target="_blank"
-                    class="btn btn-primary">تحميل ملف APK <i class="fa-solid fa-download"></i></a>
+                    class="btn btn-primary" style="padding: 0.8rem 1.5rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="fa-brands fa-android" style="font-size: 1.25rem;"></i>
+                    <span>تحميل ملف APK</span>
+                </a>
                 <a href="#" target="_blank" class="btn"
                     style="background-color: #111; color: white; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: 8px;">
                     <i class="fa-brands fa-google-play" style="color: #4CAF50; font-size: 1.2rem;"></i> Google Play
@@ -344,15 +373,24 @@
             <h2 style="margin-bottom: 1rem;">جاهز لتطوير إدارة شبكتك؟</h2>
             <p style="margin-bottom: 2rem; color: var(--text-secondary);">استمتع بكامل الصلاحيات مجاناً خلال الشهر الأول
             </p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+                <a href="https://mega.nz/file/rhJV1BgS#YWrwdtA3aa9ms9nSAhHCqMhxjJ6KjvhgiPtaGnK9UFg" target="_blank"
+                    class="btn btn-windows btn-large">
+                    <i class="fa-brands fa-windows" style="font-size: 1.35rem;"></i>
+                    <span>تحميل نسخة Windows</span>
+                </a>
                 <a href="https://mega.nz/file/PsBTRYyQ#c8u1RzephkJdzxPX1DyUCKCPSDllpAZ-Z4mqlbb3Iw8" target="_blank"
-                    class="btn btn-primary btn-large">تحميل ملف APK <i class="fa-solid fa-download"></i></a>
+                    class="btn btn-primary btn-large" style="display: inline-flex; align-items: center; gap: 0.6rem;">
+                    <i class="fa-brands fa-android" style="font-size: 1.35rem;"></i>
+                    <span>تحميل ملف APK</span>
+                </a>
                 <a href="#" target="_blank" class="btn btn-large"
-                    style="background-color: #111; color: white; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;">
-                    <i class="fa-brands fa-google-play" style="color: #4CAF50; font-size: 1.4rem;"></i> Google Play
+                    style="background-color: #111; color: white; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center; gap: 0.6rem; text-decoration: none;">
+                    <i class="fa-brands fa-google-play" style="color: #4CAF50; font-size: 1.35rem;"></i>
+                    <span>Google Play</span>
                 </a>
             </div>
-            <p style="margin-top: 1.5rem; font-size: 0.8rem; opacity: 0.6;">إصدار أندرويد متوافق مع كافة الأجهزة</p>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.7;">متوفر الآن لأنظمة Windows و Android لتوفير أعلى مرونة وتحكم كامل بشبكتك</p>
         </section>
 
 

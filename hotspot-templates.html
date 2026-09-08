@@ -77,6 +77,155 @@
             gap: 1.5rem;
             margin-top: 2rem;
         }
+
+        /* Hotspot Mobile Screenshot Container */
+        .hotspot-preview-box {
+            position: relative;
+            width: 100%;
+            height: 390px;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.75));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem 0;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        [data-theme="light"] .hotspot-preview-box {
+            background: radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.12), #f1f5f9);
+        }
+
+        .hotspot-preview-box img {
+            height: 100%;
+            max-height: 350px;
+            width: auto;
+            max-width: 88%;
+            object-fit: contain;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+        }
+
+        [data-theme="light"] .hotspot-preview-box img {
+            box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.06);
+        }
+
+        .web-card:hover .hotspot-preview-box img {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 20px 35px -5px rgba(56, 189, 248, 0.35), 0 0 0 1.5px var(--primary-color);
+        }
+
+        .preview-hover-hint {
+            position: absolute;
+            bottom: 0.85rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.35rem 0.9rem;
+            border-radius: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: all var(--transition-fast);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .hotspot-preview-box:hover .preview-hover-hint {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Lightbox Modal */
+        .preview-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .preview-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .preview-modal-content {
+            position: relative;
+            max-width: 92vw;
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalPop {
+            from {
+                transform: scale(0.92);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .preview-modal-img {
+            max-width: 100%;
+            max-height: 78vh;
+            object-fit: contain;
+            border-radius: 1.25rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .preview-modal-caption {
+            margin-top: 1rem;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .preview-modal-close {
+            position: absolute;
+            top: -2.85rem;
+            right: 0;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            font-size: 1.25rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .preview-modal-close:hover {
+            background: rgba(239, 68, 68, 0.9);
+            transform: scale(1.08);
+        }
     </style>
 </head>
 
@@ -144,9 +293,13 @@
                         <i class="fa-solid fa-ticket"></i>
                         <span>كروت وشحن</span>
                     </button>
+                    <button class="filter-btn" data-filter="seasonal">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>مناسبات ومواسم</span>
+                    </button>
                     <button class="filter-btn" data-filter="business">
-                        <i class="fa-solid fa-mug-hot"></i>
-                        <span>كافيهات وفنادق</span>
+                        <i class="fa-solid fa-tower-broadcast"></i>
+                        <span>مزودي الخدمة والشركات</span>
                     </button>
                 </div>
             </div>
@@ -159,9 +312,9 @@
                 <div class="web-projects-grid" id="web-projects-container">
 
                     <!-- ==============================================================
-                         الواجهة 1: الواجهة الذكية المتكاملة مع مسح كود QR
+                         الواجهة 1: واجهة شبكة ابيل نت - ثيم رمضان كريم
                          ============================================================== -->
-                    <article class="web-card" data-category="qr cards">
+                    <article class="web-card" data-category="qr cards seasonal">
                         <div class="browser-mockup-header">
                             <div class="browser-dots">
                                 <span class="browser-dot red"></span>
@@ -169,50 +322,60 @@
                                 <span class="browser-dot green"></span>
                             </div>
                             <div class="browser-address-bar">
-                                <i class="fa-solid fa-shield-halved" style="color: #38bdf8; font-size: 0.7rem;"></i>
-                                <span>http://hotspot.local/login</span>
+                                <i class="fa-solid fa-moon" style="color: #f59e0b; font-size: 0.7rem;"></i>
+                                <span>http://hotspot.ebil.net/login</span>
                             </div>
                         </div>
 
-                        <div class="web-card-preview">
-                            <span class="web-card-badge badge-live">
-                                <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i>
-                                <span>قالب احترافي</span>
+                        <div class="hotspot-preview-box"
+                            onclick="openHotspotModal('img/hotspot_ramadan.png', 'واجهة شبكة ابيل نت - ثيم رمضان كريم')">
+                            <span class="web-card-badge badge-featured">
+                                <i class="fa-solid fa-moon"></i>
+                                <span>ثيم رمضاني فاخر</span>
                             </span>
-                            <img src="img/screen8.png" alt="واجهة مايكروتك الذكية مع مسح QR">
+                            <img src="img/hotspot_ramadan.png" alt="واجهة شبكة ابيل نت - ثيم رمضان كريم" loading="lazy">
+                            <div class="preview-hover-hint">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>انقر لتكبير الصورة</span>
+                            </div>
                         </div>
 
                         <div class="web-card-body">
-                            <span class="web-card-category">واجهات الكروت والباركود</span>
-                            <h2 class="web-card-title">واجهة مايكروتك الذكية (Smart QR Portal)</h2>
+                            <span class="web-card-category">واجهات الكروت ومسح QR والمناسبات</span>
+                            <h2 class="web-card-title">واجهة شبكة ابيل نت (ثيم رمضان كريم)</h2>
                             <p class="web-card-desc">
-                                واجهة تسجيل دخول عصرية ومتطورة لشبكات المايكروتك مزودة بكاميرا مدمجة لمسح كود QR المطبوع
-                                على الكروت لتسجيل الدخول الفوري دون الحاجة لكتابة الأرقام يدوياً، مع إمكانية إدخال رمز
-                                الكارت يدوياً، ودعم كامل للغتين العربية والإنجليزية.
+                                واجهة تسجيل دخول رمضانية استثنائية لشبكات المايكروتك، تتميز بالثيم الليلي الفاخر مع
+                                أيقونة الفانوس وتأثيرات الإضاءة الذهبية المتوهجة (Neon Glow). تدعم مسح كود QR بكاميرا
+                                الهاتف مع زر سريع للدخول بكرت سابق، وأزرار سريعة لعرض الأسعار والتغطية ومعلومات الدعم،
+                                ودعم كامل للغة الإنجليزية والعربية.
                             </p>
 
                             <div class="web-tech-stack">
                                 <span class="web-tech-badge">HTML5 / CSS3</span>
                                 <span class="web-tech-badge">QR Scanner JS</span>
-                                <span class="web-tech-badge">RouterOS Compatible</span>
-                                <span class="web-tech-badge">Ultra Lightweight</span>
+                                <span class="web-tech-badge">Dual Language (AR/EN)</span>
+                                <span class="web-tech-badge">Neon Glow UI</span>
                             </div>
 
                             <ul class="web-features-list">
-                                <li><i class="fa-solid fa-check"></i> ماسح QR فائق السرعة متوافق مع كافة كاميرات الجوال</li>
-                                <li><i class="fa-solid fa-check"></i> تصميم متجاوب فائق الأناقة مع شاشات الهواتف والحواسب</li>
-                                <li><i class="fa-solid fa-check"></i> صفحة حالة (Status) توضح الوقت المتبقي والرصيد المستهلك</li>
+                                <li><i class="fa-solid fa-check"></i> ماسح كود QR مدمج لقراءة كروت الشبكة فورياً بكاميرا
+                                    الجوال</li>
+                                <li><i class="fa-solid fa-check"></i> زر مخصص لتسجيل الدخول بكرت سابق مسجل بنقرة واحدة
+                                </li>
+                                <li><i class="fa-solid fa-check"></i> أيقونات تفاعلية سريعة لعرض الأسعار، نقاط البيع،
+                                    والتعليمات</li>
                             </ul>
 
                             <div class="web-card-actions">
-                                <a href="https://aljagary-studio.netlify.app/" target="_blank" rel="noopener noreferrer"
-                                    class="btn btn-primary">
-                                    <i class="fa-solid fa-eye"></i>
-                                    <span>معاينة حية للواجهة</span>
-                                </a>
-                                <a href="project-mikrotik.html" class="btn btn-outline">
-                                    <i class="fa-solid fa-sliders"></i>
-                                    <span>تخصيص عبر التطبيق</span>
+                                <button type="button" class="btn btn-primary"
+                                    onclick="openHotspotModal('img/hotspot_ramadan.png', 'واجهة شبكة ابيل نت - ثيم رمضان كريم')">
+                                    <i class="fa-solid fa-expand"></i>
+                                    <span>معاينة مكبرة للواجهة</span>
+                                </button>
+                                <a href="https://wa.me/249962181777?text=مرحباً%20مهندس%20إبراهيم،%20أرغب%20في%20طلب%20واجهة%20تسجيل%20الدخول%20(ثيم%20رمضان%20كريم)"
+                                    target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>طلب القالب</span>
                                 </a>
                             </div>
                         </div>
@@ -220,9 +383,9 @@
 
 
                     <!-- ==============================================================
-                         الواجهة 2: واجهة الكروت الكلاسيكية فائقة السرعة
+                         الواجهة 2: واجهة عيد الأضحى المبارك - الثيم الذهبي والكعبة المشرفة
                          ============================================================== -->
-                    <article class="web-card" data-category="cards">
+                    <article class="web-card" data-category="cards business seasonal">
                         <div class="browser-mockup-header">
                             <div class="browser-dots">
                                 <span class="browser-dot red"></span>
@@ -230,115 +393,61 @@
                                 <span class="browser-dot green"></span>
                             </div>
                             <div class="browser-address-bar">
-                                <i class="fa-solid fa-lock" style="color: #10b981; font-size: 0.7rem;"></i>
-                                <span>http://login.net/fast-portal</span>
+                                <i class="fa-solid fa-kaaba" style="color: #f59e0b; font-size: 0.7rem;"></i>
+                                <span>http://hotspot.local/eid-adha-gold</span>
                             </div>
                         </div>
 
-                        <div class="web-card-preview">
-                            <span class="web-card-badge badge-demo">
-                                <i class="fa-solid fa-bolt" style="font-size: 0.6rem;"></i>
-                                <span>سرعة فائقة &lt; 50KB</span>
-                            </span>
-                            <div class="web-preview-placeholder">
-                                <i class="fa-solid fa-gauge-high"></i>
-                                <span style="font-weight: 600; font-size: 0.95rem;">قالب السرعة والخفة الفائقة</span>
-                            </div>
-                        </div>
-
-                        <div class="web-card-body">
-                            <span class="web-card-category">واجهات خفيفة وسريعة</span>
-                            <h2 class="web-card-title">قالب السرعة السحابية (Speed Lite Portal)</h2>
-                            <p class="web-card-desc">
-                                مصمم خصيصاً للشبكات ذات الكثافة العالية وراوترات المايكروتك الاقتصادية (مثل hEX و RB750).
-                                حجم ملفات القالب لا يتجاوز 50 كيلوبايت مما يضمن تحميل الصفحة في أجزاء من الثانية حتى في
-                                أضعف إشارات الشبكة.
-                            </p>
-
-                            <div class="web-tech-stack">
-                                <span class="web-tech-badge">Pure CSS</span>
-                                <span class="web-tech-badge">Vanilla JS</span>
-                                <span class="web-tech-badge">No External CDNs</span>
-                                <span class="web-tech-badge">Instant Load</span>
-                            </div>
-
-                            <ul class="web-features-list">
-                                <li><i class="fa-solid fa-check"></i> يعمل محلياً 100% بدون الحاجة لإنترنت لتحميل الخطوط والأيقونات</li>
-                                <li><i class="fa-solid fa-check"></i> حفظ تلقائي لبيانات الدخول للاتصال التلقائي</li>
-                                <li><i class="fa-solid fa-check"></i> متوافق مع كافة إصدارات RouterOS v6 و v7</li>
-                            </ul>
-
-                            <div class="web-card-actions">
-                                <a href="index.html#contact" class="btn btn-primary">
-                                    <i class="fa-solid fa-download"></i>
-                                    <span>طلب القالب مجاناً</span>
-                                </a>
-                                <a href="project-mikrotik.html" class="btn btn-outline">
-                                    <i class="fa-solid fa-circle-info"></i>
-                                    <span>تفاصيل المايكروتك</span>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-
-                    <!-- ==============================================================
-                         الواجهة 3: واجهة الكافيهات والمطاعم والفنادق
-                         ============================================================== -->
-                    <article class="web-card" data-category="business qr">
-                        <div class="browser-mockup-header">
-                            <div class="browser-dots">
-                                <span class="browser-dot red"></span>
-                                <span class="browser-dot yellow"></span>
-                                <span class="browser-dot green"></span>
-                            </div>
-                            <div class="browser-address-bar">
-                                <i class="fa-solid fa-wifi" style="color: #38bdf8; font-size: 0.7rem;"></i>
-                                <span>http://wifi-cafe.local</span>
-                            </div>
-                        </div>
-
-                        <div class="web-card-preview">
+                        <div class="hotspot-preview-box"
+                            onclick="openHotspotModal('img/hotspot_eid_light.png', 'واجهة عيد الأضحى المبارك - الثيم الذهبي')">
                             <span class="web-card-badge badge-featured">
-                                <i class="fa-solid fa-star" style="font-size: 0.6rem;"></i>
-                                <span>للشركات والمطاعم</span>
+                                <i class="fa-solid fa-kaaba"></i>
+                                <span>ثيم الحج والأعياد</span>
                             </span>
-                            <div class="web-preview-placeholder">
-                                <i class="fa-solid fa-mug-saucer"></i>
-                                <span style="font-weight: 600; font-size: 0.95rem;">واجهة الكافيهات والفنادق المتميزة</span>
+                            <img src="img/hotspot_eid_light.png" alt="واجهة عيد الأضحى المبارك - الثيم الذهبي والكعبة"
+                                loading="lazy">
+                            <div class="preview-hover-hint">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>انقر لتكبير الصورة</span>
                             </div>
                         </div>
 
                         <div class="web-card-body">
-                            <span class="web-card-category">كافيهات ومطاعم وأماكن عامة</span>
-                            <h2 class="web-card-title">واجهة الضيافة العصرية (Lounge & Cafe Portal)</h2>
+                            <span class="web-card-category">واجهات المناسبات والأعياد الإسلامية</span>
+                            <h2 class="web-card-title">واجهة عيد الأضحى المبارك (الثيم الذهبي والكعبة)</h2>
                             <p class="web-card-desc">
-                                واجهة تسجيل دخول فاخرة ومصممة خصيصاً للفنادق والمقاهي وصالات الانتظار. تتيح عرض قائمة
-                                الطعام (Digital Menu) أو العروض الخاصة قبل تسجيل الدخول، مع دعم التسجيل التجريبي المجاني
-                                (Free Trial) أو بكود الزبون.
+                                تصميم روحي راقٍ واحترافي مستوحى من أجواء عيد الأضحى المبارك وموسم الحج، يبرز صورة الكعبة
+                                المشرفة بنقوش إسلامية وزخارف مذهبة مريحة للعين. تتضمن الواجهة عرضاً تلقائياً للتاريخ
+                                الهجري والميلادي، خيار التجربة المجانية، أسعار الباقات، ونقاط البيع المعتمدة مع رقم خدمة
+                                العملاء.
                             </p>
 
                             <div class="web-tech-stack">
-                                <span class="web-tech-badge">Modern UI/UX</span>
-                                <span class="web-tech-badge">Digital Menu Link</span>
-                                <span class="web-tech-badge">Trial Mode</span>
-                                <span class="web-tech-badge">Social Links</span>
+                                <span class="web-tech-badge">High-Res Kaaba Art</span>
+                                <span class="web-tech-badge">Auto Date Hijri/Miladi</span>
+                                <span class="web-tech-badge">Free Trial Support</span>
+                                <span class="web-tech-badge">RouterOS v6 & v7</span>
                             </div>
 
                             <ul class="web-features-list">
-                                <li><i class="fa-solid fa-check"></i> مساحة مخصصة لعرض شعار المحل والعروض الترويجية</li>
-                                <li><i class="fa-solid fa-check"></i> روابط مباشرة لحسابات إنستغرام وتيك توك وواتساب</li>
-                                <li><i class="fa-solid fa-check"></i> تبديل سلس وسريع بين اللغتين العربية والإنجليزية</li>
+                                <li><i class="fa-solid fa-check"></i> عرض تلقائي للتاريخ الهجري والميلادي متزامن مع وقت
+                                    الراوتر</li>
+                                <li><i class="fa-solid fa-check"></i> دعم تفعيل ميزة التجربة المجانية الموقوتة (Trial
+                                    Mode) بنقرة زر</li>
+                                <li><i class="fa-solid fa-check"></i> أزرار وصول مباشر لأسعار الكروت وقائمة نقاط البيع
+                                    المعتمدة</li>
                             </ul>
 
                             <div class="web-card-actions">
-                                <a href="index.html#contact" class="btn btn-primary">
-                                    <i class="fa-solid fa-paper-plane"></i>
-                                    <span>طلب تصميم مخصص</span>
-                                </a>
-                                <a href="websites.html" class="btn btn-outline">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                    <span>مواقع الويب الأخرى</span>
+                                <button type="button" class="btn btn-primary"
+                                    onclick="openHotspotModal('img/hotspot_eid_light.png', 'واجهة عيد الأضحى المبارك - الثيم الذهبي')">
+                                    <i class="fa-solid fa-expand"></i>
+                                    <span>معاينة مكبرة للواجهة</span>
+                                </button>
+                                <a href="https://wa.me/249962181777?text=مرحباً%20مهندس%20إبراهيم،%20أرغب%20في%20طلب%20واجهة%20تسجيل%20الدخول%20(عيد%20الأضحى%20الذهبي)"
+                                    target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>طلب القالب</span>
                                 </a>
                             </div>
                         </div>
@@ -346,7 +455,219 @@
 
 
                     <!-- ==============================================================
-                         الواجهة 4: واجهة مزودي الخدمة مع فاحص السرعة وصفحة الأسعار
+                         الواجهة 3: واجهة عيد الأضحى المبارك - الثيم الملكي الداكن
+                         ============================================================== -->
+                    <article class="web-card" data-category="cards business seasonal">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-star-and-crescent" style="color: #38bdf8; font-size: 0.7rem;"></i>
+                                <span>http://hotspot.local/eid-adha-dark</span>
+                            </div>
+                        </div>
+
+                        <div class="hotspot-preview-box"
+                            onclick="openHotspotModal('img/hotspot_eid_dark.png', 'واجهة عيد الأضحى المبارك - الثيم الملكي الداكن')">
+                            <span class="web-card-badge badge-live">
+                                <i class="fa-solid fa-star-and-crescent"></i>
+                                <span>ثيم ملكي داكن</span>
+                            </span>
+                            <img src="img/hotspot_eid_dark.png" alt="واجهة عيد الأضحى المبارك - الثيم الملكي الداكن"
+                                loading="lazy">
+                            <div class="preview-hover-hint">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>انقر لتكبير الصورة</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">واجهات داكنة للمناسبات</span>
+                            <h2 class="web-card-title">واجهة عيد الأضحى المبارك (الثيم الملكي الداكن)</h2>
+                            <p class="web-card-desc">
+                                نسخة مظلمة فاخرة (Dark Edition) لوقت الأعياد والمناسبات الإسلامية، تجمع بين خلفية الكحلي
+                                الداكن المريح للعين والزخارف الهندسية الذهبية المضيئة. توفر تجربة تصفح هادئة للمستخدمين
+                                ليلاً مع المحافظة على كافة وظائف الدخول بالكروت، التجربة المجانية، والتواصل مع خدمة
+                                العملاء.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">Dark Navy / Gold</span>
+                                <span class="web-tech-badge">OLED Battery Saver</span>
+                                <span class="web-tech-badge">Customer Care Widget</span>
+                                <span class="web-tech-badge">Trial Ready</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> ثيم داكن ملكي يقلل استهلاك بطارية الهاتف وإجهاد
+                                    العين ليلاً</li>
+                                <li><i class="fa-solid fa-check"></i> شريط خدمة عملاء ورقم هاتف مباشر لدعم المشتركين
+                                    السريع</li>
+                                <li><i class="fa-solid fa-check"></i> أزرار ذهبية بارزة للدخول، عرض أسعار الكروت، ونقاط
+                                    البيع</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <button type="button" class="btn btn-primary"
+                                    onclick="openHotspotModal('img/hotspot_eid_dark.png', 'واجهة عيد الأضحى المبارك - الثيم الملكي الداكن')">
+                                    <i class="fa-solid fa-expand"></i>
+                                    <span>معاينة مكبرة للواجهة</span>
+                                </button>
+                                <a href="https://wa.me/249962181777?text=مرحباً%20مهندس%20إبراهيم،%20أرغب%20في%20طلب%20واجهة%20تسجيل%20الدخول%20(عيد%20الأضحى%20الداكن)"
+                                    target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>طلب القالب</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الواجهة 4: واجهة شبكة المحبة نت - ثيم أهلاً بالصيف
+                         ============================================================== -->
+                    <article class="web-card" data-category="qr cards business seasonal">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-sun" style="color: #f59e0b; font-size: 0.7rem;"></i>
+                                <span>http://almahaba.net/summer-login</span>
+                            </div>
+                        </div>
+
+                        <div class="hotspot-preview-box"
+                            onclick="openHotspotModal('img/hotspot_summer.png', 'واجهة شبكة المحبة نت - ثيم أهلاً بالصيف')">
+                            <span class="web-card-badge badge-demo">
+                                <i class="fa-solid fa-sun"></i>
+                                <span>ثيم صيفي تفاعلي</span>
+                            </span>
+                            <img src="img/hotspot_summer.png" alt="واجهة شبكة المحبة نت - ثيم أهلاً بالصيف"
+                                loading="lazy">
+                            <div class="preview-hover-hint">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>انقر لتكبير الصورة</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">واجهات موسمية وتفاعلية</span>
+                            <h2 class="web-card-title">واجهة شبكة المحبة نت (ثيم أهلاً بالصيف)</h2>
+                            <p class="web-card-desc">
+                                واجهة مفعمة بالحيوية والانتعاش مصممة خصيصاً لموسم الصيف باللون الأزرق السماوي وأيقونة
+                                الشمس المميزة. تشمل ماسح كود QR، أزرار ملاحة سريعة لأسعار الباقات ونقاط البيع
+                                والتعليمات، بالإضافة إلى أزرار اتصال هاتفي ودعم فني مباشر عبر الواتساب، مع خيار تبديل
+                                اللغة (EN/AR).
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">Summer Blue Theme</span>
+                                <span class="web-tech-badge">WhatsApp Direct Button</span>
+                                <span class="web-tech-badge">Phone Call Quick Action</span>
+                                <span class="web-tech-badge">QR Scanner Ready</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> زر اتصال هاتفي وزر واتساب مباشر للدعم الفني وشحن
+                                    الرصيد</li>
+                                <li><i class="fa-solid fa-check"></i> أيقونات تفاعلية سريعة لجدول الأسعار، نقاط البيع،
+                                    والتعليمات</li>
+                                <li><i class="fa-solid fa-check"></i> دعم مسح كود QR التلقائي والتنقل بين اللغتين
+                                    الإنجليزية والعربية</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <button type="button" class="btn btn-primary"
+                                    onclick="openHotspotModal('img/hotspot_summer.png', 'واجهة شبكة المحبة نت - ثيم أهلاً بالصيف')">
+                                    <i class="fa-solid fa-expand"></i>
+                                    <span>معاينة مكبرة للواجهة</span>
+                                </button>
+                                <a href="https://wa.me/249962181777?text=مرحباً%20مهندس%20إبراهيم،%20أرغب%20في%20طلب%20واجهة%20تسجيل%20الدخول%20(المحبة%20نت%20الصيفية)"
+                                    target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>طلب القالب</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الواجهة 5: واجهة شبكة Hima Star - ثيم الفضاء والنيون
+                         ============================================================== -->
+                    <article class="web-card" data-category="qr cards business">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-satellite" style="color: #38bdf8; font-size: 0.7rem;"></i>
+                                <span>http://hima-star.net/login</span>
+                            </div>
+                        </div>
+
+                        <div class="hotspot-preview-box"
+                            onclick="openHotspotModal('img/hotspot_hima_star.png', 'واجهة شبكة Hima Star - ثيم الفضاء والنيون')">
+                            <span class="web-card-badge badge-featured">
+                                <i class="fa-solid fa-rocket"></i>
+                                <span>ثيم الفضاء والنيون</span>
+                            </span>
+                            <img src="img/hotspot_hima_star.png" alt="واجهة شبكة Hima Star - ثيم الفضاء والنيون"
+                                loading="lazy">
+                            <div class="preview-hover-hint">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>انقر لتكبير الصورة</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">واجهات الكروت ومسح QR والنيون</span>
+                            <h2 class="web-card-title">واجهة شبكة Hima Star (ثيم الفضاء والنيون)</h2>
+                            <p class="web-card-desc">
+                                واجهة تسجيل دخول عصرية ملهمة بتصميم فضائي ساحر مع كواكب وأجرام ملونة وإضاءات نيون مشعة.
+                                تدعم مسح كود QR المباشر، خيار الدخول بكرت سابق، مع أزرار سريعة للأسعار ونقاط البيع،
+                                وأزرار اتصال وواتساب تفاعلية للدعم الفني.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">Space / Cosmic UI</span>
+                                <span class="web-tech-badge">QR Scanner Ready</span>
+                                <span class="web-tech-badge">WhatsApp & Call</span>
+                                <span class="web-tech-badge">Neon Glow</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> ماسح QR مدمج وسريع لقراءة كروت الشبكة بالهاتف</li>
+                                <li><i class="fa-solid fa-check"></i> زر مخصص للدخول بكرت سابق مسجل مسبقاً</li>
+                                <li><i class="fa-solid fa-check"></i> أزرار اتصال فوري وزر واتساب مباشر للدعم الفني</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <button type="button" class="btn btn-primary"
+                                    onclick="openHotspotModal('img/hotspot_hima_star.png', 'واجهة شبكة Hima Star - ثيم الفضاء والنيون')">
+                                    <i class="fa-solid fa-expand"></i>
+                                    <span>معاينة مكبرة للواجهة</span>
+                                </button>
+                                <a href="https://wa.me/249962181777?text=مرحباً%20مهندس%20إبراهيم،%20أرغب%20في%20طلب%20واجهة%20تسجيل%20الدخول%20(Hima%20Star)"
+                                    target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>طلب القالب</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الواجهة 6: واجهة شبكة ZAIN 4G اللاسلكية
                          ============================================================== -->
                     <article class="web-card" data-category="cards business">
                         <div class="browser-mockup-header">
@@ -356,52 +677,201 @@
                                 <span class="browser-dot green"></span>
                             </div>
                             <div class="browser-address-bar">
-                                <i class="fa-solid fa-network-wired" style="color: #10b981; font-size: 0.7rem;"></i>
-                                <span>http://isp-portal.net/login</span>
+                                <i class="fa-solid fa-tower-cell" style="color: #f97316; font-size: 0.7rem;"></i>
+                                <span>http://zain-4g.net/login</span>
                             </div>
                         </div>
 
-                        <div class="web-card-preview">
+                        <div class="hotspot-preview-box"
+                            onclick="openHotspotModal('img/hotspot_zain.png', 'واجهة شبكة ZAIN 4G اللاسلكية')">
                             <span class="web-card-badge badge-live">
-                                <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i>
-                                <span>باقات وأسعار</span>
+                                <i class="fa-solid fa-tower-cell"></i>
+                                <span>شبكات الجيل الرابع 4G</span>
                             </span>
-                            <div class="web-preview-placeholder">
-                                <i class="fa-solid fa-network-wired"></i>
-                                <span style="font-weight: 600; font-size: 0.95rem;">بوابة مزودي الإنترنت المتكاملة</span>
+                            <img src="img/hotspot_zain.png" alt="واجهة شبكة ZAIN 4G اللاسلكية" loading="lazy">
+                            <div class="preview-hover-hint">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>انقر لتكبير الصورة</span>
                             </div>
                         </div>
 
                         <div class="web-card-body">
-                            <span class="web-card-category">مزودي خدمة الإنترنت (WISP)</span>
-                            <h2 class="web-card-title">بوابة باقات ومزودي الإنترنت (WISP Portal)</h2>
+                            <span class="web-card-category">مزودي خدمة الإنترنت والشبكات اللاسلكية</span>
+                            <h2 class="web-card-title">واجهة شبكة ZAIN 4G اللاسلكية</h2>
                             <p class="web-card-desc">
-                                صفحة هوت سبوت متكاملة لأصحاب أبراج وشبكات الإنترنت، تتضمن جدولاً تفاعلياً لعرض الباقات
-                                المتاحة وأسعارها، نقاط بيع الكروت المعتمدة في المنطقة، ورقم خدمة العملاء للدعم الفني
-                                عبر الواتساب.
+                                تصميم راقٍ وحيوي يجمع بين المنحنيات البرتقالية العصرية والوضوح التام للبيانات. يبرز هوية
+                                شبكات 4G اللاسلكية بنموذج دخول أنيق وأزرار شوكولاتية داكنة فخمة لنقاط البيع وأسعار
+                                الباقات، مع شريط خدمة العملاء المباشر.
                             </p>
 
                             <div class="web-tech-stack">
-                                <span class="web-tech-badge">Package Tables</span>
-                                <span class="web-tech-badge">WhatsApp Support</span>
-                                <span class="web-tech-badge">Speed Test Link</span>
-                                <span class="web-tech-badge">RouterOS v7 Ready</span>
+                                <span class="web-tech-badge">Clean Modern UI</span>
+                                <span class="web-tech-badge">4G Brand Colors</span>
+                                <span class="web-tech-badge">Package Pricing</span>
+                                <span class="web-tech-badge">Fast Loading</span>
                             </div>
 
                             <ul class="web-features-list">
-                                <li><i class="fa-solid fa-check"></i> جدول أسعار متناسق وجذاب يوضح حجم وسرعة كل باقة</li>
-                                <li><i class="fa-solid fa-check"></i> زر اتصال مباشر بالدعم الفني وطلب الكروت أونلاين</li>
-                                <li><i class="fa-solid fa-check"></i> صفحة خطأ (Error Page) تفاعلية توضح سبب انتهاء الرصيد</li>
+                                <li><i class="fa-solid fa-check"></i> تصميم منحني جذاب مع تباين ألوان عالي ومريح للعين
+                                </li>
+                                <li><i class="fa-solid fa-check"></i> أزرار سريعة لعرض أسعار الكروت ومواقع نقاط التوزيع
+                                </li>
+                                <li><i class="fa-solid fa-check"></i> شريط مخصص لرقم خدمة العملاء والمساعدة الفنية</li>
                             </ul>
 
                             <div class="web-card-actions">
-                                <a href="index.html#contact" class="btn btn-primary">
-                                    <i class="fa-solid fa-paper-plane"></i>
-                                    <span>طلب الواجهة لشبكتك</span>
+                                <button type="button" class="btn btn-primary"
+                                    onclick="openHotspotModal('img/hotspot_zain.png', 'واجهة شبكة ZAIN 4G اللاسلكية')">
+                                    <i class="fa-solid fa-expand"></i>
+                                    <span>معاينة مكبرة للواجهة</span>
+                                </button>
+                                <a href="https://wa.me/249962181777?text=مرحباً%20مهندس%20إبراهيم،%20أرغب%20في%20طلب%20واجهة%20تسجيل%20الدخول%20(ZAIN%204G)"
+                                    target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>طلب القالب</span>
                                 </a>
-                                <a href="project-mikrotik.html" class="btn btn-outline">
-                                    <i class="fa-solid fa-mobile-screen"></i>
-                                    <span>تطبيق الإدارة</span>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الواجهة 7: واجهة شبكة الجقري نت - الثيم البنفسجي الملكي
+                         ============================================================== -->
+                    <article class="web-card" data-category="cards">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-wifi" style="color: #a855f7; font-size: 0.7rem;"></i>
+                                <span>http://aljagary.net/wifi-login</span>
+                            </div>
+                        </div>
+
+                        <div class="hotspot-preview-box"
+                            onclick="openHotspotModal('img/hotspot_aljagary_net.png', 'واجهة شبكة الجقري نت - الثيم البنفسجي الملكي')">
+                            <span class="web-card-badge badge-demo">
+                                <i class="fa-solid fa-wifi"></i>
+                                <span>ثيم بنفسجي هادئ</span>
+                            </span>
+                            <img src="img/hotspot_aljagary_net.png" alt="واجهة شبكة الجقري نت - الثيم البنفسجي الملكي"
+                                loading="lazy">
+                            <div class="preview-hover-hint">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>انقر لتكبير الصورة</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">واجهات كروت كلاسيكية وأنيقة</span>
+                            <h2 class="web-card-title">واجهة شبكة الجقري نت (الثيم البنفسجي)</h2>
+                            <p class="web-card-desc">
+                                واجهة تسجيل دخول كلاسيكية تتألق بتدرج بنفسجي كحلي (Purple/Indigo Gradient) مريح للأعصاب
+                                مع أيقونة الواي فاي المميزة. تدعم المتغيرات التلقائية لراوتر مايكروتك RouterOS مع أزرار
+                                سريعة للأسعار ونقاط البيع ورقم تواصل فوري.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">Purple Gradient</span>
+                                <span class="web-tech-badge">RouterOS Native</span>
+                                <span class="web-tech-badge">Direct Contact</span>
+                                <span class="web-tech-badge">Ultra Lightweight</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> مظهر هادئ وأنيق بتدرج لوني انسيابي ومريح للعين
+                                </li>
+                                <li><i class="fa-solid fa-check"></i> متوافقة ومجهزة فوراً بمتغيرات RouterOS Hotspot
+                                </li>
+                                <li><i class="fa-solid fa-check"></i> أزرار بارزة لعرض الأسعار ونقاط البيع ورقم الدعم
+                                </li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <button type="button" class="btn btn-primary"
+                                    onclick="openHotspotModal('img/hotspot_aljagary_net.png', 'واجهة شبكة الجقري نت - الثيم البنفسجي')">
+                                    <i class="fa-solid fa-expand"></i>
+                                    <span>معاينة مكبرة للواجهة</span>
+                                </button>
+                                <a href="https://wa.me/249962181777?text=مرحباً%20مهندس%20إبراهيم،%20أرغب%20في%20طلب%20واجهة%20تسجيل%20الدخول%20(الجقري%20نت)"
+                                    target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>طلب القالب</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ==============================================================
+                         الواجهة 8: واجهة Alrekabi NET - السرعة والخفة الفائقة
+                         ============================================================== -->
+                    <article class="web-card" data-category="cards">
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <i class="fa-solid fa-bolt" style="color: #38bdf8; font-size: 0.7rem;"></i>
+                                <span>http://alrekabi.net/fast-login</span>
+                            </div>
+                        </div>
+
+                        <div class="hotspot-preview-box"
+                            onclick="openHotspotModal('img/hotspot_alrekabi.png', 'واجهة Alrekabi NET - السرعة والخفة الفائقة')">
+                            <span class="web-card-badge badge-demo">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>سرعة فائقة &lt; 50KB</span>
+                            </span>
+                            <img src="img/hotspot_alrekabi.png" alt="واجهة Alrekabi NET - السرعة والخفة الفائقة"
+                                loading="lazy">
+                            <div class="preview-hover-hint">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>انقر لتكبير الصورة</span>
+                            </div>
+                        </div>
+
+                        <div class="web-card-body">
+                            <span class="web-card-category">واجهات خفيفة وسريعة</span>
+                            <h2 class="web-card-title">واجهة Alrekabi NET (السرعة والخفة الفائقة)</h2>
+                            <p class="web-card-desc">
+                                تصميم كلاسيكي متطور يركز على الكفاءة العالية والسرعة القصوى في الاتصال. يمتاز بأيقونة
+                                الواي فاي البارزة وأزرار علوية دائرية سريعة للاتصال ومعرفة الأسعار، مع زرين مميزين
+                                لتسجيل الدخول بالكارت أو تجربة الإنترنت مجاناً، متوافق 100% مع كافة أجهزة المايكروتك دون
+                                استهلاك لموارد المعالج.
+                            </p>
+
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge">Ultra Lightweight CSS</span>
+                                <span class="web-tech-badge">Instant Router Load</span>
+                                <span class="web-tech-badge">Top Quick Actions</span>
+                                <span class="web-tech-badge">Free Trial Mode</span>
+                            </div>
+
+                            <ul class="web-features-list">
+                                <li><i class="fa-solid fa-check"></i> خفيفة جداً وحجم أقل من 50KB للتحميل اللحظي في أضعف
+                                    تغطية</li>
+                                <li><i class="fa-solid fa-check"></i> زر بارز لتسجيل الدخول وزر منفصل للدخول المجاني
+                                    التجريبي</li>
+                                <li><i class="fa-solid fa-check"></i> أزرار وصول سريع علوية دائرية للاتصال ومعرفة
+                                    الأسعار والمساعدة</li>
+                            </ul>
+
+                            <div class="web-card-actions">
+                                <button type="button" class="btn btn-primary"
+                                    onclick="openHotspotModal('img/hotspot_alrekabi.png', 'واجهة Alrekabi NET - السرعة والخفة الفائقة')">
+                                    <i class="fa-solid fa-expand"></i>
+                                    <span>معاينة مكبرة للواجهة</span>
+                                </button>
+                                <a href="https://wa.me/249962181777?text=مرحباً%20مهندس%20إبراهيم،%20أرغب%20في%20طلب%20واجهة%20تسجيل%20الدخول%20(Alrekabi%20NET)"
+                                    target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>طلب القالب</span>
                                 </a>
                             </div>
                         </div>
@@ -409,46 +879,10 @@
 
                 </div>
 
-                <!-- ==============================================================
-                     صندوق إرشادي: كيف تضيف واجهة جديدة إلى هذه الصفحة؟
-                     ============================================================== -->
-                <div class="dev-helper-box">
-                    <h3 class="dev-helper-title">
-                        <i class="fa-solid fa-circle-plus"></i>
-                        <span>كيف تضيف واجهة تسجيل دخول جديدة إلى هذه الصفحة؟</span>
-                    </h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">
-                        لإضافة واجهة جديدة قمت بتصميمها، افتح ملف <code>hotspot-templates.html</code> وانسخ النموذج أدناه وألصقه داخل الحاوية <code>id="web-projects-container"</code>:
-                    </p>
-                    <div class="dev-code-snippet">
-&lt;!-- نموذج واجهة هوت سبوت جديدة --&gt;
-&lt;article class="web-card" data-category="qr cards"&gt;
-    &lt;div class="browser-mockup-header"&gt;
-        &lt;div class="browser-dots"&gt;&lt;span class="browser-dot red"&gt;&lt;/span&gt;&lt;span class="browser-dot yellow"&gt;&lt;/span&gt;&lt;span class="browser-dot green"&gt;&lt;/span&gt;&lt;/div&gt;
-        &lt;div class="browser-address-bar"&gt;&lt;i class="fa-solid fa-wifi"&gt;&lt;/i&gt; &lt;span&gt;http://hotspot.local&lt;/span&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="web-card-preview"&gt;
-        &lt;img src="img/your-hotspot-screen.png" alt="اسم الواجهة"&gt;
-    &lt;/div&gt;
-    &lt;div class="web-card-body"&gt;
-        &lt;span class="web-card-category"&gt;تصنيف الواجهة&lt;/span&gt;
-        &lt;h2 class="web-card-title"&gt;اسم واجهة الهوت سبوت&lt;/h2&gt;
-        &lt;p class="web-card-desc"&gt;شرح ومميزات الواجهة وطريقة تسجيل الدخول...&lt;/p&gt;
-        &lt;div class="web-tech-stack"&gt;
-            &lt;span class="web-tech-badge"&gt;HTML5&lt;/span&gt;
-            &lt;span class="web-tech-badge"&gt;CSS3&lt;/span&gt;
-            &lt;span class="web-tech-badge"&gt;QR Code&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class="web-card-actions"&gt;
-            &lt;a href="رابط_المعاينة_أو_التحميل" target="_blank" class="btn btn-primary"&gt;معاينة الواجهة&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/article&gt;
-                    </div>
-                </div>
 
                 <!-- خطوات تركيب الواجهة على راوتر مايكروتك -->
-                <div style="margin-top: 4rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 1.5rem; padding: 2.5rem 2rem;">
+                <div
+                    style="margin-top: 4rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 1.5rem; padding: 2.5rem 2rem;">
                     <h2 style="font-size: 1.6rem; text-align: center; margin-bottom: 0.5rem;">
                         خطوات تثبيت أي واجهة على راوتر MikroTik
                     </h2>
@@ -461,7 +895,10 @@
                             <div class="step-number">1</div>
                             <div>
                                 <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">تحميل وفك الضغط</h3>
-                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">قم بتنزيل ملفات القالب وتأكد من وجود مجلد باسم <code>hotspot</code> يحتوي على ملفات <code>login.html</code> و <code>status.html</code>.</p>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">قم بتنزيل ملفات
+                                    القالب وتأكد من وجود مجلد باسم <code>hotspot</code> يحتوي على ملفات
+                                    <code>login.html</code> و <code>status.html</code>.
+                                </p>
                             </div>
                         </div>
 
@@ -469,7 +906,8 @@
                             <div class="step-number">2</div>
                             <div>
                                 <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">فتح برنامج Winbox</h3>
-                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">اتصل بالراوتر وافتح قائمة <strong>Files</strong> من القائمة الجانبية في Winbox.</p>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">اتصل بالراوتر
+                                    وافتح قائمة <strong>Files</strong> من القائمة الجانبية في Winbox.</p>
                             </div>
                         </div>
 
@@ -477,7 +915,10 @@
                             <div class="step-number">3</div>
                             <div>
                                 <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">سحب المجلد إلى الراوتر</h3>
-                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">اسحب مجلد <code>hotspot</code> وأفلته داخل قائمة Files (يمكنك تغيير اسمه إلى <code>hotspot-new</code>).</p>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">اسحب مجلد
+                                    <code>hotspot</code> وأفلته داخل قائمة Files (يمكنك تغيير اسمه إلى
+                                    <code>hotspot-new</code>).
+                                </p>
                             </div>
                         </div>
 
@@ -485,7 +926,10 @@
                             <div class="step-number">4</div>
                             <div>
                                 <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">تفعيل القالب في السيرفر</h3>
-                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">توجه إلى <strong>IP &gt; Hotspot &gt; Server Profiles</strong> واختر ملفك ثم عيّن <strong>HTML Directory</strong> إلى اسم المجلد الجديد.</p>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">توجه إلى
+                                    <strong>IP &gt; Hotspot &gt; Server Profiles</strong> واختر ملفك ثم عيّن
+                                    <strong>HTML Directory</strong> إلى اسم المجلد الجديد.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -497,7 +941,8 @@
                         هل تحتاج واجهة تسجيل دخول خاصة ومميزة لشبكتك؟
                     </h2>
                     <p style="max-width: 650px; margin: 0 auto 2rem; color: var(--text-secondary);">
-                        أقدم خدمات تصميم وتطوير واجهات شبكات مايكروتك مخصصة ومدمجة مع تطبيق MikroTik Manager Pro وتوليد كروت الشبكة بالباركود.
+                        أقدم خدمات تصميم وتطوير واجهات شبكات مايكروتك مخصصة ومدمجة مع تطبيق MikroTik Manager Pro وتوليد
+                        كروت الشبكة بالباركود.
                     </p>
                     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                         <a href="index.html#contact" class="btn btn-primary btn-large">
@@ -519,7 +964,8 @@
     <footer>
         <div class="container">
             <p data-i18n="footer_copy">&copy; 2026 إبراهيم عبدالقادر. جميع الحقوق محفوظة.</p>
-            <div style="margin-top: 1rem; display: flex; gap: 1.25rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <div
+                style="margin-top: 1rem; display: flex; gap: 1.25rem; justify-content: center; align-items: center; flex-wrap: wrap;">
                 <a href="index.html" class="footer-link">الرئيسية</a>
                 <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
                 <a href="websites.html" class="footer-link">مواقع الويب</a>
@@ -531,8 +977,50 @@
         </div>
     </footer>
 
+    <!-- Lightbox Modal for Full Image Preview -->
+    <div class="preview-modal" id="preview-modal" onclick="closeHotspotModal(event)">
+        <div class="preview-modal-content" onclick="event.stopPropagation()">
+            <button type="button" class="preview-modal-close" onclick="closeHotspotModal()" aria-label="إغلاق المعاينة">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img class="preview-modal-img" id="modal-img" src="" alt="">
+            <div class="preview-modal-caption" id="modal-caption"></div>
+        </div>
+    </div>
+
     <!-- Main JavaScript -->
     <script src="js/script.js"></script>
+    <script>
+        function openHotspotModal(imgSrc, title) {
+            const modal = document.getElementById('preview-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalCaption = document.getElementById('modal-caption');
+            if (modal && modalImg) {
+                modalImg.src = imgSrc;
+                modalImg.alt = title;
+                if (modalCaption) modalCaption.textContent = title;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeHotspotModal(e) {
+            if (e && e.target && e.target.closest('.preview-modal-content') && !e.target.closest('.preview-modal-close')) {
+                return;
+            }
+            const modal = document.getElementById('preview-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeHotspotModal();
+            }
+        });
+    </script>
 </body>
 
 </html>
