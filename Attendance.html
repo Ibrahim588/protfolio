@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سجل الحضور والغياب - بالتقويم الهجري</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* Fixed A4 Landscape Page Container - Impossible to Overflow */
+        .sheet-page {
+            width: 297mm;
+            height: 205mm;
+            max-height: 205mm;
+            overflow: hidden;
+            padding: 7mm 10mm;
+            margin: 0 auto 25px auto;
+            background: white;
+            box-sizing: border-box;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+            page-break-after: always !important;
+            break-after: page !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            html,
+            body {
+                background: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 297mm;
+            }
+
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+
+            .sheet-page {
+                width: 297mm !important;
+                height: 210mm !important;
+                max-height: 210mm !important;
+                margin: 0 !important;
+                padding: 7mm 10mm !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                page-break-after: always !important;
+                break-after: page !important;
+            }
+        }
+
+        /* Attendance Table Styling */
+        .attendance-table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1.5px solid #1e293b;
+        }
+
+        .attendance-table th,
+        .attendance-table td {
+            border: 1px solid #334155;
+            text-align: center;
+        }
+
+        /* Week Header Color Palettes matching photo */
+        .week-c0 {
+            background-color: #99f6e4 !important;
+            color: #042f2e;
+        }
+
+        /* Green/Mint */
+        .week-c1 {
+            background-color: #cbd5e1 !important;
+            color: #0f172a;
+        }
+
+        /* Gray */
+        .week-c2 {
+            background-color: #fed7aa !important;
+            color: #7c2d12;
+        }
+
+        /* Peach/Orange */
+        .week-c3 {
+            background-color: #fef08a !important;
+            color: #713f12;
+        }
+
+        /* Light Yellow */
+        .week-c4 {
+            background-color: #e9d5ff !important;
+            color: #581c87;
+        }
+
+        /* Lavender */
+        .week-c5 {
+            background-color: #fed7e2 !important;
+            color: #831843;
+        }
+
+        /* Rose */
+
+        .exporting-pdf .no-print {
+            display: none !important;
+        }
+
+        .week-header-cell {
+            position: relative;
+        }
+
+        .week-header-cell:hover .week-delete-btn {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .week-delete-btn {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s ease-in-out;
+        }
+
+        .day-header-cell {
+            position: relative;
+        }
+
+        .day-header-cell:hover .day-delete-btn {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .day-delete-btn {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-200 text-slate-800 min-h-screen">
+
+    <!-- Control Header (No Print) -->
+    <header class="no-print bg-white border-b border-slate-300 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 rounded-xl bg-emerald-700 text-white flex items-center justify-center text-xl shadow">
+                    <i class="fa-solid fa-clipboard-user"></i>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-lg text-slate-800">سجل الحضور والغياب (هجري - بدون تداخل)</h1>
+                    <p class="text-xs text-slate-500">تقسيم تلقائي للأسابيع والأسماء على صفحات A4 مستقلة</p>
+                </div>
+            </div>
+
+            <div class="flex items-center flex-wrap gap-2">
+                <button onclick="openWeeksModal()"
+                    class="px-3 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition shadow">
+                    <i class="fa-solid fa-calendar-xmark"></i> تعديل الأسابيع والأيام / الإجازات
+                </button>
+                <button onclick="openBulkModal()"
+                    class="px-3 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-users-line"></i> إضافة جماعية
+                </button>
+                <button onclick="window.print()"
+                    class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs sm:text-sm font-bold flex items-center gap-1.5 transition shadow-md">
+                    <i class="fa-solid fa-print"></i> طباعة / حفظ كـ PDF
+                </button>
+                <button onclick="exportToPdfFile()"
+                    class="px-3 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition shadow">
+                    <i class="fa-solid fa-file-pdf"></i> تحميل PDF
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
+
+        <!-- Configuration Panel -->
+        <div class="no-print grid grid-cols-1 md:grid-cols-3 gap-5">
+
+            <!-- Names Box -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                <div class="flex items-center justify-between mb-2.5">
+                    <h2 class="font-bold text-slate-800 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-users text-emerald-700"></i> قائمة الأسماء
+                        <span id="nameCountBadge"
+                            class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">0</span>
+                    </h2>
+                    <button onclick="clearAllNames()" class="text-xs text-red-500 hover:text-red-700 font-semibold">
+                        <i class="fa-regular fa-trash-can"></i> مسح الكل
+                    </button>
+                </div>
+
+                <form onsubmit="addSingleName(event)" class="flex gap-2 mb-2.5">
+                    <input type="text" id="singleNameInput" placeholder="أدخل اسم الطالب..."
+                        class="flex-1 px-3 py-1.5 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-emerald-600">
+                    <button type="submit"
+                        class="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-lg">
+                        إضافة
+                    </button>
+                </form>
+
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <ul id="namesList" class="max-h-52 overflow-y-auto divide-y divide-slate-100 text-xs"></ul>
+                </div>
+            </div>
+
+            <!-- Dates & Page Settings -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="font-bold text-slate-800 text-sm flex items-center gap-2 mb-3">
+                    <i class="fa-solid fa-calendar-days text-emerald-700"></i> إعدادات التاريخ الهجري والتقسيم
+                </h2>
+
+                <div class="space-y-2.5 text-xs">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">تاريخ بداية الكشف (هجري):</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <span class="text-slate-500 block text-[10px]">اليوم:</span>
+                                <input type="number" id="hijriDay" min="1" max="30" value="1"
+                                    onchange="onHijriDateChange()"
+                                    class="w-full px-2 py-1 border border-slate-300 rounded-lg text-xs font-bold text-center">
+                            </div>
+                            <div>
+                                <span class="text-slate-500 block text-[10px]">الشهر:</span>
+                                <select id="hijriMonth" onchange="onHijriDateChange()"
+                                    class="w-full px-1 py-1 border border-slate-300 rounded-lg text-xs font-bold">
+                                    <option value="1">1 - محرم</option>
+                                    <option value="2">2 - صفر</option>
+                                    <option value="3" selected>3 - ربيع الأول</option>
+                                    <option value="4">4 - ربيع الآخر</option>
+                                    <option value="5">5 - جمادى الأولى</option>
+                                    <option value="6">6 - جمادى الآخرة</option>
+                                    <option value="7">7 - رجب</option>
+                                    <option value="8">8 - شعبان</option>
+                                    <option value="9">9 - رمضان</option>
+                                    <option value="10">10 - شوال</option>
+                                    <option value="11">11 - ذو القعدة</option>
+                                    <option value="12">12 - ذو الحجة</option>
+                                </select>
+                            </div>
+                            <div>
+                                <span class="text-slate-500 block text-[10px]">السنة:</span>
+                                <input type="number" id="hijriYear" value="1448" onchange="onHijriDateChange()"
+                                    class="w-full px-2 py-1 border border-slate-300 rounded-lg text-xs font-bold text-center">
+                            </div>
+                        </div>
+
+                        <!-- Month Days Info & Quick Customizer Button -->
+                        <div class="mt-2 pt-2 border-t border-slate-100">
+                            <button type="button" onclick="openMonthDaysModal()"
+                                class="w-full py-1.5 px-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 rounded-lg text-[11px] font-bold flex items-center justify-between transition shadow-xs">
+                                <span class="flex items-center gap-1.5">
+                                    <i class="fa-solid fa-moon text-emerald-700"></i>
+                                    <span>أيام الشهر:</span>
+                                    <span id="selectedMonthInfoBadge" class="bg-emerald-700 text-white text-[10px] px-2 py-0.5 rounded-full font-bold"></span>
+                                </span>
+                                <span class="text-emerald-700 flex items-center gap-1 text-[10px] underline font-semibold">
+                                    <i class="fa-solid fa-sliders"></i> تعديل أيام الأشهر (29/30)
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">المدة الإجمالية:</label>
+                            <select id="durationWeeks" onchange="renderAllPages()"
+                                class="w-full px-2 py-1.5 border border-slate-300 rounded-lg text-xs bg-white">
+                                <option value="4">شهر (4 أسابيع)</option>
+                                <option value="8">شهران (8 أسابيع)</option>
+                                <option value="12">3 أشهر (12 أسبوع)</option>
+                                <option value="16">4 أشهر (16 أسبوع)</option>
+                                <option value="20">5 أشهر (20 أسبوع)</option>
+                                <option value="24" selected>6 أشهر (24 أسبوع)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">عدد الطلاب بالصفحة:</label>
+                            <select id="studentsPerPage" onchange="renderAllPages()"
+                                class="w-full px-2 py-1.5 border border-emerald-500 rounded-lg text-xs font-bold bg-emerald-50 text-emerald-900">
+                                <option value="15">15 طالباً (مريح جداً)</option>
+                                <option value="18" selected>18 طالباً (المثالي لـ A4)</option>
+                                <option value="20">20 طالباً</option>
+                                <option value="25">25 طالباً (مضغوط)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">الأسابيع بكل ورقة:</label>
+                        <select id="weeksPerPage" onchange="renderAllPages()"
+                            class="w-full px-2 py-1.5 border border-slate-300 rounded-lg text-xs bg-white">
+                            <option value="4" selected>4 أسابيع (مثل الصورة تماماً)</option>
+                            <option value="5">5 أسابيع</option>
+                        </select>
+                    </div>
+
+                    <div class="pt-2.5 border-t border-slate-200">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <label class="font-bold text-slate-700 text-[11px]">إدارة الإجازات (الأسابيع والأيام):</label>
+                            <span id="excludedWeeksBadge"
+                                class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold">
+                                لا توجد إجازات مستبعدة
+                            </span>
+                        </div>
+                        <div class="flex gap-1.5">
+                            <button type="button" onclick="openWeeksModal()"
+                                class="flex-1 py-1.5 px-2.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition shadow-sm">
+                                <i class="fa-solid fa-calendar-xmark text-amber-600"></i> تعديل وحذف الأسابيع والأيام
+                            </button>
+                            <button type="button" id="resetWeeksBtn" onclick="resetAllExcludedHolidays()"
+                                class="hidden px-2.5 py-1.5 bg-slate-100 hover:bg-red-50 hover:text-red-700 text-slate-600 border border-slate-200 rounded-lg text-xs font-semibold transition"
+                                title="استعادة جميع الأسابيع والأيام المحذوفة">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header Information -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="font-bold text-slate-800 text-sm flex items-center gap-2 mb-3">
+                    <i class="fa-solid fa-pen-nib text-emerald-700"></i> بيانات السجل والترويسة
+                </h2>
+
+                <div class="space-y-2 text-xs">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">سجل الحضور والغياب للصف / :</label>
+                        <input type="text" id="headerClass" value="الثالث / الثانوي علمي 1"
+                            oninput="saveHeader(); renderAllPages();"
+                            class="w-full px-2.5 py-1 border border-slate-300 rounded-lg font-semibold text-xs">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">المادة :</label>
+                        <input type="text" id="headerSubject" value="الرياضيات"
+                            oninput="saveHeader(); renderAllPages();"
+                            class="w-full px-2.5 py-1 border border-slate-300 rounded-lg font-semibold text-xs">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">الفصل الدراسي / العام :</label>
+                        <input type="text" id="headerTerm" value="الفصل الدراسي الأول لعام 1446هـ"
+                            oninput="saveHeader(); renderAllPages();"
+                            class="w-full px-2.5 py-1 border border-slate-300 rounded-lg font-semibold text-xs">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">المعلم :</label>
+                        <input type="text" id="headerTeacher" value="أستاذ المادة"
+                            oninput="saveHeader(); renderAllPages();"
+                            class="w-full px-2.5 py-1 border border-slate-300 rounded-lg font-semibold text-xs">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PRINTABLE CONTAINER: Exact Independent Sheets -->
+        <div id="sheetsContainer" class="space-y-8">
+            <!-- Injected by JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- Bulk Names Modal -->
+    <div id="bulkModal"
+        class="no-print fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="font-bold text-lg text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-paste text-emerald-700"></i> إضافة الأسماء دفعة واحدة
+                </h3>
+                <button onclick="closeBulkModal()" class="text-slate-400 hover:text-slate-600 text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+                الصق قائمة الأسماء هنا (كل اسم في سطر جديد). تدعم اللصق المباشر من Excel أو Word:
+            </p>
+            <textarea id="bulkNamesTextarea" rows="8"
+                placeholder="أحمد غالي بن عطيه الزهراني&#10;أنس عبد الكريم عمر الزهراني&#10;خالد أحمد كيد الزهراني..."
+                class="w-full p-3 border border-slate-300 rounded-xl text-sm font-sans focus:ring-2 focus:ring-emerald-600"></textarea>
+
+            <div class="flex justify-end gap-2 pt-2">
+                <button onclick="closeBulkModal()"
+                    class="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg text-sm font-semibold">إلغاء</button>
+                <button onclick="submitBulkNames()"
+                    class="px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-sm font-semibold shadow">إضافة
+                    الأسماء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weeks Management & Holidays Modal -->
+    <div id="weeksModal"
+        class="no-print fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl flex flex-col max-h-[90vh] space-y-4">
+            <!-- Header -->
+            <div class="flex items-center justify-between border-b pb-3">
+                <div class="flex items-center gap-2.5">
+                    <div
+                        class="w-9 h-9 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-calendar-xmark"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800">إدارة أسابيع وأيام السجل (تحديد الإجازات)</h3>
+                        <p class="text-xs text-slate-500">حذف واستبعاد أسابيع وأيام الإجازات الرسمية من كشف الحضور بنقرة واحدة</p>
+                    </div>
+                </div>
+                <button onclick="closeWeeksModal()" class="text-slate-400 hover:text-slate-600 text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Toolbar & Options -->
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 text-xs">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <label class="flex items-center gap-2 cursor-pointer font-bold text-slate-700 select-none">
+                        <input type="checkbox" id="renumberSequentiallyCheckbox"
+                            onchange="toggleRenumberSequentially(this.checked)"
+                            class="rounded text-emerald-600 focus:ring-emerald-500 w-4 h-4">
+                        <span>إعادة ترقيم مسميات الأسابيع تسلسلياً (الأول، الثاني...) بعد استبعاد الإجازات</span>
+                    </label>
+
+                    <button type="button" onclick="resetAllExcludedHolidays()"
+                        class="px-2.5 py-1 text-slate-600 hover:text-red-700 hover:bg-red-50 rounded-lg text-xs font-semibold transition border border-slate-200">
+                        <i class="fa-solid fa-rotate-left ml-1"></i> استعادة جميع الأسابيع والأيام
+                    </button>
+                </div>
+
+                <div id="weeksStatsBar"
+                    class="flex items-center gap-4 text-slate-600 pt-1 border-t border-slate-200 text-[11px]">
+                    <!-- Injected dynamically -->
+                </div>
+            </div>
+
+            <!-- Weeks List (Scrollable) -->
+            <div class="flex-1 overflow-y-auto pr-1 border border-slate-200 rounded-xl divide-y divide-slate-100 max-h-[50vh]"
+                id="weeksModalList">
+                <!-- Injected dynamically by renderWeeksModalList() -->
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="flex justify-between items-center pt-2 border-t border-slate-200 text-xs">
+                <span class="text-slate-500">يتم تطبيق وحفظ التغييرات فوراً في السجل.</span>
+                <button onclick="closeWeeksModal()"
+                    class="px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-sm font-semibold shadow">
+                    تم / حفظ التعديلات
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hijri Month Days Customizer Modal -->
+    <div id="monthDaysModal"
+        class="no-print fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl flex flex-col max-h-[90vh] space-y-4">
+            <!-- Header -->
+            <div class="flex items-center justify-between border-b pb-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800" id="monthDaysModalTitle">أيام الأشهر الهجرية لسنة 1448 هـ</h3>
+                        <p class="text-xs text-slate-500">حساب تقويم أم القرى الدقيق (تختلف الأشهر بين 29 و 30 يوماً)</p>
+                    </div>
+                </div>
+                <button onclick="closeMonthDaysModal()" class="text-slate-400 hover:text-slate-600 text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Banner / Info -->
+            <div class="bg-emerald-50/70 border border-emerald-200 rounded-xl p-3 text-xs text-emerald-950 flex items-start gap-2.5 leading-relaxed">
+                <i class="fa-solid fa-circle-info text-emerald-700 text-base mt-0.5"></i>
+                <div>
+                    <span class="font-bold">تقويم أم القرى الرسمي المعتمد (صلاتك):</span>
+                    <p class="text-emerald-900 text-[11px] mt-0.5">
+                        عدد أيام الأشهر القمرية ليست ثابتة 30 يوماً؛ بل تتفاوت بين <strong>29 يوماً</strong> و <strong>30 يوماً</strong> وتتغير من سنة لأخرى. يتم حسابها تلقائياً للسنة المحددة. يمكنك أيضاً تعديل أو تبديل عدد أيام أي شهر يدوياً بنقرة زر.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Months Grid -->
+            <div class="flex-1 overflow-y-auto pr-1 border border-slate-200 rounded-xl p-3 max-h-[50vh]">
+                <div id="monthsCardsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+                    <!-- Injected dynamically by renderMonthDaysModalList() -->
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="flex flex-wrap justify-between items-center gap-2 pt-2 border-t border-slate-200 text-xs">
+                <div class="flex items-center gap-3">
+                    <span id="yearTotalDaysBadge" class="font-bold text-slate-700"></span>
+                    <button type="button" onclick="resetCurrentYearMonthDays()"
+                        class="px-2.5 py-1 text-slate-600 hover:text-red-700 hover:bg-red-50 rounded-lg text-xs font-semibold transition border border-slate-200">
+                        <i class="fa-solid fa-rotate-left ml-1"></i> استعادة الافتراضي (أم القرى)
+                    </button>
+                </div>
+                <button onclick="closeMonthDaysModal()"
+                    class="px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-sm font-semibold shadow">
+                    تم / حفظ التعديلات
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer"
+        class="no-print fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <script>
+        const STORAGE_KEY_NAMES = 'att_hijri_names_v3';
+        const STORAGE_KEY_HEADER = 'att_hijri_header_v3';
+        const STORAGE_KEY_EXCLUDED = 'att_hijri_excluded_weeks_v3';
+        const STORAGE_KEY_EXCLUDED_DAYS = 'att_hijri_excluded_days_v3';
+        const STORAGE_KEY_WEEK_SETTINGS = 'att_hijri_week_settings_v3';
+        const STORAGE_KEY_MONTH_DAYS = 'att_hijri_month_days_v3';
+        const STORAGE_KEY_DATE = 'att_hijri_date_v3';
+
+        const WEEKDAYS = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس'];
+        const HIJRI_MONTH_NAMES = [
+            'محرم', 'صفر', 'ربيع الأول', 'ربيع الآخر',
+            'جمادى الأولى', 'جمادى الآخرة', 'رجب', 'شعبان',
+            'رمضان', 'شوال', 'ذو القعدة', 'ذو الحجة'
+        ];
+        const WEEK_TITLES = [
+            'الأسبوع الأول', 'الأسبوع الثاني', 'الأسبوع الثالث', 'الأسبوع الرابع',
+            'الأسبوع الخامس', 'الأسبوع السادس', 'الأسبوع السابع', 'الأسبوع الثامن',
+            'الأسبوع التاسع', 'الأسبوع العاشر', 'الأسبوع الحادي عشر', 'الأسبوع الثاني عشر',
+            'الأسبوع الثالث عشر', 'الأسبوع الرابع عشر', 'الأسبوع الخامس عشر', 'الأسبوع السادس عشر',
+            'الأسبوع السابع عشر', 'الأسبوع الثامن عشر', 'الأسبوع التاسع عشر', 'الأسبوع العشرون',
+            'الأسبوع الحادي والعشرون', 'الأسبوع الثاني والعشرون', 'الأسبوع الثالث والعشرون', 'الأسبوع الرابع والعشرون'
+        ];
+
+        let names = [];
+        let excludedWeeks = [];
+        let excludedDays = [];
+        let renumberSequentially = true;
+        let customWeekTitles = {};
+        let customMonthDays = {};
+        const cachedUmmAlQuraDays = {};
+
+        function getHijriInputs() {
+            const startDay = parseInt(document.getElementById('hijriDay').value) || 1;
+            const startMonth = parseInt(document.getElementById('hijriMonth').value) || 1;
+            const startYear = parseInt(document.getElementById('hijriYear').value) || 1448;
+            const totalWeeks = parseInt(document.getElementById('durationWeeks').value) || 24;
+            return { startDay, startMonth, startYear, totalWeeks };
+        }
+
+        function detectTodayHijri() {
+            try {
+                const today = new Date();
+                const formatter = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura', {
+                    day: 'numeric',
+                    month: 'numeric',
+                    year: 'numeric'
+                });
+                const parts = formatter.formatToParts(today);
+                let d = 1, m = 1, y = 1448;
+                parts.forEach(p => {
+                    if (p.type === 'day') d = parseInt(p.value);
+                    if (p.type === 'month') m = parseInt(p.value);
+                    if (p.type === 'year') y = parseInt(p.value);
+                });
+                document.getElementById('hijriDay').value = d;
+                document.getElementById('hijriMonth').value = m;
+                document.getElementById('hijriYear').value = y;
+            } catch (e) {
+                document.getElementById('hijriDay').value = 1;
+                document.getElementById('hijriMonth').value = 1;
+                document.getElementById('hijriYear').value = 1448;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            detectTodayHijri();
+            loadData();
+            updateDayInputLimits();
+            updateMonthDaysBadge();
+            renderNamesList();
+            updateExcludedWeeksBadge();
+            renderAllPages();
+        });
+
+        function loadData() {
+            const savedDate = localStorage.getItem(STORAGE_KEY_DATE);
+            if (savedDate) {
+                try {
+                    const dObj = JSON.parse(savedDate);
+                    if (dObj.day) document.getElementById('hijriDay').value = dObj.day;
+                    if (dObj.month) document.getElementById('hijriMonth').value = dObj.month;
+                    if (dObj.year) document.getElementById('hijriYear').value = dObj.year;
+                } catch (e) { }
+            }
+
+            const savedMonthDays = localStorage.getItem(STORAGE_KEY_MONTH_DAYS);
+            if (savedMonthDays) {
+                try { customMonthDays = JSON.parse(savedMonthDays); } catch (e) { customMonthDays = {}; }
+            }
+
+            const savedNames = localStorage.getItem(STORAGE_KEY_NAMES);
+            if (savedNames) {
+                try { names = JSON.parse(savedNames); } catch (e) { names = []; }
+            } else {
+                // Initial list from user's image
+                names = [
+                    "أحمد غالي بن عطيه الزهراني",
+                    "أنس عبد الكريم عمر الزهراني",
+                    "خالد أحمد كيد الزهراني",
+                    "ريان عليان معلي الزهراني",
+                    "صالح إبراهيم صالح الزهراني",
+                    "عبد الرحمن مساعد الزهراني",
+                    "عبد العزيز كدحيسنة الزهراني"
+                ];
+                saveNames();
+            }
+
+            const savedHeader = localStorage.getItem(STORAGE_KEY_HEADER);
+            if (savedHeader) {
+                try {
+                    const h = JSON.parse(savedHeader);
+                    if (h.cls) document.getElementById('headerClass').value = h.cls;
+                    if (h.sub) document.getElementById('headerSubject').value = h.sub;
+                    if (h.trm) document.getElementById('headerTerm').value = h.trm;
+                    if (h.tch) document.getElementById('headerTeacher').value = h.tch;
+                } catch (e) { }
+            }
+
+            const savedExcluded = localStorage.getItem(STORAGE_KEY_EXCLUDED);
+            if (savedExcluded) {
+                try { excludedWeeks = JSON.parse(savedExcluded); } catch (e) { excludedWeeks = []; }
+            }
+
+            const savedExcludedDays = localStorage.getItem(STORAGE_KEY_EXCLUDED_DAYS);
+            if (savedExcludedDays) {
+                try { excludedDays = JSON.parse(savedExcludedDays); } catch (e) { excludedDays = []; }
+            }
+
+            const savedWeekSettings = localStorage.getItem(STORAGE_KEY_WEEK_SETTINGS);
+            if (savedWeekSettings) {
+                try {
+                    const ws = JSON.parse(savedWeekSettings);
+                    if (ws.renumberSequentially !== undefined) renumberSequentially = ws.renumberSequentially;
+                    if (ws.customTitles) customWeekTitles = ws.customTitles;
+                } catch (e) { }
+            }
+        }
+
+        function saveNames() {
+            localStorage.setItem(STORAGE_KEY_NAMES, JSON.stringify(names));
+            document.getElementById('nameCountBadge').textContent = names.length;
+        }
+
+        function saveHeader() {
+            const h = {
+                cls: document.getElementById('headerClass').value,
+                sub: document.getElementById('headerSubject').value,
+                trm: document.getElementById('headerTerm').value,
+                tch: document.getElementById('headerTeacher').value
+            };
+            localStorage.setItem(STORAGE_KEY_HEADER, JSON.stringify(h));
+        }
+
+        function saveHolidaySettings() {
+            localStorage.setItem(STORAGE_KEY_EXCLUDED, JSON.stringify(excludedWeeks));
+            localStorage.setItem(STORAGE_KEY_EXCLUDED_DAYS, JSON.stringify(excludedDays));
+            localStorage.setItem(STORAGE_KEY_WEEK_SETTINGS, JSON.stringify({
+                renumberSequentially: renumberSequentially,
+                customTitles: customWeekTitles
+            }));
+            updateExcludedWeeksBadge();
+        }
+
+        function saveWeekSettings() {
+            saveHolidaySettings();
+        }
+
+        function saveDateSettings() {
+            const dObj = {
+                day: parseInt(document.getElementById('hijriDay').value) || 1,
+                month: parseInt(document.getElementById('hijriMonth').value) || 1,
+                year: parseInt(document.getElementById('hijriYear').value) || 1448
+            };
+            localStorage.setItem(STORAGE_KEY_DATE, JSON.stringify(dObj));
+        }
+
+        function onHijriDateChange() {
+            saveDateSettings();
+            updateDayInputLimits();
+            updateMonthDaysBadge();
+            renderAllPages();
+            if (!document.getElementById('weeksModal').classList.contains('hidden')) {
+                renderWeeksModalList();
+            }
+            if (!document.getElementById('monthDaysModal').classList.contains('hidden')) {
+                renderMonthDaysModalList();
+            }
+        }
+
+        function updateDayInputLimits() {
+            const y = parseInt(document.getElementById('hijriYear').value) || 1448;
+            const m = parseInt(document.getElementById('hijriMonth').value) || 1;
+            const maxDays = getDaysInHijriMonth(y, m);
+            const dayInput = document.getElementById('hijriDay');
+            if (dayInput) {
+                dayInput.max = maxDays;
+                if (parseInt(dayInput.value) > maxDays) {
+                    dayInput.value = maxDays;
+                    saveDateSettings();
+                }
+            }
+        }
+
+        function updateMonthDaysBadge() {
+            const y = parseInt(document.getElementById('hijriYear').value) || 1448;
+            const m = parseInt(document.getElementById('hijriMonth').value) || 1;
+            const maxDays = getDaysInHijriMonth(y, m);
+            const mName = HIJRI_MONTH_NAMES[m - 1] || `شهر ${m}`;
+            const badge = document.getElementById('selectedMonthInfoBadge');
+            if (badge) {
+                badge.textContent = `${mName}: ${maxDays} يوماً`;
+            }
+        }
+
+        function updateExcludedWeeksBadge() {
+            const badge = document.getElementById('excludedWeeksBadge');
+            const resetBtn = document.getElementById('resetWeeksBtn');
+            const totalWeeks = parseInt(document.getElementById('durationWeeks').value) || 24;
+            const currentExcludedWeeksCount = excludedWeeks.filter(idx => idx < totalWeeks).length;
+            const currentExcludedDaysCount = excludedDays.length;
+
+            if (badge) {
+                if (currentExcludedWeeksCount > 0 || currentExcludedDaysCount > 0) {
+                    const parts = [];
+                    if (currentExcludedWeeksCount > 0) parts.push(`${currentExcludedWeeksCount} أسبوع`);
+                    if (currentExcludedDaysCount > 0) parts.push(`${currentExcludedDaysCount} يوم`);
+                    badge.textContent = `تم استبعاد (${parts.join(' + ')}) كإجازة`;
+                    badge.className = 'text-[10px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold';
+                } else {
+                    badge.textContent = `${totalWeeks} أسبوع دراسي (لا توجد إجازات)`;
+                    badge.className = 'text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold';
+                }
+            }
+            if (resetBtn) {
+                if (currentExcludedWeeksCount > 0 || currentExcludedDaysCount > 0) {
+                    resetBtn.classList.remove('hidden');
+                } else {
+                    resetBtn.classList.add('hidden');
+                }
+            }
+        }
+
+        function addSingleName(e) {
+            e.preventDefault();
+            const input = document.getElementById('singleNameInput');
+            const val = input.value.trim();
+            if (val) {
+                names.push(val);
+                saveNames();
+                renderNamesList();
+                renderAllPages();
+                input.value = '';
+            }
+        }
+
+        function deleteName(idx) {
+            if (confirm(`حذف الاسم: "${names[idx]}"؟`)) {
+                names.splice(idx, 1);
+                saveNames();
+                renderNamesList();
+                renderAllPages();
+            }
+        }
+
+        function clearAllNames() {
+            if (confirm('هل أنت متأكد من مسح جميع الأسماء؟')) {
+                names = [];
+                saveNames();
+                renderNamesList();
+                renderAllPages();
+            }
+        }
+
+        function renderNamesList() {
+            const list = document.getElementById('namesList');
+            document.getElementById('nameCountBadge').textContent = names.length;
+            list.innerHTML = '';
+            if (names.length === 0) {
+                list.innerHTML = `<li class="p-3 text-center text-xs text-slate-400">لا توجد أسماء مسجلة حالياً.</li>`;
+                return;
+            }
+            names.forEach((name, i) => {
+                const li = document.createElement('li');
+                li.className = 'px-3 py-1.5 flex items-center justify-between hover:bg-slate-50 transition';
+                li.innerHTML = `
+          <span class="font-medium text-slate-700 text-xs">
+            <span class="text-slate-400 font-bold ml-1">${i + 1}.</span> ${name}
+          </span>
+          <button onclick="deleteName(${i})" class="text-slate-400 hover:text-red-500 text-xs p-1" title="حذف">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        `;
+                list.appendChild(li);
+            });
+        }
+
+        function openBulkModal() {
+            document.getElementById('bulkModal').classList.remove('hidden');
+            document.getElementById('bulkNamesTextarea').focus();
+        }
+        function closeBulkModal() {
+            document.getElementById('bulkModal').classList.add('hidden');
+            document.getElementById('bulkNamesTextarea').value = '';
+        }
+        function submitBulkNames() {
+            const text = document.getElementById('bulkNamesTextarea').value;
+            const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+            if (lines.length > 0) {
+                names = names.concat(lines);
+                saveNames();
+                renderNamesList();
+                renderAllPages();
+            }
+            closeBulkModal();
+        }
+
+        // Weeks & Holidays Modal Management
+        function openWeeksModal() {
+            const checkbox = document.getElementById('renumberSequentiallyCheckbox');
+            if (checkbox) checkbox.checked = renumberSequentially;
+            renderWeeksModalList();
+            document.getElementById('weeksModal').classList.remove('hidden');
+        }
+
+        function closeWeeksModal() {
+            document.getElementById('weeksModal').classList.add('hidden');
+        }
+
+        function toggleRenumberSequentially(checked) {
+            renumberSequentially = checked;
+            saveWeekSettings();
+            renderWeeksModalList();
+            renderAllPages();
+        }
+
+        function toggleWeekExcluded(weekIndex) {
+            const idx = excludedWeeks.indexOf(weekIndex);
+            if (idx > -1) {
+                excludedWeeks.splice(idx, 1);
+            } else {
+                excludedWeeks.push(weekIndex);
+            }
+            saveHolidaySettings();
+            renderWeeksModalList();
+            renderAllPages();
+        }
+
+        function toggleDayExcluded(dayId) {
+            const idx = excludedDays.indexOf(dayId);
+            if (idx > -1) {
+                excludedDays.splice(idx, 1);
+            } else {
+                excludedDays.push(dayId);
+            }
+            saveHolidaySettings();
+            renderWeeksModalList();
+            renderAllPages();
+        }
+
+        function quickExcludeWeek(weekIndex) {
+            const { startDay, startMonth, startYear, totalWeeks } = getHijriInputs();
+            const allWeeks = generateHijriWeeks(startDay, startMonth, startYear, totalWeeks);
+            const targetWeek = allWeeks.find(w => w.index === weekIndex);
+            const title = targetWeek ? targetWeek.title : `الأسبوع ${weekIndex + 1}`;
+
+            if (!excludedWeeks.includes(weekIndex)) {
+                excludedWeeks.push(weekIndex);
+                saveHolidaySettings();
+                renderAllPages();
+
+                showToast(`تم حذف واستبعاد "${title}" كإجازة`, () => {
+                    // Undo callback
+                    const pos = excludedWeeks.indexOf(weekIndex);
+                    if (pos > -1) excludedWeeks.splice(pos, 1);
+                    saveHolidaySettings();
+                    renderAllPages();
+                });
+            }
+        }
+
+        function quickExcludeDay(dayId) {
+            const { startDay, startMonth, startYear, totalWeeks } = getHijriInputs();
+            const allWeeks = generateHijriWeeks(startDay, startMonth, startYear, totalWeeks);
+
+            let foundDay = null;
+            for (const w of allWeeks) {
+                foundDay = w.allDays.find(d => d.id === dayId);
+                if (foundDay) break;
+            }
+
+            const dayTitle = foundDay ? `${foundDay.name} (${foundDay.dateStr})` : 'اليوم المحدد';
+
+            if (!excludedDays.includes(dayId)) {
+                excludedDays.push(dayId);
+                saveHolidaySettings();
+                renderAllPages();
+
+                showToast(`تم حذف واستبعاد "${dayTitle}" كإجازة`, () => {
+                    // Undo callback
+                    const pos = excludedDays.indexOf(dayId);
+                    if (pos > -1) excludedDays.splice(pos, 1);
+                    saveHolidaySettings();
+                    renderAllPages();
+                });
+            }
+        }
+
+        function resetAllExcludedWeeks() {
+            resetAllExcludedHolidays();
+        }
+
+        function resetAllExcludedHolidays() {
+            if (excludedWeeks.length === 0 && excludedDays.length === 0) return;
+            if (confirm('هل تريد استعادة جميع أسابيع وأيام الإجازات وإعادتها إلى الكشف؟')) {
+                excludedWeeks = [];
+                excludedDays = [];
+                customWeekTitles = {};
+                saveHolidaySettings();
+                if (!document.getElementById('weeksModal').classList.contains('hidden')) {
+                    renderWeeksModalList();
+                }
+                renderAllPages();
+                showToast('تمت استعادة جميع الأسابيع والأيام بنجاح');
+            }
+        }
+
+        function updateCustomWeekTitle(weekIndex, title) {
+            const trimmed = title.trim();
+            if (trimmed) {
+                customWeekTitles[weekIndex] = trimmed;
+            } else {
+                delete customWeekTitles[weekIndex];
+            }
+            saveHolidaySettings();
+            renderAllPages();
+        }
+
+        function renderWeeksModalList() {
+            const { startDay, startMonth, startYear, totalWeeks } = getHijriInputs();
+            const allWeeks = generateHijriWeeks(startDay, startMonth, startYear, totalWeeks);
+
+            const listEl = document.getElementById('weeksModalList');
+            const statsEl = document.getElementById('weeksStatsBar');
+
+            const excludedWeekCount = excludedWeeks.filter(idx => idx < totalWeeks).length;
+            const activeWeekCount = totalWeeks - excludedWeekCount;
+            const excludedDayCount = excludedDays.length;
+
+            statsEl.innerHTML = `
+                <div>إجمالي الأسابيع: <strong class="text-slate-800">${totalWeeks}</strong></div>
+                <div>الأسابيع الفعالة: <strong class="text-emerald-700">${activeWeekCount}</strong></div>
+                <div>أسابيع الإجازات: <strong class="text-amber-700">${excludedWeekCount}</strong></div>
+                <div>أيام الإجازات المستبعدة: <strong class="text-rose-700">${excludedDayCount}</strong></div>
+            `;
+
+            listEl.innerHTML = '';
+
+            let activeCounter = 0;
+            allWeeks.forEach((week) => {
+                const isExcluded = excludedWeeks.includes(week.index);
+                let currentLabel = customWeekTitles[week.index] || '';
+
+                if (!isExcluded) {
+                    activeCounter++;
+                }
+
+                const defaultDisplayTitle = renumberSequentially && !isExcluded
+                    ? (WEEK_TITLES[activeCounter - 1] || `الأسبوع ${activeCounter}`)
+                    : week.title;
+
+                const daysHtml = week.allDays.map(day => {
+                    const isDayExcluded = excludedDays.includes(day.id);
+                    if (isDayExcluded) {
+                        return `
+                            <button type="button" onclick="toggleDayExcluded('${day.id}')"
+                                title="هذا اليوم محذوف كإجازة - انقر لإعادة إدراجه في الكشف"
+                                class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-rose-50 text-rose-800 border border-rose-300 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300 flex items-center gap-1 transition shadow-xs">
+                                <span class="line-through decoration-rose-600">${day.name} ${day.dateStr}</span>
+                                <i class="fa-solid fa-arrow-rotate-left text-[9px] text-emerald-700 no-underline"></i>
+                            </button>
+                        `;
+                    } else {
+                        return `
+                            <button type="button" onclick="toggleDayExcluded('${day.id}')"
+                                title="انقر لحذف واستبعاد هذا اليوم كإجازة"
+                                class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-white text-slate-700 border border-slate-200 hover:bg-rose-50 hover:text-rose-700 hover:border-rose-300 flex items-center gap-1 transition shadow-xs group/btn">
+                                <span>${day.name} ${day.dateStr}</span>
+                                <i class="fa-solid fa-xmark text-[9px] text-slate-400 group-hover/btn:text-rose-600"></i>
+                            </button>
+                        `;
+                    }
+                }).join('');
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = `p-3 flex flex-col gap-2 transition ${isExcluded ? 'bg-amber-50/50 opacity-80' : 'hover:bg-slate-50'}`;
+
+                itemDiv.innerHTML = `
+                    <div class="flex items-center justify-between w-full">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center font-black text-xs ${isExcluded ? 'bg-amber-200 text-amber-900 line-through' : 'bg-slate-200 text-slate-800'}">
+                                ${week.index + 1}
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <input type="text" value="${currentLabel}" placeholder="${defaultDisplayTitle}"
+                                        onchange="updateCustomWeekTitle(${week.index}, this.value)"
+                                        class="text-xs font-bold text-slate-800 border-b border-dashed border-slate-300 focus:border-emerald-600 focus:outline-none bg-transparent px-1 py-0.5"
+                                        title="انقر لتعديل مسمى الأسبوع">
+                                    ${isExcluded ? '<span class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-umbrella-beach ml-1"></i> أسبوع إجازة كامل</span>' : '<span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-check ml-1"></i> دراسي فعال</span>'}
+                                </div>
+                                <div class="text-[11px] text-slate-500 mt-0.5 flex items-center gap-1">
+                                    <i class="fa-regular fa-calendar text-slate-400"></i>
+                                    <span>${week.dateRange}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            ${isExcluded ? `
+                                <button type="button" onclick="toggleWeekExcluded(${week.index})"
+                                    class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow-sm">
+                                    <i class="fa-solid fa-arrow-rotate-left"></i> إعادة إدراج الأسبوع
+                                </button>
+                            ` : `
+                                <button type="button" onclick="toggleWeekExcluded(${week.index})"
+                                    class="px-3 py-1.5 bg-white hover:bg-amber-50 text-amber-800 border border-amber-300 rounded-lg text-xs font-bold transition flex items-center gap-1 shadow-sm hover:border-amber-400">
+                                    <i class="fa-solid fa-calendar-xmark text-amber-600"></i> حذف الأسبوع كإجازة
+                                </button>
+                            `}
+                        </div>
+                    </div>
+
+                    ${!isExcluded ? `
+                        <div class="w-full pt-2 border-t border-slate-100 flex flex-wrap items-center gap-1.5">
+                            <span class="text-[10px] font-bold text-slate-400 ml-1">أيام هذا الأسبوع (انقر للحذف كإجازة):</span>
+                            ${daysHtml}
+                        </div>
+                    ` : ''}
+                `;
+
+                listEl.appendChild(itemDiv);
+            });
+        }
+
+        // Toast notification system
+        function showToast(message, undoCallback = null) {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900/90 text-white px-4 py-2.5 rounded-xl shadow-2xl backdrop-blur-md flex items-center gap-3 text-xs font-semibold animate-bounce-short pointer-events-auto transition';
+
+            toast.innerHTML = `
+                <span>${message}</span>
+                ${undoCallback ? `
+                    <button type="button" class="undo-btn px-2 py-1 bg-amber-500 hover:bg-amber-600 text-slate-950 rounded text-[11px] font-bold transition">
+                        تراجع
+                    </button>
+                ` : ''}
+            `;
+
+            if (undoCallback) {
+                toast.querySelector('.undo-btn').addEventListener('click', () => {
+                    undoCallback();
+                    toast.remove();
+                });
+            }
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                if (toast && toast.style) {
+                    toast.style.opacity = '0';
+                    setTimeout(() => { if (toast && toast.remove) toast.remove(); }, 300);
+                }
+            }, 5000);
+        }
+
+        // Hijri Calendar Calculations & Accurate Umm Al-Qura Month Days
+        function calculateUmmAlQuraDays(hYear, hMonth) {
+            const key = `${hYear}_${hMonth}`;
+            if (cachedUmmAlQuraDays[key] !== undefined) return cachedUmmAlQuraDays[key];
+            try {
+                const totalMonthsSince1446 = (hYear - 1446) * 12 + (hMonth - 1);
+                const approxTime = new Date(2024, 6, 7).getTime() + totalMonthsSince1446 * 29.530588 * 86400000;
+                const fmt = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura', { year: 'numeric', month: 'numeric', day: 'numeric' });
+                let d = new Date(approxTime - 8 * 86400000);
+                let startGregorian = null;
+                for (let i = 0; i < 20; i++) {
+                    const parts = fmt.formatToParts(d);
+                    const y = parseInt(parts.find(p => p.type === 'year').value);
+                    const m = parseInt(parts.find(p => p.type === 'month').value);
+                    const day = parseInt(parts.find(p => p.type === 'day').value);
+                    if (y === hYear && m === hMonth && day === 1) {
+                        startGregorian = new Date(d);
+                        break;
+                    }
+                    d.setDate(d.getDate() + 1);
+                }
+                if (!startGregorian) {
+                    const fallback = (hMonth % 2 === 1) ? 30 : 29;
+                    cachedUmmAlQuraDays[key] = fallback;
+                    return fallback;
+                }
+                let count = 0;
+                let testD = new Date(startGregorian);
+                while (count < 35) {
+                    const parts = fmt.formatToParts(testD);
+                    const m = parseInt(parts.find(p => p.type === 'month').value);
+                    if (m !== hMonth) break;
+                    count++;
+                    testD.setDate(testD.getDate() + 1);
+                }
+                const result = (count >= 29 && count <= 30) ? count : 30;
+                cachedUmmAlQuraDays[key] = result;
+                return result;
+            } catch (e) {
+                const fallback = (hMonth % 2 === 1) ? 30 : 29;
+                cachedUmmAlQuraDays[key] = fallback;
+                return fallback;
+            }
+        }
+
+        function getDaysInHijriMonth(year, month) {
+            const key = `${year}_${month}`;
+            if (customMonthDays[key] !== undefined) {
+                return customMonthDays[key];
+            }
+            return calculateUmmAlQuraDays(year, month);
+        }
+
+        function advanceHijriDate(date) {
+            const maxDays = getDaysInHijriMonth(date.year, date.month);
+            if (date.day < maxDays) {
+                return { year: date.year, month: date.month, day: date.day + 1 };
+            } else {
+                if (date.month === 12) {
+                    return { year: date.year + 1, month: 1, day: 1 };
+                } else {
+                    return { year: date.year, month: date.month + 1, day: 1 };
+                }
+            }
+        }
+
+        function generateHijriWeeks(startDay, startMonth, startYear, totalWeeks) {
+            let cur = { year: startYear, month: startMonth, day: startDay };
+            const maxStartDays = getDaysInHijriMonth(cur.year, cur.month);
+            if (cur.day > maxStartDays) {
+                cur.day = maxStartDays;
+            }
+
+            const weeks = [];
+
+            for (let w = 0; w < totalWeeks; w++) {
+                const weekDays = [];
+                for (let d = 0; d < 5; d++) {
+                    const dayId = `w${w}_d${d}`;
+                    weekDays.push({
+                        id: dayId,
+                        weekIndex: w,
+                        dayIndex: d,
+                        name: WEEKDAYS[d],
+                        dateStr: `${cur.month}/${cur.day}`,
+                        fullDateStr: `${cur.year}/${cur.month}/${cur.day}`
+                    });
+                    cur = advanceHijriDate(cur);
+                }
+                // Skip weekend (Friday and Saturday)
+                cur = advanceHijriDate(cur); // Friday
+                cur = advanceHijriDate(cur); // Saturday
+
+                const firstDayStr = weekDays[0] ? weekDays[0].dateStr : '';
+                const lastDayStr = weekDays[weekDays.length - 1] ? weekDays[weekDays.length - 1].dateStr : '';
+
+                weeks.push({
+                    index: w,
+                    title: WEEK_TITLES[w] || `الأسبوع ${w + 1}`,
+                    dateRange: `من الأحد ${firstDayStr} إلى الخميس ${lastDayStr} هـ`,
+                    allDays: weekDays,
+                    days: weekDays.filter(day => !excludedDays.includes(day.id))
+                });
+            }
+            return weeks;
+        }
+
+        // Hijri Month Days Customizer Modal Handlers
+        function openMonthDaysModal() {
+            renderMonthDaysModalList();
+            document.getElementById('monthDaysModal').classList.remove('hidden');
+        }
+
+        function closeMonthDaysModal() {
+            document.getElementById('monthDaysModal').classList.add('hidden');
+        }
+
+        function toggleMonthDays(monthNum) {
+            const y = parseInt(document.getElementById('hijriYear').value) || 1448;
+            const key = `${y}_${monthNum}`;
+            const currentDays = getDaysInHijriMonth(y, monthNum);
+            const defaultDays = calculateUmmAlQuraDays(y, monthNum);
+            const newDays = (currentDays === 30) ? 29 : 30;
+
+            if (newDays === defaultDays) {
+                delete customMonthDays[key];
+            } else {
+                customMonthDays[key] = newDays;
+            }
+
+            saveMonthDaysSettings();
+            updateDayInputLimits();
+            updateMonthDaysBadge();
+            renderMonthDaysModalList();
+            renderAllPages();
+            if (!document.getElementById('weeksModal').classList.contains('hidden')) {
+                renderWeeksModalList();
+            }
+            const mName = HIJRI_MONTH_NAMES[monthNum - 1];
+            showToast(`تم تعيين شهر ${mName} إلى ${newDays} يوماً`);
+        }
+
+        function resetCurrentYearMonthDays() {
+            const y = parseInt(document.getElementById('hijriYear').value) || 1448;
+            for (let m = 1; m <= 12; m++) {
+                const key = `${y}_${m}`;
+                delete customMonthDays[key];
+            }
+            saveMonthDaysSettings();
+            updateDayInputLimits();
+            updateMonthDaysBadge();
+            renderMonthDaysModalList();
+            renderAllPages();
+            if (!document.getElementById('weeksModal').classList.contains('hidden')) {
+                renderWeeksModalList();
+            }
+            showToast(`تمت استعادة تقويم أم القرى الافتراضي لسنة ${y}هـ`);
+        }
+
+        function saveMonthDaysSettings() {
+            localStorage.setItem(STORAGE_KEY_MONTH_DAYS, JSON.stringify(customMonthDays));
+        }
+
+        function renderMonthDaysModalList() {
+            const y = parseInt(document.getElementById('hijriYear').value) || 1448;
+            const modalTitle = document.getElementById('monthDaysModalTitle');
+            if (modalTitle) {
+                modalTitle.textContent = `أيام الأشهر الهجرية لسنة ${y} هـ`;
+            }
+            const grid = document.getElementById('monthsCardsGrid');
+            if (!grid) return;
+
+            grid.innerHTML = '';
+            let totalYearDays = 0;
+
+            for (let m = 1; m <= 12; m++) {
+                const mName = HIJRI_MONTH_NAMES[m - 1];
+                const key = `${y}_${m}`;
+                const days = getDaysInHijriMonth(y, m);
+                const defaultDays = calculateUmmAlQuraDays(y, m);
+                const isCustom = (customMonthDays[key] !== undefined);
+                totalYearDays += days;
+
+                const card = document.createElement('div');
+                card.className = `p-3 rounded-xl border flex flex-col justify-between gap-2 transition ${isCustom ? 'border-amber-400 bg-amber-50/60 shadow-sm' : 'border-slate-200 bg-white hover:border-slate-300'}`;
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="font-black text-xs text-slate-800">${m} - ${mName}</span>
+                        ${isCustom ? '<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">معدل يدوياً</span>' : '<span class="text-[9px] font-semibold text-slate-400">أم القرى</span>'}
+                    </div>
+
+                    <div class="flex items-center justify-between my-1">
+                        <span class="text-[10px] text-slate-500 font-semibold">عدد الأيام:</span>
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold ${days === 30 ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' : 'bg-indigo-100 text-indigo-900 border border-indigo-300'}">
+                            ${days} يوماً
+                        </span>
+                    </div>
+
+                    <button type="button" onclick="toggleMonthDays(${m})"
+                        class="w-full py-1 px-2 rounded-lg text-[11px] font-bold transition flex items-center justify-center gap-1 shadow-xs ${days === 30 ? 'bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-800 border border-slate-200 hover:border-indigo-300' : 'bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300'}">
+                        <i class="fa-solid fa-arrows-rotate text-[10px]"></i>
+                        <span>تبديل إلى ${days === 30 ? '29' : '30'} يوم</span>
+                    </button>
+                `;
+
+                grid.appendChild(card);
+            }
+
+            const totalBadge = document.getElementById('yearTotalDaysBadge');
+            if (totalBadge) {
+                totalBadge.innerHTML = `مجموع أيام سنة ${y}هـ: <strong class="text-emerald-800 text-sm">${totalYearDays}</strong> يوماً`;
+            }
+        }
+
+        // Two-Dimensional Pagination (Weeks & Students Chunks)
+        function renderAllPages() {
+            const container = document.getElementById('sheetsContainer');
+            const { startDay, startMonth, startYear, totalWeeks } = getHijriInputs();
+            const weeksPerPage = parseInt(document.getElementById('weeksPerPage').value) || 4;
+            const studentsPerPage = parseInt(document.getElementById('studentsPerPage').value) || 18;
+
+            const clsName = document.getElementById('headerClass').value;
+            const subject = document.getElementById('headerSubject').value;
+            const term = document.getElementById('headerTerm').value;
+            const teacher = document.getElementById('headerTeacher').value;
+
+            // Update configuration badge
+            updateExcludedWeeksBadge();
+            updateDayInputLimits();
+            updateMonthDaysBadge();
+
+            const allWeeks = generateHijriWeeks(startDay, startMonth, startYear, totalWeeks);
+
+            // Filter out excluded holiday weeks and weeks where all days are excluded
+            const activeWeeks = allWeeks.filter(w => !excludedWeeks.includes(w.index) && w.days.length > 0);
+
+            // Assign proper display titles
+            activeWeeks.forEach((week, activeIdx) => {
+                if (customWeekTitles[week.index]) {
+                    week.displayTitle = customWeekTitles[week.index];
+                } else if (renumberSequentially) {
+                    week.displayTitle = WEEK_TITLES[activeIdx] || `الأسبوع ${activeIdx + 1}`;
+                } else {
+                    week.displayTitle = week.title;
+                }
+            });
+
+            container.innerHTML = '';
+
+            if (activeWeeks.length === 0) {
+                container.innerHTML = `
+                    <div class="sheet-page p-12 text-center flex flex-col items-center justify-center space-y-3">
+                        <i class="fa-solid fa-calendar-xmark text-4xl text-amber-500"></i>
+                        <h3 class="text-base font-bold text-slate-700">تم استبعاد جميع الأسابيع أو الأيام كإجازات</h3>
+                        <p class="text-xs text-slate-500">يرجى تفعيل أسبوع أو يوم دراسي واحد على الأقل ليتمكن السجل من العرض والطباعة.</p>
+                        <button onclick="openWeeksModal()" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs font-bold transition shadow">
+                            فتح نافذة تعديل الأسابيع والأيام
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            const totalWeekChunks = Math.ceil(activeWeeks.length / weeksPerPage);
+
+            // Student pagination
+            const totalStudents = names.length > 0 ? names.length : 1;
+            const totalStudentChunks = Math.ceil(totalStudents / studentsPerPage);
+            const totalPrintedPages = totalWeekChunks * totalStudentChunks;
+
+            let pageCounter = 1;
+
+            for (let wChunkIdx = 0; wChunkIdx < totalWeekChunks; wChunkIdx++) {
+                const pageWeeks = activeWeeks.slice(wChunkIdx * weeksPerPage, (wChunkIdx + 1) * weeksPerPage);
+                const startWeekNum = wChunkIdx * weeksPerPage + 1;
+                const endWeekNum = Math.min((wChunkIdx + 1) * weeksPerPage, activeWeeks.length);
+                const weekRangeLabel = `الأسابيع ${startWeekNum} إلى ${endWeekNum} (من أصل ${activeWeeks.length} أسبوع فعال)`;
+
+                for (let sChunkIdx = 0; sChunkIdx < totalStudentChunks; sChunkIdx++) {
+                    const startStudentIndex = sChunkIdx * studentsPerPage;
+                    const endStudentIndex = Math.min(startStudentIndex + studentsPerPage, names.length);
+                    const pageStudents = names.slice(startStudentIndex, endStudentIndex);
+
+                    const pageDiv = document.createElement('div');
+                    pageDiv.className = 'sheet-page';
+
+                    // 1. Fixed Header
+                    let headerHtml = `
+            <div class="mb-1">
+              <div class="flex items-center justify-between text-slate-900 border-b-2 border-slate-900 pb-1.5 mb-1">
+                <!-- Right: Class -->
+                <div class="flex items-center gap-1.5">
+                  <span class="font-black text-base sm:text-lg text-indigo-950">سجل الحضور والغياب / للصف:</span>
+                  <span class="font-extrabold text-slate-800 text-base underline decoration-dotted underline-offset-4">${clsName || '................'}</span>
+                </div>
+                
+                <!-- Center: Subject -->
+                <div class="flex items-center gap-1.5">
+                  <span class="font-extrabold text-sm sm:text-base">المادة:</span>
+                  <span class="font-extrabold text-slate-800 text-base underline decoration-dotted underline-offset-4">${subject || '................'}</span>
+                </div>
+
+                <!-- Left: Term & Pagination -->
+                <div class="text-left">
+                  <div class="font-extrabold text-xs sm:text-sm text-slate-800">${term || ''}</div>
+                  <div class="text-[10px] sm:text-xs text-slate-600 font-bold mt-0.5">
+                    صفحة ${pageCounter} من ${totalPrintedPages} : (${weekRangeLabel})
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center text-xs text-slate-600 px-1">
+                <span>المعلم: <strong class="text-slate-800">${teacher || '................'}</strong></span>
+                <span class="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  كشف الطلاب: (${startStudentIndex + 1} إلى ${endStudentIndex || 1}) من إجمالي ${names.length}
+                </span>
+              </div>
+            </div>
+          `;
+
+                    // 2. Table
+                    let tableHtml = `
+            <div class="flex-1 overflow-hidden my-auto">
+              <table class="attendance-table">
+                <thead>
+                  <tr class="h-7">
+                    <th rowspan="2" class="w-8 font-bold bg-slate-100 text-xs">م</th>
+                    <th rowspan="2" class="w-56 font-black bg-slate-100 text-xs sm:text-sm text-right pr-3">الاســــــــــــم</th>
+          `;
+
+                    pageWeeks.forEach((week, pIdx) => {
+                        const globalWeekPos = wChunkIdx * weeksPerPage + pIdx;
+                        const colorClass = `week-c${globalWeekPos % 6}`;
+                        tableHtml += `
+              <th colspan="${week.days.length}" class="week-header-cell font-black text-xs sm:text-sm py-0.5 ${colorClass}">
+                <div class="flex items-center justify-center relative px-4">
+                  <span>${week.displayTitle}</span>
+                  <button type="button" onclick="quickExcludeWeek(${week.index})" title="حذف هذا الأسبوع بالكامل (تحديده كإجازة)"
+                    class="no-print week-delete-btn absolute left-1 top-1/2 -translate-y-1/2 w-4 h-4 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center text-[9px] shadow transition">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </th>
+            `;
+                    });
+
+                    tableHtml += `</tr><tr class="h-8">`;
+
+                    pageWeeks.forEach((week) => {
+                        week.days.forEach(day => {
+                            tableHtml += `
+                <th class="day-header-cell p-0 text-[10px] font-bold w-9 bg-slate-50 relative">
+                  <div class="py-0.5 border-b border-slate-300 text-slate-600 flex items-center justify-center relative">
+                    <span>${day.name}</span>
+                    <button type="button" onclick="quickExcludeDay('${day.id}')" title="حذف واستبعاد يوم ${day.name} (${day.dateStr}) كإجازة"
+                      class="no-print day-delete-btn absolute left-0.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center text-[8px] shadow transition" style="z-index: 10;">
+                      <i class="fa-solid fa-xmark"></i>
+                    </button>
+                  </div>
+                  <div class="py-0.5 text-slate-900 font-black">${day.dateStr}</div>
+                </th>
+              `;
+                        });
+                    });
+
+                    tableHtml += `</tr></thead><tbody>`;
+
+                    // Students Rows
+                    const totalDayColumns = pageWeeks.reduce((acc, w) => acc + w.days.length, 0);
+                    if (names.length === 0) {
+                        tableHtml += `
+              <tr>
+                <td colspan="${2 + totalDayColumns}" class="p-6 text-center text-slate-400 font-bold">
+                  لا توجد أسماء مسجلة. أضف أسماء من القائمة العلوية.
+                </td>
+              </tr>
+            `;
+                    } else {
+                        pageStudents.forEach((name, idx) => {
+                            const globalIdx = startStudentIndex + idx + 1;
+                            tableHtml += `
+                <tr class="h-6 hover:bg-slate-50">
+                  <td class="font-bold bg-slate-100 text-[11px] text-slate-800">${globalIdx}</td>
+                  <td class="text-right pr-2 font-bold text-slate-900 text-xs truncate max-w-[200px]" title="${name}">
+                    ${name}
+                  </td>
+              `;
+
+                            pageWeeks.forEach(week => {
+                                week.days.forEach(() => {
+                                    tableHtml += `
+                    <td class="p-0 text-center cursor-pointer select-none hover:bg-indigo-50" onclick="toggleAttendance(this)">
+                      <span class="cell-mark text-slate-800 font-bold"></span>
+                    </td>
+                  `;
+                                });
+                            });
+
+                            tableHtml += `</tr>`;
+                        });
+                    }
+
+                    tableHtml += `</tbody></table></div>`;
+
+                    // 3. Footer
+                    let footerHtml = `
+            <div class="pt-1.5 border-t border-slate-300 flex justify-between items-center text-[10px] text-slate-600">
+              <span>تاريخ استخراج السجل: ${new Date().toLocaleDateString('ar-SA')}هـ</span>
+              <span>توقيع المعلم: .............................</span>
+              <span>توقيع المدير: .............................</span>
+            </div>
+          `;
+
+                    pageDiv.innerHTML = headerHtml + tableHtml + footerHtml;
+                    container.appendChild(pageDiv);
+                    pageCounter++;
+                }
+            }
+        }
+
+        function toggleAttendance(cell) {
+            const mark = cell.querySelector('.cell-mark');
+            if (!mark) return;
+            if (mark.textContent === '') {
+                mark.textContent = '✔';
+                mark.className = 'cell-mark text-emerald-700 font-black text-sm';
+            } else if (mark.textContent === '✔') {
+                mark.textContent = 'غ';
+                mark.className = 'cell-mark text-red-600 font-black text-xs';
+            } else if (mark.textContent === 'غ') {
+                mark.textContent = 'ت';
+                mark.className = 'cell-mark text-amber-600 font-black text-xs';
+            } else {
+                mark.textContent = '';
+            }
+        }
+
+        function exportToPdfFile() {
+            document.body.classList.add('exporting-pdf');
+            const element = document.getElementById('sheetsContainer');
+            const opt = {
+                margin: 0,
+                filename: `سجل_الحضور_والغياب_هجري_${document.getElementById('headerClass').value || 'كشف'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, logging: false },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            const btn = event ? event.currentTarget : null;
+            const originalHtml = btn ? btn.innerHTML : '';
+            if (btn) {
+                btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> جاري التصدير...`;
+                btn.disabled = true;
+            }
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                document.body.classList.remove('exporting-pdf');
+                if (btn) {
+                    btn.innerHTML = originalHtml;
+                    btn.disabled = false;
+                }
+            }).catch(err => {
+                document.body.classList.remove('exporting-pdf');
+                alert('يمكنك استخدام زر (طباعة / حفظ كـ PDF) لاختيار Save as PDF بأعلى جودة متجهية.');
+                if (btn) {
+                    btn.innerHTML = originalHtml;
+                    btn.disabled = false;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
