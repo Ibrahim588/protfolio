@@ -4,412 +4,1082 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="تطبيق MikroTik Manager Pro من ابراهيم عبدالقادر مايكروتك وبرمجة - الحل الأمثل لإدارة شبكات المايكروتك وتوليد كروت الهوتسبوت وصفحات تسجيل الدخول.">
-    <meta name="keywords" content="ابراهيم عبدالقادر مايكروتك, صفحات تسجيل الدخول, صفحات هوتسبوت, ابراهيم عبدالقادر برمجة, ابراهيم عبد القادر مايكروتك, MikroTik Manager Pro, إدارة شبكات مايكروتك, كروت شبكات, قوالب هوتسبوت">
-    <meta name="author" content="Ibrahim Abdelgadir">
-    <title>MikroTik Manager Pro | ابراهيم عبدالقادر مايكروتك</title>
+    <meta name="description"
+        content="تطبيق MikroTik Manager Pro من إبراهيم عبدالقادر - المنظومة الاحترافية لإدارة شبكات المايكروتك، توليد وطباعة كروت الهوتسبوت بصيغة PDF، تصميم صفحات تسجيل الدخول، والأتمتة الذكية.">
+    <meta name="keywords"
+        content="ابراهيم عبدالقادر مايكروتك, صفحات تسجيل الدخول, صفحات هوتسبوت, ابراهيم عبدالقادر برمجة, MikroTik Manager Pro, إدارة شبكات مايكروتك, كروت شبكات, طباعة كروت PDF, RouterOS API, فلاتر مايكروتك">
+    <meta name="author" content="إبراهيم عبدالقادر - Ibrahim Abdelgadir">
+    <link rel="canonical" href="http://ibrahim-protfolio.42web.io/project-mikrotik.html">
 
-    <!-- Google Fonts -->
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://ibrahim-protfolio.42web.io/project-mikrotik.html">
+    <meta property="og:title" content="MikroTik Manager Pro | المنظومة الاحترافية لإدارة شبكات المايكروتك">
+    <meta property="og:description"
+        content="محاسب ومصمم ومهندس شبكات في هاتفك المحمول وجهاز الكمبيوتر. تحكم كامل، طباعة كروت PDF، وأتمتة شاملة لشبكات MikroTik.">
+    <meta property="og:image" content="http://ibrahim-protfolio.42web.io/img/app_icon.png">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://ibrahim-protfolio.42web.io/project-mikrotik.html">
+    <meta property="twitter:title" content="MikroTik Manager Pro | إبراهيم عبدالقادر">
+    <meta property="twitter:description"
+        content="تطبيق إدارة شبكات المايكروتك وكروت الهوتسبوت وطباعة PDF والتصميم الذكي لصفحات الدخول.">
+    <meta property="twitter:image" content="http://ibrahim-protfolio.42web.io/img/app_icon.png">
+
+    <title>MikroTik Manager Pro | المنظومة الاحترافية لإدارة شبكات المايكروتك</title>
+
+    <!-- Google Fonts: Cairo & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        body {
-            font-family: 'Cairo', 'Inter', sans-serif;
-        }
+    <link rel="stylesheet" href="css/mikrotik.css">
 
-        .promo-banner {
-            background: linear-gradient(90deg, #f59e0b, var(--primary-color));
-            color: #000;
-            text-align: center;
-            padding: 0.6rem;
-            font-weight: 800;
-            font-size: 1rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1100;
-            /* Higher than navbar */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.9;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        /* Adjust Navbar to be below the banner */
-        .navbar {
-            top: 40px !important;
-            /* Move down to clear banner */
-        }
-
-        .project-hero {
-            padding: 10rem 0 4rem;
-            /* More top padding to account for fixed header */
-            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent);
-            text-align: center;
-        }
-
-        .app-icon-large {
-            width: 120px;
-            height: 120px;
-            border-radius: 24px;
-            margin: 0 auto 1.5rem auto;
-            display: block;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-category {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-category:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-        }
-
-        .feature-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.4rem;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .feature-list li {
-            margin-bottom: 0.8rem;
-            padding-right: 1.5rem;
-            position: relative;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .feature-list li::before {
-            content: "•";
-            color: var(--primary-color);
-            position: absolute;
-            right: 0;
-            font-weight: bold;
-        }
-
-        .screenshot-gallery {
-            display: flex;
-            overflow-x: auto;
-            gap: 1.5rem;
-            padding: 2rem 0;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) var(--bg-secondary);
-        }
-
-        .screenshot-item {
-            min-width: 280px;
-            background: var(--bg-secondary);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .screenshot-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .screenshot-desc {
-            padding: 1rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .download-section {
-            background: var(--bg-secondary);
-            padding: 4rem 2rem;
-            border-radius: 30px;
-            text-align: center;
-            margin: 4rem 0;
-            border: 2px dashed var(--primary-color);
-        }
-
-        .btn-windows {
-            background: linear-gradient(135deg, #0078d4, #00a4ef);
-            color: #ffffff !important;
-            border: 1px solid rgba(0, 164, 239, 0.4);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all var(--transition-fast);
-            box-shadow: 0 4px 14px rgba(0, 120, 212, 0.35);
-        }
-
-        .btn-windows:hover {
-            background: linear-gradient(135deg, #0063b1, #0078d4);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.5);
-            color: #ffffff !important;
-        }
-
-        @media (max-width: 768px) {
-            .project-hero {
-                padding-top: 4rem;
-            }
-        }
-    </style>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "MikroTik Manager Pro",
+      "operatingSystem": "Android, Windows",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "تطبيق إدارة شبكات المايكروتك وتوليد كروت الهوتسبوت PDF وتصميم صفحات الدخول والأتمتة الذكية.",
+      "url": "http://ibrahim-protfolio.42web.io/project-mikrotik.html",
+      "author": {
+        "@type": "Person",
+        "name": "Ibrahim Abdelgadir"
+      }
+    }
+    </script>
 </head>
 
 <body>
-    <div class="promo-banner">
-        ✨ عرض خاص: العرض المميز - الشهر الأول مجاناً تماماً! ✨
+
+    <!-- =================================================================
+         Promo Banner
+         ================================================================= -->
+    <div class="mt-promo-banner" role="complementary" aria-label="عرض خاص">
+        <i class="fa-solid fa-sparkles"></i>
+        <span>عرض خاص لفترة محدودة: استمتع بكامل الصلاحيات والمميزات الاحترافية — باقة 5000 كرت مجانية مجاناً
+            تماماً!</span>
     </div>
 
-    <header class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">Ibrahim<span>.</span></a>
+    <!-- =================================================================
+         Header & Navigation
+         ================================================================= -->
+    <header class="mt-navbar" role="banner">
+        <div class="mt-container">
+            <a href="project-mikrotik.html" class="mt-nav-brand"
+                aria-label="الصفحة الرئيسية لتطبيق MikroTik Manager Pro">
+                <img src="img/app_icon.png" alt="أيقونة تطبيق MikroTik Manager Pro" class="mt-brand-logo-img">
+                <div class="mt-brand-text">
+                    <span class="mt-brand-title">MikroTik Manager Pro</span>
+                    <span class="mt-brand-sub">Smart Network Solutions</span>
+                </div>
+            </a>
 
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
-                    <li><a href="websites.html" class="nav-link" data-i18n="nav_websites">مواقع الويب</a></li>
-                    <li><a href="privacy-policy.html" class="nav-link">سياسة الخصوصية</a></li>
-                </ul>
+            <!-- Navigation Menu -->
+            <nav class="mt-nav-menu" id="mt-nav-menu" role="navigation" aria-label="القائمة الرئيسية">
+                <a href="#hero" class="mt-nav-link active">الرئيسية</a>
+                <a href="#about" class="mt-nav-link">عن التطبيق</a>
+                <a href="#features" class="mt-nav-link">المميزات</a>
+                <a href="#how-it-works" class="mt-nav-link">كيف يعمل</a>
+                <a href="#screens" class="mt-nav-link">شاشات النظام</a>
+                <a href="#tech" class="mt-nav-link">التقنيات</a>
+                <a href="#faq" class="mt-nav-link">الأسئلة الشائعة</a>
             </nav>
 
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <button class="lang-toggle" id="lang-toggle" aria-label="Switch Language">
-                    EN
-                </button>
-
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+            <!-- Actions -->
+            <div class="mt-nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="mt-btn-icon" id="mt-theme-toggle" aria-label="تبديل الوضع الليلي / النهاري"
+                    title="تبديل المظهر">
                     <i class="fa-solid fa-moon"></i>
                 </button>
 
-                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">
+                <!-- Back to Main Portfolio -->
+                <a href="index.html" class="mt-btn-icon" title="العودة لمعرض الأعمال" aria-label="معرض الأعمال الرئيسي">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+
+                <!-- Download CTA in Nav -->
+                <a href="#download" class="mt-btn-nav-cta">
+                    <i class="fa-solid fa-download"></i>
+                    <span>تحميل التطبيق</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="mt-mobile-toggle" id="mt-mobile-toggle" aria-label="فتح القائمة" aria-expanded="false"
+                    aria-controls="mt-nav-menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <!-- Hero -->
-        <section class="project-hero">
-            <img src="img/app_icon.png" alt="MikroTik Manager Pro Icon" class="app-icon-large">
-            <h1 class="hero-name">MikroTik Manager Pro</h1>
-            <p class="hero-role">"محاسب ومصمم ومهندس شبكات" في هاتفك المحمول</p>
-            <div class="hero-btns"
-                style="justify-content: center; margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="https://mega.nz/file/rhJV1BgS#YWrwdtA3aa9ms9nSAhHCqMhxjJ6KjvhgiPtaGnK9UFg" target="_blank"
-                    class="btn btn-windows" style="padding: 0.8rem 1.5rem; border-radius: 8px;">
-                    <i class="fa-brands fa-windows" style="font-size: 1.25rem;"></i>
-                    <span>تحميل نسخة Windows</span>
-                </a>
-                <a href="https://mega.nz/file/PsBTRYyQ#c8u1RzephkJdzxPX1DyUCKCPSDllpAZ-Z4mqlbb3Iw8" target="_blank"
-                    class="btn btn-primary" style="padding: 0.8rem 1.5rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 0.5rem;">
-                    <i class="fa-brands fa-android" style="font-size: 1.25rem;"></i>
-                    <span>تحميل ملف APK</span>
-                </a>
-                <a href="#" target="_blank" class="btn"
-                    style="background-color: #111; color: white; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: 8px;">
-                    <i class="fa-brands fa-google-play" style="color: #4CAF50; font-size: 1.2rem;"></i> Google Play
-                </a>
-            </div>
-        </section>
+    <main>
+        <!-- =============================================================
+             1. HERO SECTION
+             ============================================================= -->
+        <section id="hero" class="mt-hero-section">
+            <div class="mt-hero-glow-1"></div>
+            <div class="mt-hero-glow-2"></div>
 
-        <!-- Features -->
-        <section id="features">
-            <h2 class="section-title">مميزات <span>النظام</span></h2>
-            <div class="feature-grid">
+            <div class="mt-container">
+                <div class="mt-hero-grid">
+                    <!-- Hero Content -->
+                    <div class="mt-hero-content mt-fade-in">
+                        <div class="mt-badge-pill">
+                            <span class="mt-badge-dot"></span>
+                            <span>المنظومة الأقوى لإدارة شبكات المايكروتك</span>
+                        </div>
 
+                        <h1 class="mt-hero-title">
+                            تحكم كامل في شبكتك مع <span>MikroTik Manager Pro</span>
+                        </h1>
 
-                <!-- Design -->
-                <div class="feature-category">
-                    <h3><i class="fa-solid fa-palette"></i> التصميم وتجربة المستخدم</h3>
-                    <ul class="feature-list">
-                        <li><strong>مصمم صفحة الدخول:</strong> صانع صفحات Hotspot يدعم تغيير الألوان واللوجو.</li>
-                        <li><strong>مصمم صفحة الحالة:</strong> إظهار الزمن المتبقي والاستهلاك للمشتركين.</li>
-                        <li><strong>نظام الحقل الواحد:</strong> الدخول بكود الكرت فقط لتبسيط العملية.</li>
-                        <li><strong>قائمة أسعار ديناميكية:</strong> عرض الأسعار بشكل أنيق داخل صفحة الدخول.</li>
-                    </ul>
-                </div>
+                        <p class="mt-hero-subtitle">
+                            "محاسب ومصمم ومهندس شبكات" متكامل في هاتفك المحمول وجهاز الكمبيوتر.
+                        </p>
 
-                <!-- Management -->
-                <div class="feature-category">
-                    <h3><i class="fa-solid fa-gears"></i> الإدارة والتحكم</h3>
-                    <ul class="feature-list">
-                        <li><strong>إدارة المستخدمين:</strong> تحكم كامل (إضافة، حذف، تفعيل) يدوياً أو بالجملة.</li>
-                        <li><strong>طباعة الكروت:</strong> توليد كروت عشوائية وتصديرها بصيغة PDF احترافية.</li>
-                    </ul>
-                </div>
+                        <p class="mt-hero-desc">
+                            الحل الذكي الشامل لأصحاب الشبكات والمقاهي ومزودي خدمة الإنترنت: إدارة المستخدمين النشطين،
+                            توليد وطباعة كروت الهوتسبوت PDF، أتمتة السكربتات، وتصميم صفحات تسجيل الدخول باحترافية تامة.
+                        </p>
 
-                <!-- Automation -->
-                <div class="feature-category">
-                    <h3><i class="fa-solid fa-robot"></i> الأتمتة والسكربتات</h3>
-                    <ul class="feature-list">
-                        <li><strong>الحذف التلقائي:</strong> مسح الكروت المنتهية كل 12 ساعة تلقائياً.</li>
-                        <li><strong>إعادة الاتصال التلقائي:</strong> ضمان البقاء متصلاً حتى عند انقطاع الـ Wi-Fi.</li>
-                        <li><strong>جدولة المهام:</strong> تهيئة مهام المايكروتك لتعمل بشكل دوري.</li>
-                    </ul>
-                </div>
+                        <!-- CTA Group -->
+                        <div class="mt-cta-group">
+                            <!-- Windows CTA -->
+                            <a href="https://mega.nz/file/b0JwGTqJ#MN8mzz8-AB6Bowi3Qo_xjSeVj-asqp1P70t4gIleJgA"
+                                target="_blank" rel="noopener noreferrer" class="mt-btn mt-btn-windows"
+                                title="تحميل البرنامج لنظام تشغيل ويندوز">
+                                <i class="fa-brands fa-windows"></i>
+                                <span>تحميل نسخة Windows</span>
+                            </a>
 
-                <!-- Security -->
-                <div class="feature-category">
-                    <h3><i class="fa-solid fa-shield-halved"></i> الحماية والأمان</h3>
-                    <ul class="feature-list">
-                        <li><strong>قفل التطبيق:</strong> حماية بالبصمة أو الرمز السري.</li>
-                        <li><strong>الاتصال عن بُعد:</strong> دعم Cloud/VPN مع توليد أكواد QR للـ WireGuard.</li>
-                        <li><strong>تشفير البيانات:</strong> تخزين كلمات السر بشكل مشفر وآمن تماماً.</li>
-                    </ul>
-                </div>
+                            <!-- Android APK CTA -->
+                            <a href="https://mega.nz/file/PsBTRYyQ#c8u1RzephkJdzxPX1DyUCKCPSDllpAZ-Z4mqlbb3Iw8"
+                                target="_blank" rel="noopener noreferrer" class="mt-btn mt-btn-primary"
+                                title="تحميل ملف APK المباشر للأندرويد">
+                                <i class="fa-brands fa-android"></i>
+                                <span>تحميل ملف APK (Android)</span>
+                            </a>
 
-                <!-- General -->
-                <div class="feature-category">
-                    <h3><i class="fa-solid fa-star"></i> مميزات عامة</h3>
-                    <ul class="feature-list">
-                        <li><strong>ثنائية اللغة:</strong> دعم كامل للعربية والإنجليزية.</li>
-                        <li><strong>الوضع الليلي:</strong> واجهات مريحة للعين تدعم الثيم المظلم.</li>
-                        <li><strong>مركز التحديثات:</strong> ابقَ على اطلاع بآخر الإضافات والتحسينات.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+                            <!-- Google Play CTA (Coming Soon) -->
+                            <a href="https://play.google.com/store/apps/details?id=com.mikrotik.managerpro.mikrotik_manager_pro"
+                                target="_blank" rel="noopener noreferrer" class="mt-btn mt-btn-primary"
+                                title="التحميل من متجر جوجل بلاي للاجهزة المسجلة فقط على النسخة التجريبية">
+                                <i class="fa-brands fa-google-play" style="color: rgb(16, 185, 129);"></i>
+                                <span>Google Play</span>
+                            </a>
+                        </div>
 
-        <!-- Screenshots -->
-        <section id="screens" style="margin-top: 4rem;">
-            <h2 class="section-title">لقطات من <span>التطبيق</span></h2>
-            <div class="screenshot-gallery">
-                <div class="screenshot-item">
-                    <img src="img/screen6.png" alt="ادارة الاجهزة">
-                    <div class="screenshot-desc">ادارة الاجهزة</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen4.png" alt="الرئيسية">
-                    <div class="screenshot-desc">الشاشة الرئيسية</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen10.png" alt="المستخدمين">
-                    <div class="screenshot-desc">المستخدمين</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen11.png" alt="المستخدمين النشطين">
-                    <div class="screenshot-desc">المستخدمين النشطين</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen12.png" alt="ادارة الكروت">
-                    <div class="screenshot-desc">ادارة الكروت</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen1.png" alt="الإعدادات">
-                    <div class="screenshot-desc">واجهة الإعدادات والتحكم</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen2.png" alt="الحذف التلقائي">
-                    <div class="screenshot-desc">أتمتة حذف الكروت</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen3.png" alt="التقارير المالية">
-                    <div class="screenshot-desc">الإحصائيات والأرباح بدقة</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen7.png" alt="تعديل اسعار الكروت">
-                    <div class="screenshot-desc">تعديل اسعار الكروت</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen9.png" alt="تقارير الكروت حسب البروفايل">
-                    <div class="screenshot-desc">تقارير الكروت حسب البروفايل</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen5.png" alt="السجلات">
-                    <div class="screenshot-desc">سجل العمليات والمهام</div>
-                </div>
-                <div class="screenshot-item">
-                    <img src="img/screen8.png" alt="مصمم واجهة تسجيل الدخول">
-                    <div class="screenshot-desc">مصمم واجهة تسجيل الدخول</div>
+                        <!-- Meta Notes -->
+                        <div class="mt-hero-meta-notes">
+                            <div class="mt-hero-meta-item">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>طباعة كروت PDF فورية</span>
+                            </div>
+                            <div class="mt-hero-meta-item">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>حماية واتصال مشفر</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual / Realistic Phone Mockup -->
+                    <div class="mt-hero-mockup-wrapper mt-fade-in">
+                        <!-- Floating Highlight Pills -->
+                        <div class="mt-floating-pill mt-pill-top-right">
+                            <i class="fa-solid fa-file-pdf" style="color: #ef4444;"></i>
+                            <span>توليد وتصدير كروت PDF</span>
+                        </div>
+
+                        <div class="mt-floating-pill mt-pill-bottom-left">
+                            <i class="fa-solid fa-shield-virus" style="color: #06b6d4;"></i>
+                            <span>اتصال سحابي آمن WireGuard</span>
+                        </div>
+
+                        <div class="mt-floating-pill mt-pill-bottom-right">
+                            <i class="fa-solid fa-robot" style="color: #f59e0b;"></i>
+                            <span>أتمتة وحذف الكروت المنتهية</span>
+                        </div>
+
+                        <!-- Phone Bezel Frame -->
+                        <div class="mt-phone-container">
+                            <div class="mt-phone-notch"></div>
+                            <div class="mt-phone-screen">
+                                <img src="img/screen4.png" alt="الشاشة الرئيسية لتطبيق MikroTik Manager Pro"
+                                    loading="eager">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Download -->
-        <section class="download-section">
-            <h2 style="margin-bottom: 1rem;">جاهز لتطوير إدارة شبكتك؟</h2>
-            <p style="margin-bottom: 2rem; color: var(--text-secondary);">استمتع بكامل الصلاحيات مجاناً خلال الشهر الأول
-            </p>
-            <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; align-items: center;">
-                <a href="https://mega.nz/file/rhJV1BgS#YWrwdtA3aa9ms9nSAhHCqMhxjJ6KjvhgiPtaGnK9UFg" target="_blank"
-                    class="btn btn-windows btn-large">
-                    <i class="fa-brands fa-windows" style="font-size: 1.35rem;"></i>
-                    <span>تحميل نسخة Windows</span>
-                </a>
-                <a href="https://mega.nz/file/PsBTRYyQ#c8u1RzephkJdzxPX1DyUCKCPSDllpAZ-Z4mqlbb3Iw8" target="_blank"
-                    class="btn btn-primary btn-large" style="display: inline-flex; align-items: center; gap: 0.6rem;">
-                    <i class="fa-brands fa-android" style="font-size: 1.35rem;"></i>
-                    <span>تحميل ملف APK</span>
-                </a>
-                <a href="#" target="_blank" class="btn btn-large"
-                    style="background-color: #111; color: white; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center; gap: 0.6rem; text-decoration: none;">
-                    <i class="fa-brands fa-google-play" style="color: #4CAF50; font-size: 1.35rem;"></i>
-                    <span>Google Play</span>
-                </a>
+        <!-- =============================================================
+             2. TRUST / QUICK STATS
+             ============================================================= -->
+        <section class="mt-trust-bar">
+            <div class="mt-container">
+                <div class="mt-trust-grid mt-fade-in">
+                    <!-- Card 1 -->
+                    <div class="mt-trust-card">
+                        <div class="mt-trust-icon cyan">
+                            <i class="fa-solid fa-users-gear"></i>
+                        </div>
+                        <div class="mt-trust-info">
+                            <h3>إدارة المستخدمين بالجملة</h3>
+                            <p>توليد وتفعيل وحذف آلاف كروت الهوتسبوت في ثوانٍ معدودة.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="mt-trust-card">
+                        <div class="mt-trust-icon emerald">
+                            <i class="fa-solid fa-shield-virus"></i>
+                        </div>
+                        <div class="mt-trust-info">
+                            <h3>فحص سلامة موارد الراوتر</h3>
+                            <p>حساب السقف الآمن للكروت والمتبقي لحماية المعالج من بطء النظام.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="mt-trust-card">
+                        <div class="mt-trust-icon amber">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="mt-trust-info">
+                            <h3>أتمتة وسكربتات ذاتية</h3>
+                            <p>تنظيف دوري للكروت المنتهية وتفريغ الذاكرة تلقائياً.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="mt-trust-card">
+                        <div class="mt-trust-icon indigo">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                        </div>
+                        <div class="mt-trust-info">
+                            <h3>إعدادات بروفايلات الهوت سبوت</h3>
+                            <p>تحديد السرعات، عدد المشتركين، ومهلة حفظ الماك لكل باقة بسهولة.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.7;">متوفر الآن لأنظمة Windows و Android لتوفير أعلى مرونة وتحكم كامل بشبكتك</p>
+        </section>
+
+        <!-- =============================================================
+             3. ABOUT THE APP
+             ============================================================= -->
+        <section id="about" class="mt-section mt-section-alt">
+            <div class="mt-container">
+                <div class="mt-about-grid">
+                    <!-- Text Side -->
+                    <div class="mt-about-text mt-fade-in">
+                        <div class="mt-badge-pill">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <span>إدارة متقدمة لشبكات المايكروتك</span>
+                        </div>
+                        <h2 class="mt-section-title">إدارة شبكتك أصبحت أسهل، أسرع، وأكثر أماناً</h2>
+
+                        <p>
+                            تم تطوير تطبيق «MikroTik Manager Pro» خصيصاً لحل كافة المشاكل اليومية التي يواجهها أصحاب
+                            شبكات
+                            الوايفاي ومديرو سيرفرات المايكروتك، من صعوبة التحكم في المستخدمين، تعقيد توليد وطباعة
+                            الكروت،
+                            وتراكم الكروت المنتهية التي تثقل كاهل الراوتر.
+                        </p>
+
+                        <p>
+                            يجمع التطبيق بين قوة أدوات RouterOS API وسهولة الاستخدام عبر واجهة رسومية أنيقة تتيح لك
+                            مراقبة
+                            الترافيك اللحظي، تصميم وتعديل صفحات الهوتسبوت، توليد كروت المشتركين وتصديرها بصيغة PDF معدة
+                            للطباعة فوراً، وحساب الأرباح المالية دون الحاجة لجهاز حاسوب مكتبي أو خبرة في كتابة
+                            السكربتات.
+                        </p>
+
+                        <div class="mt-about-highlights">
+                            <div class="mt-about-point">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <strong>تحكم محلي وعن بُعد</strong>
+                                    <span>دعم الربط عبر الشبكة المحلية أو سحابة Cloud والـ VPN</span>
+                                </div>
+                            </div>
+                            <div class="mt-about-point">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <strong>قوالب PDF جاهزة للقص</strong>
+                                    <span>تصدير كروت الهوتسبوت بتنسيقات طباعة منظمة وأنيقة</span>
+                                </div>
+                            </div>
+                            <div class="mt-about-point">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <strong>نظام الحقل الواحد</strong>
+                                    <span>تسجيل دخول سهل للمشتركين بكود الكرت فقط</span>
+                                </div>
+                            </div>
+                            <div class="mt-about-point">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <strong>حماية وأمان بالبصمة</strong>
+                                    <span>قفل التطبيق وتشفير كلمات مرور المايكروتك بالكامل</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Side -->
+                    <div class="mt-about-visual mt-fade-in">
+                        <div class="mt-about-visual-card">
+                            <img src="img/screen6.png" alt="واجهة إدارة أجهزة المايكروتك في التطبيق" loading="lazy">
+                            <div class="mt-about-badge-overlay">
+                                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                    <i class="fa-solid fa-server"
+                                        style="color: var(--mt-primary-light); font-size: 1.4rem;"></i>
+                                    <div>
+                                        <h4 style="font-size: 0.95rem; font-weight: 800;">إدارة أجهزة وروترات متعددة
+                                        </h4>
+                                        <p style="font-size: 0.75rem; color: var(--mt-text-muted);">تبديل فوري وسلس بين
+                                            كافة فروع وسيرفرات شبكتك</p>
+                                    </div>
+                                </div>
+                                <span class="fcp-badge-fmt excel"
+                                    style="background: rgba(6, 182, 212, 0.15); color: #06b6d4;">
+                                    نشط ومباشر
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             4. CORE FEATURES (8 Grid Cards)
+             ============================================================= -->
+        <section id="features" class="mt-section">
+            <div class="mt-container">
+                <div class="mt-section-header mt-fade-in">
+                    <div class="mt-badge-pill">
+                        <i class="fa-solid fa-cubes"></i>
+                        <span>ترسانة من المميزات</span>
+                    </div>
+                    <h2 class="mt-section-title">كل ما يحتاجه مدير الشبكة في تطبيق واحد</h2>
+                    <p class="mt-section-subtitle">
+                        أدوات احترافية صُممت بعناية لتحويل هاتفك وحاسوبك إلى منصة متكاملة للتحكم في شبكات المايكروتك.
+                    </p>
+                </div>
+
+                <div class="mt-features-grid">
+                    <!-- Feature 1 -->
+                    <div class="mt-feature-card highlighted mt-fade-in">
+                        <div class="mt-feature-icon-wrapper">
+                            <i class="fa-solid fa-shield-virus"></i>
+                        </div>
+                        <span class="mt-feature-badge-en">Resource Safety Check</span>
+                        <h3 class="mt-feature-title">فحص سلامة الموارد والتوليد الذكي</h3>
+                        <p class="mt-feature-desc">
+                            نظام فحص استباقي يراقب أداء المعالج وسقف الترخيص بالراوتر، ليحسب الحد الأقصى والمتبقي الآمن
+                            للكروت، لتفادي بطء أو انهيار الراوتر أثناء التوليد الجماعي.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="mt-feature-card highlighted mt-fade-in">
+                        <div class="mt-feature-icon-wrapper">
+                            <i class="fa-solid fa-print"></i>
+                        </div>
+                        <span class="mt-feature-badge-en">Cards & PDF Generator</span>
+                        <h3 class="mt-feature-title">توليد وطباعة الكروت PDF</h3>
+                        <p class="mt-feature-desc">
+                            إنشاء آلاف الكروت العشوائية وتصديرها بصيغة PDF بتنسيقات مقصوصة وجاهزة للطباعة الورقية مع
+                            الباركود
+                            وقيمة الباقة وسعر الكرت.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="mt-feature-card mt-fade-in">
+                        <div class="mt-feature-icon-wrapper">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <span class="mt-feature-badge-en">User Management</span>
+                        <h3 class="mt-feature-title">إدارة المستخدمين والجلسات</h3>
+                        <p class="mt-feature-desc">
+                            متابعة المستخدمين النشطين (Active Users)، معرفة حجم استهلاك كل جهاز، فصل المتصلين، وتعديل
+                            السرعات والبروفايلات بضغطة زر.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="mt-feature-card mt-fade-in">
+                        <div class="mt-feature-icon-wrapper">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <span class="mt-feature-badge-en">Smart Automation</span>
+                        <h3 class="mt-feature-title">الأتمتة والسكربتات الذكية</h3>
+                        <p class="mt-feature-desc">
+                            حذف تلقائي للكروت المنتهية كل 12 ساعة لتفريغ الذاكرة، جدولة المهام، وإعادة الاتصال التلقائي
+                            عند
+                            انقطاع شبكة الـ Wi-Fi.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="mt-feature-card highlighted mt-fade-in">
+                        <div class="mt-feature-icon-wrapper">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                        </div>
+                        <span class="mt-feature-badge-en">Hotspot Profiles</span>
+                        <h3 class="mt-feature-title">إدارة بروفايلات الهوت سبوت</h3>
+                        <p class="mt-feature-desc">
+                            إنشاء وتعديل وحذف بروفايلات المستخدمين، تحديد السرعات (مثل 16M/16M)، التحكم بالمستخدمين
+                            المشتركين، وضبط مهلة حفظ عناوين الماك والتحديث التلقائي.
+                        </p>
+                    </div>
+
+
+                    <!-- Feature 6 -->
+                    <div class="mt-feature-card mt-fade-in">
+                        <div class="mt-feature-icon-wrapper">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <span class="mt-feature-badge-en">Remote Access & VPN</span>
+                        <h3 class="mt-feature-title">التحكم عن بُعد والـ VPN</h3>
+                        <p class="mt-feature-desc">
+                            إدارة شبكتك من أي مكان في العالم عبر سحابة MikroTik Cloud أو بروتوكولات WireGuard مع توليد
+                            أكواد
+                            QR لتسهيل التوصيل.
+                        </p>
+                    </div>
+
+                    <!-- Feature 7 -->
+                    <div class="mt-feature-card mt-fade-in">
+                        <div class="mt-feature-icon-wrapper">
+                            <i class="fa-solid fa-fingerprint"></i>
+                        </div>
+                        <span class="mt-feature-badge-en">Biometric Security</span>
+                        <h3 class="mt-feature-title">الأمان وقفل البصمة</h3>
+                        <p class="mt-feature-desc">
+                            حماية بيانات الراوتر بقفل التطبيق عبر البصمة أو الرقم السري، مع تشفير محلي كامل لكلمات
+                            المرور
+                            المحفوظة.
+                        </p>
+                    </div>
+
+                    <!-- Feature 8 -->
+                    <div class="mt-feature-card mt-fade-in">
+                        <div class="mt-feature-icon-wrapper">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                        <span class="mt-feature-badge-en">Bilingual & Dark Mode</span>
+                        <h3 class="mt-feature-title">ثنائية اللغة والوضع المظلم</h3>
+                        <p class="mt-feature-desc">
+                            دعم كامل للغتين العربية والإنجليزية مع تصميم واجهات ليلية مريحة للعين وتقليل استهلاك بطارية
+                            الهاتف.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
+
+        <!-- =============================================================
+             6. INTERACTIVE APP EXPERIENCE SHOWCASE
+             ============================================================= -->
+        <section id="screens" class="mt-section">
+            <div class="mt-container">
+                <div class="mt-section-header mt-fade-in">
+                    <div class="mt-badge-pill">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <span>معاينة حية لشاشات التطبيق</span>
+                    </div>
+                    <h2 class="mt-section-title">تجربة مستخدم استثنائية وسلسة</h2>
+                    <p class="mt-section-subtitle">
+                        استكشف أهم واجهات التطبيق وتعرف على إمكانياتها القوية في إدارة وتطوير شبكتك.
+                    </p>
+                </div>
+
+                <!-- Showcase Tabs -->
+                <div class="mt-experience-tabs mt-fade-in" role="tablist">
+                    <button class="mt-tab-btn active" data-tab="main" role="tab" aria-selected="true">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>الشاشة الرئيسية ومراقبة السرعة</span>
+                    </button>
+
+                    <button class="mt-tab-btn" data-tab="safety" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-shield-virus"></i>
+                        <span>فحص الموارد والتوليد الجماعي</span>
+                    </button>
+
+                    <button class="mt-tab-btn" data-tab="profiles" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-id-card-clip"></i>
+                        <span>إعدادات بروفايلات الهوت سبوت</span>
+                    </button>
+
+                    <button class="mt-tab-btn" data-tab="cards" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-ticket"></i>
+                        <span>توليد وطباعة الكروت</span>
+                    </button>
+
+                    <button class="mt-tab-btn" data-tab="automation" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-robot"></i>
+                        <span>الأتمتة والحذف التلقائي</span>
+                    </button>
+                    <button class="mt-tab-btn" data-tab="devices" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-server"></i>
+                        <span>إدارة الأجهزة والسيرفرات</span>
+                    </button>
+                </div>
+
+                <!-- Interactive Display Container -->
+                <div class="mt-experience-showcase mt-fade-in">
+                    <!-- Left: Details -->
+                    <div class="mt-exp-info">
+                        <h3 class="mt-exp-info-title" id="mt-exp-title">الشاشة الرئيسية ومراقبة الشبكة اللحظية</h3>
+                        <p class="mt-exp-info-desc" id="mt-exp-desc">
+                            واجهة قيادية عصرية تمنحك فحصاً شاملاً لحالة الراوتر، الذاكرة، المعالج، استهلاك البيانات،
+                            وحركة
+                            الترافيك في الوقت الفعلي.
+                        </p>
+
+                        <div class="mt-exp-checklist" id="mt-exp-points">
+                            <div class="mt-exp-check-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>عرض بياني حي لمعدل سرعة الرفع والتحميل (Traffic Monitor)</span>
+                            </div>
+                            <div class="mt-exp-check-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>متابعة استهلاك المعالج (CPU) والذاكرة ومساحة التخزين</span>
+                            </div>
+                            <div class="mt-exp-check-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>معرفة عدد المستخدمين النشطين المتصلين بالهوتسبوت حالياً</span>
+                            </div>
+                            <div class="mt-exp-check-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>أزرار وصول سريع لإعادة التشغيل وإدارة الجلسات</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Phone Mockup Frame -->
+                    <div class="mt-exp-mockup-display">
+                        <div class="mt-exp-phone-frame">
+                            <img id="mt-exp-image" src="img/screen4.png" alt="شاشة تطبيق MikroTik Manager Pro"
+                                loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Horizontal Carousel of all 12 Screens -->
+                <div style="margin-top: 4rem;">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <span class="mt-badge-pill"><i class="fa-solid fa-images"></i> معرض لقطات الشاشة الكامل</span>
+                        <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--mt-text-primary);">تصفح جميع أقسام
+                            التطبيق</h3>
+                    </div>
+
+                    <div class="mt-gallery-scroll-container">
+                        <div class="mt-gallery-card">
+                            <img src="img/screen4.png" alt="الشاشة الرئيسية ومراقبة الأداء" loading="lazy">
+                            <div class="mt-gallery-card-label">الشاشة الرئيسية</div>
+                        </div>
+
+                        <div class="mt-gallery-card">
+                            <img src="img/screen-bulk-safety.png" alt="فحص سلامة موارد المايكروتك والتوليد الجماعي"
+                                loading="lazy">
+                            <div class="mt-gallery-card-label">فحص الموارد والتوليد</div>
+                        </div>
+
+                        <div class="mt-gallery-card">
+                            <img src="img/screen-profiles.png" alt="إعدادات بروفايلات الهوت سبوت وتحديد السرعات"
+                                loading="lazy">
+                            <div class="mt-gallery-card-label">إعدادات البروفايلات</div>
+                        </div>
+
+                        <div class="mt-gallery-card">
+                            <img src="img/screen12.png" alt="إدارة الكروت والطباعة" loading="lazy">
+                            <div class="mt-gallery-card-label">إدارة الكروت</div>
+                        </div>
+                        <div class="mt-gallery-card">
+                            <img src="img/screen10.png" alt="قائمة المستخدمين والمشتركين" loading="lazy">
+                            <div class="mt-gallery-card-label">المستخدمين</div>
+                        </div>
+                        <div class="mt-gallery-card">
+                            <img src="img/screen11.png" alt="المستخدمين النشطين والجلسات" loading="lazy">
+                            <div class="mt-gallery-card-label">المستخدمين النشطين</div>
+                        </div>
+                        <div class="mt-gallery-card">
+                            <img src="img/screen2.png" alt="أتمتة حذف الكروت المنتهية" loading="lazy">
+                            <div class="mt-gallery-card-label">الحذف التلقائي</div>
+                        </div>
+                        <div class="mt-gallery-card">
+                            <img src="img/screen6.png" alt="إدارة أجهزة المايكروتك المتعددة" loading="lazy">
+                            <div class="mt-gallery-card-label">إدارة الأجهزة</div>
+                        </div>
+                        <div class="mt-gallery-card">
+                            <img src="img/screen9.png" alt="تقارير الكروت حسب البروفايل" loading="lazy">
+                            <div class="mt-gallery-card-label">تحليل البروفايلات</div>
+                        </div>
+                        <div class="mt-gallery-card">
+                            <img src="img/screen5.png" alt="سجل العمليات والمهام" loading="lazy">
+                            <div class="mt-gallery-card-label">سجل العمليات</div>
+                        </div>
+                        <div class="mt-gallery-card">
+                            <img src="img/screen1.png" alt="واجهة الإعدادات والتحكم" loading="lazy">
+                            <div class="mt-gallery-card-label">الإعدادات والتحكم</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             7. TECHNICAL ARCHITECTURE
+             ============================================================= -->
+        <section id="tech" class="mt-section mt-section-alt">
+            <div class="mt-container">
+                <div class="mt-section-header mt-fade-in">
+                    <div class="mt-badge-pill">
+                        <i class="fa-solid fa-microchip"></i>
+                        <span>الأساس التقني المتين</span>
+                    </div>
+                    <h2 class="mt-section-title">تقنيات حديثة مصممة لأقصى أداء واستقرار</h2>
+                    <p class="mt-section-subtitle">
+                        بنية برمجية فائقة السرعة تتواصل مع أنظمة RouterOS بكفاءة واستهلاك ضئيل لموارد الراوتر والهاتف.
+                    </p>
+                </div>
+
+                <div class="mt-tech-grid mt-fade-in">
+                    <!-- Tech 1 -->
+                    <div class="mt-tech-card">
+                        <div class="mt-tech-icon" style="color: #02569B;">
+                            <i class="fa-brands fa-flutter"></i>
+                        </div>
+                        <h3>Flutter SDK</h3>
+                        <p>تطبيق متعدد المنصات عالي السرعة يضمن أداءً سلساً واستجابة فورية.</p>
+                    </div>
+
+                    <!-- Tech 2 -->
+                    <div class="mt-tech-card">
+                        <div class="mt-tech-icon" style="color: #0078D7;">
+                            <i class="fa-brands fa-windows"></i>
+                        </div>
+                        <h3>Windows C++</h3>
+                        <p>نسخة سطح مكتب أصيلة مبنية لتناسب بيئة العمل الإدارية في المحلات والمقاهي.</p>
+                    </div>
+
+                    <!-- Tech 3 -->
+                    <div class="mt-tech-card">
+                        <div class="mt-tech-icon" style="color: #3DDC84;">
+                            <i class="fa-brands fa-android"></i>
+                        </div>
+                        <h3>Android Native</h3>
+                        <p>توافق تام مع مختلف أجهزة وإصدارات أندرويد مع استهلاك اقتصادي للبطارية.</p>
+                    </div>
+
+                    <!-- Tech 4 -->
+                    <div class="mt-tech-card">
+                        <div class="mt-tech-icon" style="color: #06b6d4;">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3>RouterOS API</h3>
+                        <p>اتصال مباشر ومشفر ببروتوكولات مايكروتك الرسمية لضمان أمان العمليات.</p>
+                    </div>
+
+                    <!-- Tech 5 -->
+                    <div class="mt-tech-card">
+                        <div class="mt-tech-icon" style="color: #EA4335;">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </div>
+                        <h3>PDF Vector Engine</h3>
+                        <p>محرك توليد مستندات PDF دقيق يطبع آلاف الكروت بأعلى جودة للقص والطباعة.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             8. VALUE PROPOSITION (Two Columns)
+             ============================================================= -->
+        <section class="mt-section">
+            <div class="mt-container">
+                <div class="mt-section-header mt-fade-in">
+                    <div class="mt-badge-pill">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <span>قيمة حقيقية لعملك</span>
+                    </div>
+                    <h2 class="mt-section-title">لماذا تختار MikroTik Manager Pro؟</h2>
+                    <p class="mt-section-subtitle">
+                        الفارق الحقيقي بين الطرق التقليدية المتعبة والأتمتة الذكية لشبكتك.
+                    </p>
+                </div>
+
+                <div class="mt-value-grid">
+                    <!-- Column 1: For Network Owners -->
+                    <div class="mt-value-column mt-fade-in">
+                        <div class="mt-value-header">
+                            <div class="mt-value-icon">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <h3>لأصحاب الشبكات ومديري المقاهي</h3>
+                        </div>
+
+                        <div class="mt-value-list">
+                            <div class="mt-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>توفير ساعات طويلة من توليد الكروت وكتابة السكربتات يدوياً.</span>
+                            </div>
+                            <div class="mt-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>حماية ذاكرة الراوتر من التوقف بسبب تراكم الكروت المنتهية.</span>
+                            </div>
+                            <div class="mt-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>حساب دقيق لصافي الأرباح ومنع ضياع المبيعات أو تسريب الكروت.</span>
+                            </div>
+                            <div class="mt-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>مظهر تجاري احترافي بكروت ملونة وصفحة تسجيل دخول جذابة.</span>
+                            </div>
+                            <div class="mt-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>التحكم في سيرفراتك وروتراتك المتعددة من أي مكان عن بُعد.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: For End Users -->
+                    <div class="mt-value-column mt-fade-in">
+                        <div class="mt-value-header">
+                            <div class="mt-value-icon" style="background: linear-gradient(135deg, #059669, #10b981);">
+                                <i class="fa-solid fa-wifi"></i>
+                            </div>
+                            <h3>لمشتركي وزوار الشبكة</h3>
+                        </div>
+
+                        <div class="mt-value-list">
+                            <div class="mt-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>تسجيل دخول سريع وسهل بحقل كود الكرت فقط دون تعقيد.</span>
+                            </div>
+                            <div class="mt-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>متابعة الرصيد المتبقي واستهلاك الميجابايتات بوضوح في صفحة الحالة.</span>
+                            </div>
+                            <div class="mt-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>الاطلاع على قائمة أسعار الباقات والسرعات المتاحة بسهولة.</span>
+                            </div>
+                            <div class="mt-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>كروت واضحة ومطبوعة بخطوط وتصميمات ممتازة ومقروءة.</span>
+                            </div>
+                            <div class="mt-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>استقرار اتصال عالي دون تقطيع ناتج عن ضغط السيرفر.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             9. DOWNLOAD SECTION (High Impact CTA)
+             ============================================================= -->
+        <section id="download" class="mt-section mt-section-alt">
+            <div class="mt-container">
+                <div class="mt-download-banner mt-fade-in">
+                    <div class="mt-download-glow"></div>
+
+                    <h2 class="mt-download-title">جاهز لتطوير وإدارة شبكتك باحترافية؟</h2>
+                    <p class="mt-download-subtitle">
+                        حمّل التطبيق الآن واستمتع بكافة الصلاحيات والمميزات مجاناً خلال الشهر الأول — متاح لأجهزة
+                        Windows و
+                        Android.
+                    </p>
+
+                    <div class="mt-download-buttons">
+                        <!-- Windows Button -->
+                        <a href="https://mega.nz/file/b0JwGTqJ#MN8mzz8-AB6Bowi3Qo_xjSeVj-asqp1P70t4gIleJgA"
+                            target="_blank" rel="noopener noreferrer" class="mt-download-btn"
+                            title="تحميل نسخة Windows المباشرة">
+                            <i class="fa-brands fa-windows" style="font-size: 1.35rem; color: #0078d4;"></i>
+                            <span>تحميل نسخة Windows</span>
+                        </a>
+
+                        <!-- Android APK Button -->
+                        <a href="https://mega.nz/file/PsBTRYyQ#c8u1RzephkJdzxPX1DyUCKCPSDllpAZ-Z4mqlbb3Iw8"
+                            target="_blank" rel="noopener noreferrer" class="mt-download-btn secondary"
+                            title="تحميل ملف APK المباشر للأندرويد">
+                            <i class="fa-brands fa-android" style="font-size: 1.35rem; color: #10b981;"></i>
+                            <span>تحميل ملف APK (Android)</span>
+                        </a>
+
+                        <!-- Google Play Button -->
+                        <a href="https://play.google.com/store/apps/details?id=com.mikrotik.managerpro.mikrotik_manager_pro"
+                            target="_blank" rel="noopener noreferrer" class="mt-btn mt-btn-primary"
+                            title="التحميل من متجر جوجل بلاي للاجهزة المسجلة فقط على النسخة التجريبية">
+                            <i class="fa-brands fa-google-play" style="color: rgb(16, 185, 129);"></i>
+                            <span>Google Play</span>
+                        </a>
+                    </div>
+
+                    <p class="mt-download-meta">
+                        * يتطلب التطبيق تفعيل خدمة API في راوتر المايكروتك (المنفذ الافتراضي 8728).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             10. FAQ ACCORDION
+             ============================================================= -->
+        <section id="faq" class="mt-section">
+            <div class="mt-container">
+                <div class="mt-section-header mt-fade-in">
+                    <div class="mt-badge-pill">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <span>إجابات سريعة وواضحة</span>
+                    </div>
+                    <h2 class="mt-section-title">الأسئلة الشائعة</h2>
+                    <p class="mt-section-subtitle">
+                        كل ما تود معرفته حول متطلبات التشغيل، الأمان، وإمكانيات MikroTik Manager Pro.
+                    </p>
+                </div>
+
+                <div class="mt-faq-list mt-fade-in">
+                    <!-- Q1 -->
+                    <div class="mt-faq-item">
+                        <button class="mt-faq-trigger" aria-expanded="false">
+                            <span>1. كيف يتصل التطبيق بجهاز المايكروتك؟</span>
+                            <div class="mt-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="mt-faq-content">
+                            <div class="mt-faq-answer">
+                                يتصل التطبيق عبر بروتوكول MikroTik RouterOS API الرسمي (المنفذ 8728 أو المنفذ الآمن
+                                8729).
+                                كل ما تحتاجه هو التأكد من تفعيل خدمة API من قائمة IP -> Services في راوترك.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="mt-faq-item">
+                        <button class="mt-faq-trigger" aria-expanded="false">
+                            <span>2. هل يمكنني إدارة الراوتر من خارج الشبكة (عن بُعد)؟</span>
+                            <div class="mt-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="mt-faq-content">
+                            <div class="mt-faq-answer">
+                                نعم، يدعم التطبيق الاتصال عن بُعد عبر خدمة MikroTik Cloud DDNS، الـ Public IP، أو عبر
+                                بروتوكولات الـ VPN والـ WireGuard مع إمكانية مسح كود QR للاتصال الفوري.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="mt-faq-item">
+                        <button class="mt-faq-trigger" aria-expanded="false">
+                            <span>3. هل يدعم التطبيق جميع أجهزة وموديلات MikroTik؟</span>
+                            <div class="mt-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="mt-faq-content">
+                            <div class="mt-faq-answer">
+                                نعم، يدعم التطبيق كافة أجهزة RouterBOARD، سيرفرات x86، أجهزة CHR، وجميع إصدارات نظام
+                                التشغيل
+                                RouterOS v6 و RouterOS v7.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="mt-faq-item">
+                        <button class="mt-faq-trigger" aria-expanded="false">
+                            <span>4. كيف تتم عملية توليد وطباعة الكروت بصيغة PDF؟</span>
+                            <div class="mt-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="mt-faq-content">
+                            <div class="mt-faq-answer">
+                                يتيح لك التطبيق تحديد الباقة وعدد الكروت، ويقوم المحرك بتوليد كروت عشوائية غير قابلة
+                                للتخمين
+                                وحفظها في المايكروتك، ثم تصدير مستند PDF جاهز فوراً للطباعة الورقية بمقاسات منظمة لسهولة
+                                القص.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="mt-faq-item">
+                        <button class="mt-faq-trigger" aria-expanded="false">
+                            <span>5. كيف يعمل مصمم صفحات تسجيل الدخول (Hotspot Designer)؟</span>
+                            <div class="mt-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="mt-faq-content">
+                            <div class="mt-faq-answer">
+                                يوفر لك واجهة تفاعلية بسيطة لتحديد ألوانك المفضلة، رفع شعار شبكتك، وكتابة اسم الشبكة،
+                                ليقوم
+                                بتوليد صفحة الدخول وصفحة الحالة وقائمة الأسعار ورفعها للراوتر مباشرة دون الحاجة لفتح أي
+                                ملف
+                                HTML.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="mt-faq-item">
+                        <button class="mt-faq-trigger" aria-expanded="false">
+                            <span>6. ما هي ميزة الحذف التلقائي للكروت المنتهية؟</span>
+                            <div class="mt-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="mt-faq-content">
+                            <div class="mt-faq-answer">
+                                هي سكربت أوتوماتيكي يقوم التطبيق بتهيئته على الراوتر ليفحص الكروت كل 12 ساعة، ويمسح
+                                الكروت
+                                التي انتهى رصيدها أو زمنها لتحرير الذاكرة ومنع بطء أداء الجهاز.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="mt-faq-item">
+                        <button class="mt-faq-trigger" aria-expanded="false">
+                            <span>7. هل التطبيق آمن لكلمات مرور وبيانات الراوتر؟</span>
+                            <div class="mt-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="mt-faq-content">
+                            <div class="mt-faq-answer">
+                                نعم، يتم تشفير كافة بيانات الدخول محلياً على جهازك، كما يتيح التطبيق قفل الشاشة بالبصمة
+                                أو
+                                الرمز السري لمنع أي متطفل من الوصول إلى روتراتك عند استخدام هاتفك.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q8 -->
+                    <div class="mt-faq-item">
+                        <button class="mt-faq-trigger" aria-expanded="false">
+                            <span>8. هل يعمل التطبيق على أجهزة الحاسوب ونظام Windows؟</span>
+                            <div class="mt-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="mt-faq-content">
+                            <div class="mt-faq-answer">
+                                نعم، يتوفر إصدار أصيل متكامل ومخصص لأجهزة الكمبيوتر ونظام Windows يوفر نفس الأدوات
+                                القوية مع
+                                سهولة إدارة الطباعة المباشرة من أجهزة الحواسيب المكتبية.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             11. SUPPORT CALLOUT
+             ============================================================= -->
+        <section class="mt-section mt-section-alt">
+            <div class="mt-container">
+                <div class="mt-support-card mt-fade-in">
+                    <div class="mt-support-text">
+                        <h3>تحتاج إلى استشارة أو دعم فني لشبكتك؟</h3>
+                        <p>فريقنا جاهز لمساعدتك في إعداد السيرفرات، ربط أجهزة المايكروتك، وتخصيص قوالب الكروت.</p>
+                    </div>
+
+                    <div class="mt-support-actions">
+                        <a href="https://wa.me/249962181777" target="_blank" rel="noopener noreferrer"
+                            class="mt-btn mt-btn-primary">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>تواصل عبر واتساب</span>
+                        </a>
+                        <a href="mailto:ii601704@gmail.com?subject=استفسار بخصوص MikroTik Manager Pro"
+                            class="mt-btn mt-btn-outline">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>راسلنا بريدياً</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 إبراهيم عبد القادر. جميع الحقوق محفوظة.</p>
-            <div style="margin-top: 1rem; display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap;">
-                <a href="index.html" class="footer-link">العودة للرئيسية</a>
-                <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
-                <a href="websites.html" class="footer-link" data-i18n="nav_websites">مواقع الويب</a>
-                <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
-                <a href="privacy-policy.html" class="footer-link">سياسة الخصوصية</a>
+    <!-- Footer -->
+    <footer class="mt-footer" role="contentinfo">
+        <div class="mt-container">
+            <div class="mt-footer-grid">
+                <!-- Col 1: About App -->
+                <div class="mt-footer-about">
+                    <div class="mt-nav-brand">
+                        <img src="img/app_icon.png" alt="شعار MikroTik Manager Pro" class="mt-brand-logo-img">
+                        <div class="mt-brand-text">
+                            <span class="mt-brand-title">MikroTik Manager Pro</span>
+                            <span class="mt-brand-sub">Smart Network Solutions</span>
+                        </div>
+                    </div>
+                    <p>
+                        المنظومة الاحترافية الرائدة لإدارة شبكات المايكروتك، توليد وطباعة الكروت، تصميم صفحات الهوتسبوت،
+                        والأتمتة الكاملة للشبكات الذكية.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="mt-footer-links">
+                    <h4>أقسام الصفحة</h4>
+                    <ul>
+                        <li><a href="#about">عن التطبيق</a></li>
+                        <li><a href="#features">المميزات الرئيسية</a></li>
+                        <li><a href="#how-it-works">كيف يعمل النظام</a></li>
+                        <li><a href="#screens">شاشات التطبيق</a></li>
+                        <li><a href="#tech">الأساس التقني</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Downloads & Portfolio -->
+                <div class="mt-footer-links">
+                    <h4>التحميل والمعرض</h4>
+                    <ul>
+                        <li><a href="https://mega.nz/file/b0JwGTqJ#MN8mzz8-AB6Bowi3Qo_xjSeVj-asqp1P70t4gIleJgA"
+                                target="_blank" rel="noopener noreferrer">تحميل نسخة Windows</a></li>
+                        <li><a href="https://mega.nz/file/PsBTRYyQ#c8u1RzephkJdzxPX1DyUCKCPSDllpAZ-Z4mqlbb3Iw8"
+                                target="_blank" rel="noopener noreferrer">تحميل ملف APK</a></li>
+                        <li><a href="fcp-attendance.html">نظام الحضور FCP</a></li>
+                        <li><a href="knowledge-platform.html">منصة المعرفة المؤسسية</a></li>
+                        <li><a href="websites.html">معرض المواقع والتطبيقات</a></li>
+                        <li><a href="privacy-policy.html">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="mt-footer-bottom">
+                <div>
+                    جميع الحقوق محفوظة &copy; 2026 إبراهيم عبدالقادر — مبرمج فلاتر وخبير شبكات مايكروتك.
+                </div>
+                <div>
+                    <a href="index.html" style="color: var(--mt-primary-light); font-weight: 700;">معرض الأعمال
+                        الشخصي</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Scripts -->
+    <script src="js/mikrotik.js"></script>
 </body>
 
 </html>

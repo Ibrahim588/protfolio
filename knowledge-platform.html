@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="منصة المعرفة هي منصة مؤسسية رقمية لتوثيق ومشاركة الخبرات التقنية والهندسية والإدارية، وتسريع الوصول إلى المعلومات وتعزيز التواصل بين فرق العمل.">
+    <meta name="keywords"
+        content="منصة المعرفة, Knowledge Platform, إدارة المعرفة المؤسسية, تبادل الخبرات, توثيق المعرفة, Flutter, Firebase, تطبيق مهندسين, منصة تقنية, إبراهيم عبدالقادر">
+    <meta name="author" content="إبراهيم عبدالقادر - Ibrahim Abdelgadir">
+    <link rel="canonical" href="http://ibrahim-protfolio.42web.io/knowledge-platform.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://ibrahim-protfolio.42web.io/knowledge-platform.html">
+    <meta property="og:title" content="منصة المعرفة | مرجعك المؤسسي لتبادل الخبرات والمعرفة">
+    <meta property="og:description"
+        content="منصة رقمية ذكية تجمع الخبرات التقنية والهندسية والإدارية في مكان واحد، لتسهيل الوصول إلى المعلومات، مشاركة المعرفة، وتعزيز التواصل بين فرق العمل.">
+    <meta property="og:image" content="http://ibrahim-protfolio.42web.io/img/knowledge/app_logo.png">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://ibrahim-protfolio.42web.io/knowledge-platform.html">
+    <meta property="twitter:title" content="منصة المعرفة | مرجعك المؤسسي لتبادل الخبرات والمعرفة">
+    <meta property="twitter:description"
+        content="منصة المعرفة هي منصة مؤسسية رقمية لتوثيق ومشاركة الخبرات التقنية والهندسية والإدارية، وتسريع الوصول إلى المعلومات وتعزيز التواصل بين فرق العمل.">
+    <meta property="twitter:image" content="http://ibrahim-protfolio.42web.io/img/knowledge/app_logo.png">
+
+    <title>منصة المعرفة | مرجعك المؤسسي لتبادل الخبرات والمعرفة</title>
+
+    <!-- Google Fonts: Cairo & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/knowledge-platform.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "منصة المعرفة - Knowledge Platform",
+      "operatingSystem": "Android, iOS, Web",
+      "applicationCategory": "BusinessApplication",
+      "description": "منصة مؤسسية رقمية متكاملة لتوثيق ومشاركة الخبرات التقنية والهندسية والإدارية، وتسريع الوصول إلى المعلومات وتعزيز التواصل بين فرق العمل.",
+      "url": "http://ibrahim-protfolio.42web.io/knowledge-platform.html",
+      "image": "http://ibrahim-protfolio.42web.io/img/knowledge/app_logo.png",
+      "author": {
+        "@type": "Person",
+        "name": "Ibrahim Abdelgadir"
+      }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- =================================================================
+         Header & Navigation (Navbar)
+         ================================================================= -->
+    <header class="kp-navbar" role="banner">
+        <div class="kp-container kp-nav-container">
+            <!-- Brand Logo & Name -->
+            <a href="knowledge-platform.html" class="kp-nav-brand" aria-label="الصفحة الرئيسية لمنصة المعرفة">
+                <img src="img/knowledge/app_logo.png" alt="شعار منصة المعرفة" class="kp-brand-logo">
+                <div class="kp-brand-text">
+                    <span class="kp-brand-name">منصة المعرفة</span>
+                    <span class="kp-brand-tag">Knowledge Platform</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="kp-nav-menu" id="kp-nav-menu" role="navigation" aria-label="القائمة الرئيسية">
+                <a href="#hero" class="kp-nav-link active">الرئيسية</a>
+                <a href="#metrics" class="kp-nav-link">المؤشرات</a>
+                <a href="#solution" class="kp-nav-link">الحل المؤسسي</a>
+                <a href="#features" class="kp-nav-link">المميزات</a>
+                <a href="#disciplines" class="kp-nav-link">المجالات</a>
+                <a href="#how-it-works" class="kp-nav-link">كيف تعمل</a>
+                <a href="#showcase" class="kp-nav-link">الشاشات</a>
+                <a href="#security" class="kp-nav-link">الأمان</a>
+                <a href="#admin" class="kp-nav-link">الإدارة</a>
+                <a href="#faq" class="kp-nav-link">الأسئلة الشائعة</a>
+            </nav>
+
+            <!-- Actions (Theme Toggle & CTA) -->
+            <div class="kp-nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="kp-theme-toggle" id="kp-theme-toggle" aria-label="تبديل الوضع الليلي / النهاري">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+
+                <!-- Download CTA -->
+                <a href="#download" class="kp-btn kp-btn-primary">
+                    <i class="fa-brands fa-android"></i>
+                    <span>تحميل التطبيق</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="kp-mobile-toggle" id="kp-mobile-toggle" aria-label="فتح القائمة" aria-expanded="false"
+                    aria-controls="kp-nav-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- =================================================================
+             1. HERO SECTION
+             ================================================================= -->
+        <section id="hero" class="kp-hero-section">
+            <div class="kp-container kp-hero-grid">
+                <!-- Hero Content (Right in RTL) -->
+                <div class="kp-hero-content">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-sparkles"></i>
+                        <span>منصة المعرفة المؤسسية</span>
+                    </div>
+
+                    <h1 class="kp-hero-title">
+                        منصة المعرفة<br>
+                        <span class="kp-gradient-text">بوابتك الرقمية لتوثيق وتبادل الخبرات المؤسسية</span>
+                    </h1>
+
+                    <p class="kp-hero-text">
+                        منصة رقمية ذكية تجمع الخبرات التقنية والهندسية والإدارية في مكان واحد، لتسهيل الوصول إلى المعلومات،
+                        مشاركة المعرفة، وتعزيز التواصل بين فرق العمل.
+                    </p>
+
+                    <div class="kp-hero-actions">
+                        <a href="#showcase" class="kp-btn kp-btn-primary">
+                            <i class="fa-solid fa-compass"></i>
+                            <span>اكتشف المنصة</span>
+                        </a>
+                        <a href="#download" class="kp-btn kp-btn-secondary">
+                            <i class="fa-brands fa-google-play"></i>
+                            <span>تحميل التطبيق</span>
+                        </a>
+                        <a href="https://knowledge-platform-7e1ed.web.app" target="_blank" rel="noopener noreferrer" class="kp-btn kp-btn-outline">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                            <span>تسجيل الدخول</span>
+                        </a>
+                    </div>
+
+                    <div class="kp-hero-meta">
+                        <div class="kp-hero-meta-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>توثيق Email OTP</span>
+                        </div>
+                        <div class="kp-hero-meta-item">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>مزامنة Firebase لحظية</span>
+                        </div>
+                        <div class="kp-hero-meta-item">
+                            <i class="fa-solid fa-check-double"></i>
+                            <span>إصدار v1.3.3 المستقر</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual (Left in RTL): Realistic Smartphone Mockup -->
+                <div class="kp-hero-visual">
+                    <div class="kp-phone-wrapper">
+                        <!-- Dynamic Notch -->
+                        <div class="kp-phone-notch">
+                            <span>09:41</span>
+                            <div style="display:flex; gap: 4px; align-items: center;">
+                                <i class="fa-solid fa-signal" style="font-size: 0.65rem;"></i>
+                                <i class="fa-solid fa-wifi" style="font-size: 0.65rem;"></i>
+                                <i class="fa-solid fa-battery-full" style="font-size: 0.7rem;"></i>
+                            </div>
+                        </div>
+
+                        <!-- App Screen Simulation -->
+                        <div class="kp-phone-screen">
+                            <!-- App Header -->
+                            <div class="kp-phone-header">
+                                <div class="kp-phone-brand">
+                                    <img src="img/knowledge/app_logo.png" alt="شعار">
+                                    <span>منصة المعرفة</span>
+                                </div>
+                                <div class="kp-phone-icons">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <div style="position: relative;">
+                                        <i class="fa-regular fa-bell"></i>
+                                        <span style="position: absolute; top:-4px; right:-6px; width:7px; height:7px; background:#EF4444; border-radius:50%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Welcome Card -->
+                            <div class="kp-phone-welcome">
+                                <h4>أهلاً بك، م. محمد 👋</h4>
+                                <p>نظم المعلومات (IT) • متصل الآن</p>
+                            </div>
+
+                            <!-- Quick Search Bar -->
+                            <div class="kp-phone-search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <span>ابحث في مكتبة المعرفة أو الأقسام...</span>
+                            </div>
+
+                            <!-- Categories Chips -->
+                            <div class="kp-phone-categories">
+                                <span class="kp-phone-chip active">الكل</span>
+                                <span class="kp-phone-chip">IT</span>
+                                <span class="kp-phone-chip">كهرباء</span>
+                                <span class="kp-phone-chip">ميكانيكا</span>
+                                <span class="kp-phone-chip">كيمياء</span>
+                            </div>
+
+                            <!-- Feed Cards -->
+                            <div class="kp-phone-feed">
+                                <!-- Card 1 -->
+                                <div class="kp-phone-card">
+                                    <div class="kp-phone-card-tag">
+                                        <i class="fa-solid fa-microchip"></i>
+                                        <span>نظم المعلومات • أمان وشبكات</span>
+                                    </div>
+                                    <div class="kp-phone-card-title">
+                                        دليل تطبيق سياسات الحماية لجدران الحماية المؤسسية
+                                    </div>
+                                    <div class="kp-phone-card-author">
+                                        <span>بواسطة: م. خالد التميمي</span>
+                                        <span><i class="fa-regular fa-heart"></i> 34</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="kp-phone-card">
+                                    <div class="kp-phone-card-tag" style="color: #F59E0B;">
+                                        <i class="fa-solid fa-bolt"></i>
+                                        <span>هندسة كهربائية • محطات التوليد</span>
+                                    </div>
+                                    <div class="kp-phone-card-title">
+                                        معايرة القواطع الهوائية وموازنة الأحمال الحرجية
+                                    </div>
+                                    <div class="kp-phone-card-author">
+                                        <span>بواسطة: م. أحمد سامي</span>
+                                        <span><i class="fa-regular fa-heart"></i> 51</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4 Subtle Floating Badges -->
+                    <div class="kp-floating-badge kp-float-1">
+                        <div class="kp-float-icon" style="background: #0D47A1;">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <div>
+                            <div class="kp-float-title">معرفة جديدة</div>
+                            <div class="kp-float-sub">تم التوثيق والمراجعة</div>
+                        </div>
+                    </div>
+
+                    <div class="kp-floating-badge kp-float-2">
+                        <div class="kp-float-icon" style="background: #059669;">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <div>
+                            <div class="kp-float-title">دليل هندسي</div>
+                            <div class="kp-float-sub">صيانة مضخات الهيدروليك</div>
+                        </div>
+                    </div>
+
+                    <div class="kp-floating-badge kp-float-3">
+                        <div class="kp-float-icon" style="background: #2563EB;">
+                            <i class="fa-solid fa-terminal"></i>
+                        </div>
+                        <div>
+                            <div class="kp-float-title">خبرة تقنية</div>
+                            <div class="kp-float-sub">حل مشكلات الـ Active Directory</div>
+                        </div>
+                    </div>
+
+                    <div class="kp-floating-badge kp-float-4">
+                        <div class="kp-float-icon" style="background: #D97706;">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <div>
+                            <div class="kp-float-title">إعلان إداري</div>
+                            <div class="kp-float-sub">تحديث إجراءات الأمن والسلامة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             2. TRUST / METRICS BAR
+             ================================================================= -->
+        <section id="metrics" class="kp-metrics-bar">
+            <div class="kp-container">
+                <div class="kp-metrics-grid">
+                    <!-- Metric 1 -->
+                    <div class="kp-metric-item">
+                        <div class="kp-metric-icon">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <div class="kp-metric-info">
+                            <div class="kp-metric-number">4+</div>
+                            <div class="kp-metric-label">مجالات تخصصية هندسية وتقنية</div>
+                        </div>
+                    </div>
+
+                    <!-- Metric 2 -->
+                    <div class="kp-metric-item">
+                        <div class="kp-metric-icon">
+                            <i class="fa-solid fa-sitemap"></i>
+                        </div>
+                        <div class="kp-metric-info">
+                            <div class="kp-metric-number">6+</div>
+                            <div class="kp-metric-label">أقسام مؤسسية مترابطة في منصة واحدة</div>
+                        </div>
+                    </div>
+
+                    <!-- Metric 3 -->
+                    <div class="kp-metric-item">
+                        <div class="kp-metric-icon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <div class="kp-metric-info">
+                            <div class="kp-metric-number">100%</div>
+                            <div class="kp-metric-label">تحديثات سحابية ومزامنة فورية</div>
+                        </div>
+                    </div>
+
+                    <!-- Metric 4 -->
+                    <div class="kp-metric-item">
+                        <div class="kp-metric-icon">
+                            <i class="fa-solid fa-shield-check"></i>
+                        </div>
+                        <div class="kp-metric-info">
+                            <div class="kp-metric-number"><i class="fa-solid fa-check"></i></div>
+                            <div class="kp-metric-label">بيئة مؤسسية آمنة وموثقة الصلاحيات</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             3. PROBLEM → SOLUTION
+             ================================================================= -->
+        <section id="solution" class="kp-section">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>القيمة المؤسسية المضافة</span>
+                    </div>
+                    <h2 class="kp-section-title">
+                        المعرفة موجودة داخل المؤسسة...<br>
+                        لكن هل يمكن الوصول إليها بسهولة؟
+                    </h2>
+                    <p class="kp-section-subtitle">
+                        كل يوم تُحل مشكلات معقدة ويُكتسب رصيد خبرات ثمين، ولكن في غياب نظام توثيق مركزي، تُهدر ساعات العمل في إعادة اكتشاف الحلول.
+                    </p>
+                </div>
+
+                <div class="kp-problem-solution-grid">
+                    <!-- Problem Card -->
+                    <div class="kp-problem-card">
+                        <div>
+                            <div class="kp-problem-header">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <span>التحديات المعرفية اليومية</span>
+                            </div>
+                            <ul class="kp-problem-list">
+                                <li class="kp-problem-item">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                    <span><strong>المعلومات موزعة بين الأشخاص:</strong> المعرفة محصورة في أذهان الأفراد أو سجلات ورقية غير مفهرسة.</span>
+                                </li>
+                                <li class="kp-problem-item">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                    <span><strong>صعوبة الوصول للخبرات السابقة:</strong> تكرار ارتكاب نفس الأخطاء وتضييع الوقت في حل مشكلات سبق حلها.</span>
+                                </li>
+                                <li class="kp-problem-item">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                    <span><strong>ضياع المعرفة عند انتقال الموظفين:</strong> فقدان رصيد الخبرة الفنية عند مغادرة أي كادر للمؤسسة.</span>
+                                </li>
+                                <li class="kp-problem-item">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                    <span><strong>صعوبة مشاركة الحلول الفنية:</strong> غياب لغة مشتركة ومساحة موحدة بين المهندسين والفنيين والإدارة.</span>
+                                </li>
+                                <li class="kp-problem-item">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                    <span><strong>الأخبار والتعاميم في قنوات متعددة:</strong> تشتت القرارات الإدارية في البريد والواتساب دون أرشفة واضحة.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Solution Card -->
+                    <div class="kp-solution-card">
+                        <div>
+                            <div class="kp-solution-header">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>الحل الذكي: منصة المعرفة</span>
+                            </div>
+                            <p class="kp-solution-lead">
+                                "منصة المعرفة تحول الخبرة الفردية إلى معرفة مؤسسية قابلة للوصول والمشاركة."
+                            </p>
+                            <p style="color: var(--kp-text-secondary); line-height: 1.7; margin-bottom: 1.5rem; font-size: 0.95rem;">
+                                نظام رقمي متكامل يضمن أرشفة الحلول الهندسية والتقنية خطوة بخطوة، مع محرك بحث فوري وتوثيق بالصور والروابط، ليصل كل عضو في الفريق إلى المعلومة الموثوقة فور احتياجها.
+                            </p>
+                        </div>
+
+                        <!-- Knowledge Flow Diagram -->
+                        <div>
+                            <div style="font-size: 0.85rem; font-weight: 700; color: var(--kp-text-primary); margin-bottom: 0.5rem;">
+                                <i class="fa-solid fa-network-wired" style="color: var(--kp-accent); margin-left: 6px;"></i>
+                                مسار تدفق المعرفة في المنظومة (Knowledge Flow)
+                            </div>
+                            <div class="kp-knowledge-flow">
+                                <div class="kp-flow-node">
+                                    <div class="kp-flow-icon"><i class="fa-solid fa-user-gear"></i></div>
+                                    <div class="kp-flow-label">الموظف والخبير</div>
+                                </div>
+                                <div class="kp-flow-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+                                <div class="kp-flow-node">
+                                    <div class="kp-flow-icon"><i class="fa-solid fa-file-pen"></i></div>
+                                    <div class="kp-flow-label">توثيق المعرفة</div>
+                                </div>
+                                <div class="kp-flow-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+                                <div class="kp-flow-node active">
+                                    <div class="kp-flow-icon"><i class="fa-solid fa-cubes"></i></div>
+                                    <div class="kp-flow-label">منصة المعرفة</div>
+                                </div>
+                                <div class="kp-flow-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+                                <div class="kp-flow-node">
+                                    <div class="kp-flow-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                                    <div class="kp-flow-label">بحث ومشاركة</div>
+                                </div>
+                                <div class="kp-flow-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+                                <div class="kp-flow-node">
+                                    <div class="kp-flow-icon"><i class="fa-solid fa-building-circle-check"></i></div>
+                                    <div class="kp-flow-label">مؤسسة منتجة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             4. CORE FEATURES
+             ================================================================= -->
+        <section id="features" class="kp-section kp-section-alt">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-cubes"></i>
+                        <span>قدرات المنظومة</span>
+                    </div>
+                    <h2 class="kp-section-title">كل المعرفة التي تحتاجها، في مكان واحد</h2>
+                    <p class="kp-section-subtitle">
+                        أدوات مصممة لتسهيل مشاركة المعرفة وتحسين التواصل المؤسسي بين كافة التخصصات والكوادر.
+                    </p>
+                </div>
+
+                <div class="kp-features-grid">
+                    <!-- Feature 1 -->
+                    <div class="kp-feature-card">
+                        <div class="kp-feature-icon-box">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <h3 class="kp-feature-title">مكتبة المعرفة الذكية</h3>
+                        <p class="kp-feature-desc">
+                            أنشئ وانشر مقالات وأدلة ومواد معرفية مدعومة بالصور والروابط والمحتوى المنظم مع فهرسة دقيقة حسب المجال والقسم.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="kp-feature-card">
+                        <div class="kp-feature-icon-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h3 class="kp-feature-title">بحث سريع وذكي</h3>
+                        <p class="kp-feature-desc">
+                            اعثر على المعلومة أو الحل الذي تحتاجه خلال ثوانٍ باستخدام محرك البحث الفوري والتصفية حسب الأقسام والتخصصات الهندسية.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="kp-feature-card">
+                        <div class="kp-feature-icon-box">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h3 class="kp-feature-title">التفاعل والمشاركة</h3>
+                        <p class="kp-feature-desc">
+                            تعليقات تفاعلية، إعجاب، حفظ للمفضلة لمطالعتها لاحقاً، ومشاركة سريعة للروابط المعرفية بين أعضاء الفريق.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="kp-feature-card">
+                        <div class="kp-feature-icon-box">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="kp-feature-title">الأخبار والإعلانات</h3>
+                        <p class="kp-feature-desc">
+                            مركز موحد لنشر الأخبار والقرارات والتعاميم والتحديثات المهمة الصادرة من الإدارة لمختلف الإدارات والكوادر.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="kp-feature-card">
+                        <div class="kp-feature-icon-box">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <h3 class="kp-feature-title">الإشعارات الذكية</h3>
+                        <p class="kp-feature-desc">
+                            ابقَ على اطلاع دائم بكل جديد فور نشره، وتلقَّ تنبيهات لحظية بالتعليقات والتعاميم مع عداد للإشعارات غير المقروءة.
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="kp-feature-card">
+                        <div class="kp-feature-icon-box">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="kp-feature-title">إدارة مؤسسية متقدمة</h3>
+                        <p class="kp-feature-desc">
+                            صلاحيات وإدارة مستخدمين، وتحكم في المحتوى المنشور، وضبط سياسات تحديثات التطبيق (OTA Updates) بسهولة وسرعة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             5. EXPLORE DISCIPLINES
+             ================================================================= -->
+        <section id="disciplines" class="kp-section">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>التخصصات المعتمدة</span>
+                    </div>
+                    <h2 class="kp-section-title">استكشف مجالات المعرفة</h2>
+                    <p class="kp-section-subtitle">
+                        هيكلية تصنيفية متخصصة تغطي المحاور التقنية والصناعية والهندسية الأساسية داخل المؤسسة.
+                    </p>
+                </div>
+
+                <div class="kp-disciplines-grid">
+                    <!-- Discipline 1: IT -->
+                    <div class="kp-discipline-card kp-disc-it">
+                        <div class="kp-disc-top">
+                            <div class="kp-disc-icon">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <h3 class="kp-disc-title">نظم وتكنولوجيا المعلومات (IT)</h3>
+                            <p class="kp-disc-desc">
+                                بنية السحابة، الشبكات، أمان المعلومات، قواعد البيانات، استكشاف أخطاء الأنظمة والخوادم.
+                            </p>
+                            <div class="kp-disc-samples">
+                                <i class="fa-solid fa-tag"></i> جدران الحماية • خوادم Active Directory • النسخ الاحتياطي
+                            </div>
+                        </div>
+                        <a href="#showcase" class="kp-disc-btn">
+                            <span>استكشف المحتوى</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                    </div>
+
+                    <!-- Discipline 2: Electrical -->
+                    <div class="kp-discipline-card kp-disc-elec">
+                        <div class="kp-disc-top">
+                            <div class="kp-disc-icon">
+                                <i class="fa-solid fa-bolt-lightning"></i>
+                            </div>
+                            <h3 class="kp-disc-title">الهندسة الكهربائية</h3>
+                            <p class="kp-disc-desc">
+                                لوحات التوزيع الرئيسية، موازنة الأحمال، محولات الجهد، الحماية الكاثودية، ومولدات الطوارئ.
+                            </p>
+                            <div class="kp-disc-samples">
+                                <i class="fa-solid fa-tag"></i> القواطع الهوائية ACB • محولات التردد VFD • معامل القدرة
+                            </div>
+                        </div>
+                        <a href="#showcase" class="kp-disc-btn">
+                            <span>استكشف المحتوى</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                    </div>
+
+                    <!-- Discipline 3: Mechanical -->
+                    <div class="kp-discipline-card kp-disc-mech">
+                        <div class="kp-disc-top">
+                            <div class="kp-disc-icon">
+                                <i class="fa-solid fa-gears"></i>
+                            </div>
+                            <h3 class="kp-disc-title">الهندسة الميكانيكية</h3>
+                            <p class="kp-disc-desc">
+                                الصيانة الوقائية للآلات، أنظمة الهيدروليك والنيوماتيك، مضخات التبريد، وتحليل الاهتزازات.
+                            </p>
+                            <div class="kp-disc-samples">
+                                <i class="fa-solid fa-tag"></i> محاذاة المحاور • جداول التزييت • تشخيص أعطال التروس
+                            </div>
+                        </div>
+                        <a href="#showcase" class="kp-disc-btn">
+                            <span>استكشف المحتوى</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                    </div>
+
+                    <!-- Discipline 4: Chemical -->
+                    <div class="kp-discipline-card kp-disc-chem">
+                        <div class="kp-disc-top">
+                            <div class="kp-disc-icon">
+                                <i class="fa-solid fa-flask-vial"></i>
+                            </div>
+                            <h3 class="kp-disc-title">الهندسة والصناعات الكيميائية</h3>
+                            <p class="kp-disc-desc">
+                                إجراءات السلامة الكيميائية MSDS، معالجة مياه المراجل، ضبط تراكيز المحاليل، ومكافحة التآكل.
+                            </p>
+                            <div class="kp-disc-samples">
+                                <i class="fa-solid fa-tag"></i> معايير السلامة • اختبارات الحموضة pH • معالجة الانبعاثات
+                            </div>
+                        </div>
+                        <a href="#showcase" class="kp-disc-btn">
+                            <span>استكشف المحتوى</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             6. ORGANIZATIONAL DEPARTMENTS
+             ================================================================= -->
+        <section id="departments" class="kp-section kp-section-alt" style="padding: 4rem 0;">
+            <div class="kp-container">
+                <div class="kp-departments-wrapper">
+                    <h3 class="kp-departments-title">معرفة مشتركة بين جميع فرق المؤسسة</h3>
+                    <p class="kp-departments-subtitle">
+                        تربط منصة المعرفة الإدارات المختلفة في بيئة تعاونية تضمن سلاسة تدفق القرارات وتكامل الخبرات العملية.
+                    </p>
+
+                    <div class="kp-dept-grid">
+                        <div class="kp-dept-pill">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <span>نظم المعلومات (IT)</span>
+                        </div>
+                        <div class="kp-dept-pill">
+                            <i class="fa-solid fa-users-gear"></i>
+                            <span>الموارد البشرية (HR)</span>
+                        </div>
+                        <div class="kp-dept-pill">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>الشؤون المالية (Finance)</span>
+                        </div>
+                        <div class="kp-dept-pill">
+                            <i class="fa-solid fa-helmet-safety"></i>
+                            <span>الإدارة الهندسية (Engineering)</span>
+                        </div>
+                        <div class="kp-dept-pill">
+                            <i class="fa-solid fa-handshake"></i>
+                            <span>المبيعات (Sales)</span>
+                        </div>
+                        <div class="kp-dept-pill">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span>التسويق (Marketing)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             7. HOW IT WORKS
+             ================================================================= -->
+        <section id="how-it-works" class="kp-section">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-route"></i>
+                        <span>رحلة الاستخدام</span>
+                    </div>
+                    <h2 class="kp-section-title">كيف تعمل منصة المعرفة؟</h2>
+                    <p class="kp-section-subtitle">
+                        أربع خطوات مبسطة تحول التجربة اليومية للموظف إلى مرجع مؤسسي دائم.
+                    </p>
+                </div>
+
+                <div class="kp-steps-grid">
+                    <!-- Step 1 -->
+                    <div class="kp-step-card">
+                        <div class="kp-step-number-circle">01</div>
+                        <h3 class="kp-step-title">أنشئ المعرفة</h3>
+                        <p class="kp-step-desc">
+                            يقوم الموظف أو المهندس بتوثيق الحل الذي نفذه أو الدليل الإجرائي وإرفاق الصور التوضيحية والروابط المرجعية.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="kp-step-card">
+                        <div class="kp-step-number-circle">02</div>
+                        <h3 class="kp-step-title">نظّم المحتوى</h3>
+                        <p class="kp-step-desc">
+                            تحديد التصنيف التخصصي (IT، كهرباء، ميكانيكا، كيمياء) واختيار القسم المعني لسهولة الفهرسة والأرشفة.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="kp-step-card">
+                        <div class="kp-step-number-circle">03</div>
+                        <h3 class="kp-step-title">ابحث واكتشف</h3>
+                        <p class="kp-step-desc">
+                            يسترجع أي زميل المعلومة فوراً عبر محرك البحث الذكي أو التصفية السريعة عند مواجهة عطل أو استفسار فني.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="kp-step-card">
+                        <div class="kp-step-number-circle">04</div>
+                        <h3 class="kp-step-title">شارك واستفد</h3>
+                        <p class="kp-step-desc">
+                            التفاعل بالتعليقات، إبداء الإعجاب، حفظ المقالات في المفضلة للرجوع إليها، وتطبيق الحلول بثقة وسرعة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             8. APP SHOWCASE (Interactive Real Screen Mockups)
+             ================================================================= -->
+        <section id="showcase" class="kp-section kp-section-alt">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <span>واجهات التطبيق الفعلية</span>
+                    </div>
+                    <h2 class="kp-section-title">تجربة معرفة مصممة للعمل اليومي</h2>
+                    <p class="kp-section-subtitle">
+                        استكشف شاشات التطبيق الحقيقية كما صُممت وبُنيت في المشروع عبر واجهة مستخدم سريعة، انسيابية، وتدعم الوضعين الفاتح والداكن.
+                    </p>
+                </div>
+
+                <!-- Showcase Interactive Tabs -->
+                <div class="kp-showcase-tabs">
+                    <button class="kp-tab-btn active" data-tab="home">
+                        <i class="fa-solid fa-house"></i>
+                        <span>الرئيسية (Home Feed)</span>
+                    </button>
+                    <button class="kp-tab-btn" data-tab="detail">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>تفاصيل المعرفة</span>
+                    </button>
+                    <button class="kp-tab-btn" data-tab="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>البحث الذكي</span>
+                    </button>
+                    <button class="kp-tab-btn" data-tab="notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span>مركز الإشعارات</span>
+                    </button>
+                    <button class="kp-tab-btn" data-tab="profile">
+                        <i class="fa-solid fa-user"></i>
+                        <span>الملف الشخصي</span>
+                    </button>
+                    <button class="kp-tab-btn" data-tab="admin">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>إعدادات الإدارة</span>
+                    </button>
+                </div>
+
+                <!-- Showcase Viewport Box -->
+                <div class="kp-showcase-viewport">
+                    <!-- Left Column: Screen Description -->
+                    <div class="kp-showcase-desc-col">
+                        <div class="kp-badge-pill" style="align-self: flex-start; margin-bottom: 0;">
+                            <i class="fa-solid fa-check"></i>
+                            <span>واجهة تفاعلية حية</span>
+                        </div>
+                        <h3 class="kp-showcase-screen-title" id="kp-screen-title">الشاشة الرئيسية (Home Feed)</h3>
+                        <p class="kp-showcase-screen-text" id="kp-screen-text">
+                            نقطة الانطلاق اليومية للموظف. تبدأ ببطاقة ترحيب ذكية تعرض اسم الموظف وقسمه، وتمرير فوري لآخر الأخبار والإعلانات الإدارية، مع شريط تصفية مرن للتصنيفات الهندسية وقائمة بأحدث ما نشره الزملاء.
+                        </p>
+                        <ul class="kp-showcase-feature-points" id="kp-screen-features">
+                            <li><i class="fa-solid fa-circle-check"></i> <span>بطاقة ترحيب شخصية مرتبطة بحساب الموظف وقسمه</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>شريط استعراض للأخبار والتعاميم الصادرة من الإدارة</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>فلاتر سريعة للمجالات: IT، كهرباء، ميكانيكا، كيمياء</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span>تغذية لحظية ببطاقات المعارف المنشورة مع مؤشرات التفاعل</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Column: Screen Frame Simulation -->
+                    <div class="kp-device-display-box">
+                        <div class="kp-mockup-frame">
+                            <div class="kp-frame-titlebar">
+                                <div class="kp-frame-dots">
+                                    <span class="kp-frame-dot kp-dot-red"></span>
+                                    <span class="kp-frame-dot kp-dot-yellow"></span>
+                                    <span class="kp-frame-dot kp-dot-green"></span>
+                                </div>
+                                <div class="kp-frame-label">Knowledge Platform • App View</div>
+                                <div style="color: var(--kp-text-muted); font-size: 0.75rem;"><i class="fa-solid fa-wifi"></i></div>
+                            </div>
+
+                            <div class="kp-frame-body">
+                                <!-- Panel 1: Home -->
+                                <div class="kp-screen-panel active" data-screen="home">
+                                    <div style="background: var(--kp-gradient-primary); padding: 1.25rem; border-radius: 16px; color: #fff; margin-bottom: 1rem;">
+                                        <div style="font-weight: 800; font-size: 1.05rem;">أهلاً بك، م. حسام التميمي 👋</div>
+                                        <div style="font-size: 0.8rem; opacity: 0.85;">الهندسة (Engineering) • متصل</div>
+                                    </div>
+                                    <div style="font-weight: 700; font-size: 0.88rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between;">
+                                        <span>آخر الأخبار والتعاميم</span>
+                                        <span style="color: var(--kp-accent); font-size: 0.78rem;">عرض الكل</span>
+                                    </div>
+                                    <div style="background: var(--kp-bg-surface); border: 1px solid var(--kp-border); border-radius: 12px; padding: 0.85rem; margin-bottom: 1rem; display: flex; gap: 0.75rem; align-items: center;">
+                                        <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(13,71,161,0.2); display: flex; align-items: center; justify-content: center; color: var(--kp-accent);"><i class="fa-solid fa-bullhorn"></i></div>
+                                        <div>
+                                            <div style="font-size: 0.82rem; font-weight: 800;">اعتماد خطة الصيانة السنوية للمولدات</div>
+                                            <div style="font-size: 0.7rem; color: var(--kp-text-muted);">صادر من: الإدارة العامة • لجميع الموظفين</div>
+                                        </div>
+                                    </div>
+                                    <div style="font-weight: 700; font-size: 0.88rem; margin-bottom: 0.5rem;">أحدث المعارف المنشورة</div>
+                                    <div style="background: var(--kp-bg-surface); border: 1px solid var(--kp-border); border-radius: 12px; padding: 0.85rem;">
+                                        <div style="font-size: 0.72rem; color: var(--kp-accent); font-weight: 800;">ميكانيكا • صيانة وقائية</div>
+                                        <div style="font-size: 0.85rem; font-weight: 700; margin: 4px 0;">دليل تشخيص أعطال مضخات الطرد المركزي</div>
+                                        <div style="font-size: 0.72rem; color: var(--kp-text-muted); display: flex; justify-content: space-between;">
+                                            <span>م. فهد الغامدي</span>
+                                            <span><i class="fa-regular fa-comment"></i> 14 تعليق</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Panel 2: Knowledge Detail -->
+                                <div class="kp-screen-panel" data-screen="detail">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem;">
+                                        <span class="kp-article-tag">كهرباء</span>
+                                        <span style="font-size: 0.75rem; color: var(--kp-text-muted);"><i class="fa-regular fa-clock"></i> منذ 3 ساعات</span>
+                                    </div>
+                                    <div style="font-weight: 800; font-size: 1.05rem; line-height: 1.4; margin-bottom: 0.5rem;">
+                                        مخطط إعادة ضبط القواطع الهوائية وموازنة الجهد العالي
+                                    </div>
+                                    <div style="font-size: 0.78rem; color: var(--kp-text-secondary); margin-bottom: 0.85rem;">
+                                        الكاتب: م. ريان الشمري • الهندسة الكهربائية
+                                    </div>
+                                    <div style="background: var(--kp-bg-surface); padding: 0.85rem; border-radius: 10px; font-size: 0.82rem; line-height: 1.6; border: 1px solid var(--kp-border); margin-bottom: 1rem;">
+                                        1. التأكد من فصل الحمل عن الدائرة الرئيسية.<br>
+                                        2. فحص جهد التحكم DC قبل الشحن اليدوي للزنبرك.<br>
+                                        3. اختبار زمن الفصل عبر جهاز التوقيت المرجعي.
+                                    </div>
+                                    <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+                                        <button class="kp-btn kp-btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;"><i class="fa-solid fa-bookmark"></i> محفوظة</button>
+                                        <button class="kp-btn kp-btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;"><i class="fa-solid fa-share-nodes"></i> مشاركة</button>
+                                    </div>
+                                </div>
+
+                                <!-- Panel 3: Search -->
+                                <div class="kp-screen-panel" data-screen="search">
+                                    <div style="background: var(--kp-bg-surface); border: 1px solid var(--kp-accent); border-radius: 12px; padding: 0.65rem 0.85rem; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                                        <i class="fa-solid fa-magnifying-glass" style="color: var(--kp-accent);"></i>
+                                        <span style="font-size: 0.85rem; color: #fff;">صيانة جدران الحماية</span>
+                                    </div>
+                                    <div style="display: flex; gap: 0.4rem; margin-bottom: 1rem;">
+                                        <span style="font-size: 0.72rem; padding: 3px 8px; border-radius: 20px; background: #0D47A1; color: #fff;">القسم: IT</span>
+                                        <span style="font-size: 0.72rem; padding: 3px 8px; border-radius: 20px; background: rgba(255,255,255,0.08); color: #ccc;">الفئة: أمان</span>
+                                    </div>
+                                    <div style="font-size: 0.78rem; color: var(--kp-text-muted); margin-bottom: 0.65rem;">نتائج البحث (3 نتائج متطابقة):</div>
+                                    <div style="background: var(--kp-bg-surface); border: 1px solid var(--kp-border); border-radius: 10px; padding: 0.75rem; margin-bottom: 0.5rem;">
+                                        <div style="font-size: 0.82rem; font-weight: 800;">إعداد جدار الحماية FortiGate للمواقع الفرعية</div>
+                                        <div style="font-size: 0.7rem; color: var(--kp-text-muted);">قسم نظم المعلومات • تطابق كامل 100%</div>
+                                    </div>
+                                    <div style="background: var(--kp-bg-surface); border: 1px solid var(--kp-border); border-radius: 10px; padding: 0.75rem;">
+                                        <div style="font-size: 0.82rem; font-weight: 800;">سياسات منع الاختراق وتحديث شهادات SSL</div>
+                                        <div style="font-size: 0.7rem; color: var(--kp-text-muted);">قسم نظم المعلومات • م. طارق عادل</div>
+                                    </div>
+                                </div>
+
+                                <!-- Panel 4: Notifications -->
+                                <div class="kp-screen-panel" data-screen="notifications">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.85rem;">
+                                        <span style="font-size: 0.9rem; font-weight: 800;">التنبيهات والمستجدات</span>
+                                        <span style="font-size: 0.72rem; color: var(--kp-accent);">تمييز الكل كمقروء</span>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                                        <div style="background: rgba(13,71,161,0.15); border: 1px solid rgba(66,165,245,0.3); border-radius: 10px; padding: 0.75rem; display: flex; gap: 0.65rem; align-items: flex-start;">
+                                            <div style="width: 10px; height: 10px; border-radius: 50%; background: #42A5F5; margin-top: 5px; flex-shrink: 0;"></div>
+                                            <div>
+                                                <div style="font-size: 0.82rem; font-weight: 800;">علق م. عبدالمجيد على مقالك: "دليل الصيانة"</div>
+                                                <div style="font-size: 0.7rem; color: var(--kp-text-muted);">منذ 10 دقائق • قسم الميكانيكا</div>
+                                            </div>
+                                        </div>
+                                        <div style="background: var(--kp-bg-surface); border: 1px solid var(--kp-border); border-radius: 10px; padding: 0.75rem; display: flex; gap: 0.65rem; align-items: flex-start;">
+                                            <div style="width: 10px; height: 10px; border-radius: 50%; background: #64748B; margin-top: 5px; flex-shrink: 0;"></div>
+                                            <div>
+                                                <div style="font-size: 0.82rem; font-weight: 800;">تعميم إداري جديد: تحديث سياسات العمل</div>
+                                                <div style="font-size: 0.7rem; color: var(--kp-text-muted);">منذ ساعة واحدة • الإدارة العامة</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Panel 5: Profile -->
+                                <div class="kp-screen-panel" data-screen="profile">
+                                    <div style="text-align: center; margin-bottom: 1.25rem;">
+                                        <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--kp-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 0.5rem auto; font-weight: 800;">
+                                            م
+                                        </div>
+                                        <div style="font-weight: 800; font-size: 1rem;">م. إبراهيم عبدالقادر</div>
+                                        <div style="font-size: 0.78rem; color: var(--kp-accent);">مدير النظام (Admin) • نظم المعلومات</div>
+                                        <div style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.72rem; color: var(--kp-success); margin-top: 4px;">
+                                            <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--kp-success);"></span>
+                                            <span>نشط الآن</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1rem;">
+                                        <div style="background: var(--kp-bg-surface); border: 1px solid var(--kp-border); border-radius: 10px; padding: 0.65rem; text-align: center;">
+                                            <div style="font-size: 1.2rem; font-weight: 900; color: #fff;">18</div>
+                                            <div style="font-size: 0.7rem; color: var(--kp-text-muted);">معارف منشورة</div>
+                                        </div>
+                                        <div style="background: var(--kp-bg-surface); border: 1px solid var(--kp-border); border-radius: 10px; padding: 0.65rem; text-align: center;">
+                                            <div style="font-size: 1.2rem; font-weight: 900; color: #fff;">42</div>
+                                            <div style="font-size: 0.7rem; color: var(--kp-text-muted);">في المفضلة</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Panel 6: Admin -->
+                                <div class="kp-screen-panel" data-screen="admin">
+                                    <div style="font-size: 0.88rem; font-weight: 800; margin-bottom: 0.75rem;">لوحة إدارة المنظومة</div>
+                                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                        <div style="background: var(--kp-bg-surface); border: 1px solid var(--kp-border); border-radius: 10px; padding: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+                                            <div>
+                                                <div style="font-size: 0.8rem; font-weight: 700;">المستخدمين النشطين</div>
+                                                <div style="font-size: 0.68rem; color: var(--kp-text-muted);">إدارة الحسابات والرتب</div>
+                                            </div>
+                                            <span style="font-size: 0.85rem; font-weight: 800; color: var(--kp-accent);">124</span>
+                                        </div>
+                                        <div style="background: var(--kp-bg-surface); border: 1px solid var(--kp-border); border-radius: 10px; padding: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+                                            <div>
+                                                <div style="font-size: 0.8rem; font-weight: 700;">إصدار التطبيق السحابي</div>
+                                                <div style="font-size: 0.68rem; color: var(--kp-text-muted);">v1.3.3 (مُحدّث للجميع)</div>
+                                            </div>
+                                            <span style="font-size: 0.72rem; padding: 2px 8px; border-radius: 12px; background: rgba(16,185,129,0.2); color: #10B981; font-weight: 700;">نشط</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             9. KNOWLEDGE DETAIL SHOWCASE (Article Deep Dive)
+             ================================================================= -->
+        <section id="article" class="kp-section">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-file-signature"></i>
+                        <span>هندسة المقالات والمعارف</span>
+                    </div>
+                    <h2 class="kp-section-title">ليست مجرد مقالات... إنها معرفة مؤسسية قابلة للاستخدام</h2>
+                    <p class="kp-section-subtitle">
+                        شاهد كيف يتم توثيق الإجراءات الهندسية بخطوات دقيقة، مرفقة بالمخططات والصور والنقاشات المثرية بين المهندسين.
+                    </p>
+                </div>
+
+                <div class="kp-article-showcase-wrapper">
+                    <!-- Meta Row -->
+                    <div class="kp-article-header-meta">
+                        <div class="kp-article-tags">
+                            <span class="kp-article-tag"><i class="fa-solid fa-gears"></i> ميكانيكا</span>
+                            <span class="kp-article-tag" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">
+                                <i class="fa-solid fa-badge-check"></i> موثق ومعتمد
+                            </span>
+                        </div>
+                        <div class="kp-article-author-info">
+                            <div class="kp-author-avatar">ع</div>
+                            <div>
+                                <div class="kp-author-name">م. أحمد عثمان</div>
+                                <div class="kp-author-dept">كبير مهندسي الصيانة • الإدارة الهندسية</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article Title & Content -->
+                    <h3 class="kp-article-title">
+                        دليل استكشاف أخطاء حساسات الضغط الهيدروليكي ومعايرتها في خطوط الإنتاج
+                    </h3>
+                    <p class="kp-article-body">
+                        أثناء تشغيل الخطوط الرئيسية، قد تعطي حساسات الضغط قراءات متذبذبة تؤدي إلى إيقاف آلي للمضخات الرئيسية. يوضح هذا الإجراء خطوات الفحص المعياري الميداني لحل المشكلة دون تعطيل خط الإنتاج.
+                    </p>
+
+                    <!-- Technical Steps -->
+                    <div class="kp-article-steps">
+                        <div class="kp-step-row">
+                            <span class="kp-step-badge">1</span>
+                            <span><strong>الفحص الكهربائي:</strong> قياس إشارة التغذية (4-20mA) والتأكد من خلو المسار من أي تشويش كهرومغناطيسي.</span>
+                        </div>
+                        <div class="kp-step-row">
+                            <span class="kp-step-badge">2</span>
+                            <span><strong>تفريغ الهواء (Bleeding):</strong> فتح صمام التصريف الجانبي لمدة 15 ثانية لضمان إخراج الجيوب الهوائية المحتبسة.</span>
+                        </div>
+                        <div class="kp-step-row">
+                            <span class="kp-step-badge">3</span>
+                            <span><strong>المعايرة الصفرية (Zero-Point Calibration):</strong> ضبط نقطة الصفر عبر جهاز الضبط المحمول والتأكد من استقرار القراءة.</span>
+                        </div>
+                    </div>
+
+                    <!-- Article Images Grid -->
+                    <div class="kp-article-images-grid">
+                        <div class="kp-article-img-card">
+                            <i class="fa-solid fa-diagram-project"></i>
+                            <span>مخطط الدائرة الهيدروليكية</span>
+                        </div>
+                        <div class="kp-article-img-card">
+                            <i class="fa-solid fa-gauge-high"></i>
+                            <span>موقع صمام المعايرة والحساس</span>
+                        </div>
+                        <div class="kp-article-img-card">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <span>جدول قراءات الضغط المعيارية</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Bar -->
+                    <div class="kp-article-action-bar">
+                        <div class="kp-action-buttons">
+                            <button class="kp-action-btn" id="kp-article-like-btn">
+                                <i class="fa-regular fa-heart"></i>
+                                <span>إعجاب (<span id="kp-article-like-count">48</span>)</span>
+                            </button>
+                            <button class="kp-action-btn" id="kp-article-bookmark-btn">
+                                <i class="fa-regular fa-bookmark"></i>
+                                <span>حفظ للمفضلة</span>
+                            </button>
+                            <button class="kp-action-btn" id="kp-article-share-btn">
+                                <i class="fa-solid fa-share-nodes"></i>
+                                <span>نسخ الرابط</span>
+                            </button>
+                        </div>
+                        <div style="font-size: 0.85rem; color: var(--kp-text-muted);">
+                            <i class="fa-solid fa-eye" style="margin-left: 5px;"></i> 324 مشاهدة
+                        </div>
+                    </div>
+
+                    <!-- Discussion Mockup -->
+                    <div class="kp-discussion-thread">
+                        <div style="font-size: 1rem; font-weight: 800; color: var(--kp-text-primary);">
+                            <i class="fa-solid fa-comments" style="color: var(--kp-accent); margin-left: 6px;"></i>
+                            نقاشات الموظفين والمهندسين (3 تعليقات)
+                        </div>
+
+                        <div class="kp-comment-item">
+                            <div class="kp-author-avatar" style="width: 36px; height: 36px; font-size: 0.8rem; background: #059669;">س</div>
+                            <div class="kp-comment-content">
+                                <div class="kp-comment-author-row">
+                                    <span class="kp-comment-author">م. سامي الحربي (قسم الميكانيكا)</span>
+                                    <span class="kp-comment-time">منذ ساعتين</span>
+                                </div>
+                                <div class="kp-comment-text">
+                                    شكراً م. أحمد على التوثيق المميز. تم تطبيق الخطوة الثانية على خط التعبئة رقم 3 ونجح استقرار الضغط تماماً.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="kp-comment-item">
+                            <div class="kp-author-avatar" style="width: 36px; height: 36px; font-size: 0.8rem; background: #D97706;">ط</div>
+                            <div class="kp-comment-content">
+                                <div class="kp-comment-author-row">
+                                    <span class="kp-comment-author">م. طارق العمري (قسم الكهرباء)</span>
+                                    <span class="kp-comment-time">منذ ساعة واحدة</span>
+                                </div>
+                                <div class="kp-comment-text">
+                                    حبذا لو أضفنا فحص كابل الـ Shield للتأكد من عدم وجود أرضي مشترك مع محركات الـ VFD لتفادي أي نويز مستقبلي.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             10. COLLABORATION & KNOWLEDGE SHARING
+             ================================================================= -->
+        <section id="collaboration" class="kp-section kp-section-alt">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-people-arrows"></i>
+                        <span>التعاون والتفاعل المؤسسي</span>
+                    </div>
+                    <h2 class="kp-section-title">حوّل الخبرة الفردية إلى معرفة مشتركة</h2>
+                    <p class="kp-section-subtitle">
+                        "عندما يشارك الموظفون خبراتهم، تتحول التجارب الفردية إلى أصل معرفي تستفيد منه المؤسسة بأكملها."
+                    </p>
+                </div>
+
+                <div class="kp-features-grid">
+                    <div class="kp-feature-card">
+                        <div class="kp-feature-icon-box"><i class="fa-solid fa-heart"></i></div>
+                        <h3 class="kp-feature-title">التفاعل الإيجابي والتقدير</h3>
+                        <p class="kp-feature-desc">
+                            تشجيع ثقافة التقدير المهني بين الزملاء من خلال الإعجابات ومؤشرات التفاعل مع كل مادة معرفية مفيدة.
+                        </p>
+                    </div>
+
+                    <div class="kp-feature-card">
+                        <div class="kp-feature-icon-box"><i class="fa-solid fa-bookmark"></i></div>
+                        <h3 class="kp-feature-title">أرشيف المفضلة السريع</h3>
+                        <p class="kp-feature-desc">
+                            يستطيع كل موظف حفظ الأدلة التي يحتاجها بشكل متكرر في قائمته الخاصة للرجوع إليها بلمسة واحدة في الميدان.
+                        </p>
+                    </div>
+
+                    <div class="kp-feature-card">
+                        <div class="kp-feature-icon-box"><i class="fa-solid fa-user-check"></i></div>
+                        <h3 class="kp-feature-title">إبراز الكفاءات المؤسسية</h3>
+                        <p class="kp-feature-desc">
+                            إظهار سجل المساهمات المعرفية لكل موظف، مما يبرز الخبراء الميدانيين ويسهل الرجوع إليهم للاستشارات المتخصصة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             11. ENTERPRISE SECURITY
+             ================================================================= -->
+        <section id="security" class="kp-section">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>الأمان وحوكمة البيانات</span>
+                    </div>
+                    <h2 class="kp-section-title">معرفة مؤسسية، بصلاحيات مؤسسية</h2>
+                    <p class="kp-section-subtitle">
+                        تم تصميم المنصة لتوفير تجربة آمنة للوصول إلى المعرفة والمحتوى المؤسسي، مع إدارة الصلاحيات والحسابات من خلال أدوات الإدارة.
+                    </p>
+                </div>
+
+                <div class="kp-security-grid">
+                    <!-- Security 1 -->
+                    <div class="kp-security-card">
+                        <div class="kp-security-icon"><i class="fa-solid fa-envelope-circle-check"></i></div>
+                        <h3 class="kp-security-title">التحقق برمز OTP للبريد</h3>
+                        <p class="kp-security-desc">
+                            تسجيل دخول محمي عبر إرسال رمز تحقق صالح لمرة واحدة (Email OTP) للبريد المؤسسي لضمان هوية الكادر.
+                        </p>
+                    </div>
+
+                    <!-- Security 2 -->
+                    <div class="kp-security-card">
+                        <div class="kp-security-icon"><i class="fa-solid fa-user-lock"></i></div>
+                        <h3 class="kp-security-title">الصلاحيات المبنية على الأدوار</h3>
+                        <p class="kp-security-desc">
+                            فصل دقيق بين صلاحيات المستخدم العادي (User) وصلاحيات إدارة المحتوى والتحديثات (Admin) وفقاً لمعايير الوصول.
+                        </p>
+                    </div>
+
+                    <!-- Security 3 -->
+                    <div class="kp-security-card">
+                        <div class="kp-security-icon"><i class="fa-solid fa-shield-keyhole"></i></div>
+                        <h3 class="kp-security-title">قواعد أمان Firestore المحكمة</h3>
+                        <p class="kp-security-desc">
+                            قواعد أمان سحابية تضمن عدم تعديل أو حذف المقالات إلا من قِبل كاتبها المعتمد أو مسؤولي النظام المصرح لهم.
+                        </p>
+                    </div>
+
+                    <!-- Security 4 -->
+                    <div class="kp-security-card">
+                        <div class="kp-security-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                        <h3 class="kp-security-title">تخزين سحابي معزول ومؤمن</h3>
+                        <p class="kp-security-desc">
+                            استضافة الصور والمرفقات التقنية على Firebase Storage مع مسارات مشفرة وروابط وصول مؤسسية آمنة.
+                        </p>
+                    </div>
+
+                    <!-- Security 5 -->
+                    <div class="kp-security-card">
+                        <div class="kp-security-icon"><i class="fa-solid fa-signal"></i></div>
+                        <h3 class="kp-security-title">مراقبة التواجد والنشاط</h3>
+                        <p class="kp-security-desc">
+                            تسجيل حالات التواجد للمستخدمين (Online / Offline) ومتابعة تفاعل الكوادر مع المحتوى المنشور لحظياً.
+                        </p>
+                    </div>
+
+                    <!-- Security 6 -->
+                    <div class="kp-security-card">
+                        <div class="kp-security-icon"><i class="fa-solid fa-file-contract"></i></div>
+                        <h3 class="kp-security-title">حوكمة وتحديث السياسات</h3>
+                        <p class="kp-security-desc">
+                            إمكانية تطبيق تحديثات إجبارية للإصدارات لمنع استخدام أي نسخة قديمة وضمان الامتثال لسياسات المنظمة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             12. ADMINISTRATION DASHBOARD
+             ================================================================= -->
+        <section id="admin" class="kp-section kp-section-alt">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>لوحة الإدارة الشاملة</span>
+                    </div>
+                    <h2 class="kp-section-title">تحكم كامل من لوحة الإدارة</h2>
+                    <p class="kp-section-subtitle">
+                        أدوات قيادة رقمية تمنح الإدارة رؤية كاملة للمحتوى والمستخدمين مع ضبط التحديثات والسياسات السحابية.
+                    </p>
+                </div>
+
+                <div class="kp-admin-showcase-box">
+                    <!-- KPI Counter Cards -->
+                    <div class="kp-admin-kpis">
+                        <div class="kp-admin-kpi-card">
+                            <span class="kp-kpi-title">إجمالي الموظفين المسجلين</span>
+                            <span class="kp-kpi-number">124</span>
+                            <span class="kp-kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +12 هذا الشهر</span>
+                        </div>
+                        <div class="kp-admin-kpi-card">
+                            <span class="kp-kpi-title">المعارف والأدلة المنشورة</span>
+                            <span class="kp-kpi-number">540</span>
+                            <span class="kp-kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +45 مادة جديدة</span>
+                        </div>
+                        <div class="kp-admin-kpi-card">
+                            <span class="kp-kpi-title">التعاميم والأخبار النشطة</span>
+                            <span class="kp-kpi-number">18</span>
+                            <span class="kp-kpi-trend" style="color: var(--kp-accent);"><i class="fa-solid fa-bullhorn"></i> نشطة لكافة الأقسام</span>
+                        </div>
+                        <div class="kp-admin-kpi-card">
+                            <span class="kp-kpi-title">المتواجدون الآن في المنظومة</span>
+                            <span class="kp-kpi-number">32</span>
+                            <span class="kp-kpi-trend"><i class="fa-solid fa-circle-dot"></i> تفاعل مباشر</span>
+                        </div>
+                    </div>
+
+                    <!-- User Management Table Simulation -->
+                    <div class="kp-admin-table-wrapper">
+                        <table class="kp-admin-table">
+                            <thead>
+                                <tr>
+                                    <th>الموظف</th>
+                                    <th>البريد الإلكتروني</th>
+                                    <th>القسم</th>
+                                    <th>الرتبة</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>م. إبراهيم عبدالقادر</strong></td>
+                                    <td>ibrahim@knowledge.internal</td>
+                                    <td>نظم المعلومات (IT)</td>
+                                    <td><span class="kp-role-badge kp-role-admin">مسؤول نظام (Admin)</span></td>
+                                    <td><span class="kp-status-dot">متصل</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>م. فهد الغامدي</strong></td>
+                                    <td>fahad@knowledge.internal</td>
+                                    <td>الهندسة (Engineering)</td>
+                                    <td><span class="kp-role-badge kp-role-user">مستخدم (User)</span></td>
+                                    <td><span class="kp-status-dot">متصل</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>أ. منى العتيبي</strong></td>
+                                    <td>mona@knowledge.internal</td>
+                                    <td>الموارد البشرية (HR)</td>
+                                    <td><span class="kp-role-badge kp-role-user">مستخدم (User)</span></td>
+                                    <td><span class="kp-status-dot">نشط منذ قليل</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             13. TECHNOLOGY STACK
+             ================================================================= -->
+        <section id="tech" class="kp-section">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-code"></i>
+                        <span>البنية التكنولوجية</span>
+                    </div>
+                    <h2 class="kp-section-title">مبنية على تقنيات حديثة وقابلة للتوسع</h2>
+                    <p class="kp-section-subtitle">
+                        تم بناء منصة المعرفة باستخدام تقنيات حديثة توفر تجربة استخدام سلسة وبنية سحابية قابلة للتوسع.
+                    </p>
+                </div>
+
+                <div class="kp-tech-grid">
+                    <!-- Tech 1: Flutter -->
+                    <div class="kp-tech-card">
+                        <div class="kp-tech-icon"><i class="fa-brands fa-flutter" style="color: #02569B;"></i></div>
+                        <h3 class="kp-tech-name">Flutter SDK</h3>
+                        <p class="kp-tech-desc">واجهات مستخدم سريعة، عالية الأداء، وموحدة عبر Android وiOS والويب.</p>
+                    </div>
+
+                    <!-- Tech 2: Dart -->
+                    <div class="kp-tech-card">
+                        <div class="kp-tech-icon"><i class="fa-solid fa-code" style="color: #0175C2;"></i></div>
+                        <h3 class="kp-tech-name">Dart Language</h3>
+                        <p class="kp-tech-desc">لغة حديثة صارمة الأنواع (Type-safe) ومُحسنة للأداء والإنتاجية العالية.</p>
+                    </div>
+
+                    <!-- Tech 3: Riverpod -->
+                    <div class="kp-tech-card">
+                        <div class="kp-tech-icon"><i class="fa-solid fa-arrows-split-up-and-left" style="color: #42A5F5;"></i></div>
+                        <h3 class="kp-tech-name">Flutter Riverpod</h3>
+                        <p class="kp-tech-desc">إدارة حالة تفاعلية آمنة في زمن الترجمة وبنية كود مفصولة الطبقات.</p>
+                    </div>
+
+                    <!-- Tech 4: Cloud Firestore -->
+                    <div class="kp-tech-card">
+                        <div class="kp-tech-icon"><i class="fa-solid fa-fire-flame-curved" style="color: #FFA611;"></i></div>
+                        <h3 class="kp-tech-name">Cloud Firestore</h3>
+                        <p class="kp-tech-desc">قاعدة بيانات سحابية NoSQL لحظية المزامنة مع استجابة فورية بدون تأخير.</p>
+                    </div>
+
+                    <!-- Tech 5: Firebase Auth -->
+                    <div class="kp-tech-card">
+                        <div class="kp-tech-icon"><i class="fa-solid fa-user-shield" style="color: #FFCA28;"></i></div>
+                        <h3 class="kp-tech-name">Firebase Auth</h3>
+                        <p class="kp-tech-desc">إدارة وتأمين هويات المستخدمين وجلسات العمل المشفرة بأعلى المعايير.</p>
+                    </div>
+
+                    <!-- Tech 6: Firebase Storage -->
+                    <div class="kp-tech-card">
+                        <div class="kp-tech-icon"><i class="fa-solid fa-database" style="color: #4285F4;"></i></div>
+                        <h3 class="kp-tech-name">Firebase Storage</h3>
+                        <p class="kp-tech-desc">تخزين سحابي عالي السرعة للصور والمخططات والوثائق الهندسية المرفقة.</p>
+                    </div>
+
+                    <!-- Tech 7: Email OTP -->
+                    <div class="kp-tech-card">
+                        <div class="kp-tech-icon"><i class="fa-solid fa-key" style="color: #10B981;"></i></div>
+                        <h3 class="kp-tech-name">Email OTP Service</h3>
+                        <p class="kp-tech-desc">نظام تحقق سريع وموثوق للبريد الإلكتروني برمز لمرة واحدة دون تعقيدات.</p>
+                    </div>
+
+                    <!-- Tech 8: Google Fonts Cairo -->
+                    <div class="kp-tech-card">
+                        <div class="kp-tech-icon"><i class="fa-solid fa-font" style="color: #8B5CF6;"></i></div>
+                        <h3 class="kp-tech-name">خط Cairo الأنيق</h3>
+                        <p class="kp-tech-desc">هوية عربية طباعية واضحة ومقروءة على جميع الشاشات مع دعم RTL متقن.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             14. BILINGUAL / DARK MODE HIGHLIGHT
+             ================================================================= -->
+        <section id="modes" class="kp-section kp-section-alt">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                        <span>التجربة البصرية واللغات</span>
+                    </div>
+                    <h2 class="kp-section-title">مصممة لتناسب طريقة عملك</h2>
+                    <p class="kp-section-subtitle">
+                        مرونة فائقة بين العربية والإنجليزية، ودعم كامل للوضعين الداكن والفاتح لراحة العين في بيئة العمل الميدانية والمكتبية.
+                    </p>
+                </div>
+
+                <div class="kp-dual-mode-wrapper">
+                    <!-- Dark Mode Preview -->
+                    <div class="kp-mode-card kp-mode-dark">
+                        <div class="kp-mode-title">
+                            <i class="fa-solid fa-moon" style="color: var(--kp-accent);"></i>
+                            <span>الوضع الداكن (Dark Mode)</span>
+                        </div>
+                        <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6;">
+                            تصميم ليلي مريح للعين أثناء العمل الميداني أو في الإضاءة الخافتة، مع تباين عالي للنصوص الهندسية والرموز.
+                        </p>
+                        <div class="kp-mode-preview-box">
+                            <div style="font-weight: 800; font-size: 0.9rem; color: #fff;">منصة المعرفة • الوضع الليلي الفخم</div>
+                            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">خلفية داكنة راقية #121212 وبطاقات #1E1E1E</div>
+                        </div>
+                    </div>
+
+                    <!-- Light Mode Preview -->
+                    <div class="kp-mode-card kp-mode-light">
+                        <div class="kp-mode-title">
+                            <i class="fa-solid fa-sun" style="color: #F59E0B;"></i>
+                            <span>الوضع الفاتح (Light Mode)</span>
+                        </div>
+                        <p style="color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                            مظهر نهاري مشرق ونظيف يناسب العمل المكتبي وقراءة التقارير الطويلة، مع المحافظة على الهوية الزرقاء الملكية.
+                        </p>
+                        <div class="kp-mode-preview-box">
+                            <div style="font-weight: 800; font-size: 0.9rem; color: #0F172A;">منصة المعرفة • الوضع النهاري النقي</div>
+                            <div style="font-size: 0.75rem; color: #64748b; margin-top: 4px;">خلفية بيضاء نظيفة #F8FAFC وأزرق ملكي #0D47A1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             15. DOWNLOAD CTA & QR CODE
+             ================================================================= -->
+        <section id="download" class="kp-section">
+            <div class="kp-container">
+                <div class="kp-download-card">
+                    <div class="kp-download-content">
+                        <div class="kp-badge-pill" style="align-self: flex-start; margin-bottom: 0;">
+                            <i class="fa-solid fa-download"></i>
+                            <span>جاهز للتحميل والتشغيل</span>
+                        </div>
+                        <h2 class="kp-download-title">اجعل المعرفة متاحة لفريقك في أي وقت</h2>
+                        <p class="kp-download-text">
+                            ابدأ باستخدام منصة المعرفة للوصول إلى الخبرات والمعلومات والقرارات المهمة من مكان واحد عبر أجهزة أندرويد وبوابة الويب.
+                        </p>
+
+                        <div class="kp-download-buttons">
+                            <a href="#download" class="kp-btn kp-btn-primary" style="font-size: 1.05rem; padding: 0.85rem 1.75rem;">
+                                <i class="fa-brands fa-android"></i>
+                                <span>تحميل التطبيق (Android APK)</span>
+                            </a>
+                            <a href="https://knowledge-platform-7e1ed.web.app" target="_blank" rel="noopener noreferrer" class="kp-btn kp-btn-secondary" style="font-size: 1.05rem; padding: 0.85rem 1.75rem;">
+                                <i class="fa-solid fa-globe"></i>
+                                <span>فتح المنصة (Web Portal)</span>
+                            </a>
+                            <a href="https://knowledge-platform-7e1ed.web.app" target="_blank" rel="noopener noreferrer" class="kp-btn kp-btn-outline" style="font-size: 1.05rem; padding: 0.85rem 1.5rem;">
+                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                                <span>تسجيل الدخول</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- QR Code Placeholder Column -->
+                    <div class="kp-qr-wrapper">
+                        <div class="kp-qr-code-placeholder">
+                            <i class="fa-solid fa-qrcode"></i>
+                            <span>QR CODE</span>
+                        </div>
+                        <div class="kp-qr-caption">امسح الرمز بكاميرا الهاتف للتحميل المباشر</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             16. FAQ SECTION (Accordion)
+             ================================================================= -->
+        <section id="faq" class="kp-section kp-section-alt">
+            <div class="kp-container">
+                <div class="kp-section-header">
+                    <div class="kp-badge-pill">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <span>الأسئلة الشائعة</span>
+                    </div>
+                    <h2 class="kp-section-title">إجابات واضحة حول منصة المعرفة</h2>
+                    <p class="kp-section-subtitle">
+                        كل ما تود معرفته عن التطبيق، إمكانياته، وآلية عمله المؤسسية.
+                    </p>
+                </div>
+
+                <div class="kp-faq-list">
+                    <!-- Q1 -->
+                    <div class="kp-faq-item">
+                        <button class="kp-faq-question" aria-expanded="false">
+                            <span>ما هي منصة المعرفة؟</span>
+                            <div class="kp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="kp-faq-answer">
+                            منصة المعرفة (Knowledge Platform) هي تطبيق ومنظومة رقمية مؤسسية مخصصة لتوثيق وأرشفة وتبادل الخبرات الهندسية والتقنية والإدارية، لضمان حفظ المعرفة التراكمية وسرعة وصول الموظفين للحلول المعتمدة.
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="kp-faq-item">
+                        <button class="kp-faq-question" aria-expanded="false">
+                            <span>من يمكنه استخدام المنصة؟</span>
+                            <div class="kp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="kp-faq-answer">
+                            جميع موظفي وكوادر المؤسسة والشركات الهندسية والتقنية عبر مختلف الأقسام (نظم المعلومات IT، الهندسة الكهربائية والميكانيكية، الموارد البشرية HR، المالية، والمبيعات)، بحيث يملك كل موظف حساباً مرتبطاً بقسمه.
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="kp-faq-item">
+                        <button class="kp-faq-question" aria-expanded="false">
+                            <span>ما أنواع المحتوى التي يمكن نشرها؟</span>
+                            <div class="kp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="kp-faq-answer">
+                            تتيح المنصة نشر المقالات التخصصية، خطوات حل المشكلات الفنية، أدلة التشغيل والصيانة، المخططات الهندسية، صور الشروحات المتعددة، الروابط المرجعية، بالإضافة للتعاميم والأخبار المؤسسية الرسمية.
+                        </div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="kp-faq-item">
+                        <button class="kp-faq-question" aria-expanded="false">
+                            <span>هل تدعم المنصة اللغة الإنجليزية؟</span>
+                            <div class="kp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="kp-faq-answer">
+                            نعم، تدعم المنصة كلاً من اللغتين العربية (مع دعم كامل لاتجاه RTL والخطوط العربية المعتمدة) والإنجليزية (LTR)، لتناسب كافة الكوادر المحلية والدولية.
+                        </div>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="kp-faq-item">
+                        <button class="kp-faq-question" aria-expanded="false">
+                            <span>هل تعمل على الهواتف؟</span>
+                            <div class="kp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="kp-faq-answer">
+                            نعم، التطبيق مبني بواسطة Flutter مما يجعله متوافقاً تماماً مع جميع الهواتف الذكية (Android و iOS) مع تجربة سلسة وسريعة، بالإضافة لإمكانية الوصول عبر الويب.
+                        </div>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="kp-faq-item">
+                        <button class="kp-faq-question" aria-expanded="false">
+                            <span>هل توجد صلاحيات مختلفة للمستخدمين؟</span>
+                            <div class="kp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="kp-faq-answer">
+                            نعم، المنظومة تدعم تدرج الصلاحيات: رتبة المستخدم العادي (User) لقراءة ونشر المعارف والتفاعل معها، ورتبة مسؤول النظام (Admin) التي تتيح إضافة المستخدمين، نشر الأخبار المؤسسية، وإدارة إصدارات وسياسات التطبيق.
+                        </div>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="kp-faq-item">
+                        <button class="kp-faq-question" aria-expanded="false">
+                            <span>كيف يتم تسجيل الدخول؟</span>
+                            <div class="kp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="kp-faq-answer">
+                            يتم تسجيل الدخول بصورة آمنة عبر البريد الإلكتروني وكلمة المرور، مع دعم التحقق برمز لمرة واحدة (Email OTP) للتأكد من هوية الموظف وحماية البيانات المؤسسية.
+                        </div>
+                    </div>
+
+                    <!-- Q8 -->
+                    <div class="kp-faq-item">
+                        <button class="kp-faq-question" aria-expanded="false">
+                            <span>هل يمكن حفظ المحتوى في المفضلة؟</span>
+                            <div class="kp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="kp-faq-answer">
+                            نعم، تتيح المنصة زر المفضلة (Bookmark) لكل مقال أو دليل، بحيث يمكن للموظف حفظ الأدلة التي يعتمد عليها يومياً للرجوع إليها بلمسة واحدة من ملفه الشخصي حتى أثناء التواجد الميداني.
+                        </div>
+                    </div>
+
+                    <!-- Q9 -->
+                    <div class="kp-faq-item">
+                        <button class="kp-faq-question" aria-expanded="false">
+                            <span>هل يمكن التفاعل مع المحتوى؟</span>
+                            <div class="kp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="kp-faq-answer">
+                            نعم، تحتوي كل مادة معرفية على قسم للنقاش والتعليقات بين المهندسين، وزر للإعجاب، وخاصية نسخ الرابط للمشاركة المباشرة عبر قنوات التواصل المؤسسية.
+                        </div>
+                    </div>
+
+                    <!-- Q10 -->
+                    <div class="kp-faq-item">
+                        <button class="kp-faq-question" aria-expanded="false">
+                            <span>هل توجد لوحة إدارة؟</span>
+                            <div class="kp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="kp-faq-answer">
+                            نعم، يمتلك مدير النظام لوحة تحكم إدارية متقدمة (Admin Settings) تمكنه من إضافة الموظفين، تغيير الصلاحيات، نشر التعاميم، ومراقبة حالة الإصدار وتفعيل التحديث الإجباري السحابي.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             17. FINAL CTA
+             ================================================================= -->
+        <section class="kp-final-cta-section">
+            <div class="kp-container kp-final-cta-content">
+                <div class="kp-badge-pill">
+                    <i class="fa-solid fa-sparkles"></i>
+                    <span>مستقبل إدارة المعرفة</span>
+                </div>
+                <h2 class="kp-final-cta-title">
+                    "المعرفة التي تمتلكها المؤسسة اليوم، هي قوتها غداً."
+                </h2>
+                <p class="kp-final-cta-subtitle">
+                    منصة واحدة لتوثيق الخبرات، مشاركة المعرفة، وتعزيز التعاون بين فرق العمل.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <a href="#showcase" class="kp-btn kp-btn-primary" style="font-size: 1.1rem; padding: 0.9rem 2.2rem;">
+                        <i class="fa-solid fa-compass"></i>
+                        <span>اكتشف منصة المعرفة</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =================================================================
+         18. FOOTER (Aligned with Portfolio)
+         ================================================================= -->
+    <footer class="kp-footer" role="contentinfo">
+        <div class="kp-container">
+            <div class="kp-footer-grid">
+                <!-- Col 1: About App -->
+                <div class="kp-footer-about">
+                    <div class="kp-nav-brand">
+                        <img src="img/knowledge/app_logo.png" alt="شعار منصة المعرفة" class="kp-brand-logo">
+                        <div class="kp-brand-text">
+                            <span class="kp-brand-name">منصة المعرفة</span>
+                            <span class="kp-brand-tag">Knowledge Platform</span>
+                        </div>
+                    </div>
+                    <p>
+                        منصة مؤسسية رقمية متكاملة لتوثيق ومشاركة الخبرات التقنية والهندسية والإدارية، وتسريع الوصول إلى المعلومات وتعزيز التواصل بين فرق العمل.
+                    </p>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="kp-footer-links">
+                    <h4>أقسام الصفحة</h4>
+                    <ul>
+                        <li><a href="#hero">الرئيسية</a></li>
+                        <li><a href="#features">المميزات الرئيسية</a></li>
+                        <li><a href="#disciplines">مجالات المعرفة</a></li>
+                        <li><a href="#how-it-works">كيف تعمل المنظومة</a></li>
+                        <li><a href="#showcase">شاشات التطبيق</a></li>
+                        <li><a href="#security">الأمان المؤسسي</a></li>
+                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Portals & Developer Links -->
+                <div class="kp-footer-links">
+                    <h4>الروابط والمنصات</h4>
+                    <ul>
+                        <li><a href="#download">تحميل التطبيق (Android)</a></li>
+                        <li><a href="https://knowledge-platform-7e1ed.web.app" target="_blank" rel="noopener noreferrer">بوابة الويب المؤسسية (الحية)</a></li>
+                        <li><a href="index.html">معرض أعمال المطور</a></li>
+                        <li><a href="websites.html">المواقع والتطبيقات البرمجية</a></li>
+                        <li><a href="fcp-attendance.html">نظام الحضور الذكي FCP</a></li>
+                        <li><a href="Attendance.html">سجل الحضور والغياب (هجري)</a></li>
+                        <li><a href="project-mikrotik.html">تطبيق MikroTik Manager Pro</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="kp-footer-bottom">
+                <div>
+                    جميع الحقوق محفوظة © منصة المعرفة (Knowledge Platform) 2026.
+                </div>
+                <div>
+                    تصميم وبرمجة: <a href="index.html" style="font-weight: 700;">إبراهيم عبدالقادر</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="js/knowledge-platform.js"></script>
+</body>
+
+</html>

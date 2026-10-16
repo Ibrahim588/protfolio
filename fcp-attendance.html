@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="نظام FCP Attendance لإدارة حضور وانصراف الموظفين والورديات والمأموريات والإجازات باستخدام تقنيات الموقع الجغرافي وQR Code - جمعية حماية الأسرة والطفل.">
+    <meta name="keywords"
+        content="نظام الحضور الذكي, جمعية حماية الأسرة والطفل, FCP Attendance, بصمة الموبايل, Geofencing, إدارة الدوام, مأموريات ميدانية, ربط الأجهزة, إبراهيم عبدالقادر برمجة, فلاتر, سوبابيز">
+    <meta name="author" content="إبراهيم عبدالقادر - Ibrahim Abdelgadir">
+    <link rel="canonical" href="http://ibrahim-protfolio.42web.io/fcp-attendance.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://ibrahim-protfolio.42web.io/fcp-attendance.html">
+    <meta property="og:title" content="نظام الحضور الذكي | جمعية حماية الأسرة والطفل">
+    <meta property="og:description"
+        content="منصة رقمية متكاملة لإدارة دوام الموظفين، الورديات، المأموريات الميدانية، والإجازات بأعلى معايير الدقة والأمان.">
+    <meta property="og:image" content="http://ibrahim-protfolio.42web.io/img/fcp/fcp-employee-dashboard.png">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://ibrahim-protfolio.42web.io/fcp-attendance.html">
+    <meta property="twitter:title" content="نظام الحضور الذكي | جمعية حماية الأسرة والطفل">
+    <meta property="twitter:description"
+        content="نظام FCP Attendance لإدارة حضور وانصراف الموظفين والورديات والمأموريات والإجازات باستخدام تقنيات الموقع الجغرافي وQR Code.">
+    <meta property="twitter:image" content="http://ibrahim-protfolio.42web.io/img/fcp/fcp-employee-dashboard.png">
+
+    <title>نظام الحضور الذكي | جمعية حماية الأسرة والطفل</title>
+
+    <!-- Google Fonts: Cairo & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/fcp-attendance.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "FCP Attendance - نظام الحضور الذكي",
+      "operatingSystem": "Android, Windows, Web",
+      "applicationCategory": "BusinessApplication",
+      "description": "نظام رقمي متكامل لإدارة دوام الموظفين، الورديات، المأموريات الميدانية، والإجازات لجمعية حماية الأسرة والطفل.",
+      "url": "http://ibrahim-protfolio.42web.io/fcp-attendance.html",
+      "author": {
+        "@type": "Person",
+        "name": "Ibrahim Abdelgadir"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "جمعية حماية الأسرة والطفل"
+      }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- =================================================================
+         Header & Navigation
+         ================================================================= -->
+    <header class="fcp-navbar" role="banner">
+        <div class="fcp-container">
+            <a href="fcp-attendance.html" class="fcp-nav-brand" aria-label="الصفحة الرئيسية لنظام الحضور الذكي">
+                <div class="fcp-logo-icon">
+                    <!-- Family Silhouette SVG Logo inspired by official Association identity -->
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <div class="fcp-brand-text">
+                    <span class="fcp-brand-title">جمعية حماية الأسرة والطفل</span>
+                    <span class="fcp-brand-sub">FCP Attendance</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="fcp-nav-menu" id="fcp-nav-menu" role="navigation" aria-label="القائمة الرئيسية">
+                <a href="#hero" class="fcp-nav-link active">الرئيسية</a>
+                <a href="#about" class="fcp-nav-link">عن النظام</a>
+                <a href="#features" class="fcp-nav-link">المميزات</a>
+                <a href="#how-it-works" class="fcp-nav-link">كيف يعمل</a>
+                <a href="#employee-experience" class="fcp-nav-link">تجربة الموظف</a>
+                <a href="#admin-dashboard" class="fcp-nav-link">بوابة الإدارة</a>
+                <a href="#security" class="fcp-nav-link">الأمان</a>
+                <a href="#reports" class="fcp-nav-link">التقارير</a>
+                <a href="#faq" class="fcp-nav-link">الأسئلة الشائعة</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="fcp-nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="fcp-btn-icon" id="fcp-theme-toggle" aria-label="تبديل الوضع الليلي / النهاري"
+                    title="تبديل المظهر">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- Back to Main Portfolio -->
+                <a href="index.html" class="fcp-btn-icon" title="العودة لمعرض الأعمال" aria-label="معرض الأعمال الشخصي">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+
+                <!-- Download CTA -->
+                <a href="#download" class="fcp-btn-nav-cta">
+                    <i class="fa-brands fa-android"></i>
+                    <span>تحميل التطبيق</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="fcp-mobile-toggle" id="fcp-mobile-toggle" aria-label="فتح القائمة" aria-expanded="false"
+                    aria-controls="fcp-nav-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- =============================================================
+             1. HERO SECTION
+             ============================================================= -->
+        <section id="hero" class="fcp-hero-section">
+            <div class="fcp-hero-glow-1"></div>
+            <div class="fcp-hero-glow-2"></div>
+
+            <div class="fcp-container">
+                <div class="fcp-hero-grid">
+                    <!-- Hero Content -->
+                    <div class="fcp-hero-content fcp-fade-in">
+                        <div class="fcp-badge-pill">
+                            <span class="fcp-badge-dot"></span>
+                            <span>نظام رقمي متكامل لإدارة الحضور</span>
+                        </div>
+
+                        <h1 class="fcp-hero-title">
+                            نظام الحضور الذكي لجمعية <span>حماية الأسرة والطفل</span>
+                        </h1>
+
+                        <p class="fcp-hero-subtitle">
+                            دقة في المواعيد، موثوقية في الأداء، وحلول تقنية تعزز كفاءة العمل الإداري والميداني.
+                        </p>
+
+                        <p class="fcp-hero-desc">
+                            منصة رقمية متكاملة لإدارة دوام الموظفين، الورديات، المأموريات الميدانية، والإجازات بأعلى
+                            معايير
+                            الدقة والأمان.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="fcp-cta-group">
+                            <!-- Primary CTA: Android -->
+                            <!-- TODO: استبدل رابط التحميل بمسار ملف APK المباشر أو متجر Google Play عند التوفر -->
+                            <a href="#download" class="fcp-btn fcp-btn-primary" data-open-modal="fcp-android-modal">
+                                <i class="fa-brands fa-android"></i>
+                                <span>تحميل التطبيق لأجهزة Android</span>
+                            </a>
+
+                            <!-- Secondary CTA: Windows -->
+                            <a href="https://mega.nz/file/Sso30a4R#32SX4EyA3xzGAQXZ49bWpqJ3FcAqUdfMX7yqtT8ZJd0"
+                                target="_blank" rel="noopener noreferrer" class="fcp-btn fcp-btn-secondary"
+                                title="تحميل نسخة نظام ويندوز">
+                                <i class="fa-brands fa-windows"></i>
+                                <span>تحميل التطبيق لأجهزة Windows</span>
+                            </a>
+
+                            <!-- Third CTA: Web App -->
+                            <a href="https://fcp-attendance-app.web.app/" target="_blank" rel="noopener noreferrer"
+                                class="fcp-btn fcp-btn-outline" title="الدخول المباشر لنسخة الويب">
+                                <i class="fa-solid fa-globe"></i>
+                                <span>رابط نسخة الويب</span>
+                            </a>
+                        </div>
+
+                        <!-- Meta Notes -->
+                        <div class="fcp-hero-meta-notes">
+                            <div class="fcp-hero-meta-item">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>حماية أمنية للبيانات</span>
+                            </div>
+                            <div class="fcp-hero-meta-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>تحقق جغرافي GPS دقيق</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual / Realistic Phone Mockup -->
+                    <div class="fcp-hero-mockup-wrapper fcp-fade-in">
+                        <!-- Floating Highlight Pills -->
+                        <div class="fcp-floating-pill fcp-pill-top-right">
+                            <i class="fa-solid fa-location-crosshairs" style="color: #10b981;"></i>
+                            <span>تحقق جغرافي دقيق GPS</span>
+                        </div>
+
+                        <div class="fcp-floating-pill fcp-pill-bottom-left">
+                            <i class="fa-solid fa-fingerprint" style="color: #38bdf8;"></i>
+                            <span>تسجيل فوري بضغطة واحدة</span>
+                        </div>
+
+                        <div class="fcp-floating-pill fcp-pill-bottom-right">
+                            <i class="fa-solid fa-shield-check" style="color: #f59e0b;"></i>
+                            <span>ربط آمن للجهاز Device Binding</span>
+                        </div>
+
+                        <!-- Phone Bezel Frame -->
+                        <div class="fcp-phone-container">
+                            <div class="fcp-phone-notch"></div>
+                            <div class="fcp-phone-screen">
+                                <img src="img/fcp/fcp-employee-dashboard.png"
+                                    alt="واجهة لوحة تحكم الموظف في تطبيق نظام الحضور الذكي FCP Attendance"
+                                    loading="eager">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             2. TRUST / QUICK STATS
+             ============================================================= -->
+        <section class="fcp-trust-bar">
+            <div class="fcp-container">
+                <div class="fcp-trust-grid fcp-fade-in">
+                    <!-- Card 1 -->
+                    <div class="fcp-trust-card">
+                        <div class="fcp-trust-icon emerald">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <div class="fcp-trust-info">
+                            <h3>حضور وانصراف رقمي</h3>
+                            <p>أتمتة كاملة لدورة الحضور وتوثيق المواعيد بدقة متناهية.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="fcp-trust-card">
+                        <div class="fcp-trust-icon">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div class="fcp-trust-info">
+                            <h3>تحقق جغرافي ذكي</h3>
+                            <p>تقنية السياج الجغرافي (Geofencing) لمنع التسجيل خارج المقر.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="fcp-trust-card">
+                        <div class="fcp-trust-icon amber">
+                            <i class="fa-solid fa-person-walking-luggage"></i>
+                        </div>
+                        <div class="fcp-trust-info">
+                            <h3>دعم العمل الميداني</h3>
+                            <p>تسجيل مرن وموثق لمأموريات ومشاريع الجمعية الخارجية.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="fcp-trust-card">
+                        <div class="fcp-trust-icon">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <div class="fcp-trust-info">
+                            <h3>تقارير فورية</h3>
+                            <p>مؤشرات أداء وتحليلات لحظية لمسؤولي الموارد البشرية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             3. ABOUT THE APP
+             ============================================================= -->
+        <section id="about" class="fcp-section fcp-section-alt">
+            <div class="fcp-container">
+                <div class="fcp-about-grid">
+                    <!-- Text Side -->
+                    <div class="fcp-about-text fcp-fade-in">
+                        <div class="fcp-badge-pill">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>نقلة نوعية في أتمتة العمل</span>
+                        </div>
+                        <h2 class="fcp-section-title">إدارة الحضور بطريقة أكثر ذكاءً</h2>
+
+                        <p>
+                            يُعد تطبيق «نظام حضور جمعية حماية الأسرة والطفل (FCP Attendance)» نقلة نوعية في أتمتة إدارة
+                            الموارد البشرية ومتابعة الكوادر العاملة في الجمعية.
+                        </p>
+
+                        <p>
+                            تم تصميم التطبيق خصيصاً لتلبية متطلبات بيئة العمل في الجمعية بمختلف قطاعاتها، سواء للفرق
+                            الإدارية داخل المقرات أو لفرق الميدان والمشاريع الخارجية، من خلال دمج تقنيات الموقع الجغرافي
+                            الذكي (GPS) ورموز الاستجابة السريعة (QR Code) مع أعلى مستويات حماية البيانات.
+                        </p>
+
+                        <div class="fcp-about-highlights">
+                            <div class="fcp-about-point">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <strong>مخصص لبيئة الجمعية</strong>
+                                    <span>يتكيف مع طبيعة العمل الإنساني والميداني</span>
+                                </div>
+                            </div>
+                            <div class="fcp-about-point">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <strong>تحقق مزدوج</strong>
+                                    <span>دمج الموقع الجغرافي ورمز QR وربط الجهاز</span>
+                                </div>
+                            </div>
+                            <div class="fcp-about-point">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <strong>سهولة الاستخدام</strong>
+                                    <span>واجهة عربية واضحة تناسب جميع الموظفين</span>
+                                </div>
+                            </div>
+                            <div class="fcp-about-point">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <strong>حماية السجلات</strong>
+                                    <span>منظومة سحابية مشفرة وغير قابلة للتلاعب</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Side -->
+                    <div class="fcp-about-visual fcp-fade-in">
+                        <div class="fcp-about-visual-card">
+                            <img src="img/fcp/fcp-login.png" alt="واجهة تسجيل الدخول الرسمية لجمعية حماية الأسرة والطفل"
+                                loading="lazy">
+                            <div class="fcp-about-badge-overlay">
+                                <div class="fcp-association-tag">
+                                    <i class="fa-solid fa-building-shield"></i>
+                                    <div>
+                                        <h4>جمعية حماية الأسرة والطفل</h4>
+                                        <p>بوابة موظفي وإدارة الجمعية الرسمية</p>
+                                    </div>
+                                </div>
+                                <span class="fcp-badge-fmt pdf"
+                                    style="background: rgba(30, 58, 138, 0.15); color: var(--fcp-blue-light);">
+                                    معتمد رسمياً
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             4. FEATURES SECTION (7 Feature Cards)
+             ============================================================= -->
+        <section id="features" class="fcp-section">
+            <div class="fcp-container">
+                <div class="fcp-section-header fcp-fade-in">
+                    <div class="fcp-badge-pill">
+                        <i class="fa-solid fa-cubes"></i>
+                        <span>منظومة متكاملة</span>
+                    </div>
+                    <h2 class="fcp-section-title">كل ما تحتاجه لإدارة الحضور والدوام</h2>
+                    <p class="fcp-section-subtitle">
+                        حلول ذكية تساعد الإدارة والموظفين على إدارة الحضور والدوام والمهمات اليومية بكفاءة أعلى.
+                    </p>
+                </div>
+
+                <div class="fcp-features-grid">
+                    <!-- Feature 1 -->
+                    <div class="fcp-feature-card highlighted fcp-fade-in">
+                        <div class="fcp-feature-icon-wrapper">
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                        </div>
+                        <span class="fcp-feature-badge-en">Geofencing & GPS</span>
+                        <h3 class="fcp-feature-title">حضور وانصراف ذكي ودقيق</h3>
+                        <p class="fcp-feature-desc">
+                            التحقق التلقائي من وجود الموظف داخل النطاق الجغرافي المعتمد لمقرات الجمعية أو مواقع المشاريع
+                            قبل إتاحة تسجيل الحضور.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="fcp-feature-card fcp-fade-in">
+                        <div class="fcp-feature-icon-wrapper">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <span class="fcp-feature-badge-en">Device Binding</span>
+                        <h3 class="fcp-feature-title">أمان وربط الأجهزة</h3>
+                        <p class="fcp-feature-desc">
+                            ربط حساب الموظف بجهازه المعتمد للمساعدة في الحد من تسجيل الحضور بالنيابة أو استخدام أجهزة
+                            غير
+                            مصرح بها وضمان أصالة العمليات.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="fcp-feature-card fcp-fade-in">
+                        <div class="fcp-feature-icon-wrapper">
+                            <i class="fa-solid fa-business-time"></i>
+                        </div>
+                        <span class="fcp-feature-badge-en">Shifts & Working Hours</span>
+                        <h3 class="fcp-feature-title">إدارة الورديات وساعات العمل</h3>
+                        <p class="fcp-feature-desc">
+                            دعم الورديات المتعددة (صباحية، مسائية، مشاريع خاصة) وحساب فترات السماح والتأخير والانصراف
+                            المبكر وساعات العمل الفعلية تلقائياً.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="fcp-feature-card fcp-fade-in">
+                        <div class="fcp-feature-icon-wrapper">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <span class="fcp-feature-badge-en">Field Missions</span>
+                        <h3 class="fcp-feature-title">المأموريات والمهام الميدانية</h3>
+                        <p class="fcp-feature-desc">
+                            تسجيل ومتابعة مأموريات العمل والمشاريع الخارجية وربطها بسجل الموظف مع توثيق إحداثيات ومواعيد
+                            إنجاز المهام في الميدان.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="fcp-feature-card fcp-fade-in">
+                        <div class="fcp-feature-icon-wrapper">
+                            <i class="fa-solid fa-umbrella-beach"></i>
+                        </div>
+                        <span class="fcp-feature-badge-en">Leaves & Permissions</span>
+                        <h3 class="fcp-feature-title">الإجازات والأذونات</h3>
+                        <p class="fcp-feature-desc">
+                            تقديم طلبات الإجازات والأذونات ومتابعة دورة الموافقات إلكترونياً مع إشعار الموظف بحالة الطلب
+                            واحتساب الرصيد المتبقي بدقة.
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="fcp-feature-card fcp-fade-in">
+                        <div class="fcp-feature-icon-wrapper">
+                            <i class="fa-solid fa-chart-column"></i>
+                        </div>
+                        <span class="fcp-feature-badge-en">Reports & Analytics</span>
+                        <h3 class="fcp-feature-title">التقارير والتحليلات</h3>
+                        <p class="fcp-feature-desc">
+                            لوحة معلومات وتقارير تفصيلية تساعد الإدارة على متابعة الحضور والانضباط، رصد نسب الغياب
+                            والتأخير، واستخراج البيانات الإحصائية.
+                        </p>
+                    </div>
+
+                    <!-- Feature 7 -->
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             5. HOW IT WORKS
+             ============================================================= -->
+        <section id="how-it-works" class="fcp-section fcp-section-alt">
+            <div class="fcp-container">
+                <div class="fcp-section-header fcp-fade-in">
+                    <div class="fcp-badge-pill">
+                        <i class="fa-solid fa-route"></i>
+                        <span>خطوات بسيطة وسريعة</span>
+                    </div>
+                    <h2 class="fcp-section-title">كيف يعمل النظام؟</h2>
+                    <p class="fcp-section-subtitle">
+                        دورة عمل انسيابية تمكن الموظف من إثبات حضوره ومتابعة دوامه في ثوانٍ معدودة.
+                    </p>
+                </div>
+
+                <div class="fcp-timeline-wrapper fcp-fade-in">
+                    <div class="fcp-steps-grid">
+                        <!-- Step 1 -->
+                        <div class="fcp-step-card">
+                            <div class="fcp-step-number">1</div>
+                            <div class="fcp-step-icon">
+                                <i class="fa-solid fa-id-card-clip"></i>
+                            </div>
+                            <h3 class="fcp-step-title">تسجيل الدخول وربط الجهاز</h3>
+                            <p class="fcp-step-desc">
+                                يقوم الموظف بتسجيل الدخول ببياناته الرسمية واعتماد الجهاز المخصص لضمان الخصوصية والأمان.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="fcp-step-card">
+                            <div class="fcp-step-number">2</div>
+                            <div class="fcp-step-icon">
+                                <i class="fa-solid fa-street-view"></i>
+                            </div>
+                            <h3 class="fcp-step-title">الوصول إلى موقع العمل</h3>
+                            <p class="fcp-step-desc">
+                                يتحقق التطبيق تلقائياً من وجود الموظف داخل النطاق الجغرافي المصرح به للمقر أو المشروع.
+                            </p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="fcp-step-card">
+                            <div class="fcp-step-number">3</div>
+                            <div class="fcp-step-icon">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <h3 class="fcp-step-title">تسجيل الحضور</h3>
+                            <p class="fcp-step-desc">
+                                يؤكد الموظف حضوره بضغطة واحدة ويحصل على تأكيد فوري بوقت وتاريخ الحضور وحالة الوردية.
+                            </p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="fcp-step-card">
+                            <div class="fcp-step-number">4</div>
+                            <div class="fcp-step-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <h3 class="fcp-step-title">متابعة الدوام</h3>
+                            <p class="fcp-step-desc">
+                                يمكن للموظف متابعة ساعات العمل الفعلية، تقديم الإجازات، وتوثيق المأموريات بكل شفافية.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             6. EMPLOYEE EXPERIENCE
+             ============================================================= -->
+        <section id="employee-experience" class="fcp-section">
+            <div class="fcp-container">
+                <div class="fcp-section-header fcp-fade-in">
+                    <div class="fcp-badge-pill">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <span>واجهة مريحة وسريعة</span>
+                    </div>
+                    <h2 class="fcp-section-title">كل ما يحتاجه الموظف في تطبيق واحد</h2>
+                    <p class="fcp-section-subtitle">
+                        شاشات مبسطة تجمع كل تفاصيل الدوام، الساعات، الإجازات، والملف الوظيفي في متناول يدك.
+                    </p>
+                </div>
+
+                <!-- Interactive Tabs to Switch Screens -->
+                <div class="fcp-experience-tabs fcp-fade-in" role="tablist">
+                    <button class="fcp-tab-btn active" data-tab="dashboard" role="tab" aria-selected="true">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>لوحة الموظف الرئيسية</span>
+                    </button>
+                    <button class="fcp-tab-btn" data-tab="attendance" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>تسجيل الحضور والورديات</span>
+                    </button>
+                    <button class="fcp-tab-btn" data-tab="profile" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-address-card"></i>
+                        <span>الملف الوظيفي والجهاز</span>
+                    </button>
+                    <button class="fcp-tab-btn" data-tab="services" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-hand-holding-hand"></i>
+                        <span>الخدمات الذاتية والمأموريات</span>
+                    </button>
+                </div>
+
+                <!-- Showcase Box -->
+                <div class="fcp-experience-showcase fcp-fade-in">
+                    <!-- Left: Details -->
+                    <div class="fcp-exp-info">
+                        <h3 class="fcp-exp-info-title" id="fcp-exp-title">لوحة تحكم الموظف الذكية</h3>
+                        <p class="fcp-exp-info-desc" id="fcp-exp-desc">
+                            واجهة مركزية أنيقة تمنح الموظف نظرة فورية وشاملة على حالة دوامه اليومي، ساعات العمل
+                            المتبقية،
+                            والخدمات الذاتية السريعة.
+                        </p>
+
+                        <div class="fcp-exp-checklist" id="fcp-exp-points">
+                            <div class="fcp-exp-check-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>عرض فوري لوردية اليوم ومواعيد الحضور والانصراف</span>
+                            </div>
+                            <div class="fcp-exp-check-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>أزرار تفاعلية لتسجيل الحضور والانصراف بضغطة زر</span>
+                            </div>
+                            <div class="fcp-exp-check-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>عداد حي لساعات الدوام المطلوبة، الفعلية، وفارق الساعات</span>
+                            </div>
+                            <div class="fcp-exp-check-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>الوصول السريع للخدمات الذاتية وسجل الحركات الأخير</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Phone Display Frame -->
+                    <div class="fcp-exp-mockup-display">
+                        <div class="fcp-exp-phone-frame">
+                            <img id="fcp-exp-image" src="img/fcp/fcp-employee-dashboard.png"
+                                alt="شاشة تطبيق نظام حضور جمعية حماية الأسرة والطفل" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             7. ADMIN DASHBOARD
+             ============================================================= -->
+        <section id="admin-dashboard" class="fcp-section fcp-section-alt">
+            <div class="fcp-container">
+                <div class="fcp-admin-grid">
+                    <!-- Left: Text & Key Numbers -->
+                    <div class="fcp-admin-text fcp-fade-in">
+                        <div class="fcp-badge-pill">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>لوحة تحكم قيادية</span>
+                        </div>
+                        <h2 class="fcp-section-title">رؤية أوضح للإدارة وصناع القرار</h2>
+                        <p>
+                            توفر بوابة الإدارة أدوات لمتابعة الحضور والغياب، إدارة الموظفين والأجهزة، مراجعة الطلبات،
+                            وإعداد التقارير اللحظية التي تدعم الشفافية والانضباط الإداري داخل الجمعية.
+                        </p>
+
+                        <!-- Compact Metrics matching real app data -->
+                        <div class="fcp-admin-metrics-list">
+                            <div class="fcp-metric-box">
+                                <span class="number" style="color: #3b82f6;">9</span>
+                                <span class="label">إجمالي الكادر والموظفين</span>
+                            </div>
+                            <div class="fcp-metric-box">
+                                <span class="number" style="color: #10b981;">لحظي</span>
+                                <span class="label">تتبع الحضور والغياب</span>
+                            </div>
+                            <div class="fcp-metric-box">
+                                <span class="number" style="color: #f59e0b;">GPS</span>
+                                <span class="label">سياج جغرافي مانع للتحايل</span>
+                            </div>
+                            <div class="fcp-metric-box">
+                                <span class="number" style="color: #8b5cf6;">PDF/XLS</span>
+                                <span class="label">تصدير التقارير المعتمدة</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                            <a href="https://fcp-attendance-app.web.app/" target="_blank" rel="noopener noreferrer"
+                                class="fcp-btn fcp-btn-secondary">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                <span>الدخول لبوابة الإدارة (نسخة الويب)</span>
+                            </a>
+                            <button class="fcp-btn fcp-btn-outline" data-open-modal="fcp-guide-modal">
+                                <i class="fa-solid fa-sitemap"></i>
+                                <span>صلاحيات الموارد البشرية</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Dashboard Screen Mockup with Real Application Tabs -->
+                    <div class="fcp-admin-mockup-wrapper fcp-fade-in">
+                        <div class="fcp-admin-window-header">
+                            <div class="fcp-window-dots">
+                                <span class="red"></span>
+                                <span class="yellow"></span>
+                                <span class="green"></span>
+                            </div>
+                            <div class="fcp-window-title" id="fcp-admin-header-title">لوحة المؤشرات |
+                                fcp-attendance-app.web.app</div>
+                            <div style="display: flex; gap: 0.35rem;">
+                                <button class="fcp-badge-fmt excel" id="btn-admin-view-charts"
+                                    style="cursor: pointer; border: none;" title="عرض الرسوم البيانية">الرسوم</button>
+                                <button class="fcp-badge-fmt pdf" id="btn-admin-view-metrics"
+                                    style="cursor: pointer; border: none; background: var(--fcp-bg-surface);"
+                                    title="عرض المؤشرات الرقمية">المؤشرات</button>
+                                <button class="fcp-badge-fmt" id="btn-admin-view-sidebar"
+                                    style="cursor: pointer; border: none; background: var(--fcp-bg-surface); color: var(--fcp-text-secondary);"
+                                    title="عرض القائمة الإدارية">القائمة</button>
+                            </div>
+                        </div>
+                        <div class="fcp-admin-window-content">
+                            <img id="fcp-admin-screen-img" src="img/fcp/fcp-admin-indicators.png"
+                                alt="لوحة مؤشرات الإدارة ورسوم الحضور البيانية لتطبيق جمعية حماية الأسرة والطفل"
+                                loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             8. SECURITY SECTION
+             ============================================================= -->
+        <section id="security" class="fcp-section">
+            <div class="fcp-container">
+                <div class="fcp-security-banner fcp-fade-in">
+                    <div class="fcp-security-intro">
+                        <div class="fcp-badge-pill">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>حماية وموثوقية</span>
+                        </div>
+                        <h2 class="fcp-section-title">الأمان جزء أساسي من النظام</h2>
+                        <p class="fcp-section-subtitle">
+                            تم تصميم النظام مع مراعاة حماية بيانات الموظفين وسلامة سجلات الحضور والصلاحيات الإدارية، بما
+                            يضمن بيئة تشغيلية موثوقة ومحمية من التلاعب.
+                        </p>
+                    </div>
+
+                    <div class="fcp-security-grid">
+                        <!-- Pillar 1 -->
+                        <div class="fcp-security-card">
+                            <div class="fcp-sec-icon">
+                                <i class="fa-solid fa-link"></i>
+                            </div>
+                            <h3>ربط الأجهزة</h3>
+                            <p>تقييد تسجيل الدخول بجهاز الموظف المعتمد للحد من تسجيل الحضور بالنيابة.</p>
+                        </div>
+
+                        <!-- Pillar 2 -->
+                        <div class="fcp-security-card">
+                            <div class="fcp-sec-icon">
+                                <i class="fa-solid fa-satellite-dish"></i>
+                            </div>
+                            <h3>التحقق الجغرافي</h3>
+                            <p>مطابقة إحداثيات GPS بدقة مع الحدود الجغرافية المعتمدة لمواقع الجمعية.</p>
+                        </div>
+
+                        <!-- Pillar 3 -->
+                        <div class="fcp-security-card">
+                            <div class="fcp-sec-icon">
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                            <h3>تشفير البيانات</h3>
+                            <p>نقل وحفظ البيانات عبر قنوات سحابية مشفرة تحمي خصوصية الكوادر وسجلاتهم.</p>
+                        </div>
+
+                        <!-- Pillar 4 -->
+                        <div class="fcp-security-card">
+                            <div class="fcp-sec-icon">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <h3>سجل التدقيق الإداري</h3>
+                            <p>توثيق الحركات والتعديلات الإدارية في سجل تدقيق يضمن الشفافية والمساءلة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             10. REPORTS SECTION
+             ============================================================= -->
+        <section id="reports" class="fcp-section fcp-section-alt">
+            <div class="fcp-container">
+                <div class="fcp-section-header fcp-fade-in">
+                    <div class="fcp-badge-pill">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <span>رؤى تفصيلية</span>
+                    </div>
+                    <h2 class="fcp-section-title">بيانات واضحة تساعدك على اتخاذ القرار</h2>
+                    <p class="fcp-section-subtitle">
+                        تقارير شاملة ومتنوعة تعكس الواقع التشغيلي وتدعم التخطيط الإداري الفعال لكوادر الجمعية.
+                    </p>
+                </div>
+
+                <div class="fcp-reports-grid">
+                    <!-- Report 1 -->
+                    <div class="fcp-report-card fcp-fade-in">
+                        <div>
+                            <div class="fcp-report-header">
+                                <div class="fcp-report-icon">
+                                    <i class="fa-solid fa-calendar-day"></i>
+                                </div>
+                                <div class="fcp-report-formats">
+                                    <span class="fcp-badge-fmt pdf">PDF</span>
+                                    <span class="fcp-badge-fmt excel">Excel</span>
+                                </div>
+                            </div>
+                            <h3 class="fcp-report-title">تقرير الحضور اليومي</h3>
+                            <p class="fcp-report-desc">
+                                بيان لحظي يوضح حركة الدخول والخروج لكافة الموظفين على مدار اليوم مع أوقات الدوام
+                                الفعلية.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Report 2 -->
+                    <div class="fcp-report-card fcp-fade-in">
+                        <div>
+                            <div class="fcp-report-header">
+                                <div class="fcp-report-icon">
+                                    <i class="fa-solid fa-calendar-week"></i>
+                                </div>
+                                <div class="fcp-report-formats">
+                                    <span class="fcp-badge-fmt pdf">PDF</span>
+                                    <span class="fcp-badge-fmt excel">Excel</span>
+                                </div>
+                            </div>
+                            <h3 class="fcp-report-title">تقرير الحضور الشهري التراكمي</h3>
+                            <p class="fcp-report-desc">
+                                ملخص شهري شامل لاحتساب إجمالي الساعات المستحقة، الساعات الإضافية، وأيام العمل المكتملة.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Report 3 -->
+                    <div class="fcp-report-card fcp-fade-in">
+                        <div>
+                            <div class="fcp-report-header">
+                                <div class="fcp-report-icon">
+                                    <i class="fa-solid fa-user-clock"></i>
+                                </div>
+                                <div class="fcp-report-formats">
+                                    <span class="fcp-badge-fmt pdf">PDF</span>
+                                    <span class="fcp-badge-fmt excel">Excel</span>
+                                </div>
+                            </div>
+                            <h3 class="fcp-report-title">سجل التأخير والانصراف المبكر</h3>
+                            <p class="fcp-report-desc">
+                                رصد دقيق لفترات التأخير عن بداية الوردية أو مغادرة المقر قبل انتهاء ساعات العمل الرسمية.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Report 4 -->
+                    <div class="fcp-report-card fcp-fade-in">
+                        <div>
+                            <div class="fcp-report-header">
+                                <div class="fcp-report-icon">
+                                    <i class="fa-solid fa-user-xmark"></i>
+                                </div>
+                                <div class="fcp-report-formats">
+                                    <span class="fcp-badge-fmt pdf">PDF</span>
+                                    <span class="fcp-badge-fmt excel">Excel</span>
+                                </div>
+                            </div>
+                            <h3 class="fcp-report-title">تقرير الغياب والانقطاع</h3>
+                            <p class="fcp-report-desc">
+                                إحصائية دورية ترصد حالات الغياب بعذر أو بدون عذر وتساعد في تقييم نسب الانضباط الوظيفي.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Report 5 -->
+                    <div class="fcp-report-card fcp-fade-in">
+                        <div>
+                            <div class="fcp-report-header">
+                                <div class="fcp-report-icon">
+                                    <i class="fa-solid fa-calendar-check"></i>
+                                </div>
+                                <div class="fcp-report-formats">
+                                    <span class="fcp-badge-fmt pdf">PDF</span>
+                                    <span class="fcp-badge-fmt excel">Excel</span>
+                                </div>
+                            </div>
+                            <h3 class="fcp-report-title">بيان الإجازات والأذونات</h3>
+                            <p class="fcp-report-desc">
+                                أرشيف لطلبات الإجازات المعتمدة وأذونات الخروج المؤقتة وأرصدة الموظفين المستحقة.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Report 6 -->
+                    <div class="fcp-report-card fcp-fade-in">
+                        <div>
+                            <div class="fcp-report-header">
+                                <div class="fcp-report-icon">
+                                    <i class="fa-solid fa-person-shelter"></i>
+                                </div>
+                                <div class="fcp-report-formats">
+                                    <span class="fcp-badge-fmt pdf">PDF</span>
+                                    <span class="fcp-badge-fmt excel">Excel</span>
+                                </div>
+                            </div>
+                            <h3 class="fcp-report-title">مأموريات ومشاريع الميدان</h3>
+                            <p class="fcp-report-desc">
+                                توثيق مهام فرق الحماية والزيارات الميدانية والمشاريع الخارجية الخاصة بالجمعية.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Reports & Document Showcase -->
+                <div class="fcp-reports-showcase-box fcp-fade-in"
+                    style="margin-top: 3.5rem; background: var(--fcp-bg-card); border: 1px solid var(--fcp-border); border-radius: var(--fcp-radius-xl); padding: 2.5rem; box-shadow: var(--fcp-shadow-lg);">
+                    <div style="text-align: center; max-width: 650px; margin: 0 auto 2rem auto;">
+                        <span class="fcp-badge-fmt pdf"
+                            style="font-size: 0.82rem; padding: 0.3rem 0.8rem; margin-bottom: 0.5rem; display: inline-block;">
+                            <i class="fa-solid fa-file-pdf"></i> مخرجات جاهزة للطباعة والاعتماد
+                        </span>
+                        <h3
+                            style="font-size: 1.4rem; font-weight: 800; color: var(--fcp-text-primary); margin-bottom: 0.5rem;">
+                            من الشاشة الرقمية إلى التقرير الرسمي المعتمد
+                        </h3>
+                        <p style="font-size: 0.95rem; color: var(--fcp-text-secondary);">
+                            يتيح النظام استخراج تقارير الحضور والانصراف ومتابعة الإنجاز والدوام بضغطة زر وتوليد مستندات
+                            PDF رسمية تتضمن ترويسة الجمعية، ملخص الأقسام، ونسب الالتزام العامة.
+                        </p>
+                    </div>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start;">
+                        <!-- Digital Interface Screen -->
+                        <div
+                            style="background: var(--fcp-bg-surface); border: 1px solid var(--fcp-border); border-radius: var(--fcp-radius-lg); overflow: hidden;">
+                            <div
+                                style="padding: 0.9rem 1.25rem; border-bottom: 1px solid var(--fcp-border); display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="font-size: 0.9rem; color: var(--fcp-text-primary);">واجهة التقارير
+                                    والتصدير الرقمية</strong>
+                                <span class="fcp-badge-fmt excel"><i class="fa-solid fa-bolt"></i> مباشر من
+                                    النظام</span>
+                            </div>
+                            <img src="img/fcp/fcp-reports-screen.png"
+                                alt="واجهة التقارير والتصدير في تطبيق جمعية حماية الأسرة والطفل"
+                                style="width: 100%; display: block;" loading="lazy">
+                        </div>
+
+                        <!-- Official Printed Document -->
+                        <div
+                            style="background: var(--fcp-bg-surface); border: 1px solid var(--fcp-border); border-radius: var(--fcp-radius-lg); overflow: hidden;">
+                            <div
+                                style="padding: 0.9rem 1.25rem; border-bottom: 1px solid var(--fcp-border); display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="font-size: 0.9rem; color: var(--fcp-text-primary);">تقرير الإنجاز والدوام
+                                    المعتمد (PDF)</strong>
+                                <span class="fcp-badge-fmt pdf"><i class="fa-solid fa-stamp"></i> وثيقة رسمية</span>
+                            </div>
+                            <img src="img/fcp/fcp-printed-report.png"
+                                alt="تقرير الحضور والانصراف ومتابعة الإنجاز والدوام المعتمد لجمعية حماية الأسرة والطفل"
+                                style="width: 100%; display: block;" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; color: var(--fcp-text-muted); font-size: 0.85rem; margin-top: 2rem;">
+                    * تدعم لوحة الإدارة استخراج وتحميل التقارير بصيغتي PDF و Excel مع جداول إحصائية دقيقة لكافة الأقسام.
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             11. TECHNICAL OVERVIEW
+             ============================================================= -->
+        <section class="fcp-section">
+            <div class="fcp-container">
+                <div class="fcp-section-header fcp-fade-in">
+                    <div class="fcp-badge-pill">
+                        <i class="fa-solid fa-microchip"></i>
+                        <span>الأساس التقني</span>
+                    </div>
+                    <h2 class="fcp-section-title">تقنية حديثة، وتجربة استخدام بسيطة</h2>
+                    <p class="fcp-section-subtitle">
+                        تم بناء التطبيق باستخدام تقنيات حديثة تتيح تجربة استخدام سلسة وقابلة للتوسع.
+                    </p>
+                </div>
+
+                <div class="fcp-tech-grid fcp-fade-in">
+                    <!-- Tech 1: Flutter -->
+                    <div class="fcp-tech-card">
+                        <div class="fcp-tech-icon" style="color: #02569B;">
+                            <i class="fa-brands fa-flutter"></i>
+                        </div>
+                        <h3>Flutter SDK</h3>
+                        <p>تطوير عصري متعدد المنصات يمنح سرعة فائقة وتجربة مستخدم متناسقة.</p>
+                    </div>
+
+                    <!-- Tech 2: Android -->
+                    <div class="fcp-tech-card">
+                        <div class="fcp-tech-icon" style="color: #3DDC84;">
+                            <i class="fa-brands fa-android"></i>
+                        </div>
+                        <h3>Android</h3>
+                        <p>تطبيق مخصص يعمل بكفاءة على كافة هواتف أندرويد الحديثة والاقتصادية.</p>
+                    </div>
+
+                    <!-- Tech 3: Windows / Web -->
+                    <div class="fcp-tech-card">
+                        <div class="fcp-tech-icon" style="color: #0078D7;">
+                            <i class="fa-brands fa-windows"></i>
+                        </div>
+                        <h3>Windows & Web</h3>
+                        <p>بوابة ويب وسطح مكتب لإدارة العمليات ومتابعة الكوادر من أجهزة الحاسوب.</p>
+                    </div>
+
+                    <!-- Tech 4: Supabase -->
+                    <div class="fcp-tech-card">
+                        <div class="fcp-tech-icon" style="color: #3ECF8E;">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3>Supabase Cloud</h3>
+                        <p>قواعد بيانات سحابية متقدمة ومصادقة مشفرة تدعم التحديثات اللحظية.</p>
+                    </div>
+
+                    <!-- Tech 5: GPS -->
+                    <div class="fcp-tech-card">
+                        <div class="fcp-tech-icon" style="color: #EA4335;">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3>GPS & Geofence</h3>
+                        <p>تحديد دقيق للموقع الجغرافي ونطاقات العمل المعتمدة لمنع التسجيل الوهمي.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             12. VALUE PROPOSITION (Two Columns)
+             ============================================================= -->
+        <section class="fcp-section fcp-section-alt">
+            <div class="fcp-container">
+                <div class="fcp-section-header fcp-fade-in">
+                    <div class="fcp-badge-pill">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <span>كفاءة العمل المؤسسي</span>
+                    </div>
+                    <h2 class="fcp-section-title">قيمة مضافة للإدارة والكوادر معاً</h2>
+                    <p class="fcp-section-subtitle">
+                        منظومة متكاملة ترفع كفاءة التدفق الإداري وتوفر على الجميع الوقت والجهد.
+                    </p>
+                </div>
+
+                <div class="fcp-value-grid">
+                    <!-- Column 1: For Management -->
+                    <div class="fcp-value-column fcp-fade-in">
+                        <div class="fcp-value-header">
+                            <div class="fcp-value-icon">
+                                <i class="fa-solid fa-users-gear"></i>
+                            </div>
+                            <h3>للإدارة وصناع القرار</h3>
+                        </div>
+
+                        <div class="fcp-value-list">
+                            <div class="fcp-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>تقليل العمل اليدوي والأوراق وسجلات التوقيع التقليدية.</span>
+                            </div>
+                            <div class="fcp-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>تنظيم سجلات الحضور بدقة واحتساب ساعات العمل آلياً.</span>
+                            </div>
+                            <div class="fcp-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>متابعة الفرق الميدانية ومأموريات المشاريع الخارجية لحظياً.</span>
+                            </div>
+                            <div class="fcp-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>تقارير أكثر وضوحاً تدعم القرارات الإدارية والمالية.</span>
+                            </div>
+                            <div class="fcp-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>إدارة مركزية شاملة للموظفين، الأجهزة، والورديات.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: For Employees -->
+                    <div class="fcp-value-column fcp-fade-in">
+                        <div class="fcp-value-header">
+                            <div class="fcp-value-icon" style="background: linear-gradient(135deg, #059669, #10b981);">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <h3>للموظفين والكوادر العاملة</h3>
+                        </div>
+
+                        <div class="fcp-value-list">
+                            <div class="fcp-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>تسجيل حضور سريع وموثوق بضغطة زر واحدة.</span>
+                            </div>
+                            <div class="fcp-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>متابعة ساعات العمل اليومية والمتبقية بشفافية تامة.</span>
+                            </div>
+                            <div class="fcp-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>تقديم طلبات الإجازات والأذونات ومتابعة اعتمادها بسهولة.</span>
+                            </div>
+                            <div class="fcp-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>متابعة المأموريات الميدانية وتوثيق المشاريع الرسمية.</span>
+                            </div>
+                            <div class="fcp-value-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>الاطلاع على السجل الوظيفي وساعات الدوام في أي وقت.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             13. DOWNLOAD SECTION (High Impact CTA)
+             ============================================================= -->
+        <section id="download" class="fcp-section">
+            <div class="fcp-container">
+                <div class="fcp-download-banner fcp-fade-in">
+                    <div class="fcp-download-glow"></div>
+
+                    <h2 class="fcp-download-title">ابدأ تجربة أكثر ذكاءً لإدارة الحضور</h2>
+                    <p class="fcp-download-subtitle">
+                        نظام FCP Attendance يجمع الحضور والدوام والمأموريات والإجازات في تجربة رقمية واحدة تخدم كافة
+                        فروع
+                        وكوادر جمعية حماية الأسرة والطفل.
+                    </p>
+
+                    <div class="fcp-download-buttons">
+                        <!-- Android Button -->
+                        <!-- TODO: ضع رابط التحميل الفعلي لتطبيق الأندرويد هنا (رابط APK أو متجر جوجل بلاي) -->
+                        <button class="fcp-download-btn" data-open-modal="fcp-android-modal">
+                            <i class="fa-brands fa-android" style="font-size: 1.3rem; color: #10b981;"></i>
+                            <span>تحميل تطبيق Android</span>
+                        </button>
+
+                        <!-- Windows Button -->
+                        <a href="https://mega.nz/file/Sso30a4R#32SX4EyA3xzGAQXZ49bWpqJ3FcAqUdfMX7yqtT8ZJd0"
+                            target="_blank" rel="noopener noreferrer" class="fcp-download-btn secondary"
+                            title="تحميل البرنامج لنظام تشغيل ويندوز">
+                            <i class="fa-brands fa-windows" style="font-size: 1.3rem; color: #38bdf8;"></i>
+                            <span>تحميل نسخة Windows</span>
+                        </a>
+
+                        <!-- Web Portal Button -->
+                        <a href="https://fcp-attendance-app.web.app/" target="_blank" rel="noopener noreferrer"
+                            class="fcp-download-btn secondary" title="الدخول المباشر لبوابة الإدارة والموظفين">
+                            <i class="fa-solid fa-globe" style="font-size: 1.3rem; color: #f59e0b;"></i>
+                            <span>بوابة الإدارة (نسخة الويب)</span>
+                        </a>
+
+                        <!-- iOS Button (Disabled Badge) -->
+                        <div class="fcp-download-btn disabled" title="النسخة الخاصة بأجهزة iOS قيد المراجعة والإطلاق">
+                            <i class="fa-brands fa-apple" style="font-size: 1.3rem;"></i>
+                            <span>تطبيق iOS - قريباً</span>
+                        </div>
+                    </div>
+
+                    <p class="fcp-download-meta">
+                        * يتطلب التطبيق صلاحية الموقع الجغرافي (GPS) لحساب الحضور والانصراف بدقة.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             14. FAQ ACCORDION
+             ============================================================= -->
+        <section id="faq" class="fcp-section fcp-section-alt">
+            <div class="fcp-container">
+                <div class="fcp-section-header fcp-fade-in">
+                    <div class="fcp-badge-pill">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <span>إجابات سريعة</span>
+                    </div>
+                    <h2 class="fcp-section-title">الأسئلة الشائعة</h2>
+                    <p class="fcp-section-subtitle">
+                        كل ما تود معرفته حول آلية عمل تطبيق الحضور وسياسات الاستخدام في الجمعية.
+                    </p>
+                </div>
+
+                <div class="fcp-faq-list fcp-fade-in">
+                    <!-- Q1 -->
+                    <div class="fcp-faq-item">
+                        <button class="fcp-faq-trigger" aria-expanded="false">
+                            <span>1. ما هو نظام FCP Attendance؟</span>
+                            <div class="fcp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="fcp-faq-content">
+                            <div class="fcp-faq-answer">
+                                هو المنظومة الرقمية المعتمدة لجمعية حماية الأسرة والطفل لأتمتة عمليات حضور وانصراف
+                                الموظفين، إدارة الورديات، تسجيل المأموريات الميدانية، ومتابعة الإجازات والأذونات بدقة
+                                وشفافية.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="fcp-faq-item">
+                        <button class="fcp-faq-trigger" aria-expanded="false">
+                            <span>2. هل يعمل التطبيق على أجهزة Android؟</span>
+                            <div class="fcp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="fcp-faq-content">
+                            <div class="fcp-faq-answer">
+                                نعم، يعمل التطبيق بسلاسة وكفاءة عالية على مختلف أجهزة الهواتف الذكية بنظام Android مع
+                                دعم
+                                كامل للتحديثات المستمرة.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="fcp-faq-item">
+                        <button class="fcp-faq-trigger" aria-expanded="false">
+                            <span>3. هل يدعم النظام هواتف iPhone (iOS)؟</span>
+                            <div class="fcp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="fcp-faq-content">
+                            <div class="fcp-faq-answer">
+                                نسخة iOS قيد التجهيز والإطلاق قريباً. يمكن لمستخدمي هواتف Apple استخدام بوابة الويب
+                                المتوافقة
+                                بالكامل عبر متصفح الهاتف حالياً.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="fcp-faq-item">
+                        <button class="fcp-faq-trigger" aria-expanded="false">
+                            <span>4. كيف يتم تسجيل الحضور اليومي؟</span>
+                            <div class="fcp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="fcp-faq-content">
+                            <div class="fcp-faq-answer">
+                                عند وصول الموظف إلى مقر العمل المصرح به، يقوم بفتح التطبيق والضغط على زر «تسجيل الحضور»،
+                                حيث
+                                يقوم النظام بمطابقة الموقع الجغرافي وتأكيد الحركة خلال ثوانٍ.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="fcp-faq-item">
+                        <button class="fcp-faq-trigger" aria-expanded="false">
+                            <span>5. هل يحتاج تسجيل الحضور إلى اتصال دائم بالإنترنت؟</span>
+                            <div class="fcp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="fcp-faq-content">
+                            <div class="fcp-faq-answer">
+                                يدعم النظام التوثيق الميداني حتى في حالات ضعف الاتصال، ويقوم بمزامنة السجلات تلقائياً مع
+                                قاعدة البيانات السحابية فور استقرار شبكة الإنترنت.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="fcp-faq-item">
+                        <button class="fcp-faq-trigger" aria-expanded="false">
+                            <span>6. كيف يتم التحقق من موقع الموظف الجغرافي؟</span>
+                            <div class="fcp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="fcp-faq-content">
+                            <div class="fcp-faq-answer">
+                                يعتمد التطبيق على تقنية الـ GPS والسياج الجغرافي (Geofencing) المبرمج مسبقاً لمقرات
+                                ومشاريع
+                                الجمعية، ولا يُقبل التسجيل إلا عند التواجد ضمن النطاق المعتمد.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="fcp-faq-item">
+                        <button class="fcp-faq-trigger" aria-expanded="false">
+                            <span>7. هل يمكن ربط حساب الموظف بجهاز هاتف محدد؟</span>
+                            <div class="fcp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="fcp-faq-content">
+                            <div class="fcp-faq-answer">
+                                نعم، يتيح النظام خاصية ربط الحساب بهاتف الموظف المعتمد (Device Binding) لمنع استخدام
+                                أجهزة
+                                أخرى أو تسجيل الحضور بالنيابة دون موافقة الإدارة.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q8 -->
+                    <div class="fcp-faq-item">
+                        <button class="fcp-faq-trigger" aria-expanded="false">
+                            <span>8. هل يدعم النظام المأموريات والمهام الميدانية؟</span>
+                            <div class="fcp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="fcp-faq-content">
+                            <div class="fcp-faq-answer">
+                                نعم، يوفر التطبيق قسماً خاصاً بالمأموريات يتيح تسجيل مهام العمل الميداني وزيارات الحماية
+                                والمشاريع الخارجية وربطها مباشرة بسجل ساعات الموظف.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q9 -->
+                    <div class="fcp-faq-item">
+                        <button class="fcp-faq-trigger" aria-expanded="false">
+                            <span>9. هل يمكن تقديم طلبات الإجازات والأذونات من التطبيق؟</span>
+                            <div class="fcp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="fcp-faq-content">
+                            <div class="fcp-faq-answer">
+                                بالتأكيد، يمكن للموظف تقديم طلب إجازة أو إذن عمل من قائمة الخدمات الذاتية، وتصل الطلبات
+                                إلى
+                                لوحة تحكم المسؤول للاعتماد مع إشعار الموظف بالنتيجة.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q10 -->
+                    <div class="fcp-faq-item">
+                        <button class="fcp-faq-trigger" aria-expanded="false">
+                            <span>10. هل توجد بوابة خاصة بالإدارة وصناع القرار؟</span>
+                            <div class="fcp-faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </button>
+                        <div class="fcp-faq-content">
+                            <div class="fcp-faq-answer">
+                                نعم، يتوفر نظام ويب مخصص ومتقدم يتيح لمديري الموارد البشرية متابعة الحضور لحظياً،
+                                استخراج
+                                التقارير والإحصائيات، وإدارة الورديات وصلاحيات الأجهزة.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             15. SUPPORT & FOOTER
+             ============================================================= -->
+        <section class="fcp-section">
+            <div class="fcp-container">
+                <!-- Support Banner -->
+                <div class="fcp-support-card fcp-fade-in">
+                    <div class="fcp-support-text">
+                        <h3>تحتاج إلى المساعدة؟</h3>
+                        <p>فريق الدعم الفني جاهز لمساعدتك في استخدام النظام وتفعيل حسابك أو أجهزتك المعتمدة.</p>
+                    </div>
+
+                    <div class="fcp-support-actions">
+                        <!-- User Guide Modal Trigger -->
+                        <button class="fcp-btn fcp-btn-outline" data-open-modal="fcp-guide-modal">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>دليل الاستخدام</span>
+                        </button>
+
+                        <!-- Tech Support Modal Trigger -->
+                        <button class="fcp-btn fcp-btn-primary" data-open-modal="fcp-support-modal">
+                            <i class="fa-solid fa-headset"></i>
+                            <span>الدعم الفني</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="fcp-footer" role="contentinfo">
+        <div class="fcp-container">
+            <div class="fcp-footer-grid">
+                <!-- Col 1: About Association -->
+                <div class="fcp-footer-about">
+                    <div class="fcp-nav-brand">
+                        <div class="fcp-logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="fcp-brand-text">
+                            <span class="fcp-brand-title">جمعية حماية الأسرة والطفل</span>
+                            <span class="fcp-brand-sub">FCP Attendance</span>
+                        </div>
+                    </div>
+                    <p>
+                        نظام الحضور الذكي المعتمد لإدارة دوام ومأموريات كوادر جمعية حماية الأسرة والطفل بأعلى معايير
+                        الدقة
+                        والانضباط التقني.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="fcp-footer-links">
+                    <h4>أقسام الصفحة</h4>
+                    <ul>
+                        <li><a href="#about">عن التطبيق</a></li>
+                        <li><a href="#features">المميزات الرئيسية</a></li>
+                        <li><a href="#how-it-works">كيف يعمل النظام</a></li>
+                        <li><a href="#employee-experience">تجربة الموظف</a></li>
+                        <li><a href="#admin-dashboard">لوحة الإدارة</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Portals & Downloads -->
+                <div class="fcp-footer-links">
+                    <h4>الروابط والمنصات</h4>
+                    <ul>
+                        <li><a href="https://fcp-attendance-app.web.app/" target="_blank"
+                                rel="noopener noreferrer">بوابة الويب الحية</a></li>
+                        <li><a href="https://mega.nz/file/Sso30a4R#32SX4EyA3xzGAQXZ49bWpqJ3FcAqUdfMX7yqtT8ZJd0"
+                                target="_blank" rel="noopener noreferrer">تطبيق Windows</a></li>
+                        <li><a href="#download" data-open-modal="fcp-android-modal">تطبيق Android</a></li>
+                        <li><a href="knowledge-platform.html">منصة المعرفة (Knowledge Platform)</a></li>
+                        <li><a href="Attendance.html">سجل الحضور والغياب (هجري)</a></li>
+                        <li><a href="index.html">معرض أعمال المطور</a></li>
+                        <li><a href="websites.html">المواقع والتطبيقات</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="fcp-footer-bottom">
+                <div>
+                    جميع الحقوق محفوظة © جمعية حماية الأسرة والطفل 2026.
+                </div>
+                <div>
+                    تصميم وبرمجة: <a href="index.html" style="font-weight: 700; color: var(--fcp-blue-light);">إبراهيم
+                        عبدالقادر</a> - مطور فلاتر ونظم ذكية
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =============================================================
+         Modals: Android Download / User Guide / Tech Support
+         ============================================================= -->
+
+    <!-- Modal 1: Android Download Instructions -->
+    <div class="fcp-modal-backdrop" id="fcp-android-modal" role="dialog" aria-modal="true"
+        aria-labelledby="android-modal-title">
+        <div class="fcp-modal-dialog">
+            <button class="fcp-modal-close" aria-label="إغلاق النافذة"><i class="fa-solid fa-xmark"></i></button>
+            <div class="fcp-modal-header">
+                <div class="fcp-modal-icon">
+                    <i class="fa-brands fa-android"></i>
+                </div>
+                <h3 class="fcp-modal-title" id="android-modal-title">تحميل تطبيق FCP Attendance لأجهزة Android</h3>
+            </div>
+            <div class="fcp-modal-body">
+                <p>
+                    تطبيق الأندرويد جاهز للاستخدام من قبل موظفي جمعية حماية الأسرة والطفل. يمكنك تنزيل ملف التثبيت
+                    المباشر
+                    (APK) أو تشغيل نسخة الويب فوراً:
+                </p>
+
+                <div
+                    style="background: var(--fcp-bg-surface); padding: 1rem; border-radius: var(--fcp-radius-md); border: 1px solid var(--fcp-border); margin-bottom: 1.25rem;">
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 700; font-size: 0.88rem;">رابط البوابة الإلكترونية المباشر:</span>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <input type="text" id="fcp-share-url" value="https://fcp-attendance-app.web.app/" readonly
+                            style="width: 100%; background: var(--fcp-bg-card); color: var(--fcp-text-primary); border: 1px solid var(--fcp-border); padding: 0.4rem 0.6rem; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.85rem; text-align: left; direction: ltr;">
+                        <button id="fcp-copy-link-btn" class="fcp-btn fcp-btn-secondary"
+                            style="padding: 0.4rem 0.8rem; font-size: 0.8rem; white-space: nowrap;">
+                            <i class="fa-solid fa-copy"></i> نسخ
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TODO: استبدل رابط التحميل بمسار ملف APK المباشر على خادمك أو Google Drive عند التوفر -->
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="https://fcp-attendance-app.web.app/" target="_blank" rel="noopener noreferrer"
+                        class="fcp-btn fcp-btn-primary" style="width: 100%;">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>فتح نسخة الويب فوراً على الهاتف</span>
+                    </a>
+                    <a href="https://mega.nz/file/Sso30a4R#32SX4EyA3xzGAQXZ49bWpqJ3FcAqUdfMX7yqtT8ZJd0" target="_blank"
+                        rel="noopener noreferrer" class="fcp-btn fcp-btn-outline" style="width: 100%;">
+                        <i class="fa-brands fa-windows"></i>
+                        <span>تحميل نسخة Windows المتاحة</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: User Guide Preview -->
+    <div class="fcp-modal-backdrop" id="fcp-guide-modal" role="dialog" aria-modal="true"
+        aria-labelledby="guide-modal-title">
+        <div class="fcp-modal-dialog">
+            <button class="fcp-modal-close" aria-label="إغلاق النافذة"><i class="fa-solid fa-xmark"></i></button>
+            <div class="fcp-modal-header">
+                <div class="fcp-modal-icon" style="color: var(--fcp-emerald);">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <h3 class="fcp-modal-title" id="guide-modal-title">دليل استخدام نظام الحضور</h3>
+            </div>
+            <div class="fcp-modal-body">
+                <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.5rem;">
+                    <div class="fcp-about-point">
+                        <i class="fa-solid fa-1"></i>
+                        <div>
+                            <strong>تسجيل الدخول الأول</strong>
+                            <span>استخدم بريدك الإلكتروني المعتمد لدى إدارة الموارد البشرية بالجمعية وكلمة
+                                المرور.</span>
+                        </div>
+                    </div>
+                    <div class="fcp-about-point">
+                        <i class="fa-solid fa-2"></i>
+                        <div>
+                            <strong>اعتماد الجهاز والموقع</strong>
+                            <span>اسمح للتطبيق بصلاحية الوصول إلى موقعك الجغرافي (GPS) لربط الحساب.</span>
+                        </div>
+                    </div>
+                    <div class="fcp-about-point">
+                        <i class="fa-solid fa-3"></i>
+                        <div>
+                            <strong>تسجيل الدوام والمأموريات</strong>
+                            <span>اضغط على «تسجيل الحضور» عند وصولك، و«تسجيل الانصراف» عند انتهاء الوردية.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TODO: استبدل رابط دليل PDF بالملف الرسمي عند توفره -->
+                <a href="https://fcp-attendance-app.web.app/" target="_blank" rel="noopener noreferrer"
+                    class="fcp-btn fcp-btn-secondary" style="width: 100%;">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span>تجربة التطبيق الآن</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Technical Support -->
+    <div class="fcp-modal-backdrop" id="fcp-support-modal" role="dialog" aria-modal="true"
+        aria-labelledby="support-modal-title">
+        <div class="fcp-modal-dialog">
+            <button class="fcp-modal-close" aria-label="إغلاق النافذة"><i class="fa-solid fa-xmark"></i></button>
+            <div class="fcp-modal-header">
+                <div class="fcp-modal-icon" style="color: var(--fcp-amber);">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3 class="fcp-modal-title" id="support-modal-title">الدعم الفني لنظام الحضور</h3>
+            </div>
+            <div class="fcp-modal-body">
+                <p>
+                    إذا واجهتك أي صعوبة في تسجيل الدخول أو اعتماد الجهاز أو احتساب الساعات، يمكنك التواصل مع مسؤول
+                    النظام عبر
+                    القنوات الرسمية:
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.5rem;">
+                    <div class="fcp-trust-card" style="padding: 1rem;">
+                        <i class="fa-solid fa-envelope" style="font-size: 1.3rem; color: var(--fcp-blue-light);"></i>
+                        <div class="fcp-trust-info">
+                            <h3>البريد الإلكتروني للدعم</h3>
+                            <p style="direction: ltr; text-align: right;">ii601704@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="fcp-trust-card" style="padding: 1rem;">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem; color: #25D366;"></i>
+                        <div class="fcp-trust-info">
+                            <h3>المساعدة عبر الواتساب</h3>
+                            <p style="direction: ltr; text-align: right;">+249 912345678 / مسؤول التقنية</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="mailto:ii601704@gmail.com?subject=استفسار بخصوص نظام الحضور FCP"
+                    class="fcp-btn fcp-btn-primary" style="width: 100%;">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>إرسال بريد إلكتروني فوري</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/fcp-attendance.js"></script>
+</body>
+
+</html>
