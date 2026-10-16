@@ -1,5 +1,5 @@
 /**
- * FCP Attendance Landing Page JavaScript
+ * SFPA Attendance Landing Page JavaScript
  * Handles interactivity, theme synchronization, tabs, FAQ accordion, modals, and smooth animations.
  */
 

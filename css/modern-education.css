@@ -1,0 +1,1481 @@
+/* ==========================================================================
+   Modern Education International Schools (MEIS) - Custom Design System
+   ========================================================================== */
+
+:root {
+    --meis-navy: #07172b;
+    --meis-navy-dark: #030d1a;
+    --meis-primary: #0ea5e9;
+    --meis-primary-hover: #38bdf8;
+    --meis-secondary: #1d4ed8;
+    --meis-accent: #f59e0b;
+    --meis-accent-light: #fbbf24;
+    --meis-bg: #070d18;
+    --meis-surface: #0f192c;
+    --meis-card: #14233c;
+    --meis-card-hover: #1b2d4c;
+    --meis-border: rgba(255, 255, 255, 0.09);
+    --meis-border-hover: rgba(14, 165, 233, 0.4);
+    --meis-text: #f8fafc;
+    --meis-text-muted: #94a3b8;
+    --meis-radius: 16px;
+    --meis-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5);
+    --meis-glow: 0 0 45px rgba(14, 165, 233, 0.15);
+    --font-ar: 'Cairo', sans-serif;
+    --font-en: 'Inter', sans-serif;
+}
+
+[data-theme="light"] {
+    --meis-bg: #f8fafc;
+    --meis-surface: #ffffff;
+    --meis-card: #f1f5f9;
+    --meis-card-hover: #e2e8f0;
+    --meis-border: rgba(0, 0, 0, 0.08);
+    --meis-border-hover: rgba(14, 165, 233, 0.5);
+    --meis-text: #0f172a;
+    --meis-text-muted: #64748b;
+    --meis-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.1);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-ar);
+    background-color: var(--meis-bg);
+    color: var(--meis-text);
+    line-height: 1.65;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.meis-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+.meis-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7, 13, 24, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--meis-border);
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .meis-navbar {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.meis-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 78px;
+    gap: 1rem;
+}
+
+.meis-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.meis-brand-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+.meis-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.meis-brand-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+}
+
+[data-theme="light"] .meis-brand-name {
+    color: #0f172a;
+}
+
+.meis-brand-tag {
+    font-size: 0.72rem;
+    color: var(--meis-primary);
+    font-weight: 600;
+    font-family: var(--font-en);
+}
+
+.meis-nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.meis-nav-link {
+    text-decoration: none;
+    color: var(--meis-text-muted);
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    position: relative;
+    padding: 0.4rem 0;
+}
+
+.meis-nav-link:hover,
+.meis-nav-link.active {
+    color: var(--meis-primary);
+}
+
+.meis-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.meis-theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--meis-border);
+    background: var(--meis-surface);
+    color: var(--meis-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.meis-theme-toggle:hover {
+    border-color: var(--meis-primary);
+    color: var(--meis-primary);
+}
+
+.meis-mobile-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: var(--meis-surface);
+    border: 1px solid var(--meis-border);
+    color: var(--meis-text);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Buttons */
+.meis-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1.35rem;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+    font-family: inherit;
+}
+
+.meis-btn-primary {
+    background: linear-gradient(135deg, var(--meis-primary) 0%, #0284c7 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 18px rgba(14, 165, 233, 0.35);
+}
+
+.meis-btn-primary:hover {
+    background: linear-gradient(135deg, #38bdf8 0%, var(--meis-primary) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(14, 165, 233, 0.45);
+}
+
+.meis-btn-outline {
+    background: transparent;
+    color: var(--meis-text);
+    border: 1px solid var(--meis-border);
+}
+
+.meis-btn-outline:hover {
+    border-color: var(--meis-primary);
+    color: var(--meis-primary);
+    transform: translateY(-2px);
+    background: rgba(14, 165, 233, 0.05);
+}
+
+.meis-btn-glass {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--meis-text);
+    border: 1px solid var(--meis-border);
+}
+
+.meis-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+.meis-btn-large {
+    padding: 0.85rem 1.65rem;
+    font-size: 1rem;
+    border-radius: 12px;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.meis-hero-section {
+    position: relative;
+    padding: 4.5rem 0 5rem;
+    overflow: hidden;
+}
+
+.meis-hero-glow-1 {
+    position: absolute;
+    top: -150px;
+    right: -100px;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.meis-hero-glow-2 {
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(29, 78, 216, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.meis-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.meis-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    background: rgba(14, 165, 233, 0.1);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    color: var(--meis-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--meis-primary);
+    box-shadow: 0 0 0 rgba(14, 165, 233, 0.7);
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+    0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+}
+
+.meis-hero-title {
+    font-size: 2.75rem;
+    font-weight: 900;
+    line-height: 1.25;
+    margin-bottom: 1.35rem;
+    color: #ffffff;
+}
+
+[data-theme="light"] .meis-hero-title {
+    color: #0f172a;
+}
+
+.meis-gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 50%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.meis-hero-desc {
+    font-size: 1.05rem;
+    color: var(--meis-text-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.meis-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.meis-hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--meis-border);
+}
+
+.meis-metric-val {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--meis-primary);
+    font-family: var(--font-en);
+}
+
+.meis-metric-val span {
+    font-size: 0.95rem;
+    font-family: var(--font-ar);
+    color: var(--meis-text-muted);
+}
+
+.meis-metric-label {
+    font-size: 0.8rem;
+    color: var(--meis-text-muted);
+    font-weight: 600;
+}
+
+/* Browser Mockup */
+.meis-browser-mockup {
+    background: var(--meis-surface);
+    border-radius: var(--meis-radius);
+    border: 1px solid var(--meis-border);
+    box-shadow: var(--meis-shadow), var(--meis-glow);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.meis-browser-mockup:hover {
+    transform: translateY(-4px);
+}
+
+.meis-mockup-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--meis-border);
+}
+
+.meis-browser-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.meis-browser-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
+
+.meis-mockup-url {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.3rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-family: var(--font-en);
+    color: var(--meis-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.meis-mockup-screen {
+    padding: 1.25rem;
+    background: #06111f;
+}
+
+.mock-portal-banner {
+    background: linear-gradient(135deg, #0a2240 0%, #0f3460 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    margin-bottom: 1rem;
+}
+
+.mock-portal-chip {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.mock-portal-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.35rem;
+}
+
+.mock-portal-desc {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+}
+
+.mock-portal-btns {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.mock-portal-btn {
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: default;
+}
+
+.mock-portal-btn.active {
+    background: #0ea5e9;
+    color: #ffffff;
+}
+
+.mock-portal-btn:not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+}
+
+.mock-cards-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.mock-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 0.85rem 0.65rem;
+    text-align: center;
+}
+
+.mock-card-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem;
+    font-size: 0.9rem;
+}
+
+.mock-card-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 0.2rem;
+}
+
+.mock-card-sub {
+    font-size: 0.68rem;
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   Section Components
+   ========================================================================== */
+.meis-section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+.meis-section-alt {
+    background: var(--meis-surface);
+}
+
+.meis-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3.5rem;
+}
+
+.meis-section-tag {
+    display: inline-block;
+    padding: 0.35rem 0.95rem;
+    border-radius: 50px;
+    background: rgba(14, 165, 233, 0.1);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    color: var(--meis-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+}
+
+.meis-section-title {
+    font-size: 2.15rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--meis-text);
+}
+
+.meis-section-desc {
+    font-size: 1.02rem;
+    color: var(--meis-text-muted);
+    line-height: 1.75;
+}
+
+.meis-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+.meis-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Feature Cards */
+.meis-feature-card {
+    background: var(--meis-card);
+    border: 1px solid var(--meis-border);
+    border-radius: var(--meis-radius);
+    padding: 2.25rem 1.85rem;
+    transition: all 0.3s ease;
+}
+
+.meis-feature-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--meis-border-hover);
+    box-shadow: var(--meis-glow);
+}
+
+.meis-feature-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.35rem;
+}
+
+.meis-feature-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    color: var(--meis-text);
+}
+
+.meis-feature-text {
+    font-size: 0.95rem;
+    color: var(--meis-text-muted);
+    line-height: 1.75;
+}
+
+/* Academic Program Cards */
+.meis-program-card {
+    background: var(--meis-card);
+    border: 1px solid var(--meis-border);
+    border-radius: var(--meis-radius);
+    padding: 2rem 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.meis-program-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--meis-border-hover);
+    box-shadow: var(--meis-glow);
+}
+
+.meis-program-card.featured {
+    border-color: rgba(245, 158, 11, 0.5);
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, var(--meis-card) 100%);
+}
+
+.meis-program-badge {
+    position: absolute;
+    top: -12px;
+    right: 1.25rem;
+    background: var(--meis-surface);
+    border: 1px solid var(--meis-border);
+    color: var(--meis-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+}
+
+.meis-program-badge.star {
+    background: #f59e0b;
+    color: #000000;
+    border-color: #f59e0b;
+}
+
+.meis-program-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(14, 165, 233, 0.12);
+    color: var(--meis-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+}
+
+.meis-program-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--meis-text);
+}
+
+.meis-program-desc {
+    font-size: 0.88rem;
+    color: var(--meis-text-muted);
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+.meis-program-list {
+    list-style: none;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.meis-program-list li {
+    font-size: 0.82rem;
+    color: var(--meis-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.meis-program-list li i {
+    color: #10b981;
+    font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   Web Screens Showcase Section
+   ========================================================================== */
+.meis-screens-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-bottom: 2.5rem;
+}
+
+.screen-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: 50px;
+    background: var(--meis-card);
+    border: 1px solid var(--meis-border);
+    color: var(--meis-text-muted);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.screen-tab-btn:hover {
+    color: var(--meis-text);
+    border-color: var(--meis-border-hover);
+}
+
+.screen-tab-btn.active {
+    background: var(--meis-primary);
+    color: #ffffff;
+    border-color: var(--meis-primary);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+}
+
+.meis-screen-display-wrapper {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.meis-browser-frame {
+    background: var(--meis-surface);
+    border-radius: var(--meis-radius);
+    border: 1px solid var(--meis-border);
+    box-shadow: var(--meis-shadow);
+    overflow: hidden;
+}
+
+.meis-frame-bar {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--meis-border);
+}
+
+.meis-frame-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.meis-frame-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.meis-frame-dots span:nth-child(1) { background: #ef4444; }
+.meis-frame-dots span:nth-child(2) { background: #f59e0b; }
+.meis-frame-dots span:nth-child(3) { background: #10b981; }
+
+.meis-frame-address {
+    flex: 1;
+    max-width: 480px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.35rem 1rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-family: var(--font-en);
+    color: var(--meis-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.meis-frame-actions button {
+    background: transparent;
+    border: none;
+    color: var(--meis-text-muted);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.meis-frame-actions button:hover {
+    color: var(--meis-primary);
+}
+
+.meis-screens-container {
+    position: relative;
+    min-height: 400px;
+    background: #000000;
+}
+
+.screen-view-item {
+    display: none;
+    position: relative;
+    width: 100%;
+}
+
+.screen-view-item.active {
+    display: block;
+    animation: fadeInScreen 0.35s ease;
+}
+
+@keyframes fadeInScreen {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.screen-view-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.screen-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.25rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(7, 13, 24, 0.92) 100%);
+}
+
+.screen-info-overlay h4 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.screen-info-overlay p {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.meis-screen-details-card {
+    background: var(--meis-card);
+    border: 1px solid var(--meis-border);
+    border-radius: var(--meis-radius);
+    padding: 2rem;
+    box-shadow: var(--meis-shadow);
+}
+
+.screen-badge-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--meis-primary);
+    margin-bottom: 1rem;
+}
+
+.screen-detail-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 0.85rem;
+    color: var(--meis-text);
+}
+
+.screen-detail-desc {
+    font-size: 0.95rem;
+    color: var(--meis-text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.screen-tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-pill {
+    background: rgba(14, 165, 233, 0.1);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    color: var(--meis-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    font-family: var(--font-en);
+}
+
+/* ==========================================================================
+   Interactive Calculator Section
+   ========================================================================== */
+.meis-interactive-calculator-card {
+    background: var(--meis-card);
+    border: 1px solid var(--meis-border);
+    border-radius: var(--meis-radius);
+    padding: 2.5rem;
+    box-shadow: var(--meis-shadow);
+}
+
+.calc-grid-controls {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--meis-border);
+    margin-bottom: 2rem;
+}
+
+.calc-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.calc-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--meis-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.calc-stage-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.65rem;
+}
+
+.stage-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.85rem 0.5rem;
+    border-radius: 10px;
+    background: var(--meis-surface);
+    border: 1px solid var(--meis-border);
+    color: var(--meis-text-muted);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    font-size: 0.82rem;
+}
+
+.stage-btn i {
+    font-size: 1.1rem;
+}
+
+.stage-btn:hover {
+    border-color: var(--meis-primary);
+    color: var(--meis-text);
+}
+
+.stage-btn.active {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(29, 78, 216, 0.2) 100%);
+    border-color: var(--meis-primary);
+    color: var(--meis-primary);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2);
+}
+
+.calc-select {
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    background: var(--meis-surface);
+    border: 1px solid var(--meis-border);
+    color: var(--meis-text);
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.calc-select:focus {
+    border-color: var(--meis-primary);
+}
+
+.calc-output-box {
+    background: var(--meis-surface);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--meis-border);
+}
+
+.calc-output-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--meis-border);
+}
+
+.calc-output-badge {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--meis-primary);
+}
+
+.calc-status-badge {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.calc-output-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.calc-col h4 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--meis-text);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.calc-col p {
+    font-size: 0.9rem;
+    color: var(--meis-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.calc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.calc-list li {
+    font-size: 0.88rem;
+    color: var(--meis-text-muted);
+    position: relative;
+    padding-right: 1.25rem;
+}
+
+.calc-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: #10b981;
+    font-weight: bold;
+}
+
+.calc-cta-row {
+    margin-top: 1rem;
+}
+
+/* ==========================================================================
+   Admin CMS Cards
+   ========================================================================== */
+.meis-cms-card {
+    background: var(--meis-card);
+    border: 1px solid var(--meis-border);
+    border-radius: var(--meis-radius);
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.meis-cms-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--meis-border-hover);
+    box-shadow: var(--meis-glow);
+}
+
+.meis-cms-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(14, 165, 233, 0.12);
+    color: var(--meis-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+}
+
+.meis-cms-title {
+    font-size: 1.18rem;
+    font-weight: 800;
+    margin-bottom: 0.65rem;
+    color: var(--meis-text);
+}
+
+.meis-cms-desc {
+    font-size: 0.92rem;
+    color: var(--meis-text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.cms-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   Tech Stack Grid
+   ========================================================================== */
+.meis-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+.meis-tech-card {
+    background: var(--meis-card);
+    border: 1px solid var(--meis-border);
+    border-radius: var(--meis-radius);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.meis-tech-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--meis-border-hover);
+}
+
+.tech-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.meis-tech-card h4 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-en);
+    color: var(--meis-text);
+}
+
+.meis-tech-card p {
+    font-size: 0.88rem;
+    color: var(--meis-text-muted);
+    line-height: 1.65;
+}
+
+/* ==========================================================================
+   FAQ Section
+   ========================================================================== */
+.meis-faq-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.meis-faq-item {
+    background: var(--meis-card);
+    border: 1px solid var(--meis-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.meis-faq-item.active {
+    border-color: var(--meis-primary);
+}
+
+.meis-faq-question {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--meis-text);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: right;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.meis-faq-question i {
+    color: var(--meis-primary);
+    transition: transform 0.3s ease;
+}
+
+.meis-faq-item.active .meis-faq-question i {
+    transform: rotate(180deg);
+}
+
+.meis-faq-answer {
+    display: none;
+    padding: 0 1.5rem 1.25rem;
+    color: var(--meis-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+.meis-faq-item.active .meis-faq-answer {
+    display: block;
+}
+
+/* ==========================================================================
+   CTA Section
+   ========================================================================== */
+.meis-section-cta {
+    padding: 3rem 0 6rem;
+}
+
+.meis-cta-box {
+    background: linear-gradient(135deg, #07172b 0%, #0a2240 50%, #06111f 100%);
+    border: 1px solid rgba(14, 165, 233, 0.4);
+    border-radius: 20px;
+    padding: 4rem 2rem;
+    text-align: center;
+    box-shadow: var(--meis-shadow), 0 0 50px rgba(14, 165, 233, 0.15);
+    position: relative;
+}
+
+.meis-cta-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+
+.meis-cta-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.meis-cta-desc {
+    max-width: 680px;
+    margin: 0 auto 2.25rem;
+    color: #94a3b8;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.meis-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.meis-footer {
+    background: #030811;
+    border-top: 1px solid var(--meis-border);
+    padding: 3.5rem 0 2rem;
+    text-align: center;
+}
+
+.meis-footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.meis-footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.meis-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.meis-footer-link {
+    color: var(--meis-text-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s ease;
+}
+
+.meis-footer-link:hover {
+    color: var(--meis-primary);
+}
+
+.meis-footer-copy {
+    font-size: 0.82rem;
+    color: #64748b;
+}
+
+/* Lightbox Modal */
+.meis-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.meis-modal.active {
+    display: flex;
+}
+
+.meis-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.meis-modal-content {
+    position: relative;
+    max-width: 1050px;
+    width: 100%;
+    background: var(--meis-surface);
+    border-radius: 14px;
+    border: 1px solid var(--meis-border);
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
+}
+
+.meis-modal-close {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    z-index: 2;
+    transition: background 0.2s ease;
+}
+
+.meis-modal-close:hover {
+    background: #ef4444;
+}
+
+.meis-modal-content img {
+    width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    display: block;
+    background: #000;
+}
+
+.meis-modal-caption {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    color: var(--meis-text);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Responsive Queries
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .meis-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .meis-screen-display-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .meis-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .meis-grid-3,
+    .meis-tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .calc-grid-controls {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .meis-nav-menu {
+        display: none;
+        position: absolute;
+        top: 78px;
+        right: 0;
+        left: 0;
+        background: var(--meis-surface);
+        border-bottom: 1px solid var(--meis-border);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    .meis-nav-menu.open {
+        display: flex;
+    }
+    .meis-mobile-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .meis-hero-title {
+        font-size: 2.1rem;
+    }
+    .meis-hero-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .meis-grid-3,
+    .meis-grid-4,
+    .meis-tech-grid {
+        grid-template-columns: 1fr;
+    }
+    .calc-stage-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .calc-output-grid {
+        grid-template-columns: 1fr;
+    }
+}

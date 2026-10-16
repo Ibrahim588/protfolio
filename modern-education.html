@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="مدارس التربية الحديثة العالمية (Modern Education International Schools - MEIS) هي منصة رقمية تعليمية متكاملة وبوابة قبول إلكترونية مطورة بأحدث تقنيات Next.js 16 و React 19 و Tailwind CSS v4 مع لوحة تحكم إدارية كاملة (CMS).">
+    <meta name="keywords"
+        content="مدارس التربية الحديثة العالمية, مدارس التعليم الحديث, MEIS, Next.js 16, React 19, Tailwind CSS, بوابة قبول وتسجيل, مدارس دولية بالرياض, الدبلومة الأمريكية, إبراهيم عبدالقادر, Ibrahim Abdelgader, Ibrahim588, منصة تعليمية">
+    <meta name="author" content="Ibrahim Abdelgader (Ibrahim588) - إبراهيم عبدالقادر">
+    <link rel="canonical" href="http://ibrahim-protfolio.42web.io/modern-education.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://ibrahim-protfolio.42web.io/modern-education.html">
+    <meta property="og:title" content="مدارس التربية الحديثة العالمية | Modern Education International Schools (MEIS)">
+    <meta property="og:description"
+        content="صرح تعليمي رقمي متطور يجمع بين واجهة تفاعلية حديثة، بوابة قبول وتسجيل ذكية، استعراض المناهج والبرامج الأكاديمية، ولوحة تحكم CMS لإدارة المحتوى.">
+    <meta property="og:image" content="http://ibrahim-protfolio.42web.io/img/meis/app_icon.png">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://ibrahim-protfolio.42web.io/modern-education.html">
+    <meta property="twitter:title" content="مدارس التربية الحديثة العالمية | MEIS Next.js Platform">
+    <meta property="twitter:description"
+        content="منصة تعليمية متكاملة وبوابة قبول إلكترونية مطورة بأحدث تقنيات الويب الحديثة.">
+    <meta property="twitter:image" content="http://ibrahim-protfolio.42web.io/img/meis/app_icon.png">
+
+    <title>مدارس التربية الحديثة العالمية | Modern Education International Schools (MEIS)</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/modern-education.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/meis/favicon.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Modern Education International Schools - مدارس التربية الحديثة العالمية",
+      "url": "http://ibrahim-protfolio.42web.io/modern-education.html",
+      "logo": "http://ibrahim-protfolio.42web.io/img/meis/app_icon.png",
+      "description": "منصة رقمية وبوابة تعليمية متكاملة لمدارس التربية الحديثة العالمية بالرياض، مطورة بـ Next.js 16 و React 19 مع لوحة إدارة CMS.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "شارع مروان بن سعيد",
+        "addressLocality": "الرياض",
+        "postalCode": "12776",
+        "addressCountry": "SA"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ibrahim Abdelgader",
+        "alternateName": ["Ibrahim588", "Ibrahim Abdelgadir", "إبراهيم عبدالقادر"],
+        "sameAs": [
+          "https://github.com/Ibrahim588",
+          "https://www.linkedin.com/in/ibrahim-abdelgadir-a41a442bb"
+        ]
+      }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- =================================================================
+         Header & Navigation (Navbar)
+         ================================================================= -->
+    <header class="meis-navbar" role="banner">
+        <div class="meis-container meis-nav-container">
+            <!-- Brand Logo & Name -->
+            <a href="modern-education.html" class="meis-nav-brand" aria-label="الصفحة الرئيسية لمدارس التربية الحديثة العالمية">
+                <img src="img/meis/app_icon.png" alt="شعار مدارس التربية الحديثة العالمية" class="meis-brand-logo">
+                <div class="meis-brand-text">
+                    <span class="meis-brand-name">مدارس التربية الحديثة</span>
+                    <span class="meis-brand-tag">MEIS • Modern Education</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="meis-nav-menu" id="meis-nav-menu" role="navigation" aria-label="القائمة الرئيسية">
+                <a href="#hero" class="meis-nav-link active">الرئيسية</a>
+                <a href="#about" class="meis-nav-link">عن المنصة</a>
+                <a href="#academics" class="meis-nav-link">البرامج الأكاديمية</a>
+                <a href="#web-screens" class="meis-nav-link" style="color: var(--meis-primary); font-weight: 700;">صفحات وواجهات الويب</a>
+                <a href="#interactive-tool" class="meis-nav-link">مستكشف القبول</a>
+                <a href="#admin-cms" class="meis-nav-link">لوحة الإدارة CMS</a>
+                <a href="#tech-stack" class="meis-nav-link">المعمارية التقنية</a>
+                <a href="#faq" class="meis-nav-link">الأسئلة الشائعة</a>
+            </nav>
+
+            <!-- Actions (Theme Toggle & CTA) -->
+            <div class="meis-nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="meis-theme-toggle" id="meis-theme-toggle" aria-label="تبديل الوضع الليلي / النهاري">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- Live Web App CTA -->
+                <a href="https://meis.edu.sa" target="_blank" rel="noopener noreferrer"
+                    class="meis-btn meis-btn-primary">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>بوابة المدرسة الحية</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="meis-mobile-toggle" id="meis-mobile-toggle" aria-label="فتح القائمة" aria-expanded="false"
+                    aria-controls="meis-nav-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- =============================================================
+             Hero Section with Ambient Lighting & Mockup
+             ============================================================= -->
+        <section id="hero" class="meis-hero-section">
+            <div class="meis-hero-glow-1"></div>
+            <div class="meis-hero-glow-2"></div>
+
+            <div class="meis-container meis-hero-grid">
+                <!-- Hero Content -->
+                <div class="meis-hero-content">
+                    <div class="meis-badge-pill">
+                        <span class="pulse-dot"></span>
+                        <span>صرح تعليمي رقمي رائد • Next.js 16 & React 19</span>
+                    </div>
+
+                    <h1 class="meis-hero-title">
+                        المنصة الرقمية المتطورة <br>
+                        <span class="meis-gradient-text">لمدارس التربية الحديثة العالمية</span>
+                    </h1>
+
+                    <p class="meis-hero-desc">
+                        بوابة إلكترونية وموقع ويب تفاعلي عالي الأداء يخدم أولياء الأمور والطلاب والكادر التعليمي في مدينة الرياض،
+                        تم تصميمه بأحدث معايير تجربة المستخدم لتقديم بوابات تسجيل إلكترونية فورية، استعراض المناهج الدولية والدبلومة الأمريكية،
+                        مع لوحة تحكم إدارية متكاملة (Admin CMS) لإدارة المحتوى وقبول الطلبات لحظياً.
+                    </p>
+
+                    <div class="meis-hero-actions">
+                        <a href="#web-screens" class="meis-btn meis-btn-primary meis-btn-large">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>استعراض شاشات وواجهات المنصة</span>
+                        </a>
+
+                        <a href="#interactive-tool" class="meis-btn meis-btn-outline meis-btn-large">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>تجربة حاسبة القبول التفاعلية</span>
+                        </a>
+
+                        <a href="websites.html" class="meis-btn meis-btn-glass meis-btn-large">
+                            <i class="fa-solid fa-arrow-right"></i>
+                            <span>معرض مواقع الويب</span>
+                        </a>
+                    </div>
+
+                    <!-- Hero Quick Metrics -->
+                    <div class="meis-hero-metrics">
+                        <div class="meis-hero-metric-item">
+                            <div class="meis-metric-val">4 <span>مراحل</span></div>
+                            <div class="meis-metric-label">من الروضة إلى الثانوي</div>
+                        </div>
+                        <div class="meis-hero-metric-item">
+                            <div class="meis-metric-val">100<span>%</span></div>
+                            <div class="meis-metric-label">تسجيل وقبول رقمي فوري</div>
+                        </div>
+                        <div class="meis-hero-metric-item">
+                            <div class="meis-metric-val">AR <span>/ EN</span></div>
+                            <div class="meis-metric-label">ثنائية اللغة بالكامل</div>
+                        </div>
+                        <div class="meis-hero-metric-item">
+                            <div class="meis-metric-val">2030</div>
+                            <div class="meis-metric-label">توافق مع رؤية المملكة</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Browser Mockup Preview -->
+                <div class="meis-hero-preview">
+                    <div class="meis-browser-mockup">
+                        <div class="meis-mockup-header">
+                            <div class="meis-browser-dots">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
+                            </div>
+                            <div class="meis-mockup-url">
+                                <i class="fa-solid fa-lock" style="color: #0ea5e9;"></i>
+                                <span>https://meis.edu.sa</span>
+                            </div>
+                            <div style="font-size: 0.75rem; color: #10B981; font-weight: 700;">
+                                <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i> متصل
+                            </div>
+                        </div>
+
+                        <!-- Inner Simulated Screen -->
+                        <div class="meis-mockup-screen">
+                            <div class="mock-portal-banner">
+                                <div class="mock-portal-chip">
+                                    <i class="fa-solid fa-graduation-cap"></i> تعليم حديث بمعايير عالمية
+                                </div>
+                                <h3 class="mock-portal-title">نصنع قادة الغد بتعليم ملهم</h3>
+                                <p class="mock-portal-desc">مناهج أمريكية معتمدة • بيئة ابتكارية • رعاية متميزة</p>
+                                <div class="mock-portal-btns">
+                                    <span class="mock-portal-btn active"><i class="fa-solid fa-user-plus"></i> تقديم طلب قبول</span>
+                                    <span class="mock-portal-btn"><i class="fa-solid fa-compass"></i> جولة افتراضية</span>
+                                </div>
+                            </div>
+
+                            <div class="mock-cards-row">
+                                <div class="mock-card">
+                                    <div class="mock-card-icon" style="background: rgba(14,165,233,0.15); color: #0ea5e9;">
+                                        <i class="fa-solid fa-baby"></i>
+                                    </div>
+                                    <div class="mock-card-name">رياض الأطفال (KG)</div>
+                                    <div class="mock-card-sub">تأسيس إبداعي متكامل</div>
+                                </div>
+                                <div class="mock-card">
+                                    <div class="mock-card-icon" style="background: rgba(245,158,11,0.15); color: #f59e0b;">
+                                        <i class="fa-solid fa-book-open"></i>
+                                    </div>
+                                    <div class="mock-card-name">المرحلة الابتدائية</div>
+                                    <div class="mock-card-sub">تفكير نقدي ولغات</div>
+                                </div>
+                                <div class="mock-card">
+                                    <div class="mock-card-icon" style="background: rgba(16,185,129,0.15); color: #10b981;">
+                                        <i class="fa-solid fa-award"></i>
+                                    </div>
+                                    <div class="mock-card-name">المتوسط والثانوي</div>
+                                    <div class="mock-card-sub">الدبلومة الأمريكية و STEM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             About Section (عن المنصة والرؤية الأكاديمية)
+             ============================================================= -->
+        <section id="about" class="meis-section">
+            <div class="meis-container">
+                <div class="meis-section-header">
+                    <span class="meis-section-tag">الرؤية والرسالة التعليمية</span>
+                    <h2 class="meis-section-title">صرح تعليمي يربط جودة التعليم برؤية المملكة 2030</h2>
+                    <p class="meis-section-desc">
+                        تلتزم مدارس التربية الحديثة العالمية بالرياض بتقديم نموذج تعليمي ريادي يجمع بين أصالة القيم والمعايير الأكاديمية العالمية، 
+                        مع توفير بيئة مدرسية محفزة للابتكار والقيادة تمكّن أبناءنا وبناتنا من مواجهة تحديات المستقبل بثقة واقتدار.
+                    </p>
+                </div>
+
+                <div class="meis-grid-3">
+                    <div class="meis-feature-card">
+                        <div class="meis-feature-icon" style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9;">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="meis-feature-title">الرؤية المستقبلية</h3>
+                        <p class="meis-feature-text">
+                            الريادة في تقديم تعليم عالي الجودة يواكب متطلبات العصر الحديث ويسهم في بناء قادة المستقبل وفق تطلعات رؤية المملكة العربية السعودية 2030.
+                        </p>
+                    </div>
+
+                    <div class="meis-feature-card">
+                        <div class="meis-feature-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="meis-feature-title">الرسالة التربوية</h3>
+                        <p class="meis-feature-text">
+                            تنمية معارف ومهارات الطلاب والقدرات على اتخاذ القرار، وإعداد جيل مبدع ومسؤول يسهم بإيجابية في خدمة وطنه ومجتمعه عبر شراكة فاعلة ومستدامة مع أولياء الأمور.
+                        </p>
+                    </div>
+
+                    <div class="meis-feature-card">
+                        <div class="meis-feature-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <h3 class="meis-feature-title">القيم المؤسسية</h3>
+                        <p class="meis-feature-text">
+                            الجودة الشاملة، الإبداع والابتكار، المواطنة الصالحة، القيادة، والمسؤولية المجتمعية في كل خطوة ومسار تعليمي.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Academic Programs (البرامج والمراحل الأكاديمية)
+             ============================================================= -->
+        <section id="academics" class="meis-section meis-section-alt">
+            <div class="meis-container">
+                <div class="meis-section-header">
+                    <span class="meis-section-tag">المسارات الأكاديمية</span>
+                    <h2 class="meis-section-title">برامج تعليمية متكاملة لجميع المراحل السنية</h2>
+                    <p class="meis-section-desc">
+                        منهج دولي متطور يرتكز على مناهج الدبلومة الأمريكية والعلوم والتكنولوجيا والهندسة والرياضيات (STEM)، مع تعزيز متكامل للهوية الوطنية واللغة العربية والتربية الإسلامية.
+                    </p>
+                </div>
+
+                <div class="meis-grid-4">
+                    <div class="meis-program-card">
+                        <div class="meis-program-badge">المرحلة التمهيدية</div>
+                        <div class="meis-program-icon"><i class="fa-solid fa-shapes"></i></div>
+                        <h3 class="meis-program-title">رياض الأطفال (KG)</h3>
+                        <p class="meis-program-desc">بيئة محفزة للتعلم باللعب واكتشاف المهارات الإدراكية والتعبيرية في سنوات الطفولة المبكرة.</p>
+                        <ul class="meis-program-list">
+                            <li><i class="fa-solid fa-check"></i> تعلم ثنائي اللغة مبكر</li>
+                            <li><i class="fa-solid fa-check"></i> تنمية المهارات الحركية والاجتماعية</li>
+                            <li><i class="fa-solid fa-check"></i> فصول تفاعلية ذكية آمنة</li>
+                        </ul>
+                    </div>
+
+                    <div class="meis-program-card">
+                        <div class="meis-program-badge">المرحلة الأساسية</div>
+                        <div class="meis-program-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                        <h3 class="meis-program-title">المرحلة الابتدائية</h3>
+                        <p class="meis-program-desc">تأسيس أكاديمي متين في اللغات، الرياضيات، العلوم الأساسية وبناء مهارات البحث والاستقصاء.</p>
+                        <ul class="meis-program-list">
+                            <li><i class="fa-solid fa-check"></i> مناهج دولية معتمدة</li>
+                            <li><i class="fa-solid fa-check"></i> معامل لغات وحاسب متطورة</li>
+                            <li><i class="fa-solid fa-check"></i> أنشطة إثرائية ورياضية أسبوعية</li>
+                        </ul>
+                    </div>
+
+                    <div class="meis-program-card">
+                        <div class="meis-program-badge">المرحلة التمكينية</div>
+                        <div class="meis-program-icon"><i class="fa-solid fa-flask-vial"></i></div>
+                        <h3 class="meis-program-title">المرحلة المتوسطة</h3>
+                        <p class="meis-program-desc">صقل التفكير النقدي، مهارات حل المشكلات، والتعمق في مجالات العلوم والتطبيقات التقنية الحديثة.</p>
+                        <ul class="meis-program-list">
+                            <li><i class="fa-solid fa-check"></i> مختبرات العلوم والروبوتكس</li>
+                            <li><i class="fa-solid fa-check"></i> مشاريع بحثية وتطبيقية جماعية</li>
+                            <li><i class="fa-solid fa-check"></i> برامج القيادة والمناظرات</li>
+                        </ul>
+                    </div>
+
+                    <div class="meis-program-card featured">
+                        <div class="meis-program-badge star"><i class="fa-solid fa-star"></i> مسار النخبة</div>
+                        <div class="meis-program-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3 class="meis-program-title">المرحلة الثانوية</h3>
+                        <p class="meis-program-desc">الدبلومة الأمريكية (American Diploma) والإعداد المتقدم لاختبارات SAT / القدرات / التحصيلي والجامعات العالمية.</p>
+                        <ul class="meis-program-list">
+                            <li><i class="fa-solid fa-check"></i> شهادة دولية معتمدة عالمياً</li>
+                            <li><i class="fa-solid fa-check"></i> إرشاد جامعي ومهني تخصصي</li>
+                            <li><i class="fa-solid fa-check"></i> جاهزية تامة لسوق العمل المستقبلي</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Web Screens & Interactive Preview (قسم صفحات الويب)
+             ============================================================= -->
+        <section id="web-screens" class="meis-section">
+            <div class="meis-container">
+                <div class="meis-section-header">
+                    <span class="meis-section-tag">معرض واجهات وتطبيقات الويب</span>
+                    <h2 class="meis-section-title">استعراض وحدات وشاشات المنصة التفاعلية</h2>
+                    <p class="meis-section-desc">
+                        واجهات عصرية متجاوبة بالكامل مصممة بتقنيات Next.js 16، React 19، و Tailwind CSS v4، تدعم التبديل السلس بين اللغتين وتمنح المستخدم تجربة تصفح غاية في السلاسة والسرعة.
+                    </p>
+                </div>
+
+                <!-- Interactive Screens Tabs Nav -->
+                <div class="meis-screens-nav">
+                    <button type="button" class="screen-tab-btn active" data-screen="home">
+                        <i class="fa-solid fa-house"></i>
+                        <span>البوابة الرئيسية</span>
+                    </button>
+                    <button type="button" class="screen-tab-btn" data-screen="admissions">
+                        <i class="fa-solid fa-file-signature"></i>
+                        <span>بوابة القبول والتسجيل</span>
+                    </button>
+                    <button type="button" class="screen-tab-btn" data-screen="academics-screen">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>البرامج الأكاديمية</span>
+                    </button>
+                    <button type="button" class="screen-tab-btn" data-screen="admin">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>لوحة الإدارة (CMS)</span>
+                    </button>
+                    <button type="button" class="screen-tab-btn" data-screen="facilities">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span>المرافق والحياة الطلابية</span>
+                    </button>
+                    <button type="button" class="screen-tab-btn" data-screen="contact">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>الموقع الجغرافي والتواصل</span>
+                    </button>
+                </div>
+
+                <!-- Screen Display Box -->
+                <div class="meis-screen-display-wrapper">
+                    <div class="meis-browser-frame">
+                        <div class="meis-frame-bar">
+                            <div class="meis-frame-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="meis-frame-address" id="screen-address-bar">
+                                <i class="fa-solid fa-lock"></i>
+                                <span id="screen-url-text">https://meis.edu.sa/</span>
+                            </div>
+                            <div class="meis-frame-actions">
+                                <button type="button" id="btn-zoom-screen" title="تكبير الشاشة"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Screens Container -->
+                        <div class="meis-screens-container">
+                            <!-- Screen 1: Home -->
+                            <div class="screen-view-item active" id="view-home">
+                                <img src="img/meis/screen_home.png" alt="معاينة البوابة الرئيسية لمدارس التربية الحديثة" class="screen-view-img">
+                                <div class="screen-info-overlay">
+                                    <h4>البوابة الرئيسية للمدرسة (Home Portal)</h4>
+                                    <p>واجهة تفاعلية تضم سلايدر الميزات، مسارات الرؤية، نبذة تعريفية، وإحصائيات المدرسة، مع روابط سريعة لخدمات أولياء الأمور.</p>
+                                </div>
+                            </div>
+
+                            <!-- Screen 2: Admissions -->
+                            <div class="screen-view-item" id="view-admissions">
+                                <img src="img/meis/screen_admissions.png" alt="بوابة التسجيل والقبول الإلكتروني" class="screen-view-img">
+                                <div class="screen-info-overlay">
+                                    <h4>بوابة القبول والتسجيل الذكية (Online Admissions)</h4>
+                                    <p>استمارة تسجيل رقمية تفاعلية تمكّن أولياء الأمور من رفع البيانات وحجز موعد المقابلة واختبار تحديد المستوى بكل سهولة.</p>
+                                </div>
+                            </div>
+
+                            <!-- Screen 3: Academics -->
+                            <div class="screen-view-item" id="view-academics-screen">
+                                <img src="img/meis/screen_academics.png" alt="استعراض المناهج والبرامج الأكاديمية" class="screen-view-img">
+                                <div class="screen-info-overlay">
+                                    <h4>المناهج والبرامج التعليمية (Academic Curricula)</h4>
+                                    <p>استعراض شامل لمسار الدبلومة الأمريكية ومقررات العلوم والتكنولوجيا وخطط المراحل التعليمية من الروضة إلى الثانوية.</p>
+                                </div>
+                            </div>
+
+                            <!-- Screen 4: Admin CMS -->
+                            <div class="screen-view-item" id="view-admin">
+                                <img src="img/meis/screen_admin.png" alt="لوحة تحكم إدارة المدرسة ونظام CMS" class="screen-view-img">
+                                <div class="screen-info-overlay">
+                                    <h4>لوحة التحكم الإدارية (Admin CMS Dashboard)</h4>
+                                    <p>نظام إدارة محتوى كامل مدعوم بـ Firebase لإدارة الأخبار والفعاليات والطلبات وإعدادات المدرسة وتهيئة محركات البحث (SEO).</p>
+                                </div>
+                            </div>
+
+                            <!-- Screen 5: Facilities -->
+                            <div class="screen-view-item" id="view-facilities">
+                                <img src="img/meis/screen_home.png" alt="المرافق المدرسية والحياة الطلابية" class="screen-view-img">
+                                <div class="screen-info-overlay">
+                                    <h4>المرافق والأنشطة الطلابية (Facilities & Student Life)</h4>
+                                    <p>معرض تفاعلي لمختبرات العلوم الذكية، الملاعب الرياضية، المكتبات الرقمية، والمسارح المجهزة بأحدث التقنيات.</p>
+                                </div>
+                            </div>
+
+                            <!-- Screen 6: Contact & Location -->
+                            <div class="screen-view-item" id="view-contact">
+                                <img src="img/meis/screen_admissions.png" alt="الموقع الجغرافي والتواصل" class="screen-view-img">
+                                <div class="screen-info-overlay">
+                                    <h4>الموقع الجغرافي وقنوات التواصل (Contact & Campus Location)</h4>
+                                    <p>خريطة تفاعلية لموقع المدرسة بشارع مروان بن سعيد بالرياض، مع نموذج مراسلة مباشر وقنوات الاتصال الرسمية.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Screen Features Bullets -->
+                    <div class="meis-screen-details-card" id="screen-details-card">
+                        <div class="screen-badge-highlight" id="screen-badge-highlight">
+                            <i class="fa-solid fa-sparkles"></i> <span id="screen-badge-text">أبرز مميزات هذه الصفحة</span>
+                        </div>
+                        <h3 id="screen-detail-title" class="screen-detail-title">البوابة الرئيسية للمدرسة (Home Portal)</h3>
+                        <p id="screen-detail-desc" class="screen-detail-desc">
+                            واجهة ديناميكية تم بناؤها باستخدام Next.js 16 App Router لضمان أقصى سرعة تحميل (Server-Side Rendering) وتحسين محركات البحث، مع دعم كامل للغتين العربية والإنجليزية.
+                        </p>
+                        <div class="screen-tech-pills" id="screen-tech-pills">
+                            <span class="tech-pill">Next.js 16</span>
+                            <span class="tech-pill">React 19</span>
+                            <span class="tech-pill">Tailwind CSS v4</span>
+                            <span class="tech-pill">Lucide Icons</span>
+                            <span class="tech-pill">Bilingual Context</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Interactive Tool (مستكشف متطلبات القبول والتسجيل التفاعلي)
+             ============================================================= -->
+        <section id="interactive-tool" class="meis-section meis-section-alt">
+            <div class="meis-container">
+                <div class="meis-section-header">
+                    <span class="meis-section-tag">أداة تفاعلية حية داخل الصفحة</span>
+                    <h2 class="meis-section-title">مستكشف متطلبات القبول والتسجيل الفوري</h2>
+                    <p class="meis-section-desc">
+                        اختر المرحلة التعليمية للطالب/الطالبة للتعرف فورياً على السن النظامي، المتطلبات الأكاديمية، الوثائق الثبوتية، والمزايا التنافسية لكل مرحلة:
+                    </p>
+                </div>
+
+                <div class="meis-interactive-calculator-card">
+                    <div class="calc-grid-controls">
+                        <div class="calc-control-group">
+                            <label class="calc-label"><i class="fa-solid fa-school"></i> اختر المرحلة التعليمية:</label>
+                            <div class="calc-stage-selector" id="calc-stage-selector">
+                                <button type="button" class="stage-btn active" data-stage="kg">
+                                    <i class="fa-solid fa-shapes"></i>
+                                    <span>رياض الأطفال</span>
+                                </button>
+                                <button type="button" class="stage-btn" data-stage="primary">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <span>الابتدائي</span>
+                                </button>
+                                <button type="button" class="stage-btn" data-stage="middle">
+                                    <i class="fa-solid fa-flask"></i>
+                                    <span>المتوسط</span>
+                                </button>
+                                <button type="button" class="stage-btn" data-stage="high">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <span>الثانوي</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="calc-control-group">
+                            <label class="calc-label" for="calc-curriculum"><i class="fa-solid fa-earth-americas"></i> نوع المنهج:</label>
+                            <select id="calc-curriculum" class="calc-select">
+                                <option value="american">المنهج الأمريكي الدولي (American Diploma)</option>
+                                <option value="enrichment">المسار المتقدم مع تعزيز STEM واللغات</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Output Box -->
+                    <div class="calc-output-box" id="calc-output-box">
+                        <div class="calc-output-header">
+                            <div class="calc-output-badge" id="calc-output-badge">مرحلة رياض الأطفال (KG1 - KG3)</div>
+                            <div class="calc-status-badge"><i class="fa-solid fa-circle-check"></i> باب التسجيل مفتوح</div>
+                        </div>
+
+                        <div class="calc-output-grid">
+                            <div class="calc-col">
+                                <h4><i class="fa-solid fa-calendar-days"></i> السن النظامي للقبول:</h4>
+                                <p id="calc-age-info">من سن 3 سنوات إلى 5 سنوات و 6 أشهر عند بداية العام الدراسي.</p>
+
+                                <h4><i class="fa-solid fa-list-check"></i> الأوراق الثبوتية المطلوبة:</h4>
+                                <ul id="calc-docs-list" class="calc-list">
+                                    <li>صورة شهادة الميلاد أو هوية الإقامة</li>
+                                    <li>كارت التطعيمات المحدث والفحص الطبي</li>
+                                    <li>صورة هوية ولي الأمر وجواز السفر</li>
+                                </ul>
+                            </div>
+
+                            <div class="calc-col">
+                                <h4><i class="fa-solid fa-star"></i> المزايا والبرامج المشمولة:</h4>
+                                <ul id="calc-features-list" class="calc-list">
+                                    <li>برنامج تأسيسي ثنائي اللغة مع ناطقين أصليين</li>
+                                    <li>مناهج حديثة في المنتسوري والتعلم التفاعلي</li>
+                                    <li>أنشطة مهارات حركية، سباحة وتربية بدنية</li>
+                                </ul>
+
+                                <div class="calc-cta-row">
+                                    <a href="https://meis.edu.sa/admissions" target="_blank" class="meis-btn meis-btn-primary">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                        <span>تقديم طلب إلكتروني فوري</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Admin CMS & Management (لوحة تحكم الإدارة ونظام CMS)
+             ============================================================= -->
+        <section id="admin-cms" class="meis-section">
+            <div class="meis-container">
+                <div class="meis-section-header">
+                    <span class="meis-section-tag">حوكمة المحتوى والإدارة الرقمية</span>
+                    <h2 class="meis-section-title">لوحة تحكم إدارية شاملة ومصممة خصيصاً للمدرسة</h2>
+                    <p class="meis-section-desc">
+                        تحكم مطلق في كافة مكونات الموقع دون الحاجة لكتابة كود برمجي، مع حماية متقدمة ومزامنة فورية عبر Firebase Firestore.
+                    </p>
+                </div>
+
+                <div class="meis-grid-3">
+                    <div class="meis-cms-card">
+                        <div class="meis-cms-icon"><i class="fa-solid fa-sliders"></i></div>
+                        <h3 class="meis-cms-title">إدارة المحتوى والإعدادات العامة</h3>
+                        <p class="meis-cms-desc">تعديل فوري لنصوص الرؤية والرسالة، الهواتف، العناوين، والشبكات الاجتماعية مع حفظ تلقائي.</p>
+                        <div class="cms-pill"><i class="fa-solid fa-check"></i> مزامنة فورية</div>
+                    </div>
+
+                    <div class="meis-cms-card">
+                        <div class="meis-cms-icon"><i class="fa-solid fa-users-gear"></i></div>
+                        <h3 class="meis-cms-title">إدارة طلبات القبول والتسجيل</h3>
+                        <p class="meis-cms-desc">استعراض طلبات الطلاب الواردة، فرزها حسب المرحلة الدراسية، متابعة حالة القبول، والتواصل مع أولياء الأمور.</p>
+                        <div class="cms-pill"><i class="fa-solid fa-check"></i> فلترة وتصدير</div>
+                    </div>
+
+                    <div class="meis-cms-card">
+                        <div class="meis-cms-icon"><i class="fa-solid fa-newspaper"></i></div>
+                        <h3 class="meis-cms-title">المركز الإعلامي والفعاليات</h3>
+                        <p class="meis-cms-desc">نشر الأخبار الأكاديمية والأنشطة، جدولة الفعاليات في التقويم المدرسي، وإدارة معرض الصور الرقمي.</p>
+                        <div class="cms-pill"><i class="fa-solid fa-check"></i> محرر غني بالوسائط</div>
+                    </div>
+
+                    <div class="meis-cms-card">
+                        <div class="meis-cms-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3 class="meis-cms-title">تهيئة محركات البحث (SEO Suite)</h3>
+                        <p class="meis-cms-desc">إدارة العناوين الوصفية (Meta Titles)، الكلمات المفتاحية، وأكواد التتبع للارتقاء بترتيب المدرسة في Google.</p>
+                        <div class="cms-pill"><i class="fa-solid fa-check"></i> معايير Google الحديثة</div>
+                    </div>
+
+                    <div class="meis-cms-card">
+                        <div class="meis-cms-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3 class="meis-cms-title">الأمان وتعدد الصلاحيات</h3>
+                        <p class="meis-cms-desc">تسجيل دخول آمن للإدارة عبر Firebase Auth مع حماية كاملة للمسارات والبيانات الحساسة.</p>
+                        <div class="cms-pill"><i class="fa-solid fa-check"></i> أمان عالي</div>
+                    </div>
+
+                    <div class="meis-cms-card">
+                        <div class="meis-cms-icon"><i class="fa-solid fa-language"></i></div>
+                        <h3 class="meis-cms-title">إدارة المحتوى ثنائي اللغة</h3>
+                        <p class="meis-cms-desc">إمكانية تحرير المحتوى بالتوازي للغتين العربية والإنجليزية مع الحفاظ على التناسق والترجمة الدقيقة.</p>
+                        <div class="cms-pill"><i class="fa-solid fa-check"></i> RTL & LTR Ready</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Tech Stack & Architecture (المعمارية والتقنيات البرمجية)
+             ============================================================= -->
+        <section id="tech-stack" class="meis-section meis-section-alt">
+            <div class="meis-container">
+                <div class="meis-section-header">
+                    <span class="meis-section-tag">البنية التحتية والتقنيات البرمجية</span>
+                    <h2 class="meis-section-title">مبني بأحدث تقنيات الويب العالمية</h2>
+                    <p class="meis-section-desc">
+                        تم بناء المشروع بالاعتماد على أحدث إصدارات بيئة تطوير الويب الحديثة لضمان أداء خارق وأمان لا يقبل المساومة:
+                    </p>
+                </div>
+
+                <div class="meis-tech-grid">
+                    <div class="meis-tech-card">
+                        <i class="fa-brands fa-react tech-icon" style="color: #0ea5e9;"></i>
+                        <h4>Next.js 16 (App Router)</h4>
+                        <p>محرك ريندر فائق السرعة مع Server-Side Rendering و Streaming لتحقيق أقصى درجات سرعة التحميل.</p>
+                    </div>
+
+                    <div class="meis-tech-card">
+                        <i class="fa-solid fa-atom tech-icon" style="color: #61dafb;"></i>
+                        <h4>React 19</h4>
+                        <p>أحدث معمارية لمكونات واجهة المستخدم التفاعلية مع دعم Server Actions وإدارة الحالة الحديثة.</p>
+                    </div>
+
+                    <div class="meis-tech-card">
+                        <i class="fa-solid fa-wind tech-icon" style="color: #38bdf8;"></i>
+                        <h4>Tailwind CSS v4</h4>
+                        <p>الجيل الرابع من مكتبة التنسيق الرائدة لتصميم واجهات فائقة النقاء وخفيفة الوزن ومتجاوبة بالكامل.</p>
+                    </div>
+
+                    <div class="meis-tech-card">
+                        <i class="fa-solid fa-fire tech-icon" style="color: #f59e0b;"></i>
+                        <h4>Firebase Firestore</h4>
+                        <p>قاعدة بيانات سحابية موزعة تضمن مزامنة لحظية وتخزيناً آمناً لبيانات الطلاب والمحتوى.</p>
+                    </div>
+
+                    <div class="meis-tech-card">
+                        <i class="fa-brands fa-js tech-icon" style="color: #3178c6;"></i>
+                        <h4>TypeScript</h4>
+                        <p>أمان كامل للأنواع البرمجية (Type Safety) لمنع الأخطاء البرمجية أثناء البناء والتشغيل.</p>
+                    </div>
+
+                    <div class="meis-tech-card">
+                        <i class="fa-solid fa-bolt tech-icon" style="color: #10b981;"></i>
+                        <h4>99+ Lighthouse Score</h4>
+                        <p>تحسين شامل لمؤشرات الأداء الحيوية (Core Web Vitals) وسهولة الوصول ومحركات البحث.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             FAQ Section (الأسئلة الشائعة)
+             ============================================================= -->
+        <section id="faq" class="meis-section">
+            <div class="meis-container">
+                <div class="meis-section-header">
+                    <span class="meis-section-tag">الأسئلة الشائعة</span>
+                    <h2 class="meis-section-title">إجابات حول تطوير المنصة وخدماتها</h2>
+                </div>
+
+                <div class="meis-faq-list">
+                    <div class="meis-faq-item">
+                        <button type="button" class="meis-faq-question">
+                            <span>ما هي مميزات المنصة المطورة بـ Next.js 16 مقارنة بالمواقع التعليمية التقليدية؟</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="meis-faq-answer">
+                            <p>تتميز المنصة بسرعة تحميل استثنائية بفضل تقنية Server-Side Rendering، وحماية متقدمة، ودعم كامل للغتين، وتوافق تام مع محركات البحث العالمية (SEO) لتمكين أولياء الأمور من العثور على المدرسة بسهولة عبر Google.</p>
+                        </div>
+                    </div>
+
+                    <div class="meis-faq-item">
+                        <button type="button" class="meis-faq-question">
+                            <span>هل تتيح المنصة التقديم وحجز المقابلات إلكترونياً بالكامل؟</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="meis-faq-answer">
+                            <p>نعم، تشتمل المنصة على بوابة قبول إلكترونية ذكية تمكّن ولي الأمر من تعبئة البيانات واختيار المرحلة ورفع المرفقات، وتصل البيانات مباشرة إلى لوحة تحكم إدارة التسجيل والقبول للبدء في إجراءات الفحص وتحديد موعد المقابلة.</p>
+                        </div>
+                    </div>
+
+                    <div class="meis-faq-item">
+                        <button type="button" class="meis-faq-question">
+                            <span>كيف يتم تحديث محتوى المدرسة وأخبارها وفعالياتها؟</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="meis-faq-answer">
+                            <p>تم بناء لوحة تحكم إدارية كاملة (Admin CMS) سهلة الاستخدام تمكّن فريق المدرسة المعتمد من إضافة الأخبار والصور والفعاليات وتعديل أي نصوص أو معلومات تواصل في ثوانٍ معدودة دون تدخل برمجي.</p>
+                        </div>
+                    </div>
+
+                    <div class="meis-faq-item">
+                        <button type="button" class="meis-faq-question">
+                            <span>هل المنصة متوافقة مع الهواتف الذكية والأجهزة اللوحية؟</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="meis-faq-answer">
+                            <p>نعم، تم تصميم وتنسيق الواجهات وفق نهج Mobile-First لضمان تجربة مستخدم سلسة وفائقة النعومة على كافة مقاسات الشاشات، من الهواتف الذكية وحتى الشاشات المكتبية الكبيرة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Developer CTA (المطور ومعلومات المشروع)
+             ============================================================= -->
+        <section class="meis-section meis-section-cta">
+            <div class="meis-container">
+                <div class="meis-cta-box">
+                    <div class="meis-cta-badge">تطوير وبرمجة الواجهات والأنظمة</div>
+                    <h2 class="meis-cta-title">هل ترغب في بناء منصة تعليمية أو موقع مؤسسي بمثل هذه الجودة؟</h2>
+                    <p class="meis-cta-desc">
+                        تم تطوير هذا المشروع الاحترافي بواسطة المهندس إبراهيم عبدالقادر (Ibrahim588)، مهندس برمجيات متخصص في بناء تطبيقات الويب والأنظمة المؤسسية وتطبيقات الموبايل بأعلى معايير الإتقان.
+                    </p>
+                    <div class="meis-cta-actions">
+                        <a href="index.html#contact" class="meis-btn meis-btn-primary meis-btn-large">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>تواصل معي لبدء مشروعك</span>
+                        </a>
+                        <a href="websites.html" class="meis-btn meis-btn-glass meis-btn-large">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>استعراض كافة مشاريع الويب</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =================================================================
+         Footer & Cross-Navigation
+         ================================================================= -->
+    <footer class="meis-footer" role="contentinfo">
+        <div class="meis-container meis-footer-content">
+            <div class="meis-footer-brand">
+                <img src="img/meis/app_icon.png" alt="شعار مدارس التربية الحديثة" class="meis-brand-logo" style="width: 40px; height: 40px;">
+                <span class="meis-brand-name" style="font-size: 1.15rem;">مدارس التربية الحديثة العالمية | MEIS</span>
+            </div>
+
+            <div class="meis-footer-links">
+                <a href="index.html" class="meis-footer-link">الرئيسية</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="websites.html" class="meis-footer-link">مواقع الويب</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="modern-education.html" class="meis-footer-link" style="color: var(--meis-primary); font-weight: 700;">مدارس التربية الحديثة</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="reef-study.html" class="meis-footer-link">دراسة ريف</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="knowledge-platform.html" class="meis-footer-link">منصة المعرفة</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="fcp-attendance.html" class="meis-footer-link">نظام الحضور SFPA</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="Attendance.html" class="meis-footer-link">سجل الحضور والغياب</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="hotspot-templates.html" class="meis-footer-link">واجهات الهوتسبوت</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="project-mikrotik.html" class="meis-footer-link">MikroTik Manager Pro</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="privacy-policy.html" class="meis-footer-link">سياسة الخصوصية</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="#hero" class="meis-footer-link">العودة للأعلى <i class="fa-solid fa-arrow-up"></i></a>
+            </div>
+
+            <p class="meis-footer-copy">
+                جميع الحقوق محفوظة &copy; 2026 إبراهيم عبدالقادر (Ibrahim Abdelgader - Ibrahim588) • منصة مدارس التربية الحديثة العالمية (MEIS).
+            </p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal for Screen Preview -->
+    <div class="meis-modal" id="meis-modal" aria-hidden="true">
+        <div class="meis-modal-backdrop" id="meis-modal-backdrop"></div>
+        <div class="meis-modal-content">
+            <button type="button" class="meis-modal-close" id="meis-modal-close" aria-label="إغلاق المعاينة"><i class="fa-solid fa-xmark"></i></button>
+            <img src="" alt="معاينة الشاشة" id="meis-modal-img">
+            <div class="meis-modal-caption" id="meis-modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/modern-education.js"></script>
+</body>
+
+</html>

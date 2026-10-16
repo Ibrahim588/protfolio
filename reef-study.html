@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="دراسة ريف (Reef Study) هي منصة وتطبيق ويب ذكي لإعداد دراسات جدوى استرشادية احترافية لمشاريع الأسر المنتجة والريفية وفق معايير برامج التنمية الريفية المستدامة مع حاسبة مالية وتصدير PDF.">
+    <meta name="keywords"
+        content="دراسة ريف, دراسة جدوى ريف, برنامج ريف, الأسر المنتجة, دعم ريف, حاسبة مالية, دراسة جدوى زراعية, Flutter Web, إبراهيم عبدالقادر, Ibrahim Abdelgader, Ibrahim588, مشاريع ريفية, تربية النحل, زراعة البن">
+    <meta name="author" content="Ibrahim Abdelgader (Ibrahim588) - إبراهيم عبدالقادر">
+    <link rel="canonical" href="http://ibrahim-protfolio.42web.io/reef-study.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://ibrahim-protfolio.42web.io/reef-study.html">
+    <meta property="og:title" content="دراسة ريف | المساعد الذكي لدراسات جدوى مشاريع الأسر المنتجة والريفية">
+    <meta property="og:description"
+        content="تطبيق ويب متكامل لإعداد دراسات الجدوى الاسترشادية خطوة بخطوة، مع دليل الأنشطة الريفية، الحاسبة المالية التفاعلية، وتحليل السيناريوهات وتصدير تقارير PDF معتمدة.">
+    <meta property="og:image" content="http://ibrahim-protfolio.42web.io/img/reef/app_icon.png">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://ibrahim-protfolio.42web.io/reef-study.html">
+    <meta property="twitter:title" content="دراسة ريف | Reef Study Feasibility App">
+    <meta property="twitter:description"
+        content="المساعد الذكي لإعداد دراسات جدوى مشاريع الأسر المنتجة والريفية المدعومة.">
+    <meta property="twitter:image" content="http://ibrahim-protfolio.42web.io/img/reef/app_icon.png">
+
+    <title>دراسة ريف | المساعد الذكي لدراسات جدوى مشاريع الأسر المنتجة والريفية</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/reef-study.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/reef/favicon.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "دراسة ريف - Reef Study",
+      "operatingSystem": "Web, Android, Windows",
+      "applicationCategory": "BusinessApplication",
+      "description": "المساعد الذكي لإعداد دراسات جدوى استرشادية لمشاريع الأسر المنتجة والريفية مع حاسبة مالية وتوليد تقارير PDF احترافية.",
+      "url": "http://ibrahim-protfolio.42web.io/reef-study.html",
+      "image": "http://ibrahim-protfolio.42web.io/img/reef/app_icon.png",
+      "author": {
+        "@type": "Person",
+        "name": "Ibrahim Abdelgader",
+        "alternateName": ["Ibrahim588", "Ibrahim Abdelgadir", "إبراهيم عبدالقادر"],
+        "sameAs": [
+          "https://github.com/Ibrahim588",
+          "https://www.linkedin.com/in/ibrahim-abdelgadir-a41a442bb"
+        ]
+      }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- =================================================================
+         Header & Navigation (Navbar)
+         ================================================================= -->
+    <header class="reef-navbar" role="banner">
+        <div class="reef-container reef-nav-container">
+            <!-- Brand Logo & Name -->
+            <a href="reef-study.html" class="reef-nav-brand" aria-label="الصفحة الرئيسية لدراسة ريف">
+                <img src="img/reef/app_icon.png" alt="شعار تطبيق دراسة ريف" class="reef-brand-logo">
+                <div class="reef-brand-text">
+                    <span class="reef-brand-name">دراسة ريف</span>
+                    <span class="reef-brand-tag">Reef Study Platform</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="reef-nav-menu" id="reef-nav-menu" role="navigation" aria-label="القائمة الرئيسية">
+                <a href="#hero" class="reef-nav-link active">الرئيسية</a>
+                <a href="#about" class="reef-nav-link">عن المنصة</a>
+                <a href="#features" class="reef-nav-link">المميزات</a>
+                <a href="#web-screens" class="reef-nav-link" style="color: var(--reef-accent);">صفحات الويب</a>
+                <a href="#sectors" class="reef-nav-link">القطاعات</a>
+                <a href="#financial" class="reef-nav-link">الحاسبة المالية</a>
+                <a href="#workflow" class="reef-nav-link">كيف تعمل</a>
+                <a href="#tech" class="reef-nav-link">التقنيات</a>
+                <a href="#faq" class="reef-nav-link">الأسئلة الشائعة</a>
+            </nav>
+
+            <!-- Actions (Theme Toggle & CTA) -->
+            <div class="reef-nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="reef-theme-toggle" id="reef-theme-toggle" aria-label="تبديل الوضع الليلي / النهاري">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- Live Web App CTA -->
+                <a href="https://reef-study-app.web.app/" target="_blank" rel="noopener noreferrer"
+                    class="reef-btn reef-btn-primary">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>تطبيق الويب الحي</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="reef-mobile-toggle" id="reef-mobile-toggle" aria-label="فتح القائمة"
+                    aria-expanded="false" aria-controls="reef-nav-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- =============================================================
+             Hero Section with Ambient Lighting & Mockup
+             ============================================================= -->
+        <section id="hero" class="reef-hero-section">
+            <div class="reef-hero-glow-1"></div>
+            <div class="reef-hero-glow-2"></div>
+
+            <div class="reef-container reef-hero-grid">
+                <!-- Hero Content -->
+                <div class="reef-hero-content">
+                    <div class="reef-badge-pill">
+                        <span class="pulse-dot"></span>
+                        <span>المساعد الذكي لدراسات جدوى مشاريع الأسر المنتجة والريفية</span>
+                    </div>
+
+                    <h1 class="reef-hero-title">
+                        حوّل فكرتك الزراعية إلى <br>
+                        <span class="reef-gradient-text">دراسة جدوى متكاملة ومعتمدة</span>
+                    </h1>
+
+                    <p class="reef-hero-desc">
+                        تطبيق ويب استرشادي متقدم صُمم خصيصاً لمساعدة رواد الأعمال والمزارعين والأسر المنتجة في بناء
+                        دراسات جدوى متوافقة مع متطلبات برامج الدعم والتنمية الريفية المستدامة، مع معالج ذكي من 8
+                        مراحل، حسابات مالية تفاعلية، وتوليد فوري لتقارير PDF جاهزة للطباعة والتقديم.
+                    </p>
+
+                    <div class="reef-hero-actions">
+                        <a href="https://reef-study-app.web.app/" target="_blank" rel="noopener noreferrer"
+                            class="reef-btn reef-btn-primary reef-btn-large">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>تجربة تطبيق الويب الحي</span>
+                        </a>
+
+                        <a href="https://ibrahim-protfolio.42web.io/websites.html"
+                            class="reef-btn reef-btn-outline reef-btn-large">
+                            <i class="fa-solid fa-table-columns"></i>
+                            <span>استعراض صفحات وواجهات الويب</span>
+                        </a>
+                    </div>
+
+                    <!-- Hero Quick Metrics -->
+                    <div class="reef-hero-metrics">
+                        <div class="reef-hero-metric-item">
+                            <div class="reef-metric-val">8 <span>مراحل</span></div>
+                            <div class="reef-metric-label">معالج ذكي استرشادي</div>
+                        </div>
+                        <div class="reef-hero-metric-item">
+                            <div class="reef-metric-val">+10 <span>أنشطة</span></div>
+                            <div class="reef-metric-label">قطاعات ريفية مدعومة</div>
+                        </div>
+                        <div class="reef-hero-metric-item">
+                            <div class="reef-metric-val">100<span>%</span></div>
+                            <div class="reef-metric-label">حسابات تعادل فورية</div>
+                        </div>
+                        <div class="reef-hero-metric-item">
+                            <div class="reef-metric-val">PDF <span>Export</span></div>
+                            <div class="reef-metric-label">تقارير رسمية جاهزة</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Browser Mockup Preview -->
+                <div class="reef-hero-preview">
+                    <div class="reef-browser-mockup">
+                        <div class="reef-mockup-header">
+                            <div class="reef-browser-dots">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
+                            </div>
+                            <div class="reef-mockup-url">
+                                <i class="fa-solid fa-lock" style="color: #10B981;"></i>
+                                <span>https://reef-study-app.web.app</span>
+                            </div>
+                            <div style="font-size: 0.75rem; color: #10B981; font-weight: 700;">
+                                <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i> مباشر
+                            </div>
+                        </div>
+
+                        <div class="reef-mockup-body">
+                            <div class="reef-mockup-badge">
+                                <i class="fa-solid fa-seedling"></i>
+                                <span>نظام دراسة الجدوى الذكي • الإصدار 1.0</span>
+                            </div>
+
+                            <div class="reef-mockup-screen-card">
+                                <div class="reef-screen-title-bar">
+                                    <h4><i class="fa-solid fa-chart-line" style="color: #10B981;"></i> مشروع مناحل السدر
+                                        البري</h4>
+                                    <span class="reef-screen-status">اكتمال 100%</span>
+                                </div>
+
+                                <div class="reef-stepper-preview">
+                                    <div class="reef-step-chip done"><i class="fa-solid fa-check"></i> البيانات</div>
+                                    <div class="reef-step-chip done"><i class="fa-solid fa-check"></i> النشاط</div>
+                                    <div class="reef-step-chip done"><i class="fa-solid fa-check"></i> المالية</div>
+                                    <div class="reef-step-chip active"><i class="fa-solid fa-award"></i> التقييم</div>
+                                </div>
+
+                                <div class="reef-preview-financial-calc">
+                                    <div>
+                                        <div class="reef-calc-box-label">رأس المال المطلوب</div>
+                                        <div class="reef-calc-box-val">45,000 <span
+                                                style="font-size: 0.65rem;">ر.س</span></div>
+                                    </div>
+                                    <div>
+                                        <div class="reef-calc-box-label">صافي الربح الشهري</div>
+                                        <div class="reef-calc-box-val" style="color: #10B981;">8,950 <span
+                                                style="font-size: 0.65rem;">ر.س</span></div>
+                                    </div>
+                                    <div>
+                                        <div class="reef-calc-box-label">فترة استرداد رأس المال</div>
+                                        <div class="reef-calc-box-val" style="color: var(--reef-gold);">5.0 <span
+                                                style="font-size: 0.65rem;">أشهر</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 1rem;">
+                                <a href="https://reef-study-app.web.app/" target="_blank" rel="noopener noreferrer"
+                                    class="reef-btn reef-btn-secondary" style="width: 100%; font-size: 0.85rem;">
+                                    <i class="fa-solid fa-play"></i> فتح المنصة وتجربة المعالج المباشر
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Trust & Compliance Bar
+             ============================================================= -->
+        <section class="reef-trust-bar">
+            <div class="reef-container">
+                <div class="reef-trust-grid">
+                    <div class="reef-trust-item">
+                        <div class="reef-trust-icon">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <div>
+                            <div class="reef-trust-title">معايير تنموية استرشادية</div>
+                            <div class="reef-trust-desc">مبنية وفق منهجية قطاعات الدعم الزراعي والريفي</div>
+                        </div>
+                    </div>
+
+                    <div class="reef-trust-item">
+                        <div class="reef-trust-icon">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <div>
+                            <div class="reef-trust-title">حاسبة مالية ونقطة تعادل</div>
+                            <div class="reef-trust-desc">حسابات دقيقة لرأس المال والأرباح والسيناريوهات</div>
+                        </div>
+                    </div>
+
+                    <div class="reef-trust-item">
+                        <div class="reef-trust-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <div class="reef-trust-title">خصوصية وحفظ محلي آمن</div>
+                            <div class="reef-trust-desc">بيانات دراستك مخزنة على جهازك بأعلى درجات الأمان</div>
+                        </div>
+                    </div>
+
+                    <div class="reef-trust-item">
+                        <div class="reef-trust-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <div class="reef-trust-title">تطبيق ويب متجاوب 100%</div>
+                            <div class="reef-trust-desc">يعمل بسلاسة فائقة على شاشات الحاسب والأجهزة اللوحية والجوال
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             About Platform & Vision
+             ============================================================= -->
+        <section id="about" class="reef-section">
+            <div class="reef-container">
+                <div class="reef-section-header">
+                    <span class="reef-section-tag">
+                        <i class="fa-solid fa-bullseye"></i> عن المنصة والرؤية
+                    </span>
+                    <h2 class="reef-section-title">تمكين رواد الأعمال الريفيين من بناء قرارات استثمارية واعية</h2>
+                    <p class="reef-section-subtitle">
+                        صُمم تطبيق "دراسة ريف" ليكون الأداة التمكينية الأولى لكل مزارع ومربي نحل وصاحب حرفة وأسرة منتجة
+                        في المملكة والوطن العربي، لمساعدتهم في تنظيم أفكارهم، تدقيق أرقامهم المالية، والتحقق من
+                        استيفاء معايير الجدوى الاقتصادية قبل التقدم بطلب الدعم.
+                    </p>
+                </div>
+
+                <div class="reef-features-grid">
+                    <div class="reef-feature-card">
+                        <div class="reef-feature-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h3 class="reef-feature-title">تبسيط دراسات الجدوى المعقدة</h3>
+                        <p class="reef-feature-desc">
+                            تحويل المصطلحات المالية الصعبة إلى خطوات واضحة ومبسطة يفهمها المستثمر الريفي بسهولة، مع
+                            شرح إرشادي لكل حقل من حقول الإدخال.
+                        </p>
+                    </div>
+
+                    <div class="reef-feature-card">
+                        <div class="reef-feature-icon">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h3 class="reef-feature-title">تحليل الحساسية و3 سيناريوهات</h3>
+                        <p class="reef-feature-desc">
+                            تقييم أداء المشروع تحت مختلف الظروف الاقتصادية عبر سيناريو تحفظي (70%)، سيناريو متوقع
+                            (100%)، وسيناريو متفائل (130%).
+                        </p>
+                    </div>
+
+                    <div class="reef-feature-card">
+                        <div class="reef-feature-icon">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </div>
+                        <h3 class="reef-feature-title">مخرجات رسمية قابلة للطباعة</h3>
+                        <p class="reef-feature-desc">
+                            توليد مستند دراسة جدوى استرشادية بتنسيق PDF احترافي فوري، جاهز للطباعة المباشرة أو إرفاقه
+                            ضمن ملفات التقديم لجهات التمويل.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Web Pages Showcase Section (قسم صفحات وواجهات تطبيق الويب)
+             ============================================================= -->
+        <section id="web-screens" class="reef-section reef-section-alt">
+            <div class="reef-container">
+                <div class="reef-section-header">
+                    <span class="reef-section-tag">
+                        <i class="fa-solid fa-window-restore"></i> قسم صفحات وواجهات الويب
+                    </span>
+                    <h2 class="reef-section-title">استعراض شاشات وصفحات تطبيق دراسة ريف</h2>
+                    <p class="reef-section-subtitle">
+                        تعرّف على الشاشات والوحدات الوظيفية المصممة بعناية فائقة لتوفير تجربة مستخدم عصرية وسلسة تدعم
+                        اللغة العربية وتتكيف مع مختلف مقاسات الشاشات.
+                    </p>
+                </div>
+
+                <div class="reef-showcase-wrapper">
+                    <!-- Showcase Filter Tabs -->
+                    <div class="reef-tabs-nav">
+                        <button type="button" class="reef-tab-btn active" data-tab="wizard">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>معالج الجدوى (8 خطوات)</span>
+                        </button>
+                        <button type="button" class="reef-tab-btn" data-tab="dashboard">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <span>لوحة التحكم والمؤشرات</span>
+                        </button>
+                        <button type="button" class="reef-tab-btn" data-tab="financial">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>الحاسبة المالية والتعادل</span>
+                        </button>
+                        <button type="button" class="reef-tab-btn" data-tab="evaluation">
+                            <i class="fa-solid fa-award"></i>
+                            <span>أداة التقييم ومؤشر الجاهزية</span>
+                        </button>
+                        <button type="button" class="reef-tab-btn" data-tab="pdf">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>تقرير الجدوى وتصدير PDF</span>
+                        </button>
+                        <button type="button" class="reef-tab-btn" data-tab="sectors">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>دليل الأنشطة والقطاعات</span>
+                        </button>
+                    </div>
+
+                    <!-- Showcase Interactive Content Grid -->
+                    <div class="reef-showcase-content-grid">
+                        <!-- Left Details (Right in RTL) -->
+                        <div class="reef-screen-details">
+                            <div class="reef-screen-category-badge" id="reef-screen-badge">
+                                المعالج الذكي التفاعلي • 8 خطوات
+                            </div>
+
+                            <h3 class="reef-screen-heading" id="reef-screen-heading">
+                                معالج إعداد دراسة الجدوى خطوة بخطوة
+                            </h3>
+
+                            <p class="reef-screen-desc" id="reef-screen-desc">
+                                رحلة تفاعلية استرشادية تقود رائد الأعمال الزراعي عبر 8 مراحل منهجية تبدأ من بيانات
+                                المشروع، النشاط، السوق، والتجهيزات، حتى التحليل المالي والاعتماد.
+                            </p>
+
+                            <ul class="reef-screen-bullets" id="reef-screen-bullets">
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>شريط تقدم ديناميكي يوضح نسبة الإنجاز والخطوة الحالية</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>حقول مخصصة لكل نشاط ريفي مع قيم افتراضية استرشادية مدروسة</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>تحقق فوري من صحة البيانات ومنع إدخال القيم غير المنطقية</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>إمكانية حفظ المسودة والرجوع لاستكمال الدراسة في أي وقت</span>
+                                </li>
+                            </ul>
+
+                            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <a href="https://reef-study-app.web.app/" target="_blank" rel="noopener noreferrer"
+                                    class="reef-btn reef-btn-primary">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <span>تجربة هذه الشاشة على تطبيق الويب</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right Live Mockup Container -->
+                        <div class="reef-screen-interactive-demo">
+                            <div class="reef-browser-device">
+                                <div class="reef-device-topbar">
+                                    <div class="reef-browser-dots">
+                                        <span class="dot-red"></span>
+                                        <span class="dot-yellow"></span>
+                                        <span class="dot-green"></span>
+                                    </div>
+                                    <span
+                                        style="font-size: 0.76rem; color: var(--reef-text-secondary); font-family: 'Inter', sans-serif;">
+                                        https://reef-study-app.web.app/wizard
+                                    </span>
+                                    <span style="font-size: 0.72rem; color: var(--reef-accent); font-weight: 700;">
+                                        <i class="fa-solid fa-shield-halved"></i> Secured
+                                    </span>
+                                </div>
+
+                                <div class="reef-device-body" id="reef-screen-mockup-body">
+                                    <!-- Dynamic Mockup Content Injected via JS -->
+                                    <div class="reef-mockup-screen-card">
+                                        <div class="reef-screen-title-bar">
+                                            <h4><i class="fa-solid fa-wand-magic-sparkles"
+                                                    style="color: var(--reef-accent);"></i> الخطوة 2: اختيار نوع النشاط
+                                            </h4>
+                                            <span class="reef-screen-status">خطوة 2 من 8 (25%)</span>
+                                        </div>
+                                        <div class="reef-stepper-preview">
+                                            <div class="reef-step-chip done"><i class="fa-solid fa-check"></i> 1.
+                                                البيانات</div>
+                                            <div class="reef-step-chip active"><i class="fa-solid fa-seedling"></i> 2.
+                                                النشاط</div>
+                                            <div class="reef-step-chip">3. المنتج</div>
+                                            <div class="reef-step-chip">4. السوق</div>
+                                        </div>
+                                        <div
+                                            style="background: var(--reef-bg-card); padding: 1rem; border-radius: var(--reef-radius-sm); border: 1px solid var(--reef-border); margin-bottom: 0.75rem;">
+                                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                                <div
+                                                    style="width: 38px; height: 38px; border-radius: 10px; background: rgba(16, 185, 129, 0.15); display: flex; align-items: center; justify-content: center; color: var(--reef-accent);">
+                                                    <i class="fa-solid fa-hive"></i>
+                                                </div>
+                                                <div>
+                                                    <div style="font-weight: 700; font-size: 0.95rem;">إنتاج العسل
+                                                        ومنتجات النحل</div>
+                                                    <div style="font-size: 0.75rem; color: var(--reef-text-secondary);">
+                                                        قطاع النحل والعسل • 40 كجم/شهر افتراضي</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center;">
+                                            <span style="font-size: 0.8rem; color: var(--reef-text-secondary);"><i
+                                                    class="fa-solid fa-circle-info"></i> تم تجهيز الأسئلة الفنية
+                                                المتخصصة للنشاط</span>
+                                            <span
+                                                style="font-size: 0.82rem; font-weight: 700; color: var(--reef-accent); cursor: pointer;">التالي
+                                                <i class="fa-solid fa-arrow-left"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Supported Agricultural & Rural Sectors
+             ============================================================= -->
+        <section id="sectors" class="reef-section">
+            <div class="reef-container">
+                <div class="reef-section-header">
+                    <span class="reef-section-tag">
+                        <i class="fa-solid fa-wheat-awn"></i> القطاعات المؤهلة
+                    </span>
+                    <h2 class="reef-section-title">دليل القطاعات والأنشطة الزراعية والريفية المدعومة</h2>
+                    <p class="reef-section-subtitle">
+                        يحتوي التطبيق على بنك أسئلة وتجهيزات معيارية مخصصة لأهم قطاعات التنمية الريفية المستدامة، مع
+                        إمكانية إضافة أي نشاط مخصص.
+                    </p>
+                </div>
+
+                <div class="reef-sectors-grid">
+                    <div class="reef-sector-card">
+                        <div class="reef-sector-icon">
+                            <i class="fa-solid fa-hive"></i>
+                        </div>
+                        <div class="reef-sector-info">
+                            <h4>إنتاج العسل وتربية النحل</h4>
+                            <p>تربية النحل وإنتاج العسل الطبيعي (سدر، سمر، طلح)، الشمع، حبوب اللقاح، وتجهيز فرازات العسل
+                                الحديثة.</p>
+                        </div>
+                    </div>
+
+                    <div class="reef-sector-card">
+                        <div class="reef-sector-icon">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <div class="reef-sector-info">
+                            <h4>زراعة وتطوير البن العربي</h4>
+                            <p>زراعة شتلات البن الخولاني، معالجة وتجفيف الكرزات، التحميص، والتعبئة وفق المعايير
+                                المتخصصة.</p>
+                        </div>
+                    </div>
+
+                    <div class="reef-sector-card">
+                        <div class="reef-sector-icon">
+                            <i class="fa-solid fa-spa"></i>
+                        </div>
+                        <div class="reef-sector-info">
+                            <h4>الورد والنباتات العطرية</h4>
+                            <p>زراعة وتقطير الورد، إنتاج ماء الورد والزيوت العطرية النقية ومستحضرات العناية الطبيعية
+                                الريفية.</p>
+                        </div>
+                    </div>
+
+                    <div class="reef-sector-card">
+                        <div class="reef-sector-icon">
+                            <i class="fa-solid fa-apple-whole"></i>
+                        </div>
+                        <div class="reef-sector-info">
+                            <h4>صناعة المربيات وتجفيف الفواكه</h4>
+                            <p>القيمة المضافة للمحاصيل المحلية: تجفيف التين والمشمش، صناعة المربيات والعصائر الطبيعية
+                                دون مواد حافظة.</p>
+                        </div>
+                    </div>
+
+                    <div class="reef-sector-card">
+                        <div class="reef-sector-icon">
+                            <i class="fa-solid fa-bread-slice"></i>
+                        </div>
+                        <div class="reef-sector-info">
+                            <h4>المخبوزات والحلويات الشعبية</h4>
+                            <p>إنتاج الخبز الريفي، الكليجا، المعمول، والحلويات التراثية باستخدام الدقيق المحلي والسمن
+                                البلدي.</p>
+                        </div>
+                    </div>
+
+                    <div class="reef-sector-card">
+                        <div class="reef-sector-icon">
+                            <i class="fa-solid fa-scissors"></i>
+                        </div>
+                        <div class="reef-sector-info">
+                            <h4>السجاد والمنسوجات التراثية</h4>
+                            <p>غزل الصوف الطبيعي، حياكة السجاد اليدوي، السدو، وتصميم المشغولات التراثية المستلهمة من
+                                البيئة الريفية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Interactive Financial Engine & Calculator
+             ============================================================= -->
+        <section id="financial" class="reef-section reef-section-alt">
+            <div class="reef-container">
+                <div class="reef-section-header">
+                    <span class="reef-section-tag">
+                        <i class="fa-solid fa-chart-simple"></i> المحرك المالي
+                    </span>
+                    <h2 class="reef-section-title">حاسبة تفاعلية فورية لنقطة التعادل وهامش الربح</h2>
+                    <p class="reef-section-subtitle">
+                        جرب المحاكاة المالية الحية مباشرة على هذه الصفحة لتشاهد كيف يحسب التطبيق صافي الربح وهامش
+                        الربحية
+                        ونقطة التعادل في أجزاء من الثانية.
+                    </p>
+                </div>
+
+                <div class="reef-calc-spotlight">
+                    <!-- Calculator Inputs -->
+                    <div>
+                        <h3
+                            style="font-size: 1.45rem; font-weight: 800; margin-bottom: 1rem; color: var(--reef-text-primary);">
+                            محاكاة سريعة لأرقام مشروعك
+                        </h3>
+                        <p style="font-size: 0.92rem; color: var(--reef-text-secondary); margin-bottom: 1.5rem;">
+                            قم بتعديل الإيرادات والتكاليف الشهرية أدناه لمشاهدة التحليل المالي التلقائي:
+                        </p>
+
+                        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                            <div>
+                                <label
+                                    style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;">
+                                    التكاليف التشغيلية الشهرية (ر.س):
+                                </label>
+                                <input type="number" id="demo-calc-cost" value="4500" step="500"
+                                    style="width: 100%; padding: 0.75rem 1rem; border-radius: 8px; background: var(--reef-bg-surface); border: 1px solid var(--reef-border); color: var(--reef-text-primary); font-size: 1rem; font-weight: 700;">
+                            </div>
+
+                            <div>
+                                <label
+                                    style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem;">
+                                    الإيرادات الشهرية المتوقعة (ر.س):
+                                </label>
+                                <input type="number" id="demo-calc-revenue" value="12000" step="500"
+                                    style="width: 100%; padding: 0.75rem 1rem; border-radius: 8px; background: var(--reef-bg-surface); border: 1px solid var(--reef-border); color: var(--reef-text-primary); font-size: 1rem; font-weight: 700;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculated Outputs -->
+                    <div class="reef-calc-highlight-box">
+                        <div class="reef-calc-kpi-card">
+                            <span class="reef-calc-kpi-title"><i class="fa-solid fa-sack-dollar"></i> صافي الربح
+                                الشهري</span>
+                            <span class="reef-calc-kpi-val" id="demo-calc-profit">7,500 ر.س</span>
+                        </div>
+
+                        <div class="reef-calc-kpi-card">
+                            <span class="reef-calc-kpi-title"><i class="fa-solid fa-percent"></i> هامش الربح
+                                الصافي</span>
+                            <span class="reef-calc-kpi-val" id="demo-calc-margin">62.5%</span>
+                        </div>
+
+                        <div class="reef-calc-kpi-card">
+                            <span class="reef-calc-kpi-title"><i class="fa-solid fa-bullseye"></i> نقطة التعادل
+                                النقدية</span>
+                            <span class="reef-calc-kpi-val" id="demo-calc-breakeven">4,500 ر.س</span>
+                        </div>
+
+                        <div class="reef-calc-kpi-card">
+                            <span class="reef-calc-kpi-title"><i class="fa-solid fa-gauge-high"></i> مؤشر الجدوى
+                                المالي</span>
+                            <span class="reef-calc-kpi-val" style="color: #10B981;">ممتاز (مرتفع)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Workflow / How It Works
+             ============================================================= -->
+        <section id="workflow" class="reef-section">
+            <div class="reef-container">
+                <div class="reef-section-header">
+                    <span class="reef-section-tag">
+                        <i class="fa-solid fa-route"></i> خطوات العمل
+                    </span>
+                    <h2 class="reef-section-title">كيف تبدأ إعداد دراسة جدواك في 4 خطوات سهلة؟</h2>
+                    <p class="reef-section-subtitle">
+                        تجربة متكاملة مصممة لتأخذ بيدك من الفكرة الأولية حتى المستند النهائي الجاهز للتقديم.
+                    </p>
+                </div>
+
+                <div class="reef-workflow-grid">
+                    <div class="reef-workflow-card">
+                        <div class="reef-workflow-number">01</div>
+                        <div class="reef-workflow-icon">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <h4 class="reef-workflow-title">اختيار النشاط الريفي</h4>
+                        <p class="reef-workflow-desc">
+                            اختر مجالك من دليل الأنشطة المدعومة أو أضف نشاطك الخاص لتحميل الأسئلة الفنية المتخصصة.
+                        </p>
+                    </div>
+
+                    <div class="reef-workflow-card">
+                        <div class="reef-workflow-number">02</div>
+                        <div class="reef-workflow-icon">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                        <h4 class="reef-workflow-title">إدخال التكاليف والطاقة</h4>
+                        <p class="reef-workflow-desc">
+                            حدد الآلات المطلوبة، المواد الخام الأولية، والكمية المستهدف إنتاجها شهرياً مع أسعار البيع.
+                        </p>
+                    </div>
+
+                    <div class="reef-workflow-card">
+                        <div class="reef-workflow-number">03</div>
+                        <div class="reef-workflow-icon">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <h4 class="reef-workflow-title">التحليل المالي والتقييم</h4>
+                        <p class="reef-workflow-desc">
+                            يعالج المحرك الأرقام تلقائياً ويولد مؤشر الجاهزية ونقاط القوة والمخاطر والتوصيات المباشرة.
+                        </p>
+                    </div>
+
+                    <div class="reef-workflow-card">
+                        <div class="reef-workflow-number">04</div>
+                        <div class="reef-workflow-icon">
+                            <i class="fa-solid fa-print"></i>
+                        </div>
+                        <h4 class="reef-workflow-title">تصدير تقرير PDF</h4>
+                        <p class="reef-workflow-desc">
+                            استعرض تقرير دراسة الجدوى النهائي وقم بتحميله أو طباعته بضغطة زر واحدة بصيغة PDF أنيقة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Technical Architecture & Tech Stack
+             ============================================================= -->
+        <section id="tech" class="reef-section reef-section-alt">
+            <div class="reef-container">
+                <div class="reef-section-header">
+                    <span class="reef-section-tag">
+                        <i class="fa-solid fa-code"></i> البنية التقنية
+                    </span>
+                    <h2 class="reef-section-title">تقنيات حديثة ومعمارية هندسية فائقة الأداء</h2>
+                    <p class="reef-section-subtitle">
+                        بُني المشروع باستخدام أحدث تقنيات الويب والتطبيقات متعددة المنصات لضمان أعلى معايير الاستقرار
+                        والسرعة والتجاوب.
+                    </p>
+                </div>
+
+                <div class="reef-tech-grid">
+                    <div class="reef-tech-card">
+                        <i class="fa-brands fa-flutter"></i>
+                        <span>Flutter 3 Multiplatform (Web & Mobile)</span>
+                    </div>
+
+                    <div class="reef-tech-card">
+                        <i class="fa-solid fa-diagram-project"></i>
+                        <span>Riverpod State Management</span>
+                    </div>
+
+                    <div class="reef-tech-card">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <span>PDF & Printing Native Vector Engines</span>
+                    </div>
+
+                    <div class="reef-tech-card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>FL Chart Financial Visualizer</span>
+                    </div>
+
+                    <div class="reef-tech-card">
+                        <i class="fa-solid fa-database"></i>
+                        <span>Local Secured Persistence (Offline-First)</span>
+                    </div>
+
+                    <div class="reef-tech-card">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span>Firebase Hosting Worldwide CDN</span>
+                    </div>
+
+                    <div class="reef-tech-card">
+                        <i class="fa-solid fa-language"></i>
+                        <span>Full Arabic RTL Localization & Cairo Typography</span>
+                    </div>
+
+                    <div class="reef-tech-card">
+                        <i class="fa-solid fa-moon"></i>
+                        <span>Adaptive Dark & Light Themes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             FAQ Section
+             ============================================================= -->
+        <section id="faq" class="reef-section">
+            <div class="reef-container">
+                <div class="reef-section-header">
+                    <span class="reef-section-tag">
+                        <i class="fa-solid fa-circle-question"></i> الأسئلة الشائعة
+                    </span>
+                    <h2 class="reef-section-title">كل ما تود معرفته عن منصة دراسة ريف</h2>
+                    <p class="reef-section-subtitle">
+                        إجابات سريعة وشفافة على أبرز الاستفسارات المتكررة حول دراسة الجدوى وطريقة عمل المنصة.
+                    </p>
+                </div>
+
+                <div class="reef-faq-container">
+                    <div class="reef-faq-item active">
+                        <div class="reef-faq-question">
+                            <span>هل يضمن التطبيق قبول طلب الحصول على الدعم في برنامج ريف؟</span>
+                            <i class="fa-solid fa-chevron-down reef-faq-icon"></i>
+                        </div>
+                        <div class="reef-faq-answer">
+                            التطبيق أداة استرشادية ذكية تساعدك في بناء دراسة جدوى دقيقة واحترافية وفق المعايير المعتمدة،
+                            لكنه ليس تطبيقاً حكومياً رسمياً ولا يمثل وزارة البيئة والمياه والزراعة أو برنامج ريف. قرار
+                            قبول الدعم يخضع دائماً للجهات الرسمية واشتراطاتها المعتمدة.
+                        </div>
+                    </div>
+
+                    <div class="reef-faq-item">
+                        <div class="reef-faq-question">
+                            <span>أين تُحفظ بيانات مشاريعي ودراسات الجدوى التي أقوم بإعدادها؟</span>
+                            <i class="fa-solid fa-chevron-down reef-faq-icon"></i>
+                        </div>
+                        <div class="reef-faq-answer">
+                            تُحفظ كافة البيانات محلياً على متصفحك أو جهازك باستخدام تقنيات التخزين المشفرة دون إرسال أي
+                            بيانات مالية أو شخصية حساسة إلى خوادم خارجية، مما يمنحك خصوصية تامة وحرية في التعديل بأي
+                            وقت.
+                        </div>
+                    </div>
+
+                    <div class="reef-faq-item">
+                        <div class="reef-faq-question">
+                            <span>هل يمكنني إضافة نشاط غير موجود في القائمة الافتراضية؟</span>
+                            <i class="fa-solid fa-chevron-down reef-faq-icon"></i>
+                        </div>
+                        <div class="reef-faq-answer">
+                            نعم بكل تأكيد، يتضمن التطبيق خيار "نشاط مخصص (آخر)" يتيح لك تسمية نشاطك وتحديد وحدة
+                            القياس، الآلات، وتكاليف المواد الأولية بحرية كاملة مع الاستفادة من جميع المعادلات المالية
+                            وتوليد ملف الـ PDF.
+                        </div>
+                    </div>
+
+                    <div class="reef-faq-item">
+                        <div class="reef-faq-question">
+                            <span>ما هي صيغ التصدير المتاحة لدراسة الجدوى؟</span>
+                            <i class="fa-solid fa-chevron-down reef-faq-icon"></i>
+                        </div>
+                        <div class="reef-faq-answer">
+                            يمكنك تصدير الدراسة بصيغة PDF قياسية عالية الجودة ومنسقة رسمياً تضم جداول التكاليف
+                            والإيرادات ونقطة التعادل ومصفوفة التقييم، بالإضافة إلى إمكانية الطباعة الورقية المباشرة.
+                        </div>
+                    </div>
+
+                    <div class="reef-faq-item">
+                        <div class="reef-faq-question">
+                            <span>هل يعمل التطبيق بدون اتصال بالإنترنت؟</span>
+                            <i class="fa-solid fa-chevron-down reef-faq-icon"></i>
+                        </div>
+                        <div class="reef-faq-answer">
+                            نعم، التطبيق مبني وفق مبدأ (Offline-First)، وبمجرد فتحه في المتصفح يمكنك مواصلة إعداد وحساب
+                            الدراسة وحفظها محلياً حتى في حال انقطاع الاتصال.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             Final Call to Action Banner
+             ============================================================= -->
+        <section class="reef-cta-section">
+            <div class="reef-container reef-cta-content">
+                <span class="reef-badge-pill" style="margin-bottom: 1.25rem;">
+                    <i class="fa-solid fa-rocket"></i> ابدأ الآن مجاناً
+                </span>
+
+                <h2 class="reef-cta-title">
+                    جاهز لبناء دراسة جدوى استرشادية لمشروعك الريفي؟
+                </h2>
+
+                <p class="reef-cta-desc">
+                    انتقل مباشرة إلى تطبيق الويب الحي وابدأ رحلتك التفاعلية من 8 خطوات لحساب تكاليفك وأرباحك واستخراج
+                    تقريرك الرسمي المعتمد خلال دقائق معدودة.
+                </p>
+
+                <div class="reef-cta-btns">
+                    <a href="https://reef-study-app.web.app/" target="_blank" rel="noopener noreferrer"
+                        class="reef-btn reef-btn-primary reef-btn-large">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>فتح تطبيق دراسة ريف الحي</span>
+                    </a>
+
+                    <a href="https://ibrahim-protfolio.42web.io/websites.html"
+                        class="reef-btn reef-btn-outline reef-btn-large">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>العودة لمعرض مواقع الويب</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =============================================================
+         Footer
+         ============================================================= -->
+    <footer class="reef-footer" role="contentinfo">
+        <div class="reef-container reef-footer-content">
+            <div class="reef-nav-brand">
+                <img src="img/reef/app_icon.png" alt="شعار دراسة ريف" class="reef-brand-logo"
+                    style="width: 36px; height: 36px;">
+                <span class="reef-brand-name" style="font-size: 1.1rem;">دراسة ريف | Reef Study</span>
+            </div>
+
+            <div class="reef-footer-links">
+                <a href="index.html" class="reef-footer-link">الرئيسية</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="websites.html" class="reef-footer-link">مواقع الويب</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="reef-study.html" class="reef-footer-link" style="color: var(--reef-accent);">دراسة ريف</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="knowledge-platform.html" class="reef-footer-link">منصة المعرفة</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="fcp-attendance.html" class="reef-footer-link">نظام الحضور SFPA</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="Attendance.html" class="reef-footer-link">سجل الحضور والغياب</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="hotspot-templates.html" class="reef-footer-link">واجهات الهوتسبوت</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="project-mikrotik.html" class="reef-footer-link">MikroTik Manager Pro</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="privacy-policy.html" class="reef-footer-link">سياسة الخصوصية</a>
+                <span style="opacity: 0.3;">|</span>
+                <a href="#hero" class="reef-footer-link">العودة للأعلى <i class="fa-solid fa-arrow-up"></i></a>
+            </div>
+
+            <p class="reef-footer-copy">
+                جميع الحقوق محفوظة &copy; 2026 إبراهيم عبدالقادر (Ibrahim Abdelgader - Ibrahim588) • دراسة ريف هي أداة
+                مساعدة استرشادية لدراسات الجدوى الريفية.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/reef-study.js"></script>
+</body>
+
+</html>
