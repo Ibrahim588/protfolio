@@ -647,7 +647,7 @@ p {
 /* Footer */
 footer {
     background: var(--bg-surface);
-    padding: 2rem 0;
+    padding: 2.25rem 0 2rem;
     text-align: center;
     border-top: 1px solid var(--border-color);
 }
@@ -656,6 +656,112 @@ footer {
     color: var(--primary-color);
     font-size: 0.875rem;
 }
+
+/* Visitor Counter Styles */
+.visitor-counter-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 1.25rem;
+}
+
+.visitor-counter-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.45rem 1.15rem;
+    background: rgba(56, 189, 248, 0.05);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 9999px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.25), 0 0 12px -2px rgba(56, 189, 248, 0.15);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+    user-select: none;
+}
+
+.visitor-counter-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 6px 20px -3px rgba(56, 189, 248, 0.3);
+}
+
+[data-theme="light"] .visitor-counter-card {
+    background: rgba(2, 132, 199, 0.06);
+    border-color: rgba(2, 132, 199, 0.25);
+    box-shadow: 0 4px 12px -2px rgba(2, 132, 199, 0.12);
+}
+
+/* Pulsing live indicator */
+.visitor-pulse {
+    position: relative;
+    display: inline-flex;
+    width: 8px;
+    height: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.visitor-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #10b981;
+}
+
+.visitor-pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.6);
+    animation: visitorPulseRing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes visitorPulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    70%, 100% {
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+.visitor-icon {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.visitor-label {
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.2px;
+}
+
+.visitor-divider {
+    width: 1px;
+    height: 12px;
+    background: var(--border-color);
+    opacity: 0.8;
+}
+
+.visitor-count {
+    font-family: 'Inter', monospace, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+    min-width: 2.2rem;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
 
 /* Responsive */
 @media (min-width: 768px) {

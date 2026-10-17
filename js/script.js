@@ -143,7 +143,8 @@ const translations = {
         btn_explore_websites: "Explore Web Projects Showcase",
 
         footer_copy: "© 2026 Ibrahim Abdelgader. All rights reserved.",
-        footer_back: "Back to Top"
+        footer_back: "Back to Top",
+        visitor_counter_label: "Total Visits"
     },
     ar: {
         nav_home: "الرئيسية",
@@ -284,7 +285,8 @@ const translations = {
         btn_explore_websites: "استكشف معرض مواقع الويب المصممة",
 
         footer_copy: "© 2026 إبراهيم عبدالقادر. جميع الحقوق محفوظة.",
-        footer_back: "العودة للأعلى"
+        footer_back: "العودة للأعلى",
+        visitor_counter_label: "إجمالي الزيارات"
     }
 };
 
@@ -471,5 +473,80 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Live Visitor Counter ---
+    function initVisitorCounter() {
+        const counterElement = document.getElementById('visitor-count');
+        if (!counterElement) return;
+
+        const API_URL_BASE = 'https://countapi.mileshilliard.com/api/v1';
+        const KEY = 'ibrahim_abdelgader_portfolio_visits';
+        const CACHE_KEY = 'ibrahim_portfolio_visits_count';
+        const SESSION_FLAG = 'ibrahim_portfolio_visited_session';
+
+        // Check if visit was already recorded in this browser session
+        const alreadyVisited = sessionStorage.getItem(SESSION_FLAG);
+        const endpoint = alreadyVisited
+            ? `${API_URL_BASE}/get/${KEY}`
+            : `${API_URL_BASE}/hit/${KEY}`;
+
+        // Immediate display from cache if available so UI doesn't flicker
+        const cachedCount = localStorage.getItem(CACHE_KEY);
+        let startVal = 0;
+        if (cachedCount && !isNaN(parseInt(cachedCount, 10))) {
+            startVal = parseInt(cachedCount, 10);
+            counterElement.textContent = formatVisitorCount(startVal);
+        }
+
+        fetch(endpoint)
+            .then(response => {
+                if (!response.ok) throw new Error('Counter API response was not OK');
+                return response.json();
+            })
+            .then(data => {
+                if (data && typeof data.value === 'number') {
+                    const finalCount = data.value;
+                    sessionStorage.setItem(SESSION_FLAG, 'true');
+                    localStorage.setItem(CACHE_KEY, finalCount.toString());
+                    animateCount(counterElement, startVal, finalCount, 1200);
+                }
+            })
+            .catch(error => {
+                console.warn('Visitor counter fetch notice:', error);
+                if (!cachedCount) {
+                    counterElement.textContent = formatVisitorCount(1);
+                }
+            });
+    }
+
+    function formatVisitorCount(num) {
+        return Number(num).toLocaleString('en-US');
+    }
+
+    function animateCount(element, start, end, duration) {
+        if (start === end) {
+            element.textContent = formatVisitorCount(end);
+            return;
+        }
+        const startTime = performance.now();
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic formula
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(start + (end - start) * easeOut);
+            element.textContent = formatVisitorCount(current);
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                element.textContent = formatVisitorCount(end);
+            }
+        }
+        requestAnimationFrame(update);
+    }
+
+    // Initialize visitor counter on page load
+    initVisitorCounter();
 });
 
