@@ -544,13 +544,17 @@ button {
 .fcp-phone-container {
     position: relative;
     width: 310px;
-    height: 630px;
+    height: 640px;
     background: #000000;
     border-radius: 46px;
-    padding: 12px;
+    padding: 10px;
     box-shadow: var(--fcp-phone-shadow), 0 0 0 4px #2a3447;
     animation: fcpFloat 6s ease-in-out infinite;
     z-index: 2;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
 @keyframes fcpFloat {
@@ -561,17 +565,22 @@ button {
 .fcp-phone-screen {
     width: 100%;
     height: 100%;
+    flex: 1 1 0%;
+    min-height: 0;
     border-radius: 36px;
     overflow: hidden;
     position: relative;
     background: #ffffff;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: -webkit-radial-gradient(white, black);
 }
 
 .fcp-phone-screen img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
+    object-position: top center;
+    display: block;
 }
 
 .fcp-phone-notch {
@@ -1920,13 +1929,37 @@ button {
     }
 
     .fcp-phone-container {
-        width: min(280px, 85vw);
+        width: min(290px, 84vw);
         height: auto;
-        aspect-ratio: 9 / 18.5;
-        max-height: 560px;
+        aspect-ratio: 400 / 860;
+        max-height: 610px;
         order: 1;
         margin: 0 auto;
         animation: none;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding: 9px;
+        border-radius: 42px;
+        box-sizing: border-box;
+    }
+
+    .fcp-phone-screen {
+        width: 100%;
+        height: 100%;
+        flex: 1 1 0%;
+        min-height: 0;
+        border-radius: 32px;
+        overflow: hidden;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        mask-image: -webkit-radial-gradient(white, black);
+    }
+
+    .fcp-phone-notch {
+        width: 80px;
+        height: 18px;
+        border-radius: 10px;
+        top: 8px;
     }
 
     .fcp-pill-top-right,
