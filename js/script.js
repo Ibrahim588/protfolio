@@ -52,12 +52,14 @@ const translations = {
         section_featured: "Featured",
         section_projects: "Projects",
         proj_1_title: "Mikrotik Manager Pro",
-        proj_1_desc: "A comprehensive mobile tool designed to manage and control MikroTik device settings remotely. Features a clean, intuitive interface for real-time network monitoring and configuration.",
+        proj_1_desc: "A comprehensive network management platform for MikroTik routers, featuring online Visa/card payments with instant cloud activation, user bandwidth & rate limiting, dynamic hotspot profile creation with on-login automation, bulk PDF card generation, and real-time monitoring.",
         proj_2_title: "SFPA Attendance System",
         proj_2_desc: "An enterprise smart attendance system developed for the Sudan Family Planning Association (SFPA) to manage staff check-ins, shifts, field missions, and leaves with GPS geofencing and device binding.",
         proj_3_title: "MikroTik Hotspot System",
         proj_3_desc: "End-to-end implementation of secure hotspot systems. Focused on optimized bandwidth management, user access control, and stability for high-traffic environments.",
-                        proj_meis_title: "Modern Education International Schools",
+                        proj_motaqadimah_title: "Al Motaqadimah International Schools – Al Nahda",
+        proj_motaqadimah_desc: "A premier educational platform and digital admissions portal for Al Motaqadimah International Schools in Riyadh, featuring full bilingual RTL/LTR experience, American curriculum, Cambridge & Oxford STEM, interactive photo lightbox, and WhatsApp-integrated admissions.",
+        proj_meis_title: "Modern Education International Schools",
         proj_meis_desc: "A state-of-the-art educational portal and digital admissions gateway for Modern Education International Schools in Riyadh, featuring interactive curricula exploration, student life showcase, and an integrated Admin CMS.",
         proj_reef_title: "Reef Study Platform",
         proj_reef_desc: "A smart web application designed to prepare comprehensive feasibility studies for rural and productive family projects, featuring an 8-step wizard, financial break-even engine, scenario simulation, and native PDF report export.",
@@ -194,12 +196,14 @@ const translations = {
         section_featured: "أبرز",
         section_projects: "المشاريع",
         proj_1_title: "Mikrotik Manager Pro",
-        proj_1_desc: "أداة شاملة للهواتف المحمولة مصممة لإدارة والتحكم في إعدادات أجهزة MikroTik عن بعد. يتميز بواجهة نظيفة وبديهية لمراقبة الشبكة وتكوينها في الوقت الفعلي.",
+        proj_1_desc: "المنظومة الاحترافية المتكاملة لإدارة شبكات MikroTik، تدعم الدفع المباشر بالفيزا والبطاقات البنكية مع التفعيل السحابي الفوري، تحديد السرعات (Rate Limiting) وتوزيع الباندويث، إنشاء وإدارة بروفايلات الهوتسبوت وسكربت On-Login التلقائي، وتوليد وطباعة كروت PDF بالجملة.",
         proj_2_title: "نظام الحضور الذكي SFPA Attendance",
         proj_2_desc: "منظومة رقمية متكاملة لجمعية تنظيم الأسرة السودانية لإدارة دوام الموظفين، الورديات، المأموريات الميدانية، والإجازات بأعلى معايير الدقة والأمان عبر تقنيات التحقق الجغرافي (Geofencing) وربط الأجهزة.",
         proj_3_title: "نظام MikroTik Hotspot",
         proj_3_desc: "تنفيذ شامل لأنظمة الهوت سبوت الآمنة. يركز على إدارة النطاق الترددي بشكل مـثالي، والتحكم في وصول المستخدمين، والاستقرار في البيئات ذات الحركة المرورية العالية.",
-                        proj_meis_title: "مدارس التربية الحديثة العالمية (MEIS)",
+                        proj_motaqadimah_title: "مدارس المتقدمة العالمية - حي النهضة",
+        proj_motaqadimah_desc: "صرح تعليمي رقمي متطور وبوابة قبول وتسجيل رسمية لمدارس المتقدمة العالمية بالرياض، يتميز بدعم كامل للغتين العربية والإنجليزية (RTL / LTR)، استعراض المنهج الأمريكي، المسار ثنائي اللغة 50/50، أكاديمية IELTS، معرض مرافق تفاعلي، وتكامل ذكي مع الواتساب.",
+        proj_meis_title: "مدارس التربية الحديثة العالمية (MEIS)",
         proj_meis_desc: "صرح تعليمي رقمي متطور وبوابة قبول وتسجيل إلكترونية لمدارس التربية الحديثة بالرياض، مطورة بـ Next.js 16 و React 19 مع استعراض المناهج ولوحة تحكم CMS كاملة.",
         proj_reef_title: "منصة دراسة ريف (Reef Study)",
         proj_reef_desc: "تطبيق ويب استرشادي متقدم لإعداد دراسات جدوى اقتصادية متكاملة لمشاريع الأسر المنتجة والتنمية الريفية المستدامة، مع معالج ذكي من 8 مراحل، حاسبة نقطة التعادل، ومولد تقارير PDF رسمية.",
@@ -396,25 +400,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Scroll Animations (Intersection Observer) ---
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
+    // Only animate sections on main homepage, never on showcase galleries with dedicated controllers
+    const isHomePage = !!document.getElementById('hero') && !document.getElementById('web-projects-grid');
+    if (isHomePage) {
+        const observerOptions = {
+            threshold: 0.05,
+            rootMargin: "0px 0px -20px 0px"
+        };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible-section');
-                observer.unobserve(entry.target); // Only animate once
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible-section');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        const sections = document.querySelectorAll('section:not(.no-animate)');
+        sections.forEach(section => {
+            section.classList.add('hidden-section');
+            observer.observe(section);
         });
-    }, observerOptions);
-
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.classList.add('hidden-section');
-        observer.observe(section);
-    });
+    }
 
     // --- Active Navigation Link Update on Scroll ---
     const navObserverOptions = {
@@ -435,44 +443,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, navObserverOptions);
 
-    sections.forEach(section => {
+    const navSections = document.querySelectorAll('section[id]');
+    navSections.forEach(section => {
         navObserver.observe(section);
     });
 
     // --- Smooth Scrolling with Header Offset ---
     document.documentElement.style.setProperty('scroll-padding-top', '100px');
-
-    // --- Websites Category Filter Tabs ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const webCards = document.querySelectorAll('.web-card');
-
-    if (filterBtns.length > 0 && webCards.length > 0) {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filter = btn.getAttribute('data-filter');
-
-                webCards.forEach(card => {
-                    const category = card.getAttribute('data-category') || '';
-                    if (filter === 'all' || category.split(' ').includes(filter)) {
-                        card.style.display = 'flex';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 20);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(10px)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 250);
-                    }
-                });
-            });
-        });
-    }
 
     // --- Live Visitor Counter ---
     function initVisitorCounter() {

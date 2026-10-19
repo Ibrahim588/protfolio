@@ -180,22 +180,22 @@
                             <button class="filter-btn active" data-filter="all">
                                 <i class="fa-solid fa-layer-group"></i>
                                 <span>جميع المشاريع</span>
-                                <span class="filter-count">7</span>
+                                <span class="filter-count">8</span>
                             </button>
                             <button class="filter-btn" data-filter="apps">
                                 <i class="fa-solid fa-window-maximize"></i>
                                 <span>تطبيقات ومنصات ويب</span>
-                                <span class="filter-count">6</span>
-                            </button>
-                            <button class="filter-btn" data-filter="landing">
-                                <i class="fa-solid fa-file-lines"></i>
-                                <span>صفحات الهبوط</span>
                                 <span class="filter-count">4</span>
                             </button>
                             <button class="filter-btn" data-filter="business">
                                 <i class="fa-solid fa-briefcase"></i>
                                 <span>أنظمة مؤسسية وإدارية</span>
-                                <span class="filter-count">5</span>
+                                <span class="filter-count">4</span>
+                            </button>
+                            <button class="filter-btn" data-filter="landing">
+                                <i class="fa-solid fa-file-lines"></i>
+                                <span>صفحات الهبوط</span>
+                                <span class="filter-count">4</span>
                             </button>
                         </div>
 
@@ -219,13 +219,13 @@
         </div>
 
         <!-- Websites Showcase Grid Section -->
-        <section style="padding: 1rem 0 5rem;">
+        <section class="web-showcase-section" id="web-showcase" style="padding: 1rem 0 5rem;">
             <div class="container">
 
                 <!-- Results Count Indicator -->
                 <div class="web-results-info">
                     <div>
-                        عرض <strong id="web-results-count">7</strong> مشاريع ويب
+                        عرض <strong id="web-results-count">8</strong> مشاريع ويب
                     </div>
                     <div style="font-size: 0.82rem; opacity: 0.8;">
                         <i class="fa-solid fa-arrow-pointer"></i> اضغط على أي بطاقة للمعاينة السريعة
@@ -234,9 +234,95 @@
 
                 <div class="web-projects-grid" id="web-projects-grid">
                     <!-- ==============================================================
+                         المشروع: منصة وبوابة مدارس المتقدمة العالمية - حي النهضة
+                         ============================================================== -->
+                    <article class="web-card" data-category="apps landing">
+                        <!-- Browser Header -->
+                        <div class="browser-mockup-header">
+                            <div class="browser-dots">
+                                <span class="browser-dot red"></span>
+                                <span class="browser-dot yellow"></span>
+                                <span class="browser-dot green"></span>
+                            </div>
+                            <div class="browser-address-bar">
+                                <div class="browser-address-url">
+                                    <i class="fa-solid fa-graduation-cap"
+                                        style="color: #c88e22; font-size: 0.72rem;"></i>
+                                    <span>msc.edu.sa/al-nahda</span>
+                                </div>
+                                <div class="browser-live-indicator">
+                                    <span class="live-dot-pulse"></span>
+                                    <span>نشط</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Preview -->
+                        <div class="web-card-preview"
+                            style="background: radial-gradient(circle at center, #0e233d 0%, #071527 100%);">
+                            <span class="web-card-badge badge-featured" style="background: rgba(200, 142, 34, 0.2); border-color: rgba(200, 142, 34, 0.5); color: #f4dcab;">
+                                <i class="fa-solid fa-school"></i>
+                                <span>صرح تعليمي دولي</span>
+                            </span>
+
+                            <div style="text-align: center; z-index: 1;">
+                                <div
+                                    style="width: 72px; height: 72px; border-radius: 20px; background: rgba(200, 142, 34, 0.15); border: 1px solid rgba(200, 142, 34, 0.4); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
+                                    <i class="fa-solid fa-graduation-cap"
+                                        style="font-size: 2rem; color: #f4dcab;"></i>
+                                </div>
+                                <div style="font-weight: 800; font-size: 1.15rem; color: #ffffff;">
+                                    مدارس المتقدمة العالمية
+                                </div>
+                                <div style="font-size: 0.78rem; color: #f4dcab; margin-top: 0.25rem;">
+                                    فرع حي النهضة • الرياض
+                                </div>
+                            </div>
+
+                            <div class="web-card-overlay-btn">
+                                <span><i class="fa-solid fa-expand"></i> معاينة سريعة</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="web-card-body">
+                            <div class="web-card-meta">
+                                <span class="web-card-category">منصة تعليمية دولية وبوابة قبول وإدارة</span>
+                                <span class="web-card-year">2026</span>
+                            </div>
+                            <h2 class="web-card-title">مدارس المتقدمة العالمية | Al Motaqadimah</h2>
+                            <p class="web-card-desc">
+                                صرح تعليمي رقمي متطور مبني بأحدث تقنيات Next.js 14 و TypeScript و Tailwind CSS مع دعم كامل ومزدوج للغتين العربية والإنجليزية (RTL / LTR). يشتمل على استعراض المنهج الأمريكي، المسار ثنائي اللغة 50/50، أكاديمية IELTS، معرض مرافق تفاعلي مع Lightbox، ونظام قبول واستفسار ذكي مرتبط بالواتساب.
+                            </p>
+
+                            <!-- Tech Stack -->
+                            <div class="web-tech-stack">
+                                <span class="web-tech-badge"><i class="fa-brands fa-react"></i> Next.js 14</span>
+                                <span class="web-tech-badge"><i class="fa-brands fa-js"></i> TypeScript</span>
+                                <span class="web-tech-badge"><i class="fa-brands fa-css3-alt"></i> Tailwind CSS</span>
+                                <span class="web-tech-badge"><i class="fa-solid fa-language"></i> ثنائي اللغة RTL/LTR</span>
+                                <span class="web-tech-badge"><i class="fa-brands fa-whatsapp"></i> Admissions System</span>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="web-card-actions">
+                                <a href="motaqadimah-nahda.html" class="btn btn-primary">
+                                    <i class="fa-solid fa-up-right-from-square"></i>
+                                    <span>استعراض صفحة المشروع</span>
+                                </a>
+                                <a href="http://localhost:3000" target="_blank"
+                                    rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <span>معاينة الموقع الحي</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ==============================================================
                          المشروع: منصة وبوابة مدارس التربية الحديثة العالمية (MEIS)
                          ============================================================== -->
-                    <article class="web-card" data-category="landing apps business">
+                    <article class="web-card" data-category="landing business">
                         <!-- Browser Header -->
                         <div class="browser-mockup-header">
                             <div class="browser-dots">
@@ -325,7 +411,7 @@
                     <!-- ==============================================================
                          المشروع 1: منصة وتطبيق دراسة ريف (Reef Study)
                          ============================================================== -->
-                    <article class="web-card" data-category="landing apps business">
+                    <article class="web-card" data-category="apps">
                         <!-- Browser Header -->
                         <div class="browser-mockup-header">
                             <div class="browser-dots">
@@ -417,7 +503,7 @@
                     <!-- ==============================================================
                          المشروع 1: منصة المعرفة المؤسسية (Knowledge Platform)
                          ============================================================== -->
-                    <article class="web-card" data-category="landing apps business">
+                    <article class="web-card" data-category="apps business">
                         <!-- Browser Header -->
                         <div class="browser-mockup-header">
                             <div class="browser-dots">
@@ -514,7 +600,7 @@
                     <!-- ==============================================================
                          المشروع 2: نظام الحضور الذكي SFPA Attendance (جمعية تنظيم الأسرة السودانية)
                          ============================================================== -->
-                    <article class="web-card" data-category="landing apps business">
+                    <article class="web-card" data-category="business">
                         <!-- Browser Header -->
                         <div class="browser-mockup-header">
                             <div class="browser-dots">
@@ -701,7 +787,7 @@
                     <!-- ==============================================================
                          المشروع 4: استوديو الجقري للتصميم (Aljagary Design Studio)
                          ============================================================== -->
-                    <article class="web-card" data-category="landing apps business">
+                    <article class="web-card" data-category="landing">
                         <!-- Browser Header -->
                         <div class="browser-mockup-header">
                             <div class="browser-dots">
@@ -790,7 +876,7 @@
                     <!-- ==============================================================
                          المشروع 5: بوابات وواجهات تسجيل دخول شبكات MikroTik
                          ============================================================== -->
-                    <article class="web-card" data-category="apps landing">
+                    <article class="web-card" data-category="landing">
                         <!-- Browser Header -->
                         <div class="browser-mockup-header">
                             <div class="browser-dots">
@@ -980,6 +1066,8 @@
             <div
                 style="margin-top: 1rem; display: flex; gap: 1.25rem; justify-content: center; align-items: center; flex-wrap: wrap;">
                 <a href="index.html" class="footer-link" data-i18n="nav_home">الرئيسية</a>
+                <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
+                <a href="motaqadimah-nahda.html" class="footer-link">مدارس المتقدمة العالمية</a>
                 <span style="color: var(--text-secondary); opacity: 0.5;">|</span>
                 <a href="knowledge-platform.html" class="footer-link">منصة المعرفة</a>
                 <span style="color: var(--text-secondary); opacity: 0.5;">|</span>

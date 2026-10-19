@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="مدارس المتقدمة العالمية - حي النهضة (Al Motaqadimah International Schools): منصة تعليمية ويب رسمية وبوابة قبول ذكية مطورة بأحدث تقنيات Next.js 14 و TypeScript و Tailwind CSS مع دعم كامل للغتين العربية والإنجليزية.">
+    <meta name="keywords"
+        content="مدارس المتقدمة العالمية, مدارس المتقدمة حي النهضة, Al Motaqadimah International Schools, Next.js 14, TypeScript, Tailwind CSS, بوابة قبول وتسجيل, مدارس دولية بالرياض, الدبلومة الأمريكية, إبراهيم عبدالقادر, Ibrahim Abdelgader, Ibrahim588, منصة تعليمية">
+    <meta name="author" content="Ibrahim Abdelgader (Ibrahim588) - إبراهيم عبدالقادر">
+    <link rel="canonical" href="http://ibrahim-protfolio.42web.io/motaqadimah-nahda.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://ibrahim-protfolio.42web.io/motaqadimah-nahda.html">
+    <meta property="og:title" content="مدارس المتقدمة العالمية - حي النهضة | Al Motaqadimah International Schools">
+    <meta property="og:description"
+        content="صرح تعليمي رقمي متطور يجمع بين واجهة تفاعلية حديثة، بوابة قبول وتسجيل ذكية مرتبطة بالواتساب، استعراض المناهج والمسارات الأكاديمية، ومعرض مرافق تفاعلي مع Lightbox.">
+    <meta property="og:image" content="img/motaqadimah/screen_home.png">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://ibrahim-protfolio.42web.io/motaqadimah-nahda.html">
+    <meta property="twitter:title" content="مدارس المتقدمة العالمية | Al Motaqadimah Next.js Platform">
+    <meta property="twitter:description"
+        content="منصة تعليمية متكاملة وبوابة قبول إلكترونية مطورة بأحدث تقنيات الويب الحديثة.">
+    <meta property="twitter:image" content="img/motaqadimah/screen_home.png">
+
+    <title>مدارس المتقدمة العالمية - حي النهضة | Al Motaqadimah International Schools</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/motaqadimah-nahda.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/motaqadimah/favicon.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Al Motaqadimah International Schools - مدارس المتقدمة العالمية",
+      "url": "http://ibrahim-protfolio.42web.io/motaqadimah-nahda.html",
+      "logo": "img/motaqadimah/app_icon.png",
+      "description": "منصة رقمية وبوابة تعليمية متكاملة لمدارس المتقدمة العالمية بالرياض، مطورة بـ Next.js 14 و TypeScript و Tailwind CSS.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "شارع الأمير بندر بن عبدالعزيز",
+        "addressLocality": "الرياض",
+        "addressCountry": "SA"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Top Navigation Header -->
+    <header class="msc-header">
+        <div class="msc-container">
+            <nav class="msc-nav">
+                <!-- Brand Logo -->
+                <a href="index.html" class="msc-brand">
+                    <div class="msc-brand-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="msc-brand-text">
+                        <span class="msc-brand-name">مدارس المتقدمة العالمية</span>
+                        <span class="msc-brand-sub">فرع حي النهضة • الرياض</span>
+                    </div>
+                </a>
+
+                <!-- Nav Links -->
+                <ul class="msc-nav-links">
+                    <li><a href="#overview" class="msc-nav-link active">نظرة عامة</a></li>
+                    <li><a href="#academics" class="msc-nav-link">المسارات الأكاديمية</a></li>
+                    <li><a href="#screens" class="msc-nav-link">معرض الشاشات</a></li>
+                    <li><a href="#tech" class="msc-nav-link">المعمارية التقنية</a></li>
+                    <li><a href="#verification" class="msc-nav-link">تدقيق البيانات</a></li>
+                </ul>
+
+                <!-- Actions -->
+                <div class="msc-nav-actions">
+                    <a href="websites.html" class="msc-btn msc-btn-back">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>كل مواقع الويب</span>
+                    </a>
+                    <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer"
+                        class="msc-btn msc-btn-primary">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>معاينة الموقع الحي</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="msc-hero">
+            <div class="msc-container">
+                <div class="msc-hero-content">
+                    <!-- Text Info -->
+                    <div class="msc-hero-text">
+                        <div class="msc-badge">
+                            <i class="fa-solid fa-award"></i>
+                            <span>مشروع ويب تعليمي متكامل 2026 • Next.js 14 Production</span>
+                        </div>
+
+                        <h1 class="msc-title">
+                            مدارس المتقدمة العالمية <br>
+                            <span>صرح تعليمي بهوية وطنية وقيم راسخة</span>
+                        </h1>
+
+                        <p class="msc-desc">
+                            منظومة ويب تعليمية متكاملة وبوابة قبول وتسجيل رسمية لفرع حي النهضة بالرياض (إحدى صروح شركة المدارس المتقدمة MSC). صُممت وطُوّرت بأحدث تقنيات الويب الحديثة (Next.js 14 App Router, TypeScript, Tailwind CSS) وتدعم اللغتين العربية والإنجليزية (RTL / LTR) بالكامل، مع ربط مباشر بخرائط Google ونظام قبول ذكي مرتبط بالواتساب.
+                        </p>
+
+                        <!-- CTA Actions -->
+                        <div class="msc-hero-cta">
+                            <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer"
+                                class="msc-btn msc-btn-primary">
+                                <i class="fa-solid fa-globe"></i>
+                                <span>زيارة الموقع الحي (Live Demo)</span>
+                            </a>
+                            <a href="#screens" class="msc-btn msc-btn-outline">
+                                <i class="fa-solid fa-images"></i>
+                                <span>معاينة شاشات المنصة</span>
+                            </a>
+                            <a href="https://maps.app.goo.gl/K3WYT7SQkyRk88PU9" target="_blank"
+                                rel="noopener noreferrer" class="msc-btn msc-btn-outline">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <span>موقع المدرسة المعتمد</span>
+                            </a>
+                        </div>
+
+                        <!-- Trust Bar -->
+                        <div class="msc-trust-bar">
+                            <div class="msc-trust-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>منهج أمريكي معتمد من الروضة حتى الثانوي</span>
+                            </div>
+                            <div class="msc-trust-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>المسار ثنائي اللغة (Bilingual 50/50)</span>
+                            </div>
+                            <div class="msc-trust-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>تحضير SAT واختبارات AP وأكاديمية IELTS</span>
+                            </div>
+                            <div class="msc-trust-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>جوائز وبطولات رسمية موثقة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Mockup -->
+                    <div class="msc-mockup-wrapper">
+                        <div class="msc-mockup">
+                            <div class="msc-mockup-top">
+                                <span class="msc-dot r"></span>
+                                <span class="msc-dot y"></span>
+                                <span class="msc-dot g"></span>
+                                <div class="msc-mockup-url">
+                                    <i class="fa-solid fa-lock" style="color: #10b981; font-size: 0.65rem; margin-right: 4px;"></i>
+                                    <span>msc.edu.sa / al-nahda</span>
+                                </div>
+                            </div>
+                            <img src="img/motaqadimah/screen_home.png"
+                                alt="واجهة مدارس المتقدمة العالمية - حي النهضة" class="msc-mockup-img">
+                        </div>
+
+                        <!-- Floating Stat Pill -->
+                        <div class="msc-floating-card">
+                            <div class="msc-floating-icon">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.95rem; font-weight: 800; color: var(--msc-text);">
+                                    جوائز وبطولات موثقة
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--msc-gold);">
+                                    كأس التخيل مايكروسوفت • بطولة الكاراتيه
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="msc-stats-grid">
+                    <div class="msc-stat-card">
+                        <div class="msc-stat-num">4 مراحل</div>
+                        <div class="msc-stat-label">من الروضة حتى المرحلة الثانوية</div>
+                    </div>
+                    <div class="msc-stat-card">
+                        <div class="msc-stat-num">American</div>
+                        <div class="msc-stat-label">منهج معتمد مدعوم بكامبريدج وأوكسفورد</div>
+                    </div>
+                    <div class="msc-stat-card">
+                        <div class="msc-stat-num">50 / 50</div>
+                        <div class="msc-stat-label">مسار ثنائي اللغة لتأسيس الطلاقة اللغوية</div>
+                    </div>
+                    <div class="msc-stat-card">
+                        <div class="msc-stat-num">18,000+</div>
+                        <div class="msc-stat-label">ريال سعودي الرسوم الأساسية الموثقة</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Overview & Architecture -->
+        <section id="overview" class="msc-section msc-section-alt">
+            <div class="msc-container">
+                <div class="msc-sec-header">
+                    <span class="msc-sec-badge">نظرة عامة على المشروع</span>
+                    <h2 class="msc-sec-title">صرح تعليمي رقمي يواكب تطلعات أولياء الأمور</h2>
+                    <p class="msc-sec-desc">
+                        تم تطوير هذا الموقع استناداً إلى بيانات موثقة رسمياً لمدارس المتقدمة العالمية - حي النهضة بالرياض، ليوفر تجربة تصفح غنية تبني الثقة، وتستعرض المناهج والمرافق، وتسهل القبول والتسجيل.
+                    </p>
+                </div>
+
+                <div class="msc-features-grid">
+                    <!-- Feat 1 -->
+                    <div class="msc-feat-card">
+                        <div class="msc-feat-icon">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                        <h3 class="msc-feat-title">دعم ثنائي اللغة كامل (AR / EN)</h3>
+                        <p class="msc-feat-desc">
+                            بنية تحتية متطورة تدعم التبديل اللحظي بين اللغتين العربية والإنجليزية مع ضبط تلقائي لاتجاه الواجهة (RTL / LTR) وحفظ التفضيل عبر التخزين المحلي.
+                        </p>
+                        <ul class="msc-feat-points">
+                            <li><i class="fa-solid fa-check"></i> ترجمة احترافية شاملة 100%</li>
+                            <li><i class="fa-solid fa-check"></i> خطوط عربية ملائمة (Tajawal / IBM Plex)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Feat 2 -->
+                    <div class="msc-feat-card">
+                        <div class="msc-feat-icon">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h3 class="msc-feat-title">استعراض المراحل والبرامج النوعية</h3>
+                        <p class="msc-feat-desc">
+                            أقسام مفصلة لرياض الأطفال، الابتدائية، المتوسطة، والثانوية، إلى جانب المسار ثنائي اللغة، أكاديمية IELTS، وبرنامج AP وتحضير SAT.
+                        </p>
+                        <ul class="msc-feat-points">
+                            <li><i class="fa-solid fa-check"></i> إثراء كامبريدج وأوكسفورد للعلوم والرياضيات</li>
+                            <li><i class="fa-solid fa-check"></i> برنامج ESL Bridge للطلاب الجدد</li>
+                        </ul>
+                    </div>
+
+                    <!-- Feat 3 -->
+                    <div class="msc-feat-card">
+                        <div class="msc-feat-icon">
+                            <i class="fa-solid fa-images"></i>
+                        </div>
+                        <h3 class="msc-feat-title">معرض مرافق تفاعلي مع Lightbox</h3>
+                        <p class="msc-feat-desc">
+                            معرض صور مصنف (فصول ذكية، مختبرات، مسبح مدفأ، ملاعب، مكتبة، مسرح) مزود بمودال تفاعلي يدعم التنقل بلوحة المفاتيح والتحكم السلس.
+                        </p>
+                        <ul class="msc-feat-points">
+                            <li><i class="fa-solid fa-check"></i> فلترة لحظية حسب فئة المرفق</li>
+                            <li><i class="fa-solid fa-check"></i> معايير إمكانية الوصول والتنقل بـ ESC والأسهم</li>
+                        </ul>
+                    </div>
+
+                    <!-- Feat 4 -->
+                    <div class="msc-feat-card">
+                        <div class="msc-feat-icon">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h3 class="msc-feat-title">بوابة قبول واستفسار ذكية</h3>
+                        <p class="msc-feat-desc">
+                            نموذج استفسار وتسجيل متطور مع تدقيق للحقول (Validation) وإمكانية الإرسال الفوري عبر الواتساب المباشر لمستشار القبول، وحفظ الطلبات محلياً.
+                        </p>
+                        <ul class="msc-feat-points">
+                            <li><i class="fa-solid fa-check"></i> التحقق من رقم الجوال والبريد والمرحلة</li>
+                            <li><i class="fa-solid fa-check"></i> رسائل إشعار واضحة بعد الإرسال</li>
+                        </ul>
+                    </div>
+
+                    <!-- Feat 5 -->
+                    <div class="msc-feat-card">
+                        <div class="msc-feat-icon">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <h3 class="msc-feat-title">تكامل دقيق مع خرائط Google</h3>
+                        <p class="msc-feat-desc">
+                            عرض العنوان المعتمد بشارع الأمير بندر بن عبدالعزيز، حي النهضة، مع خريطة تفاعلية مضمنة مبنية على إحداثيات GPS الدقيقة وزر توجيه مباشر.
+                        </p>
+                        <ul class="msc-feat-points">
+                            <li><i class="fa-solid fa-check"></i> الإحداثيات: 24.76659, 46.80384</li>
+                            <li><i class="fa-solid fa-check"></i> رابط رسمي مباشر لخرائط Google Maps</li>
+                        </ul>
+                    </div>
+
+                    <!-- Feat 6 -->
+                    <div class="msc-feat-card">
+                        <div class="msc-feat-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="msc-feat-title">لوحة مطابقة البيانات وسجل الاستفسارات</h3>
+                        <p class="msc-feat-desc">
+                            صفحة إدارة مخصصة (/admin) تتيح مراجعة البيانات الموثقة مقابل البنود المطلوب تأكيدها، مع استعراض الاستفسارات وتصديرها بصيغة CSV.
+                        </p>
+                        <ul class="msc-feat-points">
+                            <li><i class="fa-solid fa-check"></i> تصدير الطلبات بملف CSV</li>
+                            <li><i class="fa-solid fa-check"></i> وضوح كامل بين الحقائق والافتراضات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screens Showcase -->
+        <section id="screens" class="msc-section">
+            <div class="msc-container">
+                <div class="msc-sec-header">
+                    <span class="msc-sec-badge">شاشات وتطبيقات المنصة</span>
+                    <h2 class="msc-sec-title">استعراض الواجهات والصفحات المنفذة</h2>
+                    <p class="msc-sec-desc">
+                        تصميم فريد صُمم خصيصاً للمدرسة بألوان الكحلي والذهب الملكي وبأحدث ممارسات تجربة المستخدم.
+                    </p>
+                </div>
+
+                <div class="msc-screens-grid">
+                    <!-- Screen 1 -->
+                    <div class="msc-screen-card">
+                        <div class="msc-mockup-top">
+                            <span class="msc-dot r"></span>
+                            <span class="msc-dot y"></span>
+                            <span class="msc-dot g"></span>
+                            <div class="msc-mockup-url">http://localhost:3000 /</div>
+                        </div>
+                        <img src="img/motaqadimah/screen_home.png" alt="الصفحة الرئيسية للمدرسة"
+                            class="msc-mockup-img">
+                        <div class="msc-screen-body">
+                            <h3 class="msc-screen-title">1. البوابة الرئيسية وقسم البطل (Hero Section)</h3>
+                            <p class="msc-screen-desc">
+                                تصميم جذاب يحتوي على العبارة التسويقية المقترحة، أرقام التواصل المعتمدة في الشريط العلوي، شريط الإحصائيات الأكاديمية، ونبذة رسالة وفلسفة المدرسة.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Screen 2 -->
+                    <div class="msc-screen-card">
+                        <div class="msc-mockup-top">
+                            <span class="msc-dot r"></span>
+                            <span class="msc-dot y"></span>
+                            <span class="msc-dot g"></span>
+                            <div class="msc-mockup-url">http://localhost:3000 /academics</div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop"
+                            alt="المسارات الأكاديمية" class="msc-mockup-img" style="height: 280px; object-fit: cover;">
+                        <div class="msc-screen-body">
+                            <h3 class="msc-screen-title">2. دليل المراحل التعليمية الأربع (Academics)</h3>
+                            <p class="msc-screen-desc">
+                                استعراض مفصل لرياض الأطفال (KG1-3)، الابتدائية (1-6)، المتوسطة (7-9)، والثانوية (10-12)، والمسار ثنائي اللغة 50/50، وبرامج AP وSAT وIELTS.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Screen 3 -->
+                    <div class="msc-screen-card">
+                        <div class="msc-mockup-top">
+                            <span class="msc-dot r"></span>
+                            <span class="msc-dot y"></span>
+                            <span class="msc-dot g"></span>
+                            <div class="msc-mockup-url">http://localhost:3000 /facilities</div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1200&auto=format&fit=crop"
+                            alt="المرافق والأنشطة" class="msc-mockup-img" style="height: 280px; object-fit: cover;">
+                        <div class="msc-screen-body">
+                            <h3 class="msc-screen-title">3. معرض المرافق والأنشطة مع عارض Lightbox</h3>
+                            <p class="msc-screen-desc">
+                                معرض صور تفاعلي مصنف يغطي الفصول الذكية، المختبرات، معامل الحاسب، المسبح الرياضي المدفأ، الملاعب، المكتبة، والمسرح، مع مكبر صور منبثق.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Screen 4 -->
+                    <div class="msc-screen-card">
+                        <div class="msc-mockup-top">
+                            <span class="msc-dot r"></span>
+                            <span class="msc-dot y"></span>
+                            <span class="msc-dot g"></span>
+                            <div class="msc-mockup-url">http://localhost:3000 /admissions</div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop"
+                            alt="القبول والتسجيل" class="msc-mockup-img" style="height: 280px; object-fit: cover;">
+                        <div class="msc-screen-body">
+                            <h3 class="msc-screen-title">4. بوابة القبول والتسجيل ونموذج الاستفسار</h3>
+                            <p class="msc-screen-desc">
+                                رحلة القبول في 4 خطوات ميسرة، قائمة الوثائق الرسمية المطلوبة، شروط العمر والرسوم، مع نموذج استفسار إلكتروني تفاعلي وربط فوري بالواتساب.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section id="tech" class="msc-section msc-section-alt">
+            <div class="msc-container">
+                <div class="msc-sec-header">
+                    <span class="msc-sec-badge">التقنيات المستخدمة</span>
+                    <h2 class="msc-sec-title">معمارية برمجية حديثة وعالية الأداء</h2>
+                    <p class="msc-sec-desc">
+                        بُني المشروع وفق أحدث المعايير البرمجية لضمان سرعة التحميل، التوافق مع محركات البحث، وتيسير الصيانة والتحديث.
+                    </p>
+                </div>
+
+                <div class="msc-tech-grid">
+                    <div class="msc-tech-card">
+                        <div class="msc-tech-icon"><i class="fa-brands fa-react"></i></div>
+                        <div>
+                            <div class="msc-tech-name">Next.js 14</div>
+                            <div class="msc-tech-role">App Router Framework</div>
+                        </div>
+                    </div>
+
+                    <div class="msc-tech-card">
+                        <div class="msc-tech-icon"><i class="fa-brands fa-js"></i></div>
+                        <div>
+                            <div class="msc-tech-name">TypeScript</div>
+                            <div class="msc-tech-role">Strict Type Safety</div>
+                        </div>
+                    </div>
+
+                    <div class="msc-tech-card">
+                        <div class="msc-tech-icon"><i class="fa-brands fa-css3-alt"></i></div>
+                        <div>
+                            <div class="msc-tech-name">Tailwind CSS</div>
+                            <div class="msc-tech-role">Custom Design System</div>
+                        </div>
+                    </div>
+
+                    <div class="msc-tech-card">
+                        <div class="msc-tech-icon"><i class="fa-solid fa-language"></i></div>
+                        <div>
+                            <div class="msc-tech-name">Bilingual Engine</div>
+                            <div class="msc-tech-role">RTL & LTR Persistence</div>
+                        </div>
+                    </div>
+
+                    <div class="msc-tech-card">
+                        <div class="msc-tech-icon"><i class="fa-solid fa-icons"></i></div>
+                        <div>
+                            <div class="msc-tech-name">Lucide Icons</div>
+                            <div class="msc-tech-role">Clean Vector Icons</div>
+                        </div>
+                    </div>
+
+                    <div class="msc-tech-card">
+                        <div class="msc-tech-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <div>
+                            <div class="msc-tech-name">SEO & Schema.org</div>
+                            <div class="msc-tech-role">EducationalOrganization</div>
+                        </div>
+                    </div>
+
+                    <div class="msc-tech-card">
+                        <div class="msc-tech-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div>
+                            <div class="msc-tech-name">WhatsApp API</div>
+                            <div class="msc-tech-role">Admissions Integration</div>
+                        </div>
+                    </div>
+
+                    <div class="msc-tech-card">
+                        <div class="msc-tech-icon"><i class="fa-solid fa-map"></i></div>
+                        <div>
+                            <div class="msc-tech-name">Google Maps</div>
+                            <div class="msc-tech-role">Interactive Location</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Verification Table Section -->
+        <section id="verification" class="msc-section">
+            <div class="msc-container">
+                <div class="msc-sec-header">
+                    <span class="msc-sec-badge">تدقيق ومطابقة البيانات</span>
+                    <h2 class="msc-sec-title">سجل التحقق من بيانات المدرسة</h2>
+                    <p class="msc-sec-desc">
+                        فصل كامل وشفاف بين الحقائق الرسمية الموثقة والبنود الموضوعة للتأكيد النهائي من إدارة المدرسة.
+                    </p>
+                </div>
+
+                <div class="msc-table-wrapper">
+                    <table class="msc-table">
+                        <thead>
+                            <tr>
+                                <th>البند / العنصر</th>
+                                <th>القيمة المدخلة في النظام</th>
+                                <th>حالة التحقق</th>
+                                <th>المصدر المعتمد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>اسم المدرسة</td>
+                                <td>مدارس المتقدمة العالمية - حي النهضة، الرياض</td>
+                                <td><span class="msc-status-verified"><i class="fa-solid fa-check-circle"></i> موثق رسميًا</span></td>
+                                <td>منصة مدارس وشركة المدارس المتقدمة</td>
+                            </tr>
+                            <tr>
+                                <td>الجهة المشغلة</td>
+                                <td>شركة المدارس المتقدمة (MSC) - msc.edu.sa</td>
+                                <td><span class="msc-status-verified"><i class="fa-solid fa-check-circle"></i> موثق رسميًا</span></td>
+                                <td>البوابة الرسمية للمجموعة</td>
+                            </tr>
+                            <tr>
+                                <td>العنوان والإحداثيات</td>
+                                <td>شارع الأمير بندر بن عبدالعزيز، حي النهضة (24.76659, 46.80384)</td>
+                                <td><span class="msc-status-verified"><i class="fa-solid fa-check-circle"></i> موثق رسميًا</span></td>
+                                <td>رابط خرائط Google المعتمد</td>
+                            </tr>
+                            <tr>
+                                <td>أرقام التواصل والواتساب</td>
+                                <td>011 204 0996 / 050 820 7801 / 050 882 4200</td>
+                                <td><span class="msc-status-verified"><i class="fa-solid fa-check-circle"></i> موثق رسميًا</span></td>
+                                <td>السجلات الرسمية ومنصة مدارس</td>
+                            </tr>
+                            <tr>
+                                <td>المراحل والمناهج</td>
+                                <td>من الروضة حتى الثانوي • منهج أمريكي • مسار ثنائي اللغة 50/50</td>
+                                <td><span class="msc-status-verified"><i class="fa-solid fa-check-circle"></i> موثق رسميًا</span></td>
+                                <td>ترخيص ومسارات المدارس العالمية</td>
+                            </tr>
+                            <tr>
+                                <td>الجوائز والإنجازات</td>
+                                <td>كأس التخيل مايكروسوفت، جائزة حمدان، بطولة الكاراتيه، بيبراس، الداتاثون</td>
+                                <td><span class="msc-status-verified"><i class="fa-solid fa-check-circle"></i> موثق رسميًا</span></td>
+                                <td>سجلات ومسابقات الوزارة المعتمدة</td>
+                            </tr>
+                            <tr>
+                                <td>الرسوم الأساسية</td>
+                                <td>تبدأ من 18,000 ريال سعودي سنوياً</td>
+                                <td><span class="msc-status-verified"><i class="fa-solid fa-check-circle"></i> موثق رسميًا</span></td>
+                                <td>الحد الأدنى المسجل</td>
+                            </tr>
+                            <tr>
+                                <td>أوقات الدوام الرسمي</td>
+                                <td>الأحد - الخميس: 7:00 ص - 2:30 م</td>
+                                <td><span class="msc-status-pending"><i class="fa-solid fa-clock"></i> لتأكيد الإدارة</span></td>
+                                <td>تقديري حسب التقويم الدراسي</td>
+                            </tr>
+                            <tr>
+                                <td>سياسة الخصوصية</td>
+                                <td>مسودة تنظيمية متوافقة مع نظام PDPL السعودي</td>
+                                <td><span class="msc-status-pending"><i class="fa-solid fa-scale-balanced"></i> للمراجعة القانونية</span></td>
+                                <td>الإدارة القانونية للشركة</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Meta & Links -->
+        <section class="msc-section msc-section-alt">
+            <div class="msc-container">
+                <div style="background: var(--msc-card); border: 1px solid var(--msc-border); border-radius: var(--msc-radius-lg); padding: 3rem; text-align: center;">
+                    <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--msc-text); margin-bottom: 1rem;">
+                        جاهز لاستعراض المنصة بالكامل؟
+                    </h2>
+                    <p style="color: var(--msc-text-muted); max-width: 600px; margin: 0 auto 2rem; font-size: 0.95rem;">
+                        الموقع مبني وجاهز للإنتاج، ويعمل محلياً بكامل ميزاته التفاعلية.
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                        <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer"
+                            class="msc-btn msc-btn-primary" style="padding: 0.85rem 2rem; font-size: 1rem;">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span>فتح الموقع في نافذة جديدة</span>
+                        </a>
+                        <a href="websites.html" class="msc-btn msc-btn-outline"
+                            style="padding: 0.85rem 2rem; font-size: 1rem;">
+                            <i class="fa-solid fa-arrow-right"></i>
+                            <span>العودة لمعرض مواقع الويب</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="msc-footer">
+        <div class="msc-container">
+            <div class="msc-footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="websites.html">مواقع الويب</a>
+                <a href="modern-education.html">مدارس التربية الحديثة</a>
+                <a href="reef-study.html">دراسة ريف</a>
+                <a href="project-mikrotik.html">مدير مايكروتك</a>
+                <a href="privacy-policy.html">سياسة الخصوصية</a>
+            </div>
+            <p>جميع الحقوق محفوظة &copy; 2026 إبراهيم عبدالقادر (Ibrahim588). تم تطوير الموقع لمدارس المتقدمة العالمية.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

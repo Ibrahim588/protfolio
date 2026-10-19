@@ -72,18 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 techBadges.some(t => t.includes(normalizedSearch));
 
             if (matchesCategory && matchesTech && matchesSearch) {
+                card.classList.remove('web-card-hidden');
                 card.style.display = 'flex';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 10);
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
                 visibleCount++;
             } else {
+                card.classList.add('web-card-hidden');
+                card.style.display = 'none';
                 card.style.opacity = '0';
-                card.style.transform = 'translateY(12px)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 200);
             }
         });
 
@@ -101,6 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+
+    // Explicitly run initial filtering to guarantee all cards are rendered immediately
+    filterCards();
 
     // Category Tabs Events
     filterBtns.forEach(btn => {
