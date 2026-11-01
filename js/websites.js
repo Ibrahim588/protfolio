@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const categories = (card.getAttribute('data-category') || '').split(' ');
             const cardTitle = (card.querySelector('.web-card-title')?.textContent || '').toLowerCase();
             const cardDesc = (card.querySelector('.web-card-desc')?.textContent || '').toLowerCase();
+            const bilingualData = (card.getAttribute('data-search-bilingual') || '').toLowerCase();
             const techBadges = Array.from(card.querySelectorAll('.web-tech-badge')).map(b => b.textContent.toLowerCase());
             
             // Category Match
@@ -65,10 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Tech Pill Match
             const matchesTech = currentTechFilter === 'all' || techBadges.some(t => t.includes(currentTechFilter.toLowerCase()));
 
-            // Search Term Match
+            // Search Term Match (supports both AR and EN simultaneously)
             const matchesSearch = !normalizedSearch ||
                 cardTitle.includes(normalizedSearch) ||
                 cardDesc.includes(normalizedSearch) ||
+                bilingualData.includes(normalizedSearch) ||
                 techBadges.some(t => t.includes(normalizedSearch));
 
             if (matchesCategory && matchesTech && matchesSearch) {
@@ -170,8 +172,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Modal Quick View Functionality
+    let activeModalCard = null;
+    const modalPreviewContainer = modalEl ? modalEl.querySelector('.web-modal-preview') : null;
+
     function openModalWithCard(card) {
         if (!modalEl) return;
+        activeModalCard = card;
 
         const title = card.querySelector('.web-card-title')?.textContent || '';
         const category = card.querySelector('.web-card-category')?.textContent || '';
@@ -189,8 +195,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalDesc) modalDesc.textContent = desc;
 
         if (modalImg) {
-            modalImg.src = imgSrc;
-            modalImg.alt = imgAlt;
+            if (imgSrc) {
+                modalImg.src = imgSrc;
+                modalImg.alt = imgAlt;
+                if (modalPreviewContainer) modalPreviewContainer.style.display = 'flex';
+            } else if (modalPreviewContainer) {
+                modalPreviewContainer.style.display = 'none';
+            }
         }
 
         if (modalTech) {
@@ -221,8 +232,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalEl) {
             modalEl.classList.remove('active');
             document.body.style.overflow = '';
+            activeModalCard = null;
         }
     }
+
+    // Re-sync search filter and open modal when language switches (AR <-> EN)
+    window.addEventListener('languageChanged', () => {
+        filterCards();
+        if (activeModalCard && modalEl && modalEl.classList.contains('active')) {
+            openModalWithCard(activeModalCard);
+        }
+    });
 
     // Attach Click Events to Previews for Quick Modal
     webCards.forEach(card => {

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="mouleGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2E4C9" />
+      <stop offset="50%" stop-color="#D7BD91" />
+      <stop offset="100%" stop-color="#B08D57" />
+    </linearGradient>
+    <linearGradient id="mouleBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3E2D28" />
+      <stop offset="100%" stop-color="#221714" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="url(#mouleBg)" />
+  <rect x="8" y="8" width="104" height="104" rx="22" fill="none" stroke="url(#mouleGold)" stroke-width="1.5" opacity="0.7" />
+  <circle cx="60" cy="46" r="22" fill="none" stroke="url(#mouleGold)" stroke-width="1.2" stroke-dasharray="3 2" opacity="0.85" />
+  <text x="60" y="54" font-family="Georgia, 'Playfair Display', serif" font-size="26" font-weight="700" fill="url(#mouleGold)" text-anchor="middle" letter-spacing="2">M</text>
+  <text x="60" y="86" font-family="Georgia, 'Playfair Display', serif" font-size="16" font-weight="700" fill="#FAF7F2" text-anchor="middle" letter-spacing="4">MOULE</text>
+  <text x="60" y="103" font-family="'Cairo', sans-serif" font-size="11" font-weight="600" fill="#D7BD91" text-anchor="middle">موليه للضيافة الفاخرة</text>
+</svg>
+
